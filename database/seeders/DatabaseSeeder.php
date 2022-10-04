@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\RoleSeeder;
 use Database\Seeders\HotelSeeder;
 use Database\Seeders\StaffMembers;
 
@@ -18,7 +19,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             HotelSeeder::class,
-            StaffMembers::class
+            StaffMembers::class,
+            RoleSeeder::class,
 
         ]);
         \App\Models\Staff::factory(10)->create();
