@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-select.min.css">
+<link rel="stylesheet" href="css/jquery.mmenu.css">
+<link rel="stylesheet" href="revolution/css/layers.css">
+<link rel="stylesheet" href="revolution/css/settings.css">
+<link rel="stylesheet" href="revolution/css/navigation.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/daterangepicker.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
