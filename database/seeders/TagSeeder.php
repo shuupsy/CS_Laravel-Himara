@@ -16,14 +16,14 @@ class TagSeeder extends Seeder
     public function run()
     {
         DB::table('tags')->insert([
-            ['tag' => 'party'],
-            ['tag' => 'travel'],
-            ['tag' => 'wedding'],
-            ['tag' => 'food'],
-            ['tag' => 'music'],
-            ['tag' => 'city'],
-            ['tag' => 'image'],
-            ['tag' => 'hotel'],
+            ['tag' => 'red'],
+            ['tag' => 'dark'],
+            ['tag' => 'yellow'],
+            ['tag' => 'blue'],
+            ['tag' => 'pink'],
+            ['tag' => 'green'],
+            ['tag' => 'gray'],
+            ['tag' => 'brown'],
         ]);
     }
 }
