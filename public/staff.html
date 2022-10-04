@@ -36,6 +36,47 @@
     <nav id="mobile-menu"></nav>
     <!-- ========== WRAPPER ========== -->
     <div class="wrapper">
+      <!-- ========== TOP MENU ========== -->
+      <div class="topbar">
+        <div class="container">
+          <div class="welcome-mssg">
+            Welcome to Hotel Himara.
+          </div>
+          <div class="top-right-menu">
+            <ul class="top-menu">
+              <li class="d-none d-md-inline">
+                <a href="tel:+18881234567">
+                  <i class="fa fa-phone"></i>+1 888 123 4567
+                </a>
+              </li>
+              <li class="d-none d-md-inline">
+                <a href="mailto:contact@hotelhimara.com">
+                  <i class="fa fa-envelope-o "></i>contact@hotelhimara.com</a>
+              </li>
+              <li class="language-menu">
+                <a href="#" class="active-language"><img src="images/icons/flags/gb.png" alt="Image">English</a>
+                <ul class="languages">
+                  <li class="language">
+                    <a href="#"><img src="images/icons/flags/it.png" alt="Image">Italiano</a>
+                  </li>
+                  <li class="language">
+                    <a href="#"><img src="images/icons/flags/gr.png" alt="Image">Ελληνικα</a>
+                  </li>
+                  <li class="language">
+                    <a href="#"><img src="images/icons/flags/al.png" alt="Image">Shqip</a>
+                  </li>
+                  <li class="language">
+                    <a href="#"><img src="images/icons/flags/fr.png" alt="Image">Français</a>
+                  </li>
+                  <li class="language">
+                    <a href="#"><img src="images/icons/flags/es.png" alt="Image">Español</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <!-- ========== HEADER ========== -->
       <header class="horizontal-header sticky-header" data-menutoggle="991">
         <div class="container">
@@ -94,214 +135,129 @@
           </nav>
         </div>
       </header>
-      <!-- ========== REVOLUTION SLIDER ========== -->
-      <div id="rev-slider-event" class="rev_slider gradient-slider" data-version="5.4.5">
-        <ul>
-          <!-- SLIDE -->
-          <li data-transition="fade">
-            <!-- MAIN IMAGE -->
-            <img src="images/events/event/event.jpg" alt="Image" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina="data-no-retina">
-            <!-- LAYER NR. 1 -->
-            <div
-              class="tp-caption"
-              data-x="['center','center','center','center']"
-              data-hoffset=""
-              data-y="['middle','middle','middle','middle']"
-              data-voffset=""
-              data-responsive_offset="on"
-              data-fontsize="['54','42','32','32']"
-              data-lineheight="['40','32','28','22']"
-              data-whitespace="nowrap"
-              data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-              style="color: #fff; font-weight: 700; font-family: 'Raleway', sans-serif;">HIMARA SUMMER PARTY
-            </div>
-            <!-- LAYER NR. 2 -->
-            <div
-              class="tp-caption"
-              data-x="['center','center','center','center']"
-              data-hoffset=""
-              data-y="['500','500','500','500']"
-              data-voffset=""
-              data-responsive_offset="on"
-              data-whitespace="nowrap"
-              data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-              <div id="countdown" data-countdown="2019/01/01"></div>
-            </div>
-          </li>
-        </ul>
+      <!-- ========== PAGE TITLE ========== -->
+      <div class="page-title gradient-overlay op6" style="background: url(images/breadcrumb.jpg); background-repeat: no-repeat;
+    background-size: cover;">
+        <div class="container">
+          <div class="inner">
+            <h1>OUR STAFF</h1>
+            <ol class="breadcrumb">
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li>Our Staff</li>
+            </ol>
+          </div>
+        </div>
       </div>
       <!-- ========== MAIN ========== -->
-      <main class="restaurant">
+      <main class="location-page">
         <div class="container">
-          <div class="entry">
-            <!-- BOOKING FORM -->
-            <div class="vertical-booking-form entry-booking-form-left">
-              <h3 class="form-title">BOOK YOUR TICKET</h3>
-              <div class="inner">
-                <form id="booking-form">
-                  <!-- EMAIL -->
-                  <div class="form-group">
-                    <input class="form-control" name="booking-email" type="email" placeholder="Your Email Address">
-                  </div>
-                  <div class="form-group" style="display:none;">
-                    <select class="form-control" name="booking-roomtype" title="Select Room Type" data-header="Room Type" disabled="disabled">
-                      <option value="Offer" selected="selected">Offer</option>
-                    </select>
-                  </div>
-                  <!-- GUESTS -->
-                  <div class="form-group">
-                    <div class="panel-dropdown">
-                      <div class="form-control guestspicker">Guests
-                        <span class="gueststotal"></span></div>
-                      <div class="panel-dropdown-content">
-                        <div class="guests-buttons">
-                          <label>Adults
-                            <a href="#" title="" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="18+ years" data-original-title="Adults">
-                              <i class="fa fa-info-circle"></i>
-                            </a>
-                          </label>
-                          <div class="guests-button">
-                            <div class="minus"></div>
-                            <input type="text" name="booking-adults" class="booking-guests" value="0">
-                            <div class="plus"></div>
-                          </div>
-                        </div>
-                        <div class="guests-buttons">
-                          <label>Cildren
-                            <a href="#" title="" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Under 18 years" data-original-title="Children">
-                              <i class="fa fa-info-circle"></i>
-                            </a>
-                          </label>
-                          <div class="guests-button">
-                            <div class="minus"></div>
-                            <input type="text" name="booking-children" class="booking-guests" value="0">
-                            <div class="plus"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- BOOKING BUTTON -->
-                  <button type="submit" class="btn btn-book btn-dark">BOOK A TICKET</button>
-                  <div class="mt20"></div>
-                </form>
+          <div class="row">
+            <!-- ITEM -->
+            <div class="col-lg-3 col-md-6">
+              <div class="staff-item">
+                <figure>
+                  <img src="images/staff/staff1.jpg" class="img-fluid" alt="Image">
+                  <div class="position">Housekeeper</div>
+                </figure>
+                <div class="details">
+                  <h5>Jeanette Owens</h5>
+                  <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
+                </div>
               </div>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum commodi incidunt labore unde minima numquam rerum, expedita itaque quibusdam ipsa consequuntur cupiditate, officia iure earum soluta voluptatem impedit pariatur rem! Nulla, error
-              placeat! Animi harum, eveniet placeat excepturi perferendis, ex consectetur explicabo voluptatem totam hic, officiis quisquam? Similique eum itaque, delectus quo deserunt deleniti quibusdam alias sed commodi assumenda magnam unde provident
-              praesentium doloribus a asperiores, amet dolores maiores, illo quis inventore sunt, nihil nemo pariatur! Culpa neque sint accusantium laboriosam reiciendis corporis, veritatis quos, debitis doloremque adipisci repudiandae atque, minus! Atque libero,
-              asperiores ex fugit, quia consequatur modi officiis! Magnam quae atque quasi natus minima optio nobis eveniet aspernatur vitae deserunt totam in sed, placeat odio cumque, accusantium ducimus. Molestias quasi ipsa libero vero dolorem recusandae iusto
-              beatae quae architecto provident expedita debitis, animi enim labore deleniti ullam, a nobis asperiores aliquam necessitatibus error? Quia consequatur vero assumenda architecto ex, aliquid. Perferendis, at, necessitatibus. Assumenda vel, consequuntur voluptatibus non voluptates!
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quia itaque accusantium voluptatibus esse animi tenetur adipisci! Iure cumque aliquam tempore quam, asperiores obcaecati architecto earum vitae a commodi ratione velit nesciunt
-              animi at dolore illo fugit. At nostrum, tenetur similique adipisci
-              voluptatem mollitia, cum neque autem labore sapiente dolore accusantium et excepturi odit iusto corporis, facere inventore obcaecati incidunt, est quam. Maiores aliquid cupiditate tenetur aut fugit! Quis deleniti nesciunt at officiis! Iusto
-              recusandae numquam ratione excepturi perspiciatis cumque nisi, explicabo dolorum alias ipsum voluptates non, possimus! Voluptatem adipisci dolor quos tenetur placeat?</p>
-            <div class="row image-gallery">
-              <!-- ITEM -->
-              <div class="col-md-3">
-                <figure class="gradient-overlay-hover image-icon">
-                  <a href="images/events/event/event1.jpg">
-                    <img src="images/events/event/event1.jpg" class="img-fluid" alt="Image">
-                  </a>
+            <!-- ITEM -->
+            <div class="col-lg-3 col-md-6">
+              <div class="staff-item">
+                <figure>
+                  <img src="images/staff/staff2.jpg" class="img-fluid" alt="Image">
+                  <div class="position">Receptionist</div>
                 </figure>
-              </div>
-              <!-- ITEM -->
-              <div class="col-md-3">
-                <figure class="gradient-overlay-hover image-icon">
-                  <a href="images/events/event/event2.jpg">
-                    <img src="images/events/event/event2.jpg" class="img-fluid" alt="Image">
-                  </a>
-                </figure>
-              </div>
-              <!-- ITEM -->
-              <div class="col-md-3">
-                <figure class="gradient-overlay-hover image-icon">
-                  <a href="images/events/event/event3.jpg">
-                    <img src="images/events/event/event3.jpg" class="img-fluid" alt="Image">
-                  </a>
-                </figure>
-              </div>
-              <!-- ITEM -->
-              <div class="col-md-3">
-                <figure class="gradient-overlay-hover image-icon">
-                  <a href="images/events/event/event4.jpg">
-                    <img src="images/events/event/event4.jpg" class="img-fluid" alt="Image">
-                  </a>
-                </figure>
-              </div>
-              <!-- ITEM -->
-              <div class="col-md-3">
-                <figure class="gradient-overlay-hover image-icon">
-                  <a href="images/events/event/event5.jpg">
-                    <img src="images/events/event/event5.jpg" class="img-fluid" alt="Image">
-                  </a>
-                </figure>
-              </div>
-              <!-- ITEM -->
-              <div class="col-md-3">
-                <figure class="gradient-overlay-hover image-icon">
-                  <a href="images/events/event/event6.jpg">
-                    <img src="images/events/event/event6.jpg" class="img-fluid" alt="Image">
-                  </a>
-                </figure>
-              </div>
-              <!-- ITEM -->
-              <div class="col-md-3">
-                <figure class="gradient-overlay-hover image-icon">
-                  <a href="images/events/event/event7.jpg">
-                    <img src="images/events/event/event7.jpg" class="img-fluid" alt="Image">
-                  </a>
-                </figure>
-              </div>
-              <!-- ITEM -->
-              <div class="col-md-3">
-                <figure class="gradient-overlay-hover image-icon">
-                  <a href="images/events/event/event8.jpg">
-                    <img src="images/events/event/event8.jpg" class="img-fluid" alt="Image">
-                  </a>
-                </figure>
+                <div class="details">
+                  <h5>Henry Garrett</h5>
+                  <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
+                </div>
               </div>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quis autem natus dicta, possimus necessitatibus cum, et doloribus facilis fugit molestias! Delectus quo doloribus pariatur dolor sint, ad officiis totam similique quaerat nesciunt quod
-              fugit libero voluptates deserunt laboriosam hic quia? Ex iusto maiores ipsum ab quis provident, molestiae veritatis, consequuntur nostrum aliquid quos. Eligendi enim fugiat fuga aperiam odio accusamus, architecto et, sequi ullam facere, quidem fugit
-              ut. </p>
-              <table class="mt20 mb20">
-                <thead>
-                  <tr>
-                    <td>Name</td>
-                    <td>Nickname</td>
-                    <td>Number</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Jane</td>
-                    <td>Doe</td>
-                    <td>13</td>
-                  </tr>
-                  <tr>
-                    <td>Eve</td>
-                    <td>Doe</td>
-                    <td>94</td>
-                  </tr>
-                  <tr>
-                    <td>Jane</td>
-                    <td>Doe</td>
-                    <td>77</td>
-                  </tr>
-                  <tr>
-                    <td>Ina</td>
-                    <td>Aldrich</td>
-                    <td>16</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p>Praesentium vel quos recusandae perferendis, dolore voluptatibus nesciunt provident quod ab laborum quisquam alias quaerat optio. Temporibus, saepe, atque, ea inventore excepturi explicabo tenetur similique, rerum tempora doloremque at nemo
-              alias.
-            </p>
+            <!-- ITEM -->
+            <div class="col-lg-3 col-md-6">
+              <div class="staff-item">
+                <figure>
+                  <img src="images/staff/staff3.jpg" class="img-fluid" alt="Image">
+                  <div class="position">Chef</div>
+                </figure>
+                <div class="details">
+                  <h5>Tommy Alexander</h5>
+                  <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
+                </div>
+              </div>
+            </div>
+            <!-- ITEM <-->
+            <div class="col-lg-3 col-md-6">
+              <div class="staff-item">
+                <figure>
+                  <img src="images/staff/staff4.jpg" class="img-fluid" alt="Image">
+                  <div class="position">Hotel Manager</div>
+                </figure>
+                <div class="details">
+                  <h5>Penny Soto</h5>
+                  <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
+                </div>
+              </div>
+            </div>
+            <!-- ITEM <-->
+            <div class="col-lg-3 col-md-6">
+              <div class="staff-item">
+                <figure>
+                  <img src="images/staff/staff5.jpg" class="img-fluid" alt="Image">
+                  <div class="position">Room Service</div>
+                </figure>
+                <div class="details">
+                  <h5>Alex Cox</h5>
+                  <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
+                </div>
+              </div>
+            </div>
+            <!-- ITEM <-->
+            <div class="col-lg-3 col-md-6">
+              <div class="staff-item">
+                <figure>
+                  <img src="images/staff/staff6.jpg" class="img-fluid" alt="Image">
+                  <div class="position">Hotel Manager</div>
+                </figure>
+                <div class="details">
+                  <h5>Alfredo Romero</h5>
+                  <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
+                </div>
+              </div>
+            </div>
+            <!-- ITEM <-->
+            <div class="col-lg-3 col-md-6">
+              <div class="staff-item">
+                <figure>
+                  <img src="images/staff/staff7.jpg" class="img-fluid" alt="Image">
+                  <div class="position">Marketing Advisor</div>
+                </figure>
+                <div class="details">
+                  <h5>Glenda Gilbert</h5>
+                  <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
+                </div>
+              </div>
+            </div>
+            <!-- ITEM <-->
+            <div class="col-lg-3 col-md-6">
+              <div class="staff-item">
+                <figure>
+                  <img src="images/staff/staff8.jpg" class="img-fluid" alt="Image">
+                  <div class="position">Hotel Manager</div>
+                </figure>
+                <div class="details">
+                  <h5>Sheila Carter</h5>
+                  <p>Lorem Ipsum which looks many web sites pass websites is therefore always.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
