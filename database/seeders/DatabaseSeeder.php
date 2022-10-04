@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Seeders\TagSeeder;
 use Illuminate\Database\Seeder;
 use Database\Seeders\LogoSeeder;
 use Database\Seeders\RoleSeeder;
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             LogoSeeder::class,
             ServiceSeeder::class,
+            TagSeeder::class,
         ]);
         \App\Models\Staff::factory(10)->create();
         \App\Models\Dish::factory(10)->create();
