@@ -1,9 +1,8 @@
 @extends('layouts.index')
 
-
 @section('content')
     <!-- ========== PRELOADER ========== -->
-    @include('components.preloader')
+    @include('partial.preloader')
     <!-- ========== REVOLUTION SLIDER ========== -->
     <div class="slider">
         <div id="rev-slider-1" class="rev_slider gradient-slider" style="display:none" data-version="5.4.5">

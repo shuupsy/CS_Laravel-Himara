@@ -34,9 +34,11 @@
 
         <!-- ========== HEADER ========== -->
         @include('partial.header')
-        
+
         <!-- ========== PAGE TITLE ========== -->
-        @include('partial.pagetitle')
+        @if (!request()->routeIs('/'))
+            @include('partial.pagetitle')
+        @endif
 
         <!-- ========== MAIN ========== -->
         @yield('content')
