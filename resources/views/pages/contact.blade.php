@@ -1,7 +1,5 @@
 @extends('layouts.index')
 
-@include('partial.pagetitle')
-
 @section('content')
     <main class="contact-page">
         <div class="container">

@@ -31,8 +31,12 @@
     <div class="wrapper">
         <!-- ========== TOP MENU ========== -->
         @include('partial.topbar')
+
         <!-- ========== HEADER ========== -->
         @include('partial.header')
+        
+        <!-- ========== PAGE TITLE ========== -->
+        @include('partial.pagetitle')
 
         <!-- ========== MAIN ========== -->
         @yield('content')
