@@ -34,6 +34,7 @@
         <!-- ========== HEADER ========== -->
         @include('partial.header')
 
+        <!-- ========== MAIN ========== -->
         @yield('content')
 
         <!-- ========== FOOTER ========== -->
