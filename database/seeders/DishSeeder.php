@@ -18,17 +18,6 @@ class DishSeeder extends Seeder
      */
     public function run()
     {
-        $faker = \Faker\Factory::create();
-        $faker->addProvider(new \FakerRestaurant\Provider\en_US\Restaurant($faker));
-
-
-        DB::table('dishes')->insert([
-            [
-                'title' => $faker->foodname(),
-                'description' => $faker->realText($maxNbChars = 155, $indexSize = 2),
-                'price' => $faker->numberBetween($min=5, $max=20),
-                'photo' => $faker->imageUrl,
-            ],
-        ]);
+        //
     }
 }
