@@ -8,6 +8,7 @@ use Database\Seeders\LogoSeeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\HotelSeeder;
 use Database\Seeders\StaffMembers;
+use Database\Seeders\ServiceSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
             StaffMembers::class,
             RoleSeeder::class,
             LogoSeeder::class,
+            ServiceSeeder::class,
         ]);
         \App\Models\Staff::factory(10)->create();
         \App\Models\Dish::factory(10)->create();
