@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
 
         ]);
         \App\Models\Staff::factory(10)->create();
+        \App\Models\Dish::factory(10)->create();
     }
 }
