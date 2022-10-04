@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\LogoSeeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\HotelSeeder;
+use Database\Seeders\OptionSeeder;
 use Database\Seeders\StaffMembers;
 use Database\Seeders\ServiceSeeder;
 use Database\Seeders\CategorySeeder;
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             TagSeeder::class,
             CategorySeeder::class,
+            OptionSeeder::class,
         ]);
         \App\Models\Staff::factory(10)->create();
         \App\Models\Dish::factory(10)->create();
