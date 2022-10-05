@@ -31,7 +31,7 @@
             </h1>
             <h2 class="title">OOPS!! PAGE NOT FOUND</h2>
             <div class="mt80">
-                <a href="index.html" class="btn btn-dark btn-sm">
+                <a href="/" class="btn btn-dark btn-sm">
                     <i class="fa fa-angle-left"></i>
                     GO BACK TO HOME PAGE</a>
                 <div class="social-media aligncenter mt80">
