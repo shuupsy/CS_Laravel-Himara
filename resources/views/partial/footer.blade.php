@@ -5,7 +5,7 @@
                 <!-- WIDGET -->
                 <div class="col-md-3">
                     <div class="footer-widget">
-                        <img src="images/logo.svg" class="footer-logo" alt="Hotel Himara">
+                        <img src="images/logo.svg" class="footer-logo" alt="Hotel {{ $hotel -> name }}">
                         <div class="inner">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, velit placeat
                                 assumenda incidunt
@@ -32,7 +32,7 @@
                                     <a href="blog-post.html">Are you ready to enjoy your holidays</a>
                                 </li>
                                 <li>
-                                    <a href="blog-post.html">Honeymoon at Hotel Himara</a>
+                                    <a href="blog-post.html">Honeymoon at Hotel {{ $hotel -> name }}</a>
                                 </li>
                                 <li>
                                     <a href="blog-post.html">Travel gift ideas for every type of traveler</a>
@@ -60,7 +60,7 @@
                                     <a href="shop.html">Shop</a>
                                 </li>
                                 <li>
-                                    <a href="gallery.html">Himara Gallery</a>
+                                    <a href="gallery.html">{{ $hotel -> name }} Gallery</a>
                                 </li>
                                 <li>
                                     <a href="location.html">Our Location</a>
@@ -77,24 +77,24 @@
                             <ul class="contact-details">
                                 <li>
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    Lorem ipsum dolor, 25, Himara
+                                    {{ $hotel -> address }}
                                 </li>
                                 <li>
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    Phone: +1 888 123 4567
+                                    Phone: {{ $hotel -> phone }}
                                 </li>
                                 <li>
                                     <i class="fa fa-fax"></i>
-                                    Fax: +1 888 123 4567
+                                    Fax: {{ $hotel -> fax }}
                                 </li>
                                 <li>
                                     <i class="fa fa-globe"></i>
-                                    Web: www.hotelhimara.com
+                                    Web: {{ $hotel -> url }}
                                 </li>
                                 <li>
                                     <i class="fa fa-envelope"></i>
                                     Email:
-                                    <a href="mailto:info@site.com">contact@hotelhimara.com</a>
+                                    <a href="mailto:info@site.com">{{ $hotel -> email }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -108,7 +108,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="copyrights">&copy; 2018 Hotel Himara. Designed by
+                    <div class="copyrights">&copy; 2018 Hotel {{ $hotel -> name }}. Designed by
                         <a href="https://eagle-themes.com/" target="_blank">Eagle-Themes</a>.
                     </div>
                 </div>
