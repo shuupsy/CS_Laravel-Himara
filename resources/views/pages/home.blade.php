@@ -4,8 +4,12 @@
     <!-- ========== PRELOADER ========== -->
     @include('partial.preloader')
 
-    <!-- ========== REVOLUTION SLIDER ========== -->
-    @include('partial.home.home-sliders')
+    <div class="slider">
+        <!-- ========== REVOLUTION SLIDER ========== -->
+        @include('partial.home.home-sliders')
+        <!-- ========== BOOKING FORM ========== -->
+        @include('partial.home.home-booking')
+    </div>
 
     <!-- ========== ABOUT ========== -->
     @include('partial.home.home-about')
@@ -33,5 +37,4 @@
 
     <!-- ========== CONTACT V2 ========== -->
     @include('partial.home.home-contact')
-
 @endsection

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\StaffController;
@@ -25,6 +26,9 @@ Route::resource('/contact', ContactController::class)
     ->names(['index' => 'contact.index']);
 
 Route::resource('/blog', BlogController::class)
+    ->names(['index' => 'blog.index']);
+
+Route::resource('/booking-form', BookingController::class)
     ->names(['index' => 'blog.index']);
 
 
