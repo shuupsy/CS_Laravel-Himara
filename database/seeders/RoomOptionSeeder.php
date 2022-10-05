@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class OptionSeeder extends Seeder
+class RoomOptionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class OptionSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('options')->insert([
+        DB::table('room_options')->insert([
             ['option' => 'double bed'],
             ['option' => 'free wifi'],
             ['option' => 'free internet'],

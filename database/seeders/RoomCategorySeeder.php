@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class CategorySeeder extends Seeder
+class RoomCategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
+        DB::table('room_categories')->insert([
             ['category' => 'Single'],
             ['category' => 'Double'],
             ['category' => 'Family'],

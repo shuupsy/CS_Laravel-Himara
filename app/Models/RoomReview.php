@@ -6,7 +6,7 @@ use App\Models\Room;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class RoomPhoto extends Model
+class Review extends Model
 {
     use HasFactory;
 

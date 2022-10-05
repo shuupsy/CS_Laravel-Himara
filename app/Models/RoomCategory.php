@@ -6,11 +6,11 @@ use App\Models\Room;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class RoomPhoto extends Model
+class Category extends Model
 {
     use HasFactory;
 
     public function room(){
-        return $this->belongsTo(Room::class);
+        return $this->hasMany(Room::class);
     }
 }

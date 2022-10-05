@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('gallery_photos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')
-                ->constrained()
+                ->constrained('gallery_categories')
                 ->onDelete('cascade');
             $table->string('photo');
             $table->timestamps();

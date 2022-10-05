@@ -19,7 +19,7 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('cascade');
             $table->foreignId('option_id')
-                ->constrained()
+                ->constrained('room_options')
                 ->onDelete('cascade');
             $table->timestamps();
         });

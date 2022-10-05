@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('room_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('room_id')
-                ->constrained()
-                ->onDelete('cascade');
-            $table->unsignedBigInteger('rating');
-            $table->text('review');
+            $table->string('option');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('options');
     }
 };
