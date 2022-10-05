@@ -3,7 +3,7 @@
         <!-- BRAND -->
         <div class="brand">
             <div class="logo">
-                <a href="index.html">
+                <a href="/">
                     <img src="images/logo.svg" alt="Hotel Himara">
                 </a>
             </div>
@@ -17,21 +17,36 @@
         <!-- MAIN MENU -->
         <nav id="main-menu" class="main-menu">
             <ul class="menu">
-                <li class="menu-item dropdown active">
-                    <a href="index.html">HOME</a>
+                {{-- Navlink - HOME --}}
+                <li class="menu-item dropdown
+                {{ request()->routeIs('home.index') ? 'active' : '' }}">
+                    <a href="/">HOME</a>
                 </li>
-                <li class="menu-item dropdown">
-                    <a href="rooms-list.html">ROOMS</a>
+
+                {{-- Navlink - ROOMS --}}
+                <li class="menu-item dropdown
+                {{ request()->routeIs('rooms.*') ? 'active' : '' }}">
+                    <a href="{{ route('rooms.index') }}">ROOMS</a>
                 </li>
-                <li class="menu-item dropdown">
-                    <a href="staff.html">TEAM</a>
+
+                {{-- Navlink - TEAM --}}
+                <li class="menu-item dropdown
+                {{ request()->routeIs('staff.*') ? 'active' : '' }}">
+                    <a href="{{ route('staff.index') }}">TEAM</a>
                 </li>
-                <li class="menu-item dropdown">
-                    <a href="gallery.html">GALLERY</a>
+
+                {{-- Navlink - GALLERY --}}
+                <li class="menu-item dropdown
+                {{ request()->routeIs('gallery.*') ? 'active' : '' }}">
+                    <a href="{{ route('gallery.index') }}">GALLERY</a>
                 </li>
-                <li class="menu-item">
-                    <a href="contact.html">CONTACT US</a>
+
+                {{-- Navlink - CONTACT --}}
+                <li class="menu-item
+                {{ request()->routeIs('contact.*') ? 'active' : '' }}">
+                    <a href="{{ route('contact.index') }}">CONTACT US</a>
                 </li>
+
                 <li class="menu-item dropdown">
                     <a href="#">ELEMENTS</a>
                     <ul class="submenu">

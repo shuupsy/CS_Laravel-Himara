@@ -19,7 +19,7 @@ Route::resource('/staff', StaffController::class)
     ->names(['index' => 'staff.index']);
 
 Route::resource('/gallery', GalleryController::class)
-    ->names(['index' => 'galley.index']);
+    ->names(['index' => 'gallery.index']);
 
 Route::resource('/contact', ContactController::class)
     ->names(['index' => 'contact.index']);
