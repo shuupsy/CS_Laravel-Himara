@@ -6,7 +6,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
     <!-- ========== SEO ========== -->
-    <title>Hotel Himara - Hotel HTML Template</title>
+    <title>Hotel {{ $hotel -> name }} - Hotel HTML Template</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <meta content="" name="author">

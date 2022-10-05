@@ -24,7 +24,7 @@
                     <div class="tp-caption tp-resizeme" data-x="center" data-hoffset="" data-y="410" data-voffset=""
                         data-responsive_offset="on" data-fontsize="16" data-lineheight="16" data-whitespace="nowrap"
                         data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="z-index: 6; color: #fff;">Live Your Myth In Hotel Himara</div>
+                        style="z-index: 6; color: #fff;">Live Your Myth In Hotel {{ $hotel -> name }}</div>
                     <!-- LAYER NR. 3 -->
                     <div class="tp-caption" data-x="center" data-hoffset="-120" data-y="480" data-voffset=""
                         data-responsive_offset="on" data-whitespace="nowrap"
@@ -238,7 +238,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="section-title">
-                        <h4 class="text-uppercase">Hotel Himara. <span class="text-himara"> since 1992</span></h4>
+                        <h4 class="text-uppercase">Hotel {{ $hotel -> name }}. <span class="text-himara"> since 1992</span></h4>
                         <p class="section-subtitle">High quality accommodation services</p>
                     </div>
                     <div class="info-branding">
@@ -405,7 +405,7 @@
     <section class="services">
         <div class="container">
             <div class="section-title">
-                <h4>HIMARA. <span class="text-himara">SERVICES</span></h4>
+                <h4>{{ $hotel -> name }}. <span class="text-himara">SERVICES</span></h4>
                 <p class="section-subtitle">Check out our awesome services</p>
             </div>
             <div class="row">
@@ -492,7 +492,7 @@
     <section class="gallery">
         <div class="container">
             <div class="section-title">
-                <h4>HIMARA. <span class="text-himara">GALLERY</span></h4>
+                <h4>{{ $hotel -> name }}. <span class="text-himara">GALLERY</span></h4>
                 <p class="section-subtitle">Check out our image gallery</p>
                 <a href="gallery.html" class="view-all">View gallery images</a>
             </div>
@@ -804,7 +804,7 @@
         data-parallax="scroll" data-speed="0.3" data-mirror-selector=".wrapper" data-z-index="0">
         <div class="container">
             <div class="section-title">
-                <h4>HIMARA. RESTAURANT</h4>
+                <h4>{{ $hotel -> name }}. RESTAURANT</h4>
                 <p class="section-subtitle">Live a gourmet dining experience</p>
             </div>
             <div class="row">
@@ -943,7 +943,7 @@
                         </figure>
                         <div class="news-info">
                             <h4 class="title">
-                                <a href="blog-post.html">Honeymoon at Hotel Himara</a>
+                                <a href="blog-post.html">Honeymoon at Hotel {{ $hotel -> name }}</a>
                             </h4>
                             <p>An examination of how the current political and economical climate is affecting the
                                 mental healthcare
@@ -994,24 +994,24 @@
                     <ul class="contact-details">
                         <li>
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            Lorem ipsum dolor, 25, Himara
+                            {{ $hotel -> address }}
                         </li>
                         <li>
                             <i class="fa fa-phone" aria-hidden="true"></i>
-                            Phone: +1 888 123 4567
+                            Phone: {{ $hotel -> phone }}
                         </li>
                         <li>
                             <i class="fa fa-fax"></i>
-                            Fax: +1 888 123 4567
+                            Fax: {{ $hotel -> fax }}
                         </li>
                         <li>
                             <i class="fa fa-globe"></i>
-                            Web: www.hotelhimara.com
+                            Web: {{ $hotel -> url }}
                         </li>
                         <li>
                             <i class="fa fa-envelope"></i>
                             Email:
-                            <a href="mailto:info@site.com">contact@hotelhimara.com</a>
+                            <a href="mailto:info@site.com">c{{ $hotel -> email }}</a>
                         </li>
                     </ul>
                 </div>
