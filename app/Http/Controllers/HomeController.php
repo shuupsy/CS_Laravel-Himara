@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,6 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        /* dd($hotel); */
         return view('pages.home');
     }
 

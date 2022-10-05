@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('phone');
-            $table->string('mail');
+            $table->string('email');
             $table->string('fax');
             $table->string('url');
             $table->string('logo');

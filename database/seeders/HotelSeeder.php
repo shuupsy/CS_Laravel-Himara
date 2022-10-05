@@ -19,7 +19,7 @@ class HotelSeeder extends Seeder
             ['name' => 'Himara',
             'address' => 'Place de la Minoterie 10, 1080 Molengeek-Saint-Jean',
             'phone' => '+1 888 123 4567',
-            'mail' => 'contact@hotelhimara.com',
+            'email' => 'contact@hotelhimara.com',
             'fax' => '+1 888 123 4567',
             'url' => 'www.hotelhimara.com',
             'logo' => 'tata@gmail.com',
