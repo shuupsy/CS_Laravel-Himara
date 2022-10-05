@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advertisement;
 use App\Models\Hotel;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -16,8 +17,9 @@ class HomeController extends Controller
     public function index()
     {
         $sliders = Slider::all();
-        /* dd(html_entity_decode($sliders[0]->layer5)); */
-        return view('pages.home', compact('sliders'));
+        $ad = Advertisement::first();
+       /*  dd($ad); */
+        return view('pages.home', compact('sliders', 'ad'));
     }
 
     /**
