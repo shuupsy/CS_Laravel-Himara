@@ -7,62 +7,84 @@
     <div class="slider">
         <div id="rev-slider-1" class="rev_slider gradient-slider" style="display:none" data-version="5.4.5">
             <ul>
-                <!-- SLIDE NR. 1 -->
-                <li data-transition="crossfade">
-                    <!-- MAIN IMAGE -->
-                    <img src="images/slider/slider1.jpg" alt="Image" title="Image" data-bgposition="center center"
-                        data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg"
-                        data-no-retina="">
-                    <!-- LAYER NR. 1 -->
-                    <h1 class="tp-caption tp-resizeme" data-x="center" data-hoffset="" data-y="320" data-voffset=""
-                        data-responsive_offset="on" data-fontsize="['80','50','40','30']"
-                        data-lineheight="['60','50','40','30']" data-whitespace="nowrap"
-                        data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="z-index: 5; color: #fff; font-weight: 900;">
-                        TOUCH THE DREAM</h1>
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption tp-resizeme" data-x="center" data-hoffset="" data-y="410" data-voffset=""
-                        data-responsive_offset="on" data-fontsize="16" data-lineheight="16" data-whitespace="nowrap"
-                        data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="z-index: 6; color: #fff;">Live Your Myth In Hotel {{ $hotel -> name }}</div>
-                    <!-- LAYER NR. 3 -->
-                    <div class="tp-caption" data-x="center" data-hoffset="-120" data-y="480" data-voffset=""
-                        data-responsive_offset="on" data-whitespace="nowrap"
-                        data-frames='[{"delay":2400,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="z-index: 11;">
-                        <a class="btn" href="booking-form.html">
-                            <i class="fa fa-calendar"></i>BOOK A ROOM NOW</a>
-                    </div>
-                    <!-- LAYER NR. 4 -->
-                    <div class="tp-caption" data-x="center" data-hoffset="128" data-y="480" data-voffset=""
-                        data-responsive_offset="on" data-whitespace="nowrap"
-                        data-frames='[{"delay":2400,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="z-index: 11;">
-                        <a class="btn" href="contact.html">
-                            <i class="fa fa-envelope-o" aria-hidden="true"></i>CONTACT US NOW</a>
-                    </div>
-                    <!-- LAYER NR. 5 -->
-                    <div class="tp-caption tp_m_title tp-resizeme" data-x="center" data-hoffset="" data-y="200"
-                        data-voffset="" data-responsive_offset="on" data-fontsize="['18','18','16','16']"
-                        data-lineheight="['18','18','16','16']" data-whitespace="nowrap"
-                        data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="color: #fff">
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <!-- LAYER NR. 6 -->
-                    <div class="tp-caption tp_m_title tp-resizeme" data-x="center" data-hoffset="" data-y="240"
-                        data-voffset="" data-responsive_offset="on" data-fontsize="['25','25','18','18']"
-                        data-lineheight="['25','25','18','18']" data-whitespace="nowrap"
-                        data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                        style="color: #fff">
-                        Star Luxury Hotel
-                    </div>
-                </li>
-                <!-- SLIDE NR. 2 -->
+                @foreach ($sliders as $slider)
+                    <!-- SLIDE NR. 1 -->
+                    <li data-transition="crossfade">
+                        <!-- MAIN IMAGE -->
+                        <img src="{{ $slider->background_img }}" alt="Image" title="Image" data-bgposition="center center"
+                            data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg"
+                            data-no-retina="">
+                        <!-- LAYER NR. 1 -->
+                        <h1 class="tp-caption tp-resizeme" data-x="center" data-hoffset="" data-y="320" data-voffset=""
+                            data-responsive_offset="on" data-fontsize="['80','50','40','30']"
+                            data-lineheight="['60','50','40','30']" data-whitespace="nowrap"
+                            data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                            style="z-index: 5; color: #fff; font-weight: 900;">
+                            {{ $slider->layer1 }}</h1>
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption tp-resizeme" data-x="center" data-hoffset="" data-y="410" data-voffset=""
+                            data-responsive_offset="on" data-fontsize="16" data-lineheight="16" data-whitespace="nowrap"
+                            data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                            style="z-index: 6; color: #fff;">
+                            {{ $slider->layer2 }} {{ $hotel->name }}</div>
+
+
+                            <!-- LAYER NR. 3 -->
+                        @if ($slider->layer3 != null)
+                        <div class="tp-caption" data-x="center" data-hoffset="-120" data-y="480" data-voffset=""
+                            data-responsive_offset="on" data-whitespace="nowrap"
+                            data-frames='[{"delay":2400,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                            style="z-index: 11;">
+                            <a class="btn" href="/booking-form">
+                                <i class="fa fa-calendar"></i>
+                                BOOK A ROOM NOW
+                            </a>
+                        </div>
+                        @endif
+
+                        <!-- LAYER NR. 4 -->
+                        @if ($slider->layer4 != null)
+                            <div class="tp-caption" data-x="center" data-hoffset="128" data-y="480" data-voffset=""
+                                data-responsive_offset="on" data-whitespace="nowrap"
+                                data-frames='[{"delay":2400,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                                style="z-index: 11;">
+                                <a class="btn" href="/contact">
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                    CONTACT US NOW
+                                </a>
+                            </div>
+                        @endif
+
+                        <!-- LAYER NR. 5 -->
+                        @if ($slider->layer5 != null)
+                            <div class="tp-caption tp_m_title tp-resizeme" data-x="center" data-hoffset="" data-y="200"
+                                data-voffset="" data-responsive_offset="on" data-fontsize="['18','18','16','16']"
+                                data-lineheight="['18','18','16','16']" data-whitespace="nowrap"
+                                data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                                style="color: #fff">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>'
+                            </div>
+                        @endif
+
+                        <!-- LAYER NR. 6 -->
+                        @if ($slider->layer6 != null)
+                            <div class="tp-caption tp_m_title tp-resizeme" data-x="center" data-hoffset="" data-y="240"
+                                data-voffset="" data-responsive_offset="on" data-fontsize="['25','25','18','18']"
+                                data-lineheight="['25','25','18','18']" data-whitespace="nowrap"
+                                data-frames='[{"delay":1800,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                                style="color: #fff">
+                                {!! $slider->layer6 !!}
+                            </div>
+                        @endif
+                    </li>
+                @endforeach
+
+                {{-- <!-- SLIDE NR. 2 -->
                 <li data-transition="crossfade">
                     <!-- MAIN IMAGE -->
                     <img src="images/slider/slider3.jpg" alt="Image" title="Image" data-bgposition="center center"
@@ -101,7 +123,7 @@
                         data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                         style="z-index: 6; color: #fff;">Family Room from €89 per night
                     </div>
-                </li>
+                </li> --}}
             </ul>
         </div>
         <!-- ========== BOOKING FORM ========== -->
@@ -238,7 +260,8 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="section-title">
-                        <h4 class="text-uppercase">Hotel {{ $hotel -> name }}. <span class="text-himara"> since 1992</span></h4>
+                        <h4 class="text-uppercase">Hotel {{ $hotel->name }}. <span class="text-himara"> since
+                                1992</span></h4>
                         <p class="section-subtitle">High quality accommodation services</p>
                     </div>
                     <div class="info-branding">
@@ -405,7 +428,7 @@
     <section class="services">
         <div class="container">
             <div class="section-title">
-                <h4>{{ $hotel -> name }}. <span class="text-himara">SERVICES</span></h4>
+                <h4>{{ $hotel->name }}. <span class="text-himara">SERVICES</span></h4>
                 <p class="section-subtitle">Check out our awesome services</p>
             </div>
             <div class="row">
@@ -492,7 +515,7 @@
     <section class="gallery">
         <div class="container">
             <div class="section-title">
-                <h4>{{ $hotel -> name }}. <span class="text-himara">GALLERY</span></h4>
+                <h4>{{ $hotel->name }}. <span class="text-himara">GALLERY</span></h4>
                 <p class="section-subtitle">Check out our image gallery</p>
                 <a href="gallery.html" class="view-all">View gallery images</a>
             </div>
@@ -804,7 +827,7 @@
         data-parallax="scroll" data-speed="0.3" data-mirror-selector=".wrapper" data-z-index="0">
         <div class="container">
             <div class="section-title">
-                <h4>{{ $hotel -> name }}. RESTAURANT</h4>
+                <h4>{{ $hotel->name }}. RESTAURANT</h4>
                 <p class="section-subtitle">Live a gourmet dining experience</p>
             </div>
             <div class="row">
@@ -943,7 +966,7 @@
                         </figure>
                         <div class="news-info">
                             <h4 class="title">
-                                <a href="blog-post.html">Honeymoon at Hotel {{ $hotel -> name }}</a>
+                                <a href="blog-post.html">Honeymoon at Hotel {{ $hotel->name }}</a>
                             </h4>
                             <p>An examination of how the current political and economical climate is affecting the
                                 mental healthcare
@@ -994,24 +1017,24 @@
                     <ul class="contact-details">
                         <li>
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            {{ $hotel -> address }}
+                            {{ $hotel->address }}
                         </li>
                         <li>
                             <i class="fa fa-phone" aria-hidden="true"></i>
-                            Phone: {{ $hotel -> phone }}
+                            Phone: {{ $hotel->phone }}
                         </li>
                         <li>
                             <i class="fa fa-fax"></i>
-                            Fax: {{ $hotel -> fax }}
+                            Fax: {{ $hotel->fax }}
                         </li>
                         <li>
                             <i class="fa fa-globe"></i>
-                            Web: {{ $hotel -> url }}
+                            Web: {{ $hotel->url }}
                         </li>
                         <li>
                             <i class="fa fa-envelope"></i>
                             Email:
-                            <a href="mailto:info@site.com">c{{ $hotel -> email }}</a>
+                            <a href="mailto:info@site.com">c{{ $hotel->email }}</a>
                         </li>
                     </ul>
                 </div>

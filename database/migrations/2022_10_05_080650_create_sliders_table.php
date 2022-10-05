@@ -15,8 +15,12 @@ return new class extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
-            $table->string('heading');
-            $table->string('subheading');
+            $table->string('layer1')->nullable();
+            $table->string('layer2')->nullable();
+            $table->string('layer3')->nullable();
+            $table->string('layer4')->nullable();
+            $table->string('layer5')->nullable();
+            $table->string('layer6')->nullable();
             $table->string('background_img');
             $table->unsignedBigInteger('order');
             $table->timestamps();

@@ -32,6 +32,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
 Route::fallback(function(){
     return view('pages.error404');
 });

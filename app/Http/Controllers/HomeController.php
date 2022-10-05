@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,8 +15,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        /* dd($hotel); */
-        return view('pages.home');
+        $sliders = Slider::all();
+        /* dd(html_entity_decode($sliders[0]->layer5)); */
+        return view('pages.home', compact('sliders'));
     }
 
     /**
