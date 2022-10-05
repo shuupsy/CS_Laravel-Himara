@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TeamController extends Controller
+class StaffController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.staff');
     }
 
     /**
