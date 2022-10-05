@@ -6,9 +6,9 @@ background-size: cover;">
       <h1>ROOMS</h1>
       <ol class="breadcrumb">
         <li>
-          <a href="index.html">Home</a>
+          <a href="/">Home</a>
         </li>
-        <li>Rooms</li>
+        <li class='capitalize'>{{ substr_replace(ucfirst(Route::current()->getName()), "", -6) }}</li>
       </ol>
     </div>
   </div>
