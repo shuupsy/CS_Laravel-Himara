@@ -25,7 +25,7 @@ class HotelSeeder extends Seeder
             'logo' => 'tata@gmail.com',
             ], */
             ['name' => 'Sysy',
-            'address' => 'Place de la Minoterie 10, 1080 Molengeek-Saint-Jean',
+            'address' => 'Place de la Minoterie 10, 1080 Bruxelles',
             'phone' => '+32 456 36 34 89',
             'email' => 'contact@sysy.com',
             'fax' => '+1 888 123 4567',

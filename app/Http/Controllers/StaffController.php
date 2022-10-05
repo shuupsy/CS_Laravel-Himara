@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Staff;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -13,7 +14,12 @@ class StaffController extends Controller
      */
     public function index()
     {
-        return view('pages.staff');
+        $boss = Staff::first();
+        $staffmembers = Staff::whereNot('id', 1)
+            ->inRandomOrder()
+            ->take(7)
+            ->get();
+        return view('pages.staff', compact('boss', 'staffmembers'));
     }
 
     /**

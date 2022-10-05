@@ -20,7 +20,7 @@ class StaffFactory extends Factory
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'job' => $this->faker->jobTitle,
-            'description' => $this->faker->realText($maxNbChars = 155, $indexSize = 2),
+            'description' => $this->faker->realText($maxNbChars = 90),
             'photo' => $this->faker->imageUrl,
         ];
     }
