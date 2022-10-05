@@ -17,8 +17,8 @@ class RoomOptionSeeder extends Seeder
     {
         DB::table('room_options')->insert([
             ['option' => 'double bed'],
-            ['option' => 'free wifi'],
             ['option' => 'free internet'],
+            ['option' => 'free wifi'],
             ['option' => 'breakfast included'],
             ['option' => 'balcony'],
             ['option' => 'free newspaper'],

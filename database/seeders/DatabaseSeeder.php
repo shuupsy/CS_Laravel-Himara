@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Room;
 use Database\Seeders\AdSeeder;
 use Database\Seeders\TagSeeder;
 use Illuminate\Database\Seeder;
@@ -14,9 +15,10 @@ use Database\Seeders\SliderSeeder;
 use Database\Seeders\StaffMembers;
 use Database\Seeders\ServiceSeeder;
 use Database\Seeders\RoomOptionSeeder;
+use Database\Seeders\Pivot_Option_Room;
+use Database\Seeders\Pivot_Room_Tag;
 use Database\Seeders\RoomCategorySeeder;
 use Database\Seeders\GalleryCategorySeeder;
-use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class DatabaseSeeder extends Seeder
 {
@@ -41,6 +43,7 @@ class DatabaseSeeder extends Seeder
             SliderSeeder::class,
             TagSeeder::class,
             Pivot_Room_Tag::class,
+            Pivot_Option_Room::class,
         ]);
         \App\Models\Staff::factory(10)->create();
         \App\Models\Dish::factory(10)->create();
