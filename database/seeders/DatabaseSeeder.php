@@ -8,6 +8,7 @@ use Database\Seeders\TagSeeder;
 use Illuminate\Database\Seeder;
 use Database\Seeders\LogoSeeder;
 use Database\Seeders\RoleSeeder;
+use Database\Seeders\RoomSeeder;
 use Database\Seeders\HotelSeeder;
 use Database\Seeders\SliderSeeder;
 use Database\Seeders\StaffMembers;
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
             StaffMembers::class,
             RoleSeeder::class,
             RoomCategorySeeder::class,
+            RoomSeeder::class,
             RoomOptionSeeder::class,
             ServiceSeeder::class,
             SliderSeeder::class,

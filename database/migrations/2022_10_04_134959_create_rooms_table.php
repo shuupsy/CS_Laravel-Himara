@@ -25,8 +25,6 @@ return new class extends Migration
                 ->constrained('room_categories');
             $table->unsignedBigInteger('rating')
                 ->nullable();
-            $table->foreignId('option_id')
-                ->constrained('room_options');
             $table->timestamps();
         });
     }
