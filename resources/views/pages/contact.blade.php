@@ -45,24 +45,28 @@
                             <div class="contact-info">
                                 <ul>
                                     <li>
-                                        <a href="#">
-                                            <i class="fa fa-map-marker"></i>Lorem ipsum dolor, 25, Himara</a>
+                                        <a href="#" class='overflow-hidden'>
+                                            <i class="fa fa-map-marker"></i>{{ $hotel -> address }}</a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-envelope"></i>contact@hotelhimara.com</a>
+                                            <i class="fa fa-envelope"></i>
+                                            {{ $hotel -> email }}</a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-phone"></i>+1 888 123 4567</a>
+                                            <i class="fa fa-phone"></i>
+                                            {{ $hotel -> phone }}</a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-fax"></i>+1 888 123 4567</a>
+                                            <i class="fa fa-fax"></i>
+                                            {{ $hotel -> fax }}</a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-globe"></i>www.hotelhimara.com</a>
+                                            <i class="fa fa-globe"></i>
+                                            {{ $hotel -> url }}</a>
                                     </li>
                                 </ul>
                             </div>

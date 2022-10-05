@@ -23,7 +23,8 @@ return new class extends Migration
             $table->unsignedBigInteger('nb_persons');
             $table->foreignId('category_id')
                 ->constrained('room_categories');
-                
+            $table->unsignedBigInteger('rating')
+                ->nullable();
             $table->foreignId('option_id')
                 ->constrained('room_options');
             $table->timestamps();
