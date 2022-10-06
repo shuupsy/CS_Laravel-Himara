@@ -19,7 +19,13 @@ class ReviewSeeder extends Seeder
           [
             'user_id' => null,
             'room_id' => null,
-            'rating' => 4,
+            'rating' => 2,
+            'review' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.",
+          ],
+          [
+            'user_id' => null,
+            'room_id' => null,
+            'rating' => 1,
             'review' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.",
           ],
           [
@@ -31,13 +37,13 @@ class ReviewSeeder extends Seeder
           [
             'user_id' => null,
             'room_id' => null,
-            'rating' => 4,
-            'review' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.",
+            'rating' => 1,
+            'review' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus."
           ],
           [
             'user_id' => null,
             'room_id' => null,
-            'rating' => 5,
+            'rating' => 3,
             'review' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus."
           ],
           [
@@ -50,18 +56,12 @@ class ReviewSeeder extends Seeder
             'user_id' => null,
             'room_id' => null,
             'rating' => 5,
-            'review' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus."
-          ],
-          [
-            'user_id' => null,
-            'room_id' => null,
-            'rating' => 5,
             'review' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.",
           ],
           [
             'user_id' => null,
             'room_id' => null,
-            'rating' => 4,
+            'rating' => 3,
             'review' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.",
           ],
           [

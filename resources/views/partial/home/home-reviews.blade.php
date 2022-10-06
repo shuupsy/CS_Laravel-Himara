@@ -4,205 +4,50 @@
             <h4>OUR GUESTS LOVE US</h4>
             <p class="section-subtitle">What our guests are saying about us</p>
         </div>
+
+        {{-- Carousel - reviews --}}
         <div class="owl-carousel testimonials-owl">
-            <!-- ITEM -->
-            <div class="item">
-                <div class="testimonial-item">
-                    <div class="author-img">
-                        <img alt="Image" class="img-fluid" src="images/users/user1.jpg">
-                    </div>
-                    <div class="author">
-                        <h4 class="name">Marlene Simpson</h4>
-                        <div class="location">Madrid / Spain</div>
-                    </div>
-                    <div class="rating">
-                        <i class="fa fa-star voted" aria-hidden="true"></i>
-                        <i class="fa fa-star voted" aria-hidden="true"></i>
-                        <i class="fa fa-star voted" aria-hidden="true"></i>
-                        <i class="fa fa-star voted" aria-hidden="true"></i>
-                        <i class="fa fa-star voted" aria-hidden="true"></i>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc
-                        convallis
-                        condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                </div>
-            </div>
-            <!-- ITEM -->
-            <div class="item">
-                <div class="testimonial-item">
-                    <div class="author-img">
-                        <img alt="Image" class="img-fluid" src="images/users/user2.jpg">
-                    </div>
-                    <div class="author">
-                        <h4 class="name">Brad Knight</h4>
-                        <div class="location">Athens / Greece</div>
-                        <div class="rating">
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
+            @foreach ($reviews as $review)
+                <div class="item">
+                    <div class="testimonial-item">
+                        <div class="author-img">
+                            <img alt="Image" class="img-fluid" src="images/users/user1.jpg">
+                            {{-- <img alt="Image" class="img-fluid" src="{{ $review->user->profile_pic}}"> --}}
                         </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc
-                        convallis
-                        condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                </div>
-            </div>
-            <!-- ITEM -->
-            <div class="item">
-                <div class="testimonial-item">
-                    <div class="author-img">
-                        <img alt="Image" class="img-fluid" src="images/users/user3.jpg">
-                    </div>
-                    <div class="author">
-                        <h4 class="name">Daryl Phillips</h4>
-                        <div class="location">Lisbon / Portugal</div>
-                        <div class="rating">
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
+
+                        <div class="author">
+                            <h4 class="name">Marlene Simpson</h4>
+                            {{-- <h4 class="name">{{ $review->user->name }}</h4> --}}
+
+                            <div class="location">Madrid / Spain</div>
+                            {{--     <div class="location">
+                                @if ($review->user->city != null)
+                                    {{ $review->user->city }} /
+                                @endif
+                                {{ {{ $review->user->country}} }}
+                            </div> --}}
                         </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc
-                        convallis
-                        condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                </div>
-            </div>
-            <!-- ITEM -->
-            <div class="item">
-                <div class="testimonial-item">
-                    <div class="author-img">
-                        <img alt="Image" class="img-fluid" src="images/users/user4.jpg">
-                    </div>
-                    <div class="author">
-                        <h4 class="name">Felecia Lawson</h4>
-                        <div class="location">Paris / France</div>
                         <div class="rating">
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
+                            @if ($review->rating > 0)
+                            {{-- Mettre le nombre d'étoiles correspondantes à la note --}}
+                                @for ($i = $review->rating; $i > 0; $i--)
+                                    <i class="fa fa-star voted" aria-hidden="true"></i>
+                                @endfor
+
+                                {{-- Si la note est inférieure à 5, rajouter étoile(s) grise(s) --}}
+                                @if ($review->rating < 5)
+                                    @for ($i = $review->rating; $i < 5; $i++)
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    @endfor
+                                @endif
+                            @endif
+
                         </div>
+                        <p>{{ $review->review }}</p>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc
-                        convallis
-                        condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
                 </div>
-            </div>
-            <!-- ITEM -->
-            <div class="item">
-                <div class="testimonial-item">
-                    <div class="author-img">
-                        <img alt="Image" class="img-fluid" src="images/users/user5.jpg">
-                    </div>
-                    <div class="author">
-                        <h4 class="name">Joanne Robinson</h4>
-                        <div class="location">New York / USA</div>
-                        <div class="rating">
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc
-                        convallis
-                        condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                </div>
-            </div>
-            <!-- ITEM -->
-            <div class="item">
-                <div class="testimonial-item">
-                    <div class="author-img">
-                        <img alt="Image" class="img-fluid" src="images/users/user6.jpg">
-                    </div>
-                    <div class="author">
-                        <h4 class="name">Emily Hill</h4>
-                        <div class="location">Rome / Italy</div>
-                        <div class="rating">
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc
-                        convallis
-                        condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                </div>
-            </div>
-            <!-- ITEM -->
-            <div class="item">
-                <div class="testimonial-item">
-                    <div class="author-img">
-                        <img alt="Image" class="img-fluid" src="images/users/user7.jpg">
-                    </div>
-                    <div class="author">
-                        <h4 class="name">Mabel Hicks</h4>
-                        <div class="location">Moscow / Russia</div>
-                        <div class="rating">
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc
-                        convallis
-                        condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                </div>
-            </div>
-            <!-- ITEM -->
-            <div class="item">
-                <div class="testimonial-item">
-                    <div class="author-img">
-                        <img alt="Image" class="img-fluid" src="images/users/user8.jpg">
-                    </div>
-                    <div class="author">
-                        <h4 class="name">Kent Lambert</h4>
-                        <div class="location">Berlin / Germany</div>
-                        <div class="rating">
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc
-                        convallis
-                        condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                </div>
-            </div>
-            <!-- ITEM -->
-            <div class="item">
-                <div class="testimonial-item">
-                    <div class="author-img">
-                        <img alt="Image" class="img-fluid" src="images/users/user9.jpg">
-                    </div>
-                    <div class="author">
-                        <h4 class="name">Gerald Schmidt</h4>
-                        <div class="location">Zagreb / Croatia</div>
-                        <div class="rating">
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc
-                        convallis
-                        condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </section>

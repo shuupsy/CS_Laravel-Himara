@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AboutContent;
+use App\Models\Dish;
 use App\Models\Room;
-use App\Models\Option;
 use App\Models\Slider;
 use App\Models\Service;
+use App\Models\RoomReview;
+use App\Models\AboutContent;
 use App\Models\GalleryPhoto;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
-use App\Models\Dish;
 
 class HomeController extends Controller
 {
@@ -42,8 +42,12 @@ class HomeController extends Controller
             ->paginate(2)
             ->fragment('restaurant');
 
+        $reviews = RoomReview::orderBy('id', 'desc')
+            ->take(9)
+            ->get();
+
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery', 'dishes', 'ad'));
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery', 'dishes', 'reviews', 'ad'));
     }
 
     /**
