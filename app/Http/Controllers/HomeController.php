@@ -18,6 +18,7 @@ class HomeController extends Controller
     {
         $sliders = Slider::all();
         $ad = Advertisement::first();
+        /* $rooms = Room */
        /*  dd($ad); */
         return view('pages.home', compact('sliders', 'ad'));
     }

@@ -25,6 +25,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 3,
                 "category_id" => 3,
                 "rating" => 5,
+                "is_Available" => true,
             ],
             [
                 "name" => 'Tanger',
@@ -35,6 +36,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 4,
                 "category_id" => 3,
                 "rating" => 5,
+                "is_Available" => true,
             ],
             [
                 "name" => 'Tokyo',
@@ -45,6 +47,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 2,
                 "category_id" => 2,
                 "rating" => 5,
+                "is_Available" => true,
             ],
             [
                 "name" => 'Paris',
@@ -55,6 +58,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 4,
                 "category_id" => 3,
                 "rating" => 5,
+                "is_Available" => true,
             ],
             [
                 "name" => 'Rio de Janeiro',
@@ -65,6 +69,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 2,
                 "category_id" => 4,
                 "rating" => 5,
+                "is_Available" => true,
             ],
             [
                 "name" => 'Sicilia',
@@ -75,6 +80,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 2,
                 "category_id" => 3,
                 "rating" => 5,
+                "is_Available" => true,
             ],
             [
                 "name" => 'Moscou',
@@ -85,6 +91,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 4,
                 "category_id" => 3,
                 "rating" => 5,
+                "is_Available" => true,
             ],
             [
                 "name" => 'London',
@@ -95,6 +102,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 4,
                 "category_id" => 4,
                 "rating" => 5,
+                "is_Available" => true,
             ],
             [
                 "name" => 'Dubaî',
@@ -105,6 +113,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 2,
                 "category_id" => 1,
                 "rating" => 5,
+                "is_Available" => true,
             ],
         ]);
     }

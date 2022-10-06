@@ -22,9 +22,10 @@ return new class extends Migration
             $table->unsignedBigInteger('surface');
             $table->unsignedBigInteger('nb_persons');
             $table->foreignId('category_id')
-                ->constrained('room_categories');
+            ->constrained('room_categories');
             $table->unsignedBigInteger('rating')
-                ->nullable();
+            ->nullable();
+            $table->boolean('is_Available');
             $table->timestamps();
         });
     }
