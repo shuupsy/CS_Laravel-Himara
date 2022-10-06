@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\Option;
 use App\Models\Slider;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
 
@@ -26,8 +27,10 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
+        $services = Service::all();
+
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'rooms', 'ad'));
+        return view('pages.home', compact('sliders', 'rooms', 'services', 'ad'));
     }
 
     /**
