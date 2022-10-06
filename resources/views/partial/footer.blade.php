@@ -5,7 +5,7 @@
                 <!-- WIDGET -->
                 <div class="col-md-3">
                     <div class="footer-widget">
-                        <img src="images/logo.svg" class="footer-logo" alt="Hotel {{ $hotel -> name }}">
+                        <img src="{{ $hotel -> logo }}" class="footer-logo" alt="Hotel {{ $hotel -> name }}">
                         <div class="inner">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, velit placeat
                                 assumenda incidunt

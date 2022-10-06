@@ -43,7 +43,7 @@
                 style="background-image:url({{ $about -> background_img }})">
                     <div class="inner">
                         <div class="content">
-                            <img src="images/logo-big-transparent.svg" width="100" alt="Image">
+                            <img src="{{ $hotel -> big_logo }}" width="100" alt="Image">
                             <div class="stars">
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>

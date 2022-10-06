@@ -4,7 +4,7 @@
         <div class="brand">
             <div class="logo">
                 <a href="/">
-                    <img src="images/logo.svg" alt="Hotel Himara">
+                    <img src="{{ $hotel -> logo }}" alt="Hotel {{ $hotel -> name }}">
                 </a>
             </div>
         </div>
