@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutContent;
 use App\Models\Room;
 use App\Models\Option;
 use App\Models\Slider;
@@ -22,6 +23,9 @@ class HomeController extends Controller
     {
         $sliders = Slider::all();
 
+        $about = AboutContent::orderBy('id', 'desc')
+            ->first();
+
         $ad = Advertisement::first();
 
         $rooms = Room::where('is_Available', 1)
@@ -39,7 +43,7 @@ class HomeController extends Controller
             ->fragment('restaurant');
 
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'rooms', 'services', 'gallery', 'dishes', 'ad'));
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery', 'dishes', 'ad'));
     }
 
     /**

@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('room_reviews', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade');
             $table->foreignId('room_id')
+                ->nullable()
                 ->constrained()
                 ->onDelete('cascade');
             $table->unsignedBigInteger('rating');

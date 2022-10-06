@@ -21,7 +21,7 @@ class ServiceSeeder extends Seeder
             'logo_id' => 5,
             'image' => 'images/services/restaurant.jpg'],
 
-            ['title' => 'Spa - Beauty &amp; Health',
+            ['title' => 'Spa - Beauty & Health',
             'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.',
             'logo_id' => 7,
             'image' => 'images/services/spa.jpg'],

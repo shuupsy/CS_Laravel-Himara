@@ -2970,7 +2970,6 @@ section .owl-carousel .owl-nav button.owl-prev.disabled i, section .owl-carousel
 /* ===== 05.2 ABOUT ===== */
 
 .brand-info {
-  background-image: url(../images/about-card.jpg);
   background-size: cover;
   min-height: 400px;
   text-align: center;

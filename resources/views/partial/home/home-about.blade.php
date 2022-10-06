@@ -5,21 +5,10 @@
                 <div class="section-title">
                     <h4 class="text-uppercase">Hotel {{ $hotel->name }}. <span class="text-himara"> since
                             1992</span></h4>
-                    <p class="section-subtitle">High quality accommodation services</p>
+                    <p class="section-subtitle">{{ $about -> subheading }}</p>
                 </div>
                 <div class="info-branding">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus deleniti nulla,
-                        hic
-                        voluptatibus eum voluptatum libero suscipit nemo voluptates cupiditate, ipsum provident
-                        facere modi
-                        tempora ducimus enim dicta laborum esse aliquam rem
-                        assumenda dolores. Commodi, aperiam, blanditiis! Ipsum iure necessitatibus eaque, fuga.
-                        Excepturi
-                        facilis libero dicta soluta officiis, sint sit voluptatem, vero doloribus nesciunt
-                        suscipit dolores
-                        veritatis minus quam atque non autem quasi
-                        consequatur quae sequi ex, ipsa facere qui ut recusandae. Quod earum cupiditate quaerat
-                        assumenda.</p>
+                    <p>{{ $about -> big_description }}</p>
                     <div class="providers">
                         <span>Recommended on:</span>
                         <!-- ITEM -->
@@ -50,7 +39,8 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="brand-info">
+                <div class="brand-info"
+                style="background-image:url({{ $about -> background_img }})">
                     <div class="inner">
                         <div class="content">
                             <img src="images/logo-big-transparent.svg" width="100" alt="Image">
@@ -61,10 +51,8 @@
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                             </div>
-                            <h5 class="title">LUXURY HOTEL</h5>
-                            <p class="mt20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                                dolorem iste suscipit
-                                voluptates architecto nemo.</p>
+                            <h5 class="title">{{ $about -> small_title }}</h5>
+                            <p class="mt20">{{ $about -> small_description }}</p>
                         </div>
                     </div>
                 </div>
