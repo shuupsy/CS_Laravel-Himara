@@ -24,6 +24,11 @@ class GalleryPhotoSeeder extends Seeder
             ["category_id" => 4, "photo" => 'images/gallery/gallery2.jpg'],
             ["category_id" => 4, "photo" => 'images/gallery/gallery8.jpg'],
             ["category_id" => 4, "photo" => 'images/gallery/gallery10.jpg'],
+
+            ["category_id" => null, "photo" => 'images/gallery/gallery3.jpg'],
+            ["category_id" => null, "photo" => 'images/gallery/gallery5.jpg'],
+            ["category_id" => null, "photo" => 'images/gallery/gallery7.jpg'],
+            ["category_id" => null, "photo" => 'images/gallery/gallery9.jpg'],
         ]);
     }
 }

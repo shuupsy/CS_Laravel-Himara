@@ -3,7 +3,7 @@
         <div class="section-title">
             <h4>{{ $hotel->name }}. <span class="text-himara">GALLERY</span></h4>
             <p class="section-subtitle">Check out our image gallery</p>
-            <a href="gallery.html" class="view-all">View gallery images</a>
+            <a href="/gallery" class="view-all">View gallery images</a>
         </div>
         <div class="gallery-owl owl-carousel image-gallery">
             <!-- ITEM -->
