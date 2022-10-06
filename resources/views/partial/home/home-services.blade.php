@@ -25,7 +25,7 @@
                     @foreach ($services as $service)
                         <div class="owl-thumb-item">
                             <span class="media-left">
-                                <i class="flaticon-tray-1"></i>
+                                <i class="{{ $service -> logo -> logo }}"></i>
                             </span>
                             <div class="media-body">
                                 <h5>{{ $service -> title }}</h5>
