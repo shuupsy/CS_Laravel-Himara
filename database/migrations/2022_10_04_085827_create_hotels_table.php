@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('fax');
             $table->string('url');
             $table->string('logo');
+            $table->string('big_logo');
             $table->timestamps();
         });
     }
