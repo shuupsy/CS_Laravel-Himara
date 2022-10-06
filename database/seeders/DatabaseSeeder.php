@@ -18,6 +18,7 @@ use Database\Seeders\Pivot_Room_Tag;
 use Database\Seeders\RoomPhotoSeeder;
 use Database\Seeders\RoomOptionSeeder;
 use Database\Seeders\Pivot_Option_Room;
+use Database\Seeders\GalleryPhotoSeeder;
 use Database\Seeders\RoomCategorySeeder;
 use Database\Seeders\GalleryCategorySeeder;
 
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdSeeder::class,
             GalleryCategorySeeder::class,
+            GalleryPhotoSeeder::class,
             HotelSeeder::class,
             LogoSeeder::class,
             StaffMembers::class,
