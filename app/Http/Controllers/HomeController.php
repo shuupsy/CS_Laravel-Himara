@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Advertisement;
+use App\Models\Room;
 use App\Models\Hotel;
 use App\Models\Slider;
+use App\Models\RoomPhoto;
 use Illuminate\Http\Request;
+use App\Models\Advertisement;
 
 class HomeController extends Controller
 {
@@ -17,10 +19,16 @@ class HomeController extends Controller
     public function index()
     {
         $sliders = Slider::all();
+
         $ad = Advertisement::first();
-        /* $rooms = Room */
-       /*  dd($ad); */
-        return view('pages.home', compact('sliders', 'ad'));
+
+        $rooms = Room::where('is_Available', 1)
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
+      /*   dd($rooms); */
+        return view('pages.home', compact('sliders', 'rooms','ad'));
     }
 
     /**

@@ -7,88 +7,35 @@
         </div>
         <div class="row">
             <!-- ITEM -->
-            <div class="col-md-4">
-                <div class="room-grid-item">
-                    <figure class="gradient-overlay-hover link-icon">
-                        <a href="room.html">
-                            <img src="images/rooms/single/single1.jpg" class="img-fluid" alt="Image">
-                        </a>
-                        <div class="room-services">
-                            <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                data-trigger="hover" data-content="Breakfast Included"
-                                data-original-title="Breakfast"></i>
-                            <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                data-trigger="hover" data-content="Free WiFi" data-original-title="WiFi"></i>
-                            <i class="fa fa-television" data-toggle="popover" data-placement="right"
-                                data-trigger="hover" data-content="Plasma TV with cable channels"
-                                data-original-title="TV"></i>
+            @foreach ($rooms as $room)
+                <div class="col-md-4">
+                    <div class="room-grid-item">
+                        <figure class="gradient-overlay-hover link-icon">
+                            <a href="room.html">
+                                <img src="{{ $room -> mainphoto_path }}" class="img-fluid" alt="Image">
+                            </a>
+                            <div class="room-services">
+                                <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover" data-placement="right"
+                                    data-trigger="hover" data-content="Breakfast Included"
+                                    data-original-title="Breakfast"></i>
+                                <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover" data-placement="right"
+                                    data-trigger="hover" data-content="Free WiFi" data-original-title="WiFi"></i>
+                                <i class="fa fa-television" data-toggle="popover" data-placement="right"
+                                    data-trigger="hover" data-content="Plasma TV with cable channels"
+                                    data-original-title="TV"></i>
+                            </div>
+                            <div class="room-price">€{{ $room->price }} / night</div>
+                        </figure>
+                        <div class="room-info">
+                            <h2 class="room-title">
+                                <a href="room.html">{{ $room -> category -> category }} Room</a>
+                            </h2>
+                            <p>Enjoy our {{ $room -> category -> category }} room</p>
                         </div>
-                        <div class="room-price">€89 / night</div>
-                    </figure>
-                    <div class="room-info">
-                        <h2 class="room-title">
-                            <a href="room.html">Single Room</a>
-                        </h2>
-                        <p>Enjoy our single room</p>
                     </div>
                 </div>
-            </div>
-            <!-- ITEM -->
-            <div class="col-md-4">
-                <div class="room-grid-item">
-                    <figure class="gradient-overlay-hover link-icon">
-                        <a href="room.html">
-                            <img src="images/rooms/double/double.jpg" class="img-fluid" alt="Image">
-                        </a>
-                        <div class="room-services">
-                            <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                data-trigger="hover" data-content="Breakfast Included"
-                                data-original-title="Breakfast"></i>
-                            <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                data-trigger="hover" data-content="Free WiFi" data-original-title="WiFi"></i>
-                            <i class="fa fa-television" data-toggle="popover" data-placement="right"
-                                data-trigger="hover" data-content="Plasma TV with cable channels"
-                                data-original-title="TV"></i>
-                        </div>
-                        <div class="room-price">€129 / night</div>
-                    </figure>
-                    <div class="room-info">
-                        <h2 class="room-title">
-                            <a href="room.html">Double Room</a>
-                        </h2>
-                        <p>Enjoy our double room</p>
-                    </div>
-                </div>
-            </div>
-            <!-- ITEM -->
-            <div class="col-md-4">
-                <div class="room-grid-item">
-                    <figure class="gradient-overlay-hover link-icon">
-                        <a href="room.html">
-                            <img src="images/rooms/deluxe/deluxe.jpg" class="img-fluid" alt="Image">
-                        </a>
-                        <div class="room-services">
-                            <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                data-trigger="hover" data-content="Breakfast Included"
-                                data-original-title="Breakfast"></i>
-                            <i class="fa fa-bath" data-toggle="popover" data-placement="right" data-trigger="hover"
-                                data-content="2 Bathrooms" data-original-title="Bathroom"></i>
-                            <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                data-trigger="hover" data-content="Free WiFi" data-original-title="WiFi"></i>
-                            <i class="fa fa-television" data-toggle="popover" data-placement="right"
-                                data-trigger="hover" data-content="Plasma TV with cable channels"
-                                data-original-title="TV"></i>
-                        </div>
-                        <div class="room-price">€189 / night</div>
-                    </figure>
-                    <div class="room-info">
-                        <h2 class="room-title">
-                            <a href="room.html">Deluxe Room</a>
-                        </h2>
-                        <p>Enjoy our delux room</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </section>

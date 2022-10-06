@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Tag;
 use App\Models\Option;
+use App\Models\RoomPhoto;
 use App\Models\RoomReview;
 use App\Models\RoomCategory;
 use Illuminate\Database\Eloquent\Model;
@@ -19,6 +20,10 @@ class Room extends Model
 
     public function option(){
         return $this->belongsToMany(Option::class);
+    }
+
+    public function photo(){
+        return $this->hasMany(RoomPhoto::class);
     }
 
     public function tag(){
