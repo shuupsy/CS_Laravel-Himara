@@ -29,7 +29,7 @@ DB::table('staff')->insert([
         'first_name' => Faker::create()->firstName,
         'last_name' => Faker::create()->lastName,
         'job' => Faker::create()->jobTitle,
-        'description' => Faker::create()->realText($maxNbChars = 155, $indexSize = 2),
+        'description' => Faker::create()->text($maxNbChars = 155, $indexSize = 2),
         'photo' => Faker::create()->imageUrl,
     ],
 ]);

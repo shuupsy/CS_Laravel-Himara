@@ -17,11 +17,11 @@ class DishFactory extends Factory
     public function definition()
     {
         $this->faker->addProvider(new \FakerRestaurant\Provider\en_US\Restaurant($this->faker));
-        
+
         return [
             'title' => $this->faker->foodname(),
-            'description' => $this->faker->realText($maxNbChars = 155, $indexSize = 2),
-            'price' => $this->faker->numberBetween($min=5, $max=20),
+            'description' => $this->faker->text($maxNbChars = 90),
+            'price' => $this->faker->randomFloat($nbMaxDecimals = 1, $min = 3, $max = 20),
             'photo' => $this->faker->imageUrl,
         ];
     }
