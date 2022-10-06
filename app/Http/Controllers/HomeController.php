@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
-use App\Models\Hotel;
+use App\Models\Option;
 use App\Models\Slider;
-use App\Models\RoomPhoto;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
 
@@ -28,7 +27,7 @@ class HomeController extends Controller
             ->get();
 
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'rooms','ad'));
+        return view('pages.home', compact('sliders', 'rooms', 'ad'));
     }
 
     /**

@@ -11,12 +11,12 @@ use Database\Seeders\LogoSeeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\RoomSeeder;
 use Database\Seeders\HotelSeeder;
+use Database\Seeders\OptionSeeder;
 use Database\Seeders\SliderSeeder;
 use Database\Seeders\StaffMembers;
 use Database\Seeders\ServiceSeeder;
 use Database\Seeders\Pivot_Room_Tag;
 use Database\Seeders\RoomPhotoSeeder;
-use Database\Seeders\RoomOptionSeeder;
 use Database\Seeders\Pivot_Option_Room;
 use Database\Seeders\GalleryPhotoSeeder;
 use Database\Seeders\RoomCategorySeeder;
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             RoomCategorySeeder::class,
             RoomSeeder::class,
-            RoomOptionSeeder::class,
+            OptionSeeder::class,
             RoomPhotoSeeder::class,
             ServiceSeeder::class,
             SliderSeeder::class,
