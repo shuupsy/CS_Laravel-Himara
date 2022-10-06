@@ -6,6 +6,7 @@ use App\Models\Room;
 use App\Models\Option;
 use App\Models\Slider;
 use App\Models\Service;
+use App\Models\GalleryPhoto;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
 
@@ -29,8 +30,11 @@ class HomeController extends Controller
 
         $services = Service::all();
 
+        $gallery = GalleryPhoto::inRandomOrder()
+            ->get();
+
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'rooms', 'services', 'ad'));
+        return view('pages.home', compact('sliders', 'rooms', 'services', 'gallery', 'ad'));
     }
 
     /**
