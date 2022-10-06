@@ -2342,7 +2342,7 @@ header.vertical-header .main-menu {
 }
 
 header.vertical-header.open-header .main-menu {
- visibility: visible;    
+ visibility: visible;
 }
 
 header.vertical-header.open-header .main-menu {
@@ -3803,7 +3803,7 @@ section.dark .countup-box .number, section.dark .countup-box .text {
   border-radius: 2px;
 }
 
-.subscribe .inner button i { 
+.subscribe .inner button i {
   font-size: 1.5em;
   text-align: center;
   left: 50%;
@@ -7361,4 +7361,18 @@ section.places-item {
 .demo-page button {
   display: block;
   margin-bottom: 20px;
+}
+
+.block-page {
+    background-color: transparent;
+}
+
+.block-page .page-item.active .page-link{
+    background-color: #D8BA8D;
+    border-color: #D8BA8D;
+    color: black;
+}
+
+.block-page .page-link {
+    color: grey;
 }

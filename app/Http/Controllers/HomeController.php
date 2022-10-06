@@ -9,6 +9,7 @@ use App\Models\Service;
 use App\Models\GalleryPhoto;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
+use App\Models\Dish;
 
 class HomeController extends Controller
 {
@@ -33,8 +34,12 @@ class HomeController extends Controller
         $gallery = GalleryPhoto::inRandomOrder()
             ->get();
 
+        $dishes = Dish::orderBy('id', 'asc')
+            ->paginate(2)
+            ->fragment('restaurant');
+
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'rooms', 'services', 'gallery', 'ad'));
+        return view('pages.home', compact('sliders', 'rooms', 'services', 'gallery', 'dishes', 'ad'));
     }
 
     /**

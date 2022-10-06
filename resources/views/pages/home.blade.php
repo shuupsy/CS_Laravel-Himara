@@ -2,7 +2,10 @@
 
 @section('content')
     <!-- ========== PRELOADER ========== -->
-    @include('partial.preloader')
+    {{-- Pour ne pas afficher le pre-loader si pagination --}}
+    @if (!request()->fullUrlIs('http://127.0.0.1:8000/?page=*'))
+        @include('partial.preloader')
+    @endif
 
     <div class="slider">
         <!-- ========== REVOLUTION SLIDER ========== -->
