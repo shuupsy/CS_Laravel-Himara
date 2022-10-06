@@ -7,6 +7,7 @@ use App\Models\Room;
 use Database\Seeders\AdSeeder;
 use Database\Seeders\TagSeeder;
 use Illuminate\Database\Seeder;
+use Database\Seeders\DishSeeder;
 use Database\Seeders\LogoSeeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\RoomSeeder;
@@ -36,6 +37,7 @@ class DatabaseSeeder extends Seeder
             GalleryCategorySeeder::class,
             GalleryPhotoSeeder::class,
             HotelSeeder::class,
+            DishSeeder::class,
             LogoSeeder::class,
             StaffMembers::class,
             RoleSeeder::class,

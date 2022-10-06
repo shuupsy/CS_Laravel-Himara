@@ -22,7 +22,7 @@ class DishFactory extends Factory
             'title' => $this->faker->foodname(),
             'description' => $this->faker->text($maxNbChars = 90),
             'price' => $this->faker->randomFloat($nbMaxDecimals = 1, $min = 3, $max = 20),
-            'photo' => $this->faker->imageUrl,
+            'photo' => $this->faker->imageUrl($width=640, $height=420, 'food'),
         ];
     }
 }
