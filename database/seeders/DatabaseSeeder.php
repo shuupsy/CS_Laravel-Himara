@@ -19,6 +19,7 @@ use Database\Seeders\ServiceSeeder;
 use Database\Seeders\Pivot_Room_Tag;
 use Database\Seeders\RoomPhotoSeeder;
 use Database\Seeders\Pivot_Option_Room;
+use Database\Seeders\AboutContentSeeder;
 use Database\Seeders\GalleryPhotoSeeder;
 use Database\Seeders\RoomCategorySeeder;
 use Database\Seeders\GalleryCategorySeeder;
@@ -37,6 +38,7 @@ class DatabaseSeeder extends Seeder
             GalleryCategorySeeder::class,
             GalleryPhotoSeeder::class,
             HotelSeeder::class,
+            AboutContentSeeder::class,
             DishSeeder::class,
             LogoSeeder::class,
             StaffMembers::class,
