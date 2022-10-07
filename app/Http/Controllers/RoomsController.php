@@ -18,7 +18,7 @@ class RoomsController extends Controller
         $rooms = Room::orderby('id', 'asc')
             ->paginate(10);
 
-        $room_cats = RoomCategory::withCount('rooms')
+        $room_cats = RoomCategory::withCount('room')
             ->orderBy('id', 'asc')
             ->get();
 

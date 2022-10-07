@@ -5,10 +5,11 @@
             <p class="section-subtitle">Our favorite rooms</p>
             <a href="/rooms" class="view-all">View all rooms</a>
         </div>
+
         <div class="row">
             <!-- Liste de rooms -->
             @foreach ($rooms as $room)
-                <div class="col-md-4">
+            <div class="col-md-4">
                     <div class="room-grid-item">
                         <figure class="gradient-overlay-hover link-icon">
                             <a href="/rooms/{{ $room -> id }}">
@@ -43,11 +44,12 @@
                         </figure>
 
                         {{-- Category --}}
+
                         <div class="room-info">
                             <h2 class="room-title">
-                                <a href="room.html">{{ $room->category->category }} Room</a>
+                                <a href="/rooms/{{ $room->id }}">{{ $room->room_category->category }} Room</a>
                             </h2>
-                            <p>Enjoy our {{ $room->category->category }} room</p>
+                            <p>Enjoy our {{ $room->room_category->category }} room</p>
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,7 @@ class Room extends Model
 {
     use HasFactory;
 
-    public function category(){
+    public function room_category(){
         return $this->belongsTo(RoomCategory::class);
     }
 
