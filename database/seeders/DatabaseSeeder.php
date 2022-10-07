@@ -16,6 +16,7 @@ use Database\Seeders\OptionSeeder;
 use Database\Seeders\ReviewSeeder;
 use Database\Seeders\SliderSeeder;
 use Database\Seeders\StaffMembers;
+use Database\Seeders\ArticleSeeder;
 use Database\Seeders\ServiceSeeder;
 use Database\Seeders\Pivot_Room_Tag;
 use Database\Seeders\RoomPhotoSeeder;
@@ -42,6 +43,7 @@ class DatabaseSeeder extends Seeder
             AboutContentSeeder::class,
             DishSeeder::class,
             LogoSeeder::class,
+            ServiceSeeder::class,
             StaffMembers::class,
             RoleSeeder::class,
             RoomCategorySeeder::class,
@@ -49,8 +51,8 @@ class DatabaseSeeder extends Seeder
             OptionSeeder::class,
             RoomPhotoSeeder::class,
             ReviewSeeder::class,
-            ServiceSeeder::class,
             SliderSeeder::class,
+            ArticleSeeder::class,
             TagSeeder::class,
             Pivot_Room_Tag::class,
             Pivot_Option_Room::class,

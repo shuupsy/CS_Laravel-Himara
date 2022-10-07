@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dish;
 use App\Models\Room;
 use App\Models\Slider;
+use App\Models\Article;
 use App\Models\Service;
 use App\Models\RoomReview;
 use App\Models\AboutContent;
@@ -42,12 +43,17 @@ class HomeController extends Controller
             ->paginate(2)
             ->fragment('restaurant');
 
+        $articles = Article::orderBy('id', 'desc')
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
         $reviews = RoomReview::orderBy('id', 'desc')
             ->take(9)
             ->get();
 
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery', 'dishes', 'reviews', 'ad'));
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery', 'dishes', 'articles', 'reviews', 'ad'));
     }
 
     /**
