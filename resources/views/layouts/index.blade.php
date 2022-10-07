@@ -16,8 +16,8 @@
     <!-- ========== STYLESHEETS ========== -->
     @include('partial.stylesheet-links')
     <!-- ========== ICON FONTS ========== -->
-    <link href="fonts/font-awesome.min.css" rel="stylesheet">
-    <link href="fonts/flaticon.css" rel="stylesheet">
+    <link href="/fonts/font-awesome.min.css" rel="stylesheet">
+    <link href="/fonts/flaticon.css" rel="stylesheet">
     <!-- ========== GOOGLE FONTS ========== -->
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700%7CRoboto:100,300,400,400i,500,700"
         rel="stylesheet">

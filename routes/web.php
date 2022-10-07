@@ -31,7 +31,7 @@ Route::resource('/blog', BlogController::class)
     ->names(['index' => 'blog.index']);
 
 Route::resource('/booking-form', BookingController::class)
-    ->names(['index' => 'blog.index']);
+    ->names(['index' => 'booking.index']);
 
 
 Route::get('/dashboard', function () {

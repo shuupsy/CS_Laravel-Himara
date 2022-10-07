@@ -11,7 +11,7 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <figure class="gradient-overlay-hover link-icon">
-                                        <a href="/rooms/{{ $room->id }}"><img src="{{ $room->mainphoto_path }}"
+                                        <a href="rooms/{{ $room->id }}"><img src="{{ $room->mainphoto_path }}"
                                                 class="img-fluid" alt="Image {{ $room->name }}"></a>
                                     </figure>
                                 </div>

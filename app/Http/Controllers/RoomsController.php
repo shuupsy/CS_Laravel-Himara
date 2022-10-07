@@ -59,7 +59,7 @@ class RoomsController extends Controller
     {
         $room = Room::find($id);
 
-        return view('pages.show-room', compact('room'));
+        return view('pages.room', compact('room'));
     }
 
     /**

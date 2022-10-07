@@ -16,26 +16,26 @@
                         <i class="fa fa-envelope-o "></i>
                         {{ $hotel -> email }}</a>
                 </li>
-                
+
                 {{-- Languages --}}
                 <li class="language-menu">
-                    <a href="#" class="active-language"><img src="images/icons/flags/gb.png"
+                    <a href="#" class="active-language"><img src="/images/icons/flags/gb.png"
                             alt="Image">English</a>
                     <ul class="languages">
                         <li class="language">
-                            <a href="#"><img src="images/icons/flags/it.png" alt="Image">Italiano</a>
+                            <a href="#"><img src="/images/icons/flags/it.png" alt="Image">Italiano</a>
                         </li>
                         <li class="language">
-                            <a href="#"><img src="images/icons/flags/gr.png" alt="Image">Ελληνικα</a>
+                            <a href="#"><img src="/images/icons/flags/gr.png" alt="Image">Ελληνικα</a>
                         </li>
                         <li class="language">
-                            <a href="#"><img src="images/icons/flags/al.png" alt="Image">Shqip</a>
+                            <a href="#"><img src="/images/icons/flags/al.png" alt="Image">Shqip</a>
                         </li>
                         <li class="language">
-                            <a href="#"><img src="images/icons/flags/fr.png" alt="Image">Français</a>
+                            <a href="#"><img src="/images/icons/flags/fr.png" alt="Image">Français</a>
                         </li>
                         <li class="language">
-                            <a href="#"><img src="images/icons/flags/es.png" alt="Image">Español</a>
+                            <a href="#"><img src="/images/icons/flags/es.png" alt="Image">Español</a>
                         </li>
                     </ul>
                 </li>
