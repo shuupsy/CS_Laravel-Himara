@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\RoomCategory;
 use Illuminate\Http\Request;
 
 class RoomsController extends Controller
@@ -15,10 +16,13 @@ class RoomsController extends Controller
     public function index()
     {
         $rooms = Room::orderby('id', 'asc')
-            ->paginate(10)
-            ;
+            ->paginate(10);
 
-        return view('pages.rooms-list', compact('rooms'));
+        $room_cats = RoomCategory::withCount('rooms')
+            ->orderBy('id', 'asc')
+            ->get();
+
+        return view('pages.rooms-list', compact('rooms', 'room_cats'));
     }
 
     /**

@@ -42,25 +42,25 @@
                                         {{-- Room option --}}
                                         <div class="room-services">
                                             @foreach ($room->options as $option)
-                                            {{-- Option - Breakfast --}}
-                                            @if ($option->id == 4)
-                                                <i class="fa fa-coffee" data-toggle="popover" data-placement="top"
-                                                    data-trigger="hover" data-content="Breakfast Included"
-                                                    data-original-title="Breakfast"></i>
-                                            @endif
-                                            {{-- Option - Wifi --}}
-                                            @if ($option->id == 3)
-                                                <i class="fa fa-wifi" data-toggle="popover" data-placement="top"
-                                                    data-trigger="hover" data-content="Free WiFi"
-                                                    data-original-title="WiFi"></i>
-                                            @endif
-                                            {{-- Option - TV --}}
-                                            @if ($option->id == 7)
-                                                <i class="fa fa-television" data-toggle="popover" data-placement="top"
-                                                    data-trigger="hover" data-content="Plasma TV with cable channels"
-                                                    data-original-title="TV"></i>
-                                            @endif
-                                        @endforeach
+                                                {{-- Option - Breakfast --}}
+                                                @if ($option->id == 4)
+                                                    <i class="fa fa-coffee" data-toggle="popover" data-placement="top"
+                                                        data-trigger="hover" data-content="Breakfast Included"
+                                                        data-original-title="Breakfast"></i>
+                                                @endif
+                                                {{-- Option - Wifi --}}
+                                                @if ($option->id == 3)
+                                                    <i class="fa fa-wifi" data-toggle="popover" data-placement="top"
+                                                        data-trigger="hover" data-content="Free WiFi"
+                                                        data-original-title="WiFi"></i>
+                                                @endif
+                                                {{-- Option - TV --}}
+                                                @if ($option->id == 7)
+                                                    <i class="fa fa-television" data-toggle="popover" data-placement="top"
+                                                        data-trigger="hover" data-content="Plasma TV with cable channels"
+                                                        data-original-title="TV"></i>
+                                                @endif
+                                            @endforeach
 
 
                                             <span>Beds: 1 King</span>
@@ -132,19 +132,13 @@
                         <aside class="widget">
                             <h4 class="widget-title">CATEGORIES</h4>
                             <ul class="categories">
-                                <li>
-                                    <a href="#">Single Room<span class="posts-num">51</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Double Room<span class="posts-num">24</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Family Room
-                                        <span class="posts-num">9</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Deluxe Room<span class="posts-num">12</span></a>
-                                </li>
+
+                                {{-- Liste de catégories --}}
+                                @foreach ($room_cats as $cat)
+                                    <li>
+                                        <a href="#">{{ $cat -> category }} Room<span class="posts-num">{{ $cat->rooms_count }}</span></a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </aside>
                         <!-- WIDGET -->

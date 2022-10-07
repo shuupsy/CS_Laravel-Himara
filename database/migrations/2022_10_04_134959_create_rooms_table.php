@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('description2');
             $table->unsignedBigInteger('surface');
             $table->unsignedBigInteger('nb_persons');
-            $table->foreignId('category_id')
+            $table->foreignId('room_category_id')
             ->constrained('room_categories');
             $table->unsignedBigInteger('rating')
             ->nullable();
