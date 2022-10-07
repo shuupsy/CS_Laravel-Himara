@@ -6,37 +6,38 @@
         </div>
         <div class="row">
             {{-- Liste de blogs --}}
-            <div class="col-md-4">
-                <div class="news-grid-item">
-                    <figure class="gradient-overlay-hover link-icon">
-                        <a href="blog-post.html">
-                            <img src="images/blog/blog-post1.jpg" class="img-fluid" alt="Image">
-                        </a>
-                    </figure>
-                    <div class="news-info">
-                        <h4 class="title">
-                            <a href="blog-post.html">10 Tips for Holiday Travel</a>
-                        </h4>
-                        <p>An examination of how the current political and economical climate is affecting the
-                            mental healthcare
-                            industry...</p>
-                        <div class="post-meta">
-                            <span class="author">
-                                <a href="#"><img src="images/users/admin.jpg" width="16" alt="Image">
-                                    JANE</a>
-                            </span>
-                            <span class="date">
-                                <i class="fa fa-clock-o"></i>
-                                August 13, 2017</span>
-                            <span class="comments">
-                                <a href="#">
-                                    <i class="fa fa-commenting-o"></i>
-                                    1 Comment</a>
-                            </span>
+            @foreach ($articles as $article)
+                <div class="col-md-4">
+                    <div class="news-grid-item">
+                        <figure class="gradient-overlay-hover link-icon">
+                            <a href="/blog/{{ $article -> id }}">
+                                <img src="{{ $article -> image }}" class="img-fluid" alt="Image">
+                            </a>
+                        </figure>
+                        <div class="news-info">
+                            <h4 class="title">
+                                <a href="/blog/{{ $article -> id }}">{{ $article -> title }}</a>
+                            </h4>
+                            <p>{{ $article -> text }}</p>
+                            <div class="post-meta">
+                         {{--        <span class="author">
+                                    <a href="#"><img src="{{ $article -> user -> profile_pic }}" width="16" alt="Image">
+                                       {{ $article -> user -> name }}</a>
+                                </span> --}}
+                                <span class="date">
+                                    <i class="fa fa-clock-o"></i>
+                                    {{ $article -> created_at->format('F d, Y') }}
+                                </span>
+                                <span class="comments">
+                                    <a href="#">
+                                        <i class="fa fa-commenting-o"></i>
+                                        1 Comment</a>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
 
         </div>
     </div>
