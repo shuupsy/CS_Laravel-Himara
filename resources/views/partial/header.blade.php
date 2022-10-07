@@ -19,7 +19,7 @@
             <ul class="menu">
                 {{-- Navlink - HOME --}}
                 <li class="menu-item dropdown
-                {{ request()->routeIs('home.index') ? 'active' : '' }}">
+                {{ request()->routeIs('home') ? 'active' : '' }}">
                     <a href="/">HOME</a>
                 </li>
 

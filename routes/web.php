@@ -9,9 +9,11 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 
-
-Route::resource('/', HomeController::class)
-    ->names(['index' => 'home.index']);
+/* -------- FRONT -------- */
+/* Home */
+Route::get('/', [HomeController::class, 'index'])->name('home');
+/* Home - [POST] - contact rapide */
+Route::post('/send', [HomeController::class, 'store']);
 
 Route::resource('/rooms', RoomsController::class)
     ->names(['index' => 'rooms.index']);

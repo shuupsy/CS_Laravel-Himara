@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class RoomsController extends Controller
@@ -13,7 +14,11 @@ class RoomsController extends Controller
      */
     public function index()
     {
-        return view('pages.rooms-list');
+        $rooms = Room::orderby('id', 'asc')
+            ->paginate(10)
+            ;
+
+        return view('pages.rooms-list', compact('rooms'));
     }
 
     /**

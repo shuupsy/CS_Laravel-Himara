@@ -5,7 +5,7 @@ if ($_POST)
 
     // Email Settings
     $site_title       = "Himara Hotel";
-    $to_email         = "noreply@eagle-themes.com";
+ /*    $to_email         = "noreply@eagle-themes.com"; */
     $default_subject  = "Himara Hotel - New Message";
 
     // Output Messages
@@ -37,12 +37,12 @@ if ($_POST)
 
         die($output);
     }
-    //Sanitize input data using PHP filter_var(). *PHP 5.2.0+
+ /*    //Sanitize input data using PHP filter_var(). *PHP 5.2.0+
     $user_name        = filter_var($_POST["user_name"], FILTER_SANITIZE_STRING);
     $user_email       = filter_var($_POST["user_email"], FILTER_SANITIZE_EMAIL);
     $user_message     = filter_var($_POST["user_message"], FILTER_SANITIZE_STRING);
     $user_phone       = filter_var($_POST["user_phone"], FILTER_SANITIZE_STRING);
-    $user_subject     = filter_var($_POST["user_subject"], FILTER_SANITIZE_STRING);
+    $user_subject     = filter_var($_POST["user_subject"], FILTER_SANITIZE_STRING); */
 
     // To make a field required please remove "//"
 
@@ -89,3 +89,4 @@ if ($_POST)
 
 }
 ?>
+
