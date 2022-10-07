@@ -1,7 +1,6 @@
 <div id="rev-slider-1" class="rev_slider gradient-slider" style="display:none" data-version="5.4.5">
     <ul>
         @foreach ($sliders as $slider)
-            <!-- SLIDE NR. 1 -->
             <li data-transition="crossfade">
                 <!-- MAIN IMAGE -->
                 <img src="{{ $slider->background_img }}" alt="Image" title="Image" data-bgposition="center center"

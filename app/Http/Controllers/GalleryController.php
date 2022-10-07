@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GalleryPhoto;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -13,7 +14,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        return view('pages.gallery');
+        $photos = GalleryPhoto::all();
+        return view('pages.gallery', compact('photos'));
     }
 
     /**
