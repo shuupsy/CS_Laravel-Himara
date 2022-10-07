@@ -145,22 +145,11 @@
                         <aside class="widget">
                             <h4 class="widget-title">Tags</h4>
                             <div class="tagcloud">
+                                {{-- Liste de Tags --}}
+                                @foreach ($room_tags as $tag)
                                 <a href="#">
-                                    <span class="tag">Red</span></a>
-                                <a href="#">
-                                    <span class="tag">Dark</span></a>
-                                <a href="#">
-                                    <span class="tag">Yellow</span></a>
-                                <a href="#">
-                                    <span class="tag">Blue</span></a>
-                                <a href="#">
-                                    <span class="tag">Pink</span></a>
-                                <a href="#">
-                                    <span class="tag">Green</span></a>
-                                <a href="#">
-                                    <span class="tag">Gray</span></a>
-                                <a href="#">
-                                    <span class="tag">Brown</span></a>
+                                    <span class="tag">{{ $tag -> tag }}</span></a>
+                                @endforeach
                             </div>
                         </aside>
                     </div>

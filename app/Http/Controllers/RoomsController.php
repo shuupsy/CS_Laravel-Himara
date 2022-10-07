@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Room;
 use App\Models\RoomCategory;
 use Illuminate\Http\Request;
@@ -18,11 +19,13 @@ class RoomsController extends Controller
         $rooms = Room::orderby('id', 'asc')
             ->paginate(10);
 
-        $room_cats = RoomCategory::withCount('room')
+        $room_cats = RoomCategory::withCount('rooms')
             ->orderBy('id', 'asc')
             ->get();
 
-        return view('pages.rooms-list', compact('rooms', 'room_cats'));
+        $room_tags = Tag::all();
+
+        return view('pages.rooms-list', compact('rooms', 'room_cats', 'room_tags'));
     }
 
     /**
