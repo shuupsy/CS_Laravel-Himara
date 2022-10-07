@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use App\Models\Room;
+use App\Models\Option;
 use App\Models\RoomCategory;
 use Illuminate\Http\Request;
 
@@ -58,8 +59,9 @@ class RoomsController extends Controller
     public function show($id)
     {
         $room = Room::find($id);
+        $options = Option::all();
 
-        return view('pages.room', compact('room'));
+        return view('pages.room', compact('room', 'options'));
     }
 
     /**

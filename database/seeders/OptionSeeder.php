@@ -18,7 +18,7 @@ class OptionSeeder extends Seeder
         DB::table('options')->insert([
             ['option_name' => 'double bed'],
             ['option_name' => 'free internet'],
-            ['option_name' => 'free wifi'],
+            ['option_name' => 'free wi-fi'],
             ['option_name' => 'breakfast included'],
             ['option_name' => 'balcony'],
             ['option_name' => 'free newspaper'],

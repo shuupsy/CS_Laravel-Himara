@@ -73,6 +73,7 @@
                                 </figure>
                             </div>
                         </div>
+
                         <div id="room-thumbs" class="room-thumbs owl-carousel">
                             <!-- ITEM -->
                             <div class="item"><img class="img-fluid" src="images/rooms/single/single1.jpg" alt="Image">
@@ -132,21 +133,36 @@
                     </p>
                     <div class="section-title sm">
                         <h4>ROOM SERVICES</h4>
-                        <p class="section-subtitle">Istanbul Includes</p>
+                        <p class="section-subtitle">{{ $room->name }} Includes</p>
                     </div>
+                    {{-- Lsite - OPTIONS --}}
                     <div class="room-services-list">
                         <div class="row">
                             <div class="col-sm-4">
                                 <ul class="list-unstyled">
+                                    {{-- Type de lit --}}
                                     <li>
                                         <i class="fa fa-check"></i>Double Bed
                                     </li>
+                                    {{-- Surface --}}
                                     <li>
-                                        <i class="fa fa-check"></i>80 Sq mt
+                                        <i class="fa fa-check"></i>{{ $room->surface }} Sq mt
                                     </li>
+                                    {{-- Nombre personnes --}}
                                     <li>
-                                        <i class="fa fa-check"></i>3 Persons
+                                        <i class="fa fa-check"></i>{{ $room->nb_persons }} Persons
                                     </li>
+
+
+                                    @foreach ($options as $option)
+                                        {!! $room->room_options->contains($option->id) ?
+                                        '<li><i class="fa fa-check"></i>' :
+                                        '<li class="no"><i class="fa fa-times"></i>' !!}
+                                        {{ $option->option_name }}
+                                        </li>
+                                    @endforeach
+
+
                                     <li>
                                         <i class="fa fa-check"></i>Free Internet
                                     </li>
@@ -168,22 +184,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="col-sm-4">
-                                <ul class="list-unstyled">
-                                    <li class="no">
-                                        <i class="fa fa-times"></i>Flat Screen Tv
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check"></i>Full Ac
-                                    </li>
-                                    <li class="no">
-                                        <i class="fa fa-times"></i>Beach View
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check"></i>Room Service
-                                    </li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                     <p>Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
