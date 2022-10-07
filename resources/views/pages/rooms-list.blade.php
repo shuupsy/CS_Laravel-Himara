@@ -41,7 +41,7 @@
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing ..</p>
                                         {{-- Room option --}}
                                         <div class="room-services">
-                                            @foreach ($room->options as $option)
+                                            @foreach ($room->room_options as $option)
                                                 {{-- Option - Breakfast --}}
                                                 @if ($option->id == 4)
                                                     <i class="fa fa-coffee" data-toggle="popover" data-placement="top"

@@ -17,7 +17,7 @@
                             </a>
                             <div class="room-services">
                                 {{-- Options --}}
-                                @foreach ($room->options as $option)
+                                @foreach ($room->room_options as $option)
                                     {{-- Option - Breakfast --}}
                                     @if ($option->id == 4)
                                         <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover"

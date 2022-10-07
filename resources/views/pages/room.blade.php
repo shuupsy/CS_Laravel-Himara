@@ -153,7 +153,6 @@
                                         <i class="fa fa-check"></i>{{ $room->nb_persons }} Persons
                                     </li>
 
-
                                     @foreach ($options as $option)
                                         {!! $room->room_options->contains($option->id) ?
                                         '<li><i class="fa fa-check"></i>' :
