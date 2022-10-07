@@ -4880,7 +4880,7 @@ footer .subfooter .social-media a i {
   text-transform: uppercase;
 }
 
-.room-list-item .room-info .room-rates i {
+.room-list-item .room-info .room-rates i.voted {
   font-size: 13px;
   color: #ffb600;
 }

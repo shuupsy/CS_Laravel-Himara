@@ -26,7 +26,7 @@
                                 </span> --}}
                                 <span class="date">
                                     <i class="fa fa-clock-o"></i>
-                                    {{ $article -> created_at->format('F d, Y') }}
+                                   {{--  {{ $article -> created_at->format('F d, Y') }} --}}
                                 </span>
                                 <span class="comments">
                                     <a href="#">

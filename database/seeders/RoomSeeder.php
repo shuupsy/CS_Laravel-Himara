@@ -37,7 +37,7 @@ class RoomSeeder extends Seeder
                 "surface" => 100,
                 "nb_persons" => 4,
                 "category_id" => 2,
-                "rating" => 5,
+                "rating" => 4,
                 "is_Available" => true,
             ],
             [
@@ -61,7 +61,7 @@ class RoomSeeder extends Seeder
                 "surface" => 73,
                 "nb_persons" => 4,
                 "category_id" => 3,
-                "rating" => 5,
+                "rating" => 4,
                 "is_Available" => true,
             ],
             [
@@ -73,7 +73,7 @@ class RoomSeeder extends Seeder
                 "surface" => 100,
                 "nb_persons" => 2,
                 "category_id" => 4,
-                "rating" => 5,
+                "rating" => 4,
                 "is_Available" => true,
             ],
             [
@@ -85,7 +85,7 @@ class RoomSeeder extends Seeder
                 "surface" => 55,
                 "nb_persons" => 2,
                 "category_id" => 2,
-                "rating" => 5,
+                "rating" => 4,
                 "is_Available" => true,
             ],
             [
@@ -97,7 +97,7 @@ class RoomSeeder extends Seeder
                 "surface" => 80,
                 "nb_persons" => 4,
                 "category_id" => 3,
-                "rating" => 5,
+                "rating" => 3,
                 "is_Available" => true,
             ],
             [
@@ -109,7 +109,7 @@ class RoomSeeder extends Seeder
                 "surface" => 100,
                 "nb_persons" => 4,
                 "category_id" => 4,
-                "rating" => 5,
+                "rating" => 4,
                 "is_Available" => true,
             ],
             [
@@ -121,7 +121,7 @@ class RoomSeeder extends Seeder
                 "surface" => 120,
                 "nb_persons" => 2,
                 "category_id" => 1,
-                "rating" => 5,
+                "rating" => 3,
                 "is_Available" => true,
             ],
         ]);

@@ -11,46 +11,68 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <figure class="gradient-overlay-hover link-icon">
-                                        <a href="/rooms/{{ $room -> id}}"><img src="{{ $room -> mainphoto_path }}" class="img-fluid"
-                                                alt="Image {{$room -> name }}"></a>
+                                        <a href="/rooms/{{ $room->id }}"><img src="{{ $room->mainphoto_path }}"
+                                                class="img-fluid" alt="Image {{ $room->name }}"></a>
                                     </figure>
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="room-info">
                                         <h3 class="room-title">
-                                            <a href="/rooms/{{ $room -> id}}">{{$room -> name }}</a>
+                                            <a href="/rooms/{{ $room->id }}">{{ $room->name }}</a>
                                         </h3>
-                                        {{-- Note --}}
+                                        {{-- Rating --}}
                                         <span class="room-rates">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <a href="room.html#room-reviews">5.00 Based on 3 Ratings</a>
+                                            @if ($room->rating > 0)
+                                                {{-- Mettre le nombre d'étoiles correspondantes à la note --}}
+                                                @for ($i = $room->rating; $i > 0; $i--)
+                                                    <i class="fa fa-star voted" aria-hidden="true"></i>
+                                                @endfor
+
+                                                {{-- Si la note est inférieure à 5, rajouter étoile(s) grise(s) --}}
+                                                @if ($room->rating < 5)
+                                                    @for ($i = $room->rating; $i < 5; $i++)
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    @endfor
+                                                @endif
+                                            @endif
+                                            <a href="room.html#room-reviews">{{ $room->rating }} Based on 3 Ratings</a>
                                         </span>
                                         {{-- Description --}}
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing ..</p>
                                         {{-- Room option --}}
                                         <div class="room-services">
-                                            <i class="fa fa-coffee" data-toggle="popover" data-placement="top"
-                                                data-trigger="hover" data-content="Breakfast Included"
-                                                data-original-title="Breakfast"></i>
-                                            <i class="fa fa-wifi" data-toggle="popover" data-placement="top"
-                                                data-trigger="hover" data-content="Free WiFi"
-                                                data-original-title="WiFi"></i>
-                                            <i class="fa fa-television" data-toggle="popover" data-placement="top"
-                                                data-trigger="hover" data-content="Plasma TV with cable channels"
-                                                data-original-title="TV"></i>
+                                            @foreach ($room->options as $option)
+                                            {{-- Option - Breakfast --}}
+                                            @if ($option->id == 4)
+                                                <i class="fa fa-coffee" data-toggle="popover" data-placement="top"
+                                                    data-trigger="hover" data-content="Breakfast Included"
+                                                    data-original-title="Breakfast"></i>
+                                            @endif
+                                            {{-- Option - Wifi --}}
+                                            @if ($option->id == 3)
+                                                <i class="fa fa-wifi" data-toggle="popover" data-placement="top"
+                                                    data-trigger="hover" data-content="Free WiFi"
+                                                    data-original-title="WiFi"></i>
+                                            @endif
+                                            {{-- Option - TV --}}
+                                            @if ($option->id == 7)
+                                                <i class="fa fa-television" data-toggle="popover" data-placement="top"
+                                                    data-trigger="hover" data-content="Plasma TV with cable channels"
+                                                    data-original-title="TV"></i>
+                                            @endif
+                                        @endforeach
+
+
                                             <span>Beds: 1 King</span>
-                                            <span>Max Guests: {{$room -> nb_persons }}</span>
+                                            <span>Max Guests: {{ $room->nb_persons }}</span>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
                                     <div class="room-price">
-                                        <span class="price">€{{$room -> price }} / night</span>
-                                        <a href="room.html" class="btn btn-sm">view <br> details</a>
+                                        <span class="price">€{{ $room->price }} / night</span>
+                                        <a href="/rooms/{{ $room->id }}" class="btn btn-sm">view <br> details</a>
                                     </div>
                                 </div>
                             </div>
