@@ -12,7 +12,7 @@
     <meta content="" name="author">
     <!-- ========== FAVICON ========== -->
     <link rel="apple-touch-icon-precomposed" href="images/favicon-apple.png" />
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
     <!-- ========== STYLESHEETS ========== -->
     @include('partial.stylesheet-links')
     <!-- ========== ICON FONTS ========== -->
