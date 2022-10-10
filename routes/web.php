@@ -2,12 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\DashboardController;
 
 /* -------- FRONT -------- */
 /* Home */
@@ -34,9 +35,9 @@ Route::resource('/booking-form', BookingController::class)
     ->names(['index' => 'booking.index']);
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::resource('/dashboard', DashboardController::class)
+    ->names(['index' => 'dashboard'])
+    ->middleware(['auth', 'verified']);
 
 
 Route::fallback(function(){

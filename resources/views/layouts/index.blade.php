@@ -36,7 +36,6 @@
         @include('partial.header')
 
         <!-- ========== PAGE TITLE ========== -->
-
         @if(!$display)
             @include('partial.pagetitle')
         @endif
