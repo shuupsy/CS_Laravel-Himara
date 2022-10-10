@@ -20,13 +20,17 @@ return new class extends Migration
                 ->constrained();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('phone');
+            $table->string('phone')
+                ->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('city');
-            $table->string('country');
-            $table->string('profile_pic');
+            $table->string('city')
+                ->nullable();
+            $table->string('country')
+                ->nullable();
+            $table->string('profile_pic')
+                ->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
