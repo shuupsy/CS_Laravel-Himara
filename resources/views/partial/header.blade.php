@@ -66,15 +66,31 @@
                 @if (Route::has('login'))
                     {{-- Si connecté --}}
                     @auth
-                    <li class="menu-item menu-btn">
-                        <a href="{{ url('/dashboard') }}"
-                            class="btn">
-                            <i class="fa fa-user"></i>
-                            Profile
-                        </a>
-                    </li>
+                        <li class="menu-item menu-btn dropdown">
+                            <a href="{{ url('/dashboard') }}" class="btn">
+                                <i class="fa fa-user"></i>
+                                Profile
+                            </a>
+                            <ul class="submenu">
+                                <li class="menu-item">
+                                    <a href="">Backoffice ADMIN</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="">Mon Dashboard</a>
+                                </li>
+                                <li class="menu-item">
+                                    <form action="{{ route('logout') }}" method='post'>
+                                        @csrf
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                this.closest('form').submit();">LOGOUT</a>
 
-                    {{-- Non connecté --}}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {{-- Non connecté --}}
                     @else
                         {{-- Inscription --}}
                         <li class="menu-item menu-btn mx-1">
