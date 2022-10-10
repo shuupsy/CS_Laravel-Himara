@@ -37,7 +37,7 @@
                 </div>
 
                 {{-- Formulaire contact rapide --}}
-                <form action='/ésend' method='POST' id="contact-form">
+                <form action='/home' method='POST' >
                     @csrf
                     {{-- Name --}}
                     <div class="form-group">
