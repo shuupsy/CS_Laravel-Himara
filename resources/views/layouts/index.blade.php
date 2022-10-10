@@ -36,7 +36,8 @@
         @include('partial.header')
 
         <!-- ========== PAGE TITLE ========== -->
-        @if (!request()->routeIs('home'))
+
+        @if(!$display)
             @include('partial.pagetitle')
         @endif
 

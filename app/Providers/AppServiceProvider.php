@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Hotel;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,6 +30,12 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view){
             $hotel = Hotel::first();
             $view->with('hotel', $hotel );
+        });
+
+        /* Page Title */
+        view()->composer('*', function ($view){
+            $display = Request::is('/')  || Request::is('dashboard');
+            $view->with('display', $display );
         });
 
         /* Pagination Bootstrap */

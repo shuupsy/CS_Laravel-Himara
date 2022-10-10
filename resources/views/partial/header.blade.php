@@ -68,9 +68,9 @@
                     @auth
                     <li class="menu-item menu-btn">
                         <a href="{{ url('/dashboard') }}"
-                            class="text-sm text-gray-700 dark:text-gray-500 underline">
+                            class="btn">
                             <i class="fa fa-user"></i>
-                            My profile
+                            Profile
                         </a>
                     </li>
 
