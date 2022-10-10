@@ -4,7 +4,7 @@
         <div class="brand">
             <div class="logo">
                 <a href="/">
-                    <img src="/{{ $hotel -> logo }}" alt="Hotel {{ $hotel -> name }}">
+                    <img src="/{{ $hotel->logo }}" alt="Hotel {{ $hotel->name }}">
                 </a>
             </div>
         </div>
@@ -61,11 +61,37 @@
                         </li>
                     </ul>
                 </li>
-                <li class="menu-item menu-btn">
-                    <a href="booking-form.html" class="btn">
-                        <i class="fa fa-user"></i>
-                        LOG IN</a>
-                </li>
+
+                {{-- Bouton Login / Register --}}
+                @if (Route::has('login'))
+                    {{-- Si connecté --}}
+                    @auth
+                    <li class="menu-item menu-btn">
+                        <a href="{{ url('/dashboard') }}"
+                            class="text-sm text-gray-700 dark:text-gray-500 underline">
+                            <i class="fa fa-user"></i>
+                            My profile
+                        </a>
+                    </li>
+
+                    {{-- Non connecté --}}
+                    @else
+                        {{-- Inscription --}}
+                        <li class="menu-item menu-btn mx-1">
+                            <a href="{{ route('register') }}" class="btn">
+                                {{-- <i class="fa fa-user"></i> --}}
+                                REGISTER</a>
+                        </li>
+                        {{-- Connexion --}}
+                        <li class="menu-item menu-btn mx-1">
+                            <a href="{{ route('login') }}" class="btn">
+                                <i class="fa fa-user"></i>
+                                LOG IN</a>
+                        </li>
+
+                    @endauth
+                @endif
+
             </ul>
         </nav>
     </div>
