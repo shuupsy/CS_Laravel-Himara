@@ -22,12 +22,12 @@
 </head>
 
 <body>
-    <div class="min-h-screen bg-gray-100 flex gap-2">
+    <div class="w-full min-h-screen bg-gray-100 flex gap-2">
         {{-- Header --}}
-        @include('layouts.navigation')
+        {{-- @include('layouts.navigation') --}}
+        @include('partial.backoffice.b-nav')
 
-
-        <main class='w-full'>
+        <main>
             @yield('content')
         </main>
     </div>
