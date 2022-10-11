@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div class="w-full min-h-screen bg-gray-100 flex gap-2">
+    <div class="w-full min-h-screen bg-[#F5F3EF] flex gap-2">
         {{-- Header --}}
         {{-- @include('layouts.navigation') --}}
         @include('partial.backoffice.b-nav')
