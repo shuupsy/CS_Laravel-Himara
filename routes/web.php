@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\InfoController;
 
 /* -------- FRONT -------- */
 Route::get('/', [FrontController::class, 'Home'])
@@ -26,15 +27,28 @@ Route::get('/staff', [FrontController::class, 'Staff'])
 Route::get('/gallery', [FrontController::class, 'Gallery'])
 ->name('gallery');
 
+/* Profil personnel */
+Route::resource('/dashboard', DashboardController::class)
+    ->names(['index' => 'dashboard'])
+    ->middleware(['auth', 'verified']);
 
-/* Route::resource('/rooms', RoomsController::class)
+
+/* -------- BACKOFFICE -------- */
+Route::get('/admin', function(){
+    return view('pages.backoffice.b-home');
+});
+
+Route::resource('/admin/info', InfoController::class)
+    ->names(['index' => 'info.index']);
+
+Route::resource('/admin/rooms', RoomsController::class)
     ->names(['index' => 'rooms.index']);
 
-Route::resource('/staff', StaffController::class)
+Route::resource('/admin/staff', StaffController::class)
     ->names(['index' => 'staff.index']);
 
-Route::resource('/gallery', GalleryController::class)
-    ->names(['index' => 'gallery.index']); */
+Route::resource('/admin/gallery', GalleryController::class)
+    ->names(['index' => 'gallery.index']);
 
 Route::resource('/contact', ContactController::class)
     ->names(['index' => 'contact.index']);
@@ -46,13 +60,9 @@ Route::resource('/booking-form', BookingController::class)
     ->names(['index' => 'booking.index']);
 
 
-Route::resource('/dashboard', DashboardController::class)
-    ->names(['index' => 'dashboard'])
-    ->middleware(['auth', 'verified']);
 
-Route::get('/admin', function(){
-    return view('pages.backoffice.b-home');
-});
+
+
 
 
 Route::fallback(function(){

@@ -1,5 +1,5 @@
 <nav class="w-2/12 h-screen flex flex-col justify-between bg-white border-b border-gray-100 px-6 pt-6 pb-3">
-    <div class='flex flex-col gap-10'>
+    <div class='flex flex-col gap-2'>
         <!-- Logo -->
         <div class="flex items-center">
             <a href="/">
@@ -8,38 +8,50 @@
         </div>
 
         <!-- Navigation Links -->
-        <div class="flex flex-col gap-3">
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
+        <div class="flex flex-col gap-2">
+            <a href="/admin" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
+                -> Home
+            </a>
+
+            <a href="/admin/info" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
                 Infos Hotel
             </a>
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
-                Services
-            </a>
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
+
+            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
                 Rooms
             </a>
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
+
+            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                Services
+            </a>
+
+            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
                 Restaurant
             </a>
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
-                Staff
-            </a>
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
-                About
-            </a>
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
+
+            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
                 Ads
             </a>
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
+            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
                 Sliders
             </a>
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
+
+            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                About
+            </a>
+
+            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
                 Gallery
             </a>
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
+            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
                 Blog
             </a>
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm'>
+
+            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                Staff
+            </a>
+
+            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
                 Users
             </a>
         </div>
