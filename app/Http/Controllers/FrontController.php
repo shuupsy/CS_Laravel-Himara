@@ -2,26 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Dish;
 use App\Models\Room;
+use App\Models\Staff;
+use App\Models\Option;
 use App\Models\Slider;
 use App\Models\Article;
 use App\Models\Service;
 use App\Models\RoomReview;
 use App\Models\AboutContent;
 use App\Models\GalleryPhoto;
+use App\Models\RoomCategory;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
 use App\Models\ContactMessage;
 
-class HomeController extends Controller
+class FrontController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function Home()
     {
         $sliders = Slider::all();
 
@@ -38,6 +42,7 @@ class HomeController extends Controller
         $services = Service::all();
 
         $gallery = GalleryPhoto::inRandomOrder()
+            ->take(8)
             ->get();
 
         $dishes = Dish::orderBy('id', 'asc')
@@ -74,6 +79,41 @@ class HomeController extends Controller
 
         return redirect()->back();
    /*      return redirect('/#home-form'); */
+    }
+
+
+    public function Room(){
+        $rooms = Room::orderby('id', 'asc')
+            ->paginate(10);
+
+        $room_cats = RoomCategory::withCount('rooms')
+            ->orderBy('id', 'asc')
+            ->get();
+
+        $room_tags = Tag::all();
+
+        return view('pages.rooms-list', compact('rooms', 'room_cats', 'room_tags'));
+    }
+
+    public function ShowRoom($id){
+        $room = Room::find($id);
+        $options = Option::all();
+
+        return view('pages.room', compact('room', 'options'));
+    }
+
+    public function Staff(){
+        $boss = Staff::first();
+        $staffmembers = Staff::whereNot('id', 1)
+            ->inRandomOrder()
+            ->take(7)
+            ->get();
+        return view('pages.staff', compact('boss', 'staffmembers'));
+    }
+
+    public function Gallery(){
+        $photos = GalleryPhoto::all();
+        return view('pages.gallery', compact('photos'));
     }
 
 }

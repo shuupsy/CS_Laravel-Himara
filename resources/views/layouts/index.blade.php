@@ -6,7 +6,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
     <!-- ========== SEO ========== -->
-    <title>Hotel {{ $hotel -> name }} - Hotel HTML Template</title>
+    <title>Hotel {{ $hotel -> name }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <meta content="" name="author">
@@ -15,6 +15,7 @@
     <link rel="icon" href="/images/favicon.png">
     <!-- ========== STYLESHEETS ========== -->
     @include('partial.stylesheet-links')
+
     <!-- ========== ICON FONTS ========== -->
     <link href="/fonts/font-awesome.min.css" rel="stylesheet">
     <link href="/fonts/flaticon.css" rel="stylesheet">

@@ -7,14 +7,15 @@ background-size: cover;">
             @if (request()->is('staff'))
                 <h1>Our Staff</h1>
             @else
-                <h1>{{ substr_replace(ucfirst(Route::current()->getName()), '', -6) }}</h1>
+                <h1>{{ ucfirst(Route::current()->getName()) }}</h1>
             @endif
 
             <ol class="breadcrumb">
                 <li>
                     <a href="/">Home</a>
                 </li>
-                <li class='capitalize'>{{ substr_replace(ucfirst(Route::current()->getName()), '', -6) }}</li>
+                {{-- <li class='capitalize'>{{ substr_replace(ucfirst(Route::current()->getName()), '', -6) }}</li> --}}
+                <li class='capitalize'>{{ ucfirst(Route::current()->getName()) }}</li>
             </ol>
         </div>
     </div>

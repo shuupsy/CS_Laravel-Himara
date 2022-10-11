@@ -26,19 +26,19 @@
                 {{-- Navlink - ROOMS --}}
                 <li class="menu-item dropdown
                 {{ request()->routeIs('rooms.*') ? 'active' : '' }}">
-                    <a href="{{ route('rooms.index') }}">ROOMS</a>
+                    <a href="{{ route('rooms') }}">ROOMS</a>
                 </li>
 
                 {{-- Navlink - TEAM --}}
                 <li class="menu-item dropdown
                 {{ request()->routeIs('staff.*') ? 'active' : '' }}">
-                    <a href="{{ route('staff.index') }}">TEAM</a>
+                    <a href="{{ route('staff') }}">TEAM</a>
                 </li>
 
                 {{-- Navlink - GALLERY --}}
                 <li class="menu-item dropdown
                 {{ request()->routeIs('gallery.*') ? 'active' : '' }}">
-                    <a href="{{ route('gallery.index') }}">GALLERY</a>
+                    <a href="{{ route('gallery') }}">GALLERY</a>
                 </li>
 
                 {{-- Navlink - CONTACT --}}
@@ -71,20 +71,19 @@
                                 <i class="fa fa-user"></i>
                                 Profile
                             </a>
+                            {{-- Backoffice --}}
                             <ul class="submenu">
                                 <li class="menu-item">
-                                    <a href="">Backoffice ADMIN</a>
+                                    <a href="/admin">Backoffice ADMIN</a>
                                 </li>
-                                <li class="menu-item">
-                                    <a href="">Mon Dashboard</a>
-                                </li>
+
+                                {{-- Logout --}}
                                 <li class="menu-item">
                                     <form action="{{ route('logout') }}" method='post'>
                                         @csrf
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                this.closest('form').submit();">LOGOUT</a>
-
+                                this.closest('form').submit();">LOG OUT</a>
                                     </form>
                                 </li>
                             </ul>

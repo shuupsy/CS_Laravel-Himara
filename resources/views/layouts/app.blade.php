@@ -5,32 +5,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Hotel {{ $hotel->name }} || backoffice</title>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
+    <!-- ========== FAVICON ========== -->
+    <link rel="apple-touch-icon-precomposed" href="images/favicon-apple.png" />
+    <link rel="icon" href="/images/favicon.png">
+    <!-- ========== ICON FONTS ========== -->
+    <link href="/fonts/font-awesome.min.css" rel="stylesheet">
+    <link href="/fonts/flaticon.css" rel="stylesheet">
+    <!-- ========== GOOGLE FONTS ========== -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700%7CRoboto:100,300,400,400i,500,700"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
+<body>
+    <div class="min-h-screen bg-gray-100 flex gap-2">
+        {{-- Header --}}
         @include('layouts.navigation')
 
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
+        <main class='w-full'>
+            @yield('content')
         </main>
     </div>
 </body>
