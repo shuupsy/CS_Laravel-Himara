@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <img src="/{{ $hotel->logo }}" alt="Hotel {{ $hotel->name }}">
+                <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
             </a>
         </x-slot>
 

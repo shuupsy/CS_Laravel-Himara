@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Hotel;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class InfoController extends Controller
 {
@@ -77,19 +79,42 @@ class InfoController extends Controller
             'email' => $request->email,
             'fax' => $request->fax,
             'url' => $request->url,
+            'logo' => '',
         ]);
 
-        return redirect()->back()->with('success', "Informations de l'hôtel, mis à jour!");
+      /*   $logo_resize = */
+
+        return redirect()->back()->with('success', "Informations de l'hôtel, mises à jour!");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function update_logo(Request $request){
+        $hotel = Hotel::first();
+
+        if($request->hasFile('logo')) {
+            Storage::put('public/assets/', $request->file('logo'));
+
+            /* Nom du fichier */
+            $new = $request -> file('logo')->hashName();
+            /* Localisation image */
+            $logo_path = public_path('storage/assets/' . $new);
+            /* Resize */
+            $img = Image::make($logo_path)->resize(120, 30)->save(public_path('images/logos/' . $new));
+
+            $hotel -> logo = $new;
+            $hotel->save();
+
+            return redirect()->back()->with('success', "Logo de l'hôtel, mis à jour!");
+        }
     }
+/*
+    public function update_biglogo(Request $request, $id){
+        $hotel = Hotel::first();
+        Storage::put('public/assets/', $request->file('big_logo'));
+
+        $hotel->update([
+            'big_logo' => $request -> file('big_logo')->hashName(),
+        ]);
+
+        return redirect()->back()->with('success', "Logo de l'hôtel, mis à jour!");
+    } */
 }

@@ -30,8 +30,8 @@ class HotelSeeder extends Seeder
             'email' => 'contact@sysy.com',
             'fax' => '+1 888 123 4567',
             'url' => 'www.hotelsysy.com',
-            'logo' => 'images/logo.svg',
-            'big_logo' => 'images/logo-big-transparent.svg',
+            'logo' => 'logo.svg',
+            'big_logo' => 'logo-big-transparent.svg',
             ],
         ]);
     }

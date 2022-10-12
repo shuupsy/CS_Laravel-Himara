@@ -2,7 +2,7 @@
     <div class="loader-inner">
         <div class="spin">
             <span></span>
-            <img src="{{ $hotel -> logo }}" alt="Hotel {{ $hotel -> name }}">
+            <img src="/images/logos/{{ $hotel -> logo }}" alt="Hotel {{ $hotel -> name }}">
         </div>
     </div>
 </div>

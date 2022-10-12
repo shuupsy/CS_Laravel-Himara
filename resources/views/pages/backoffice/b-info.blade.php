@@ -15,8 +15,10 @@
             <div class="my-6 sm:px-6 lg:px-8">
                 <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Update</h1>
                 <div class='flex gap-10'>
+
+                    {{-- Update -- Info --}}
                     <div class="p-6 border-b bg-white border-gray-200">
-                        <h1 class='text-2xl my-3'>Hotel information</h1>
+                        <h1 class='text-2xl my-3 uppercase font-semibold'>Hotel information</h1>
                         <form action="/admin/info/{{ $hotel->id }}" method='post'>
                             @csrf
                             @method('patch')
@@ -76,17 +78,35 @@
                         </form>
                     </div>
 
+                    {{-- Update -- Logos --}}
                     <div class='flex flex-col gap-10'>
 
                         <div class='p-6 border-b bg-white border-gray-200'>
-                            <h1 class='text-2xl my-1'>Small Logo</h1>
-                            <img src="/{{ $hotel->logo }}" alt="Hotel {{ $hotel->name }}">
-                            <button class='bg-[#444444] p-2 my-3 text-white rounded-sm hover:bg-[#222222]'>Update</button>
+                            <h1 class='text-2xl my-1 uppercase font-semibold'>Small Logo</h1>
+
+                            <img src="/images/logos/{{ $hotel->logo }}" alt="Hotel {{ $hotel->name }}" class='my-3'>
+
+                            {{-- Form Logo --}}
+                            <form action="/admin/info/{{ $hotel->id }}/update1" method='post'
+                                enctype="multipart/form-data">
+                                @csrf
+                                @method('put')
+                                <input type="file" name='logo'>
+                                <button class='bg-[#444444] p-2 my-3 text-white rounded-sm hover:bg-[#222222]'>Update</button>
+                            </form>
                         </div>
+
+                        {{-- Form Big Logo --}}
                         <div class='p-6 border-b bg-white border-gray-200'>
-                            <h1 class='text-2xl my-1'>Big Logo</h1>
-                            <img src="/{{ $hotel->big_logo }}" alt="Hotel {{ $hotel->name }}">
-                            <button class='bg-[#444444] p-2 my-3 text-white rounded-sm hover:bg-[#222222]'>Update</button>
+                            <h1 class='text-2xl my-1 uppercase font-semibold'>Big Logo</h1>
+                            <img src="/{{ $hotel->big_logo }}" alt="Hotel {{ $hotel->name }}" class='my-3'>
+                            {{-- Form --}}
+                            <form action="/admin/info/{{ $hotel->id }}" method='post' enctype="multipart/form-data">
+                                @csrf
+                                @method('put')
+                                <input type="file" name='big_logo'>
+                                <button class='bg-[#444444] p-2 my-3 text-white rounded-sm hover:bg-[#222222]'>Update</button>
+                            </form>
                         </div>
                     </div>
 
