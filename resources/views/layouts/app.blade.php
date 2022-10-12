@@ -10,8 +10,8 @@
     <!-- ========== FAVICON ========== -->
     <link rel="apple-touch-icon-precomposed" href="images/favicon-apple.png" />
     <link rel="icon" href="/images/favicon.png">
-     <!-- ========== STYLESHEETS ========== -->
-     @include('partial.stylesheet-links')
+    <!-- ========== STYLESHEETS ========== -->
+    @include('partial.stylesheet-links')
     <!-- ========== ICON FONTS ========== -->
     <link href="/fonts/font-awesome.min.css" rel="stylesheet">
     <link href="/fonts/flaticon.css" rel="stylesheet">
@@ -32,7 +32,17 @@
         </div>
 
         <main class='flex-auto'>
-            @yield('content')
+            <div class="my-6 sm:px-6 lg:px-8">
+                <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Preview</h1>
+                @yield('preview')
+            </div>
+
+            <hr>
+
+            <div class="my-6 sm:px-6 lg:px-8">
+                <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Update</h1>
+                @yield('update')
+            </div>
         </main>
     </div>
 </body>

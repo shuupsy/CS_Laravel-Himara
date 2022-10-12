@@ -10,6 +10,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\SlidersController;
 
 /* -------- FRONT -------- */
 Route::get('/', [FrontController::class, 'Home'])
@@ -38,11 +39,15 @@ Route::get('/admin', function(){
     return view('pages.backoffice.b-home');
 });
 
+/* Infos Hotel */
 Route::resource('/admin/info', InfoController::class)
     ->names(['index' => 'info.index']);
-
 Route::put('/admin/info/{id}/update1', [InfoController::class, 'update_logo']);
 Route::put('/admin/info/{id}/update2', [InfoController::class, 'update_biglogo']);
+
+/* Sliders */
+Route::resource('/admin/sliders', SlidersController::class)
+    ->names(['index' => 'sliders.index']);
 
 Route::resource('/admin/rooms', RoomsController::class)
     ->names(['index' => 'rooms.index']);
