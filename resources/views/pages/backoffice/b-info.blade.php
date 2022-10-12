@@ -18,12 +18,12 @@
 
                     {{-- Update -- Info --}}
                     <div class="p-6 border-b bg-white border-gray-200">
-                        <h1 class='text-2xl my-3 uppercase font-semibold'>Hotel information</h1>
+                        <h1 class='text-2xl my-1 uppercase font-semibold'>Hotel information</h1>
                         <form action="/admin/info/{{ $hotel->id }}" method='post'>
                             @csrf
                             @method('patch')
 
-                            <div class='grid grid-cols-2 gap-3 items-center'>
+                            <div class='grid grid-cols-2 gap-3 items-center my-6'>
                                 <!-- Name -->
                                 <div>
                                     <x-input-label for="name" :value="__('Name')" />
@@ -74,45 +74,68 @@
 
                             </div>
 
-                            <button class='bg-[#444444] p-2 my-3 text-white rounded-sm hover:bg-[#222222]'>Update</button>
+                            <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222]'>Update</button>
                         </form>
+
+                        {{-- Logos --}}
+                        <div class='flex justify-center items-center'>
+                            <div class='flex justify-center my-6 p-6'>
+                                <img src="/images/logos/{{ $hotel->logo }}" alt="Hotel {{ $hotel->name }}">
+                            </div>
+                            <div class='flex justify-center my-6 p-6'>
+                                <img src="/images/logos/{{ $hotel->big_logo }}" alt="Hotel {{ $hotel->name }}">
+                            </div>
+                        </div>
                     </div>
 
                     {{-- Update -- Logos --}}
-                    <div class='flex flex-col gap-10'>
+                    <div class='flex flex-col gap-5'>
 
-                        <div class='p-6 border-b bg-white border-gray-200'>
+                        {{-- Small Logo --}}
+                        <div class='p-6 pb-1 border-b bg-white border-gray-200'>
                             <h1 class='text-2xl my-1 uppercase font-semibold'>Small Logo</h1>
 
-                            <img src="/images/logos/{{ $hotel->logo }}" alt="Hotel {{ $hotel->name }}" class='my-3'>
+                            <div class='flex justify-center border my-6 p-6'>
+                                <img src="/images/logos/{{ $hotel->logo }}" alt="Hotel {{ $hotel->name }}">
+                            </div>
 
-                            {{-- Form Logo --}}
                             <form action="/admin/info/{{ $hotel->id }}/update1" method='post'
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <input type="file" name='logo'>
-                                <button class='bg-[#444444] p-2 my-3 text-white rounded-sm hover:bg-[#222222]'>Update</button>
+                                <br>
+                                <button
+                                    class='bg-[#444444] p-2 my-3 text-white rounded-sm hover:bg-[#222222]'>Update</button>
                             </form>
                         </div>
 
                         {{-- Form Big Logo --}}
-                        <div class='p-6 border-b bg-white border-gray-200'>
+                        <div class='p-6 pb-1 border-b bg-white border-gray-200'>
                             <h1 class='text-2xl my-1 uppercase font-semibold'>Big Logo</h1>
-                            <img src="/{{ $hotel->big_logo }}" alt="Hotel {{ $hotel->name }}" class='my-3'>
+
+                            <div class='flex justify-center border my-6 p-6'>
+                                <img src="/images/logos/{{ $hotel->big_logo }}" alt="Hotel {{ $hotel->name }}">
+                            </div>
+
                             {{-- Form --}}
-                            <form action="/admin/info/{{ $hotel->id }}" method='post' enctype="multipart/form-data">
+                            <form action="/admin/info/{{ $hotel->id }}/update2" method='post' enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <input type="file" name='big_logo'>
-                                <button class='bg-[#444444] p-2 my-3 text-white rounded-sm hover:bg-[#222222]'>Update</button>
+                                <br>
+                                <button
+                                    class='bg-[#444444] p-2 my-3 text-white rounded-sm hover:bg-[#222222]'>Update</button>
                             </form>
                         </div>
                     </div>
 
+
                 </div>
+
             </div>
-
-
         </div>
-    @endsection
+
+
+    </div>
+@endsection

@@ -42,7 +42,7 @@ Route::resource('/admin/info', InfoController::class)
     ->names(['index' => 'info.index']);
 
 Route::put('/admin/info/{id}/update1', [InfoController::class, 'update_logo']);
-/* Route::post('/admin/info/{id}/update2', [InfoController::class, 'update_biglogo']); */
+Route::put('/admin/info/{id}/update2', [InfoController::class, 'update_biglogo']);
 
 Route::resource('/admin/rooms', RoomsController::class)
     ->names(['index' => 'rooms.index']);

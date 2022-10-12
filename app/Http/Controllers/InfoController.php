@@ -106,15 +106,21 @@ class InfoController extends Controller
             return redirect()->back()->with('success', "Logo de l'hôtel, mis à jour!");
         }
     }
-/*
-    public function update_biglogo(Request $request, $id){
+
+    public function update_biglogo(Request $request){
         $hotel = Hotel::first();
-        Storage::put('public/assets/', $request->file('big_logo'));
 
-        $hotel->update([
-            'big_logo' => $request -> file('big_logo')->hashName(),
-        ]);
+        if($request->hasFile('big_logo')) {
+            Storage::put('public/assets/', $request->file('big_logo'));
 
-        return redirect()->back()->with('success', "Logo de l'hôtel, mis à jour!");
-    } */
+            $new = $request -> file('big_logo')->hashName();
+            $logo_path = public_path('storage/assets/' . $new);
+            $img = Image::make($logo_path)->resize(75, 105)->save(public_path('images/logos/' . $new));
+
+            $hotel -> big_logo = $new;
+            $hotel->save();
+
+            return redirect()->back()->with('success', "Logo de l'hôtel, mis à jour!");
+        }
+    }
 }
