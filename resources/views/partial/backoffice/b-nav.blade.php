@@ -1,4 +1,4 @@
-<nav class="w-2/12 h-screen flex flex-col justify-between bg-white border-b border-gray-100 px-6 pt-6 pb-3">
+<nav class="fixed w-1/6 h-screen flex flex-col justify-between bg-white border-b border-gray-100 px-6 pt-6 pb-3">
     <div class='flex flex-col gap-2'>
         <!-- Logo -->
         <div class="flex items-center">

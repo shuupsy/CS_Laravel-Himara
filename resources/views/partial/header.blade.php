@@ -18,25 +18,25 @@
         <nav id="main-menu" class="main-menu">
             <ul class="menu">
                 {{-- Navlink - HOME --}}
-                <li class="menu-item dropdown
+                <li class="menu-item
                 {{ request()->routeIs('home') ? 'active' : '' }}">
                     <a href="/">HOME</a>
                 </li>
 
                 {{-- Navlink - ROOMS --}}
-                <li class="menu-item dropdown
+                <li class="menu-item
                 {{ request()->routeIs('rooms.*') ? 'active' : '' }}">
                     <a href="{{ route('rooms') }}">ROOMS</a>
                 </li>
 
                 {{-- Navlink - TEAM --}}
-                <li class="menu-item dropdown
+                <li class="menu-item
                 {{ request()->routeIs('staff.*') ? 'active' : '' }}">
                     <a href="{{ route('staff') }}">TEAM</a>
                 </li>
 
                 {{-- Navlink - GALLERY --}}
-                <li class="menu-item dropdown
+                <li class="menu-item
                 {{ request()->routeIs('gallery.*') ? 'active' : '' }}">
                     <a href="{{ route('gallery') }}">GALLERY</a>
                 </li>
@@ -83,7 +83,8 @@
                                         @csrf
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                this.closest('form').submit();">LOG OUT</a>
+                                this.closest('form').submit();">LOG
+                                            OUT</a>
                                     </form>
                                 </li>
                             </ul>

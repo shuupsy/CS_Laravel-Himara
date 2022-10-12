@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 
 class InfoController extends Controller
@@ -68,7 +69,17 @@ class InfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $hotel = Hotel::first();
+        $hotel->update([
+            'name' => $request->name,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'fax' => $request->fax,
+            'url' => $request->url,
+        ]);
+
+        return redirect()->back()->with('success', "Informations de l'hôtel, mis à jour!");
     }
 
     /**

@@ -10,6 +10,8 @@
     <!-- ========== FAVICON ========== -->
     <link rel="apple-touch-icon-precomposed" href="images/favicon-apple.png" />
     <link rel="icon" href="/images/favicon.png">
+     <!-- ========== STYLESHEETS ========== -->
+     @include('partial.stylesheet-links')
     <!-- ========== ICON FONTS ========== -->
     <link href="/fonts/font-awesome.min.css" rel="stylesheet">
     <link href="/fonts/flaticon.css" rel="stylesheet">
@@ -22,12 +24,14 @@
 </head>
 
 <body>
-    <div class="w-full min-h-screen bg-[#F5F3EF] flex gap-2">
+    <div class="min-h-screen bg-[#F5F3EF] flex">
         {{-- Header --}}
         {{-- @include('layouts.navigation') --}}
-        @include('partial.backoffice.b-nav')
+        <div class='flex-none w-1/6 mx-auto'>
+            @include('partial.backoffice.b-nav')
+        </div>
 
-        <main>
+        <main class='flex-auto'>
             @yield('content')
         </main>
     </div>
