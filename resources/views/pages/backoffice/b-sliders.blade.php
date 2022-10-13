@@ -7,52 +7,51 @@
 @endsection
 
 @section('new')
-    <div class='flex flex-col gap-10'>
-        <div class="p-6 border-b bg-white border-gray-200">
-            <div class='w-3/6 flex gap-6'>
-                <img src="/images/slider/slider-example.png" class='border'>
-                <form action="/admin/sliders" method='post' enctype="multipart/form-data">
-                    @csrf
+<div class='flex flex-col gap-10'>
+    <div class="p-6 border-b bg-white border-gray-200">
+        <div class='w-3/6 flex gap-6'>
+            <img src="/images/slider/slider-example.png" class='border'>
+            <form action="/admin/sliders" method='post' enctype="multipart/form-data">
+                @csrf
 
-                    <div class='flex flex-col gap-3'>
-                        <!-- Heading -->
-                        <div>
-                            <x-input-label for="layer1" :value="__('Heading')" />
+                <div class='flex flex-col gap-3'>
+                    <!-- Heading -->
+                    <div>
+                        <x-input-label for="layer1" :value="__('Heading')" />
 
-                            <x-text-input id="layer1" class="block mt-1 w-72" type="text" name="layer1"
-                                :value="old('layer1')" required autofocus />
-                        </div>
-
-                        <!-- Subheading -->
-                        <div>
-                            <x-input-label for="layer2" :value="__('Subheading')" />
-
-                            <x-text-input id="layer2" class="block mt-1 w-72" type="text" name="layer2"
-                                :value="old('layer2')" required autofocus />
-                        </div>
-
-                        <!-- Small title -->
-                        <div>
-                            <label class='block font-medium text-sm text-gray-500 capitalize' for="layer6"
-                                value="{{ old('layer6') }}">Small title (optional)</label>
-
-                            <x-text-input id="layer6" class="block mt-1 w-72" type="text" name="layer6"
-                                :value="old('layer6')" autofocus />
-                        </div>
-
-                        <!-- Image -->
-                        <div>
-                            <x-input-label for="image" :value="__('Image')" />
-
-                            <x-text-input id="image" type="file" name="image" autofocus />
-                        </div>
+                        <x-text-input id="layer1" class="block mt-1 w-72" type="text" name="layer1" :value="old('layer1')" required
+                            autofocus />
                     </div>
 
-                    <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222]'>Add</button>
-                </form>
-            </div>
+                    <!-- Subheading -->
+                    <div>
+                        <x-input-label for="layer2" :value="__('Subheading')" />
+
+                        <x-text-input id="layer2" class="block mt-1 w-72" type="text" name="layer2" :value="old('layer2')"
+                            required autofocus />
+                    </div>
+
+                    <!-- Small title -->
+                    <div>
+                        <label class='block font-medium text-sm text-gray-500 capitalize' for="layer6" value="{{ old('layer6')}}">Small title (optional)</label>
+
+                        <x-text-input id="layer6" class="block mt-1 w-72" type="text" name="layer6" :value="old('layer6')" autofocus />
+                    </div>
+
+                    <!-- Image -->
+                    <div>
+                        <x-input-label for="image" :value="__('Image')" />
+
+                        <x-text-input id="image" type="file" name="image" autofocus />
+                    </div>
+                </div>
+
+                <button class='bg-[#444444] my-2 p-2 text-white rounded-sm hover:bg-[#222222]'>Add</button>
+            </form>
         </div>
     </div>
+</div>
+
 @endsection
 
 @section('update')
