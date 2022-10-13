@@ -38,6 +38,15 @@
 
             <hr>
 
+            @hasSection('new')
+                <div class="my-6 sm:px-6 lg:px-8">
+                    <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Add</h1>
+                    @yield('new')
+                </div>
+            @endif
+
+            <hr>
+
             <div class="my-6 sm:px-6 lg:px-8">
                 <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Update</h1>
                 @yield('update')
