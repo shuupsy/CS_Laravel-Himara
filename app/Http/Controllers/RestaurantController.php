@@ -40,7 +40,25 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dish = new Dish();
+
+        /* Image */
+        Storage::put('public/assets/', $request->file('image'));
+
+        $new = $request->file('image')->hashName();
+        $new_path = public_path('storage/assets/' . $new);
+        $resize = Image::make($new_path)->resize(640, 420)->save(public_path('images/restaurant/' . $new));
+
+        $dish -> photo = $new;
+
+        /* Infos */
+        $dish -> title = $request -> title;
+        $dish -> description = $request -> description;
+        $dish -> price = $request -> price;
+
+        $dish->save();
+
+        return redirect()->back()->with('success', '(1) Plat modifié avec succès!');
     }
 
     /**

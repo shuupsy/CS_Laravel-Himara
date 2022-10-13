@@ -1,6 +1,56 @@
 @extends('layouts.app')
 
 @section('new')
+    <div class="p-6 border-b bg-white border-gray-200">
+        <div class='flex gap-6 items-center'>
+            <div class='w-3/6 flex gap-6'>
+                <img src="/images/restaurant/dish-example.png">
+            </div>
+
+            <form action="/admin/restaurant" method='post' enctype="multipart/form-data">
+                @csrf
+
+                <div class='flex flex-col gap-3 my-6'>
+                    <!-- Image -->
+                    <div>
+                        <x-input-label for="image" :value="__('Image')" />
+
+                        <x-text-input id="image" type="file" name="image" required autofocus />
+                    </div>
+
+                    <!-- Title -->
+                    <div>
+                        <x-input-label for="title" :value="__('Title')" />
+
+                        <x-text-input id="title" class="block mt-1 w-72" type="text" name="title" :value="old('title')"
+                            required autofocus />
+                    </div>
+
+                    <!-- Description -->
+                    <div>
+                        <x-input-label for="description" :value="__('Description')" />
+
+                        <textarea id="description"
+                            class="block mt-1 w-72 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                            type="text" name="description" value="{{ old('description') }}" required autofocus></textarea>
+                    </div>
+
+                    <!-- Price -->
+                    <div>
+                        <x-input-label for="price" :value="__('Price')" />
+
+                        <x-text-input id="price" class="block mt-1 w-72" type="text" name="price" :value="old('price')"
+                            required autofocus />
+                    </div>
+
+                </div>
+
+                <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222] uppercase'>Add</button>
+            </form>
+
+        </div>
+
+    </div>
 @endsection
 
 @section('update')
