@@ -12,6 +12,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SlidersController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RestaurantController;
 
 /* -------- FRONT -------- */
 Route::get('/', [FrontController::class, 'Home'])
@@ -55,6 +56,9 @@ Route::resource('/admin/ads', AdsController::class)
 Route::resource('/admin/sliders', SlidersController::class)
     ->names(['index' => 'sliders.index']);
 
+/* Restaurant */
+Route::resource('/admin/restaurant', RestaurantController::class)
+    ->names(['index' => 'restaurant.index']);
 
 Route::resource('/admin/rooms', RoomsController::class)
     ->names(['index' => 'rooms.index']);

@@ -20,14 +20,14 @@ class DishSeeder extends Seeder
                 'title' => 'Salat',
                 'description' => 'Lorem ipsum dolor sit amet, elit, sed diam nonummy nibh euismod tincidunt ut laoreet...',
                 'price' => 16.99,
-                'photo' => 'images/restaurant/restaurant1.jpg',
+                'photo' => 'restaurant1.jpg',
             ],
 
             [
                 'title' => 'Croquettes',
                 'description' => 'Lorem ipsum dolor sit amet, elit, sed diam nonummy nibh euismod tincidunt ut laoreet...',
                 'price' => 9.99,
-                'photo' => 'images/restaurant/restaurant2.jpg',
+                'photo' => 'restaurant2.jpg',
             ]
         ]);
     }

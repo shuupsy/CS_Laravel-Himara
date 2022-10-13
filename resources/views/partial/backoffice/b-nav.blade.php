@@ -25,7 +25,7 @@
                 Services
             </a>
 
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+            <a href="/admin/restaurant" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
                 Restaurant
             </a>
 

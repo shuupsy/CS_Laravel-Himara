@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-12">
                                 <figure>
-                                    <img src="{{ $dish->photo }}" class="img-fluid " alt="Image">
+                                    <img src="/images/restaurant/{{ $dish->photo }}" class="img-fluid " alt="Image">
                                 </figure>
                             </div>
                             <div class="col-lg-8 col-12">
