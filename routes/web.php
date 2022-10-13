@@ -1,16 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdsController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FrontController;
-use App\Http\Controllers\InfoController;
 use App\Http\Controllers\SlidersController;
+use App\Http\Controllers\DashboardController;
 
 /* -------- FRONT -------- */
 Route::get('/', [FrontController::class, 'Home'])
@@ -45,9 +46,15 @@ Route::resource('/admin/info', InfoController::class)
 Route::put('/admin/info/{id}/update1', [InfoController::class, 'update_logo']);
 Route::put('/admin/info/{id}/update2', [InfoController::class, 'update_biglogo']);
 
+
+/* Ads */
+Route::resource('/admin/ads', AdsController::class)
+    ->names(['index' => 'ads.index']);
+
 /* Sliders */
 Route::resource('/admin/sliders', SlidersController::class)
     ->names(['index' => 'sliders.index']);
+
 
 Route::resource('/admin/rooms', RoomsController::class)
     ->names(['index' => 'rooms.index']);

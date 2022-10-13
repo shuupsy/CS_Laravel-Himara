@@ -16,8 +16,9 @@ class AdSeeder extends Seeder
     public function run()
     {
         DB::table('advertisements')->insert([
-            ["background_img" => 'images/video.jpg',
-            "video_link" => 'https://www.youtube.com/watch?v=BDDfopejpwk']
+            ["background_img" => 'video.jpg',
+            "video_link" => 'https://www.youtube.com/watch?v=BDDfopejpwk',
+            'is_Main' => 1]
         ]);
     }
 }

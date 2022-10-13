@@ -46,12 +46,11 @@
                     </div>
                 </div>
 
-                <button class='bg-[#444444] my-2 p-2 text-white rounded-sm hover:bg-[#222222]'>Add</button>
+                <button class='bg-[#444444] my-2 p-2 text-white rounded-sm hover:bg-[#222222] uppercase'>Add</button>
             </form>
         </div>
     </div>
 </div>
-
 @endsection
 
 @section('update')

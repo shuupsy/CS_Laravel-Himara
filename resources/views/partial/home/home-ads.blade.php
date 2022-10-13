@@ -1,5 +1,5 @@
-<section class="video np parallax gradient-overlay op6" data-src="{{ $ad -> background_img}}" data-parallax="scroll"
-    data-speed="0.3" data-mirror-selector=".wrapper" data-z-index="0">
+<section class="video np parallax gradient-overlay op6" data-parallax="scroll"
+    data-speed="0.3" data-mirror-selector=".wrapper" data-z-index="0" style="background-image:url('/images/video/{{ $ad -> background_img}}')">
     <div class="inner gradient-overlay">
         <div class="container">
             <div class="video-popup">

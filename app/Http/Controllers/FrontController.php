@@ -32,7 +32,8 @@ class FrontController extends Controller
         $about = AboutContent::orderBy('id', 'desc')
             ->first();
 
-        $ad = Advertisement::first();
+        $ad = Advertisement::where('is_Main', 1)
+            ->first();
 
         $rooms = Room::where('is_Available', 1)
             ->inRandomOrder()

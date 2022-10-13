@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('background_img');
             $table->string('video_link');
+            $table->boolean('is_Main')
+            ->default(0);
             $table->timestamps();
         });
     }
