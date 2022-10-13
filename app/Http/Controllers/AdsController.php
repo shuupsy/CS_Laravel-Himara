@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,7 +20,7 @@ class AdsController extends Controller
         $ad = Advertisement::where('is_Main', 1)
             ->first();
 
-        $ads = Advertisement::all();
+        $ads = Advertisement::orderBy('id', 'desc')->get();
         return view('pages.backoffice.b-ads', compact('ad', 'ads'));
     }
 
@@ -99,7 +100,36 @@ class AdsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ads = Advertisement::all();
+        $ad = Advertisement::find($id);
+
+        /* Main pub? */
+        if($request->is_Main == true){
+            foreach($ads as $a){
+                $a->is_Main = false;
+                $a->save();
+            };
+            $ad->is_Main = true;
+        }
+
+        /* Image */
+        if($request->file('image') != null){
+            Storage::put('public/assets/', $request->file('image'));
+
+            $new = $request->file('image')->hashName();
+            $new_path = public_path('storage/assets/' . $new);
+
+            $resize = Image::make($new_path)->resize(1920, 1280)->save(public_path('images/video/' . $new));
+
+            $ad -> background_img = $new;
+        };
+
+        /* Vidéo */
+        $ad->video_link = $request->video_link;
+
+        $ad->save();
+
+        return redirect()->back()->with('success', '(1) Ad modifié avec succès!');
     }
 
     /**
@@ -110,6 +140,26 @@ class AdsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Advertisement::find($id);
+        $new_main = Advertisement::orderBy('id', 'desc')
+                ->first();
+
+        if($delete->background_img != 'video.jpg'){
+            Storage::delete('public/assets/' . $delete->background_img);
+            File::delete(public_path('images/video/' . $delete->background_img ));
+        }
+
+        if($delete->is_Main == true){
+            $new_main = Advertisement::orderBy('id', 'desc')
+                ->whereNot('id', $id)
+                ->first();
+            $new_main->update([
+                'is_Main' => true,
+            ]);
+        }
+
+        $delete->delete();
+
+        return redirect()->back()->with('success', '(1) Ad supprimé!');
     }
 }

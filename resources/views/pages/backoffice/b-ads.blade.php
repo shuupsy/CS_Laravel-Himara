@@ -42,11 +42,11 @@
 @endsection
 
 @section('update')
+<div class='flex flex-col gap-10'>
+    @foreach ($ads as $a)
     <div class="p-6 border-b bg-white border-gray-200">
-        @foreach ($ads as $a)
-            <div class='flex flex-col gap-10'>
                 @if (!$a->created_at == null)
-                    <h1 class='text-2xl text-[#E4E4E4] my-1 uppercase font-semibold'>{{ $a->created_at }}</h1>
+                    <h1 class='text-2xl text-[#E4E4E4] my-1 uppercase font-semibold'>{{  $a->created_at->format('F d, Y') }}</h1>
                 @endif
                 <div class='w-3/6 flex gap-6'>
                     <img src="/images/video/{{ $a->background_img }}" alt="Ads Background">
@@ -71,7 +71,18 @@
 
                                     <x-text-input id="image" type="file" name="image" autofocus />
                                 </div>
+                                {{-- {{ $a->isMain == true ? 'checked="true"' : ''}} --}}
+                                {{-- Make it live --}}
+                                <div>
+                                    <label for="is_Main" class='flex items-center gap-1'>
+                                        <input id="is_Main" type="checkbox" name="is_Main"
+                                        {{ $a->is_Main == true ? 'checked' : ''}}
+                                        value=true>
+                                        <span class='font-medium text-sm text-gray-700'>Current advertisement</span>
+                                    </label>
 
+
+                                </div>
 
                             </div>
 
