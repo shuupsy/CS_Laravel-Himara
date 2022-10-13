@@ -1,5 +1,34 @@
 @extends('layouts.app')
 
+
+@section('preview')
+    <div class="restaurant-menu-item">
+        <div class='flex gap-2 w-7/12 mx-auto bg-slate-50'>
+            <div class="w-1/3">
+                <figure>
+                    @if (Str::startsWith($example->photo, 'https:'))
+                        <img src="{{ $example->photo }}" class="img-fluid" alt="Image" width='640'>
+                    @else
+                        <img src="/images/restaurant/{{ $example->photo }}" class="img-fluid" alt="Image">
+                    @endif
+
+                </figure>
+            </div>
+            <div class="">
+                <div class="info p-2">
+                    <div class="border-b-2 border-dotted flex justify-between">
+                        <span class="name">{{ $example->title }}</span>
+                        <span class="price">
+                            <span class="amount">€{{ $example->price }}</span>
+                        </span>
+                    </div>
+                    <p class='py-2'>{{ $example->description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
 @section('new')
     <div class="p-6 border-b bg-white border-gray-200">
         <div class='flex gap-6 items-center'>
@@ -121,4 +150,5 @@
             </div>
         @endforeach
     </div>
+    <div>{{ $dishes->links() }} </div>
 @endsection
