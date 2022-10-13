@@ -30,7 +30,9 @@
     @include('partial.home.home-reviews')
 
     <!-- ========== RESTAURANT ========== -->
-    @include('partial.home.home-restaurant')
+    @if ($count_dish != 0)
+        @include('partial.home.home-restaurant')
+    @endif
 
     <!-- ========== NEWS ==========-->
     @include('partial.home.home-news')

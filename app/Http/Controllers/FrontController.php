@@ -50,6 +50,7 @@ class FrontController extends Controller
         $dishes = Dish::orderBy('id', 'asc')
             ->paginate(2)
             ->fragment('restaurant');
+        $count_dish = Dish::all()->count;
 
         $articles = Article::orderBy('id', 'desc')
             ->inRandomOrder()
@@ -61,7 +62,7 @@ class FrontController extends Controller
             ->get();
 
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery', 'dishes', 'articles', 'reviews', 'ad', 'count_ad'));
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery', 'dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish'));
     }
 
     /**
