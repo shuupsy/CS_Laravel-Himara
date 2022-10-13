@@ -9,7 +9,8 @@
     <div class='flex gap-10'>
         {{-- Update -- Info --}}
         <div class="p-6 border-b bg-white border-gray-200">
-            <h1 class='text-2xl my-1 uppercase font-semibold'>Hotel information</h1>
+            <h1 class='text-2xl text-[#E4E4E4] my-1 uppercase font-semibold'>Hotel information</h1>
+
             <form action="/admin/info/{{ $hotel->id }}" method='post'>
                 @csrf
                 @method('patch')
@@ -84,7 +85,7 @@
 
             {{-- Small Logo --}}
             <div class='p-6 pb-1 border-b bg-white border-gray-200'>
-                <h1 class='text-2xl my-1 uppercase font-semibold'>Small Logo</h1>
+                <h1 class='text-2xl text-[#E4E4E4] my-1 uppercase font-semibold'>Small Logo</h1>
 
                 <div class='flex justify-center border my-6 p-6'>
                     <img src="/images/logos/{{ $hotel->logo }}" alt="Hotel {{ $hotel->name }}">
@@ -101,7 +102,7 @@
 
             {{-- Form Big Logo --}}
             <div class='p-6 pb-1 border-b bg-white border-gray-200'>
-                <h1 class='text-2xl my-1 uppercase font-semibold'>Big Logo</h1>
+                <h1 class='text-2xl text-[#E4E4E4] my-1 uppercase font-semibold'>Big Logo</h1>
 
                 <div class='flex justify-center border my-6 p-6'>
                     <img src="/images/logos/{{ $hotel->big_logo }}" alt="Hotel {{ $hotel->name }}">

@@ -18,11 +18,11 @@ class SliderSeeder extends Seeder
         DB::table('sliders')->insert([
             ["layer1" => 'TOUCH THE DREAM',
             "layer2" => 'Live Your Myth In Hotel',
-            "layer3" => '',
-            "layer4" => '',
-            "layer5" => '',
+            "layer3" => 'BOOK A ROOM NOW',
+            "layer4" => 'CONTACT US NOW',
+            "layer5" => ' ',
             "layer6" => 'Star Luxury Hotel',
-            "background_img" => 'images/slider/slider1.jpg',
+            "background_img" => 'slider1.jpg',
             "order" => 1
             ],
 
@@ -32,7 +32,7 @@ class SliderSeeder extends Seeder
             "layer4" => null,
             "layer5" => null,
             "layer6" => null,
-            "background_img" => 'images/slider/slider3.jpg',
+            "background_img" => 'slider3.jpg',
             "order" => 2
             ],
 
@@ -42,7 +42,7 @@ class SliderSeeder extends Seeder
             "layer4" => null,
             "layer5" => null,
             "layer6" => null,
-            "background_img" =>  'images/slider/slider13.jpg',
+            "background_img" =>  'slider13.jpg',
             "order" => 3
             ],
 

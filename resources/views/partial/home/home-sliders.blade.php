@@ -3,9 +3,9 @@
         @foreach ($sliders as $slider)
             <li data-transition="crossfade">
                 <!-- MAIN IMAGE -->
-                <img src="{{ $slider->background_img }}" alt="Image" title="Image" data-bgposition="center center"
-                    data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg"
-                    data-no-retina="">
+                <img src="/images/slider/{{ $slider->background_img }}" alt="Image" title="Image"
+                    data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10"
+                    class="rev-slidebg" data-no-retina="">
                 <!-- LAYER NR. 1 -->
                 <h1 class="tp-caption tp-resizeme" data-x="center" data-hoffset="" data-y="320" data-voffset=""
                     data-responsive_offset="on" data-fontsize="['80','50','40','30']"
@@ -30,7 +30,7 @@
                         style="z-index: 11;">
                         <a class="btn" href="/booking-form">
                             <i class="fa fa-calendar"></i>
-                            BOOK A ROOM NOW
+                            {{ $slider->layer3 }}
                         </a>
                     </div>
                 @endif

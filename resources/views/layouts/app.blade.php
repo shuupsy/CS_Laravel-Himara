@@ -26,7 +26,6 @@
 <body>
     <div class="min-h-screen bg-[#F5F3EF] flex">
         {{-- Header --}}
-        {{-- @include('layouts.navigation') --}}
         <div class='flex-none w-1/6 mx-auto'>
             @include('partial.backoffice.b-nav')
         </div>
@@ -45,6 +44,7 @@
             </div>
         </main>
     </div>
+
 </body>
 
 </html>

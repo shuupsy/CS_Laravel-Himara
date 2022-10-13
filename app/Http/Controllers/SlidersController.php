@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SlidersController extends Controller
 {
@@ -13,7 +15,8 @@ class SlidersController extends Controller
      */
     public function index()
     {
-        return view('pages.backoffice.b-sliders');
+        $sliders = Slider::all();
+        return view('pages.backoffice.b-sliders', compact('sliders'));
     }
 
     /**
@@ -68,7 +71,19 @@ class SlidersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $slider = Slider::find($id);
+
+        $slider->layer1 = $request->layer1;
+        $slider->layer2 = $request->layer2;
+
+        if($request->file('image') != null){
+            Storage::put('public/assets/', $request->file('image'));
+           $slider->background_img = $request->file('image')->hashName();
+        };
+
+        $slider->save();
+
+        return redirect()->back()->with("Slider $id, mis à jour!");
     }
 
     /**
