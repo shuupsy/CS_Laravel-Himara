@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dish;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
@@ -104,6 +106,15 @@ class RestaurantController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Dish::find($id);
+
+        if($delete->photo != 'restaurant1.jpg' || $delete->photo != 'restaurant2.jpg' || !Str::startsWith($delete->photo, 'https:')){
+            Storage::delete('public/assets/' . $delete->photo);
+            File::delete(public_path('images/restaurant/' . $delete->photo));
+        }
+
+        $delete->delete();
+
+        return redirect()->back()->with('success', '(1) Plat supprimé avec succès!');
     }
 }

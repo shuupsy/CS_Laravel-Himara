@@ -165,6 +165,6 @@ class AdsController extends Controller
 
         $delete->delete();
 
-        return redirect()->back()->with('success', '(1) Ad supprimé!');
+        return redirect()->back()->with('success', '(1) Ad supprimé avec succès!');
     }
 }

@@ -14,13 +14,18 @@
                         <div class="row">
                             <div class="col-lg-4 col-12">
                                 <figure>
-                                    <img src="/images/restaurant/{{ $dish->photo }}" class="img-fluid " alt="Image">
+                                    @if (Str::startsWith($dish->photo, 'https:'))
+                                        <img src="{{ $dish->photo }}" class="img-fluid" alt="Image" width='640'>
+                                    @else
+                                    <img src="/images/restaurant/{{ $dish->photo }}" class="img-fluid" alt="Image">
+                                    @endif
+
                                 </figure>
                             </div>
                             <div class="col-lg-8 col-12">
                                 <div class="info">
                                     <div class="title">
-                                        <span class="name">{{ $dish -> title }}</span>
+                                        <span class="name">{{ $dish->title }}</span>
                                         <span class="price">
                                             <span class="amount">€{{ $dish->price }}</span>
                                         </span>
@@ -31,9 +36,9 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+            @endforeach
 
         </div>
-        <div class="d-flex justify-content-center">{!! $dishes ->links() !!}</div>
+        <div class="d-flex justify-content-center">{!! $dishes->links() !!}</div>
     </div>
 </section>
