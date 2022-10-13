@@ -31,12 +31,15 @@
         </div>
 
         <main class='flex-auto'>
-            <div class="my-6 sm:px-6 lg:px-8">
-                <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Preview</h1>
-                @yield('preview')
-            </div>
 
-            <hr>
+            @hasSection('preview')
+                <div class="my-6 sm:px-6 lg:px-8">
+                    <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Preview</h1>
+                    @yield('preview')
+                </div>
+                <hr>
+            @endif
+
 
             @hasSection('new')
                 <div class="my-6 sm:px-6 lg:px-8">
@@ -45,12 +48,14 @@
                 </div>
             @endif
 
-            <hr>
 
-            <div class="my-6 sm:px-6 lg:px-8">
-                <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Update</h1>
-                @yield('update')
-            </div>
+            @hasSection('update')
+                <hr>
+                <div class="my-6 sm:px-6 lg:px-8">
+                    <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Update</h1>
+                    @yield('update')
+                </div>
+            @endif
         </main>
     </div>
 

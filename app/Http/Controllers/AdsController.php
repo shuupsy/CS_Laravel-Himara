@@ -17,11 +17,13 @@ class AdsController extends Controller
      */
     public function index()
     {
+        $count = Advertisement::all()->count();
+
         $ad = Advertisement::where('is_Main', 1)
             ->first();
 
         $ads = Advertisement::orderBy('id', 'desc')->get();
-        return view('pages.backoffice.b-ads', compact('ad', 'ads'));
+        return view('pages.backoffice.b-ads', compact('ad', 'ads', 'count'));
     }
 
     /**
@@ -144,19 +146,24 @@ class AdsController extends Controller
         $new_main = Advertisement::orderBy('id', 'desc')
                 ->first();
 
+
+
         if($delete->background_img != 'video.jpg'){
             Storage::delete('public/assets/' . $delete->background_img);
             File::delete(public_path('images/video/' . $delete->background_img ));
         }
 
-        if($delete->is_Main == true){
+        $count = Advertisement::all()->count();
+        if($delete->is_Main == true && $count > 1){
             $new_main = Advertisement::orderBy('id', 'desc')
                 ->whereNot('id', $id)
                 ->first();
             $new_main->update([
                 'is_Main' => true,
             ]);
+
         }
+
 
         $delete->delete();
 
