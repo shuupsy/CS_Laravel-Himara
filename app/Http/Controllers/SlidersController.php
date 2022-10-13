@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
 class SlidersController extends Controller
@@ -78,7 +79,13 @@ class SlidersController extends Controller
 
         if($request->file('image') != null){
             Storage::put('public/assets/', $request->file('image'));
-           $slider->background_img = $request->file('image')->hashName();
+
+            $new = $request->file('image')->hashName();
+            $new_path = public_path('storage/assets/' . $new);
+
+            $resize = Image::make($new_path)->resize(1920, 1280)->save(public_path('images/slider/' . $new));
+
+            $slider -> background_img = $new;
         };
 
         $slider->save();
