@@ -77,11 +77,11 @@
 
                                         <x-text-input id="image" type="file" name="image" autofocus />
                                     </div>
-                                    {{-- {{ $a->isMain == true ? 'checked="true"' : ''}} --}}
+
                                     {{-- Make it live --}}
                                     <div>
                                         <label for="is_Main" class='flex items-center gap-1'>
-                                            <input id="is_Main" type="checkboxx" name="is_Main"
+                                            <input id="is_Main" type="checkbox" name="is_Main"
                                                 {{ $a->is_Main == true ? 'checked' : '' }} value=true>
                                             <span class='font-medium text-sm text-gray-700'>Current advertisement</span>
                                         </label>
