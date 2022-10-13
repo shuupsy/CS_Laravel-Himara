@@ -36,7 +36,9 @@
     @include('partial.home.home-news')
 
     <!-- ========== VIDEO ========== -->
-    @include('partial.home.home-ads')
+    @if ($count_ad != 0)
+        @include('partial.home.home-ads')
+    @endif
 
     <!-- ========== CONTACT V2 ========== -->
     @include('partial.home.home-contact')

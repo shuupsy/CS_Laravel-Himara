@@ -34,6 +34,7 @@ class FrontController extends Controller
 
         $ad = Advertisement::where('is_Main', 1)
             ->first();
+        $count_ad = Advertisement::all()->count();
 
         $rooms = Room::where('is_Available', 1)
             ->inRandomOrder()
@@ -60,7 +61,7 @@ class FrontController extends Controller
             ->get();
 
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery', 'dishes', 'articles', 'reviews', 'ad'));
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery', 'dishes', 'articles', 'reviews', 'ad', 'count_ad'));
     }
 
     /**

@@ -145,15 +145,14 @@ class AdsController extends Controller
         $delete = Advertisement::find($id);
         $new_main = Advertisement::orderBy('id', 'desc')
                 ->first();
-
-
+        $count = Advertisement::all()->count();
 
         if($delete->background_img != 'video.jpg'){
             Storage::delete('public/assets/' . $delete->background_img);
             File::delete(public_path('images/video/' . $delete->background_img ));
         }
 
-        $count = Advertisement::all()->count();
+
         if($delete->is_Main == true && $count > 1){
             $new_main = Advertisement::orderBy('id', 'desc')
                 ->whereNot('id', $id)
@@ -161,7 +160,6 @@ class AdsController extends Controller
             $new_main->update([
                 'is_Main' => true,
             ]);
-
         }
 
 

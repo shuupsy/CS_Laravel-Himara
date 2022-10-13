@@ -56,6 +56,7 @@
                     @yield('update')
                 </div>
             @endif
+            
         </main>
     </div>
 
