@@ -7,7 +7,7 @@
                     data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10"
                     class="rev-slidebg" data-no-retina="">
                 <!-- LAYER NR. 1 -->
-                <h1 class="tp-caption tp-resizeme" data-x="center" data-hoffset="" data-y="320" data-voffset=""
+                <h1 class="tp-caption tp-resizeme uppercase" data-x="center" data-hoffset="" data-y="320" data-voffset=""
                     data-responsive_offset="on" data-fontsize="['80','50','40','30']"
                     data-lineheight="['60','50','40','30']" data-whitespace="nowrap"
                     data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'

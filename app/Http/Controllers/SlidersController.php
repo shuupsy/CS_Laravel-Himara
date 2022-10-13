@@ -38,7 +38,36 @@ class SlidersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $slider = new Slider();
+      $slider->layer1 = $request->layer1;
+      $slider->layer2 = $request->layer2;
+
+      /* Compter le nombre de rows dans la table Slider */
+      $count = Slider::all()->count();
+      $slider->order = $count +1;
+      
+      /* Small title (optional) */
+      if($request->layer6 != null){
+        $slider->layer6 = $request->layer6;
+      }
+      /* Background image */
+      if($request->hasFile('image')){
+        Storage::put('public/assets/', $request->file('image'));
+        $new = $request->file('image')->hashName();
+        $new_path = public_path('storage/assets/' . $new);
+
+        $resize = Image::make($new_path)->resize(1920, 1280)->save(public_path('images/slider/' . $new));
+
+        $slider -> background_img = $new;
+      }
+      /* Background image par défaut */
+      else {
+        $slider -> background_img = 'slider2.jpg';
+      }
+
+      $slider->save();
+      return redirect()->back()->with('success', 'Nouveau slider ajouté!');
+
     }
 
     /**
