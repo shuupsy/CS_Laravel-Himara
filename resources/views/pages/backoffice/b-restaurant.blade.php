@@ -17,11 +17,18 @@
                         @endif
                     </div>
 
-                    <form action="/admin/dishs/{{ $dish->id }}" method='post' enctype="multipart/form-data">
+                    <form action="/admin/restaurant/{{ $dish->id }}" method='post' enctype="multipart/form-data">
                         @csrf
                         @method('patch')
 
                         <div class='flex flex-col gap-3 my-6'>
+                            <!-- Image -->
+                            <div>
+                                <x-input-label for="image" :value="__('Image')" />
+
+                                <x-text-input id="image" type="file" name="image" autofocus />
+                            </div>
+
                             <!-- Title -->
                             <div>
                                 <x-input-label for="title" :value="__('Title')" />
@@ -39,20 +46,20 @@
                                     type="text" name="description" value="{{ old('description') }}" required autofocus>{{ $dish->description }}</textarea>
                             </div>
 
-                            <!-- Image -->
+                            <!-- Price -->
                             <div>
-                                <x-input-label for="image" :value="__('Image')" />
+                                <x-input-label for="price" :value="__('Price')" />
 
-                                <x-text-input id="image" type="file" name="image" autofocus />
+                                <x-text-input id="price" class="block mt-1 w-72" type="text" name="price"
+                                    :value="$dish->price" required autofocus />
                             </div>
-
 
                         </div>
 
                         <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222]'>Update</button>
                     </form>
 
-                    <form action="/admin/dishs/{{ $dish->id }}" method='post'>
+                    <form action="/admin/restaurant/{{ $dish->id }}" method='post'>
                         @csrf
                         @method('delete')
                         <button class='text-red-600 rounded-sm p-2 hover:underline'>delete</button>

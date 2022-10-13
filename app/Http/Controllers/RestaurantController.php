@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Dish;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -70,7 +72,28 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dish = Dish::find($id);
+
+        /* Image */
+        if($request->file('image') != null){
+            Storage::put('public/assets/', $request->file('image'));
+
+            $new = $request->file('image')->hashName();
+            $new_path = public_path('storage/assets/' . $new);
+
+            $resize = Image::make($new_path)->resize(640, 420)->save(public_path('images/restaurant/' . $new));
+
+            $dish -> photo = $new;
+        };
+
+        /* Infos */
+        $dish -> title = $request -> title;
+        $dish -> description = $request -> description;
+        $dish -> price = $request -> price;
+
+        $dish->save();
+
+        return redirect()->back()->with('success', '(1) Plat modifié avec succès!');
     }
 
     /**
