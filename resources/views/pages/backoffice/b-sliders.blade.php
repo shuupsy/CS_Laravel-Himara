@@ -13,40 +13,50 @@
                 <h1 class='text-2xl text-[#E4E4E4] my-1 uppercase font-semibold'>Slider {{ $slider->id }}</h1>
                 <div class='w-3/6 flex gap-6'>
                     <img src="/images/slider/{{ $slider->background_img }}">
-                    <form action="/admin/sliders/{{$slider->id}}" method='post' enctype="multipart/form-data">
-                        @csrf
-                        @method('patch')
 
-                        <div class='flex flex-col gap-3 my-6'>
-                            <!-- Heading -->
-                            <div>
-                                <x-input-label for="layer1" :value="__('Heading')" />
+                    <div>
+                        <form action="/admin/sliders/{{$slider->id}}" method='post' enctype="multipart/form-data">
+                            @csrf
+                            @method('patch')
 
-                                <x-text-input id="layer1" class="block mt-1 w-72" type="text" name="layer1"
-                                    :value="$slider->layer1" required autofocus />
+                            <div class='flex flex-col gap-3 my-6'>
+                                <!-- Heading -->
+                                <div>
+                                    <x-input-label for="layer1" :value="__('Heading')" />
+
+                                    <x-text-input id="layer1" class="block mt-1 w-72" type="text" name="layer1"
+                                        :value="$slider->layer1" required autofocus />
+                                </div>
+
+                                <!-- Subheading -->
+                                <div>
+                                    <x-input-label for="layer2" :value="__('Subheading')" />
+
+                                    <x-text-input id="layer2" class="block mt-1 w-72" type="text" name="layer2"
+                                        :value="$slider->layer2" required autofocus />
+                                </div>
+
+                                <!-- Image -->
+                                <div>
+                                    <x-input-label for="image" :value="__('Image')" />
+
+                                    <x-text-input id="image"  type="file" name="image"
+                                    autofocus />
+                                </div>
+
+
                             </div>
 
-                            <!-- Subheading -->
-                            <div>
-                                <x-input-label for="layer2" :value="__('Subheading')" />
+                            <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222]'>Update</button>
+                        </form>
 
-                                <x-text-input id="layer2" class="block mt-1 w-72" type="text" name="layer2"
-                                    :value="$slider->layer2" required autofocus />
-                            </div>
+                        <form action="/admin/sliders/{{ $slider->id}}" method='post'>
+                            @csrf
+                            @method('delete')
+                            <button class='text-red-600 rounded-sm p-2 hover:underline'>delete</button>
+                        </form>
+                    </div>
 
-                            <!-- Image -->
-                            <div>
-                                <x-input-label for="image" :value="__('Image')" />
-
-                                <x-text-input id="image"  type="file" name="image"
-                                autofocus />
-                            </div>
-
-
-                        </div>
-
-                        <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222]'>Update</button>
-                    </form>
                 </div>
 
             </div>

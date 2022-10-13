@@ -101,6 +101,7 @@ class SlidersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Slider::destroy($id);
+        return redirect()->back()->with('success', '(1) slider supprimé!');
     }
 }
