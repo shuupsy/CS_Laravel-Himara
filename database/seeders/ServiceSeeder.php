@@ -19,22 +19,22 @@ class ServiceSeeder extends Seeder
             ['title' => 'Restaurant',
             'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.',
             'logo_id' => 5,
-            'image' => 'images/services/restaurant.jpg'],
+            'image' => 'restaurant.jpg'],
 
             ['title' => 'Spa - Beauty & Health',
             'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.',
             'logo_id' => 7,
-            'image' => 'images/services/spa.jpg'],
+            'image' => 'spa.jpg'],
 
             ['title' => 'Conference Room',
             'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.',
             'logo_id' => 6,
-            'image' => 'images/services/conference.jpg'],
+            'image' => 'conference.jpg'],
 
             ['title' => 'Swimming Pool',
             'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.',
             'logo_id' => 11,
-            'image' => 'images/services/swimming.jpg'],
+            'image' => 'swimming.jpg'],
         ]);
     }
 }
