@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+{{-- PREVIEW --}}
 @if ($count != 0)
     @section('preview')
         <div class="services h-[30rem] p-6 border-b bg-white border-gray-200">
@@ -36,7 +37,7 @@
     @endsection
 @endif
 
-
+{{-- NEW --}}
 @if ($count == 4)
     @section('new')
         <div class='flex flex-col gap-10'>
@@ -50,6 +51,7 @@
             </div>
         </div>
     @endsection
+{{-- Si service < 4 --}}
 @else
     @section('new')
         <div class='flex flex-col gap-10'>
@@ -108,7 +110,7 @@
     @endsection
 @endif
 
-
+{{-- UPDATE --}}
 @if ($count != 0)
     @section('update')
         <div class='flex flex-col gap-10'>

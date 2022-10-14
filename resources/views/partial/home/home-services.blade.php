@@ -10,7 +10,7 @@
                 <div data-slider-id="services" class="services-owl owl-carousel">
                     @foreach ($services as $service)
                         <figure class="gradient-overlay">
-                            <img src="{{ $service->image }}" class="img-fluid" alt="Image">
+                            <img src="/images/services/{{ $service->image }}" class="img-fluid" alt="Image">
                             <figcaption>
                                 <h4>{{ $service -> title }}</h4>
                             </figcaption>

@@ -130,8 +130,11 @@ class ServiceController extends Controller
     {
         $delete = Service::find($id);
 
-        Storage::delete('public/assets/' . $delete->photo);
-        File::delete(public_path('images/service/' . $delete->photo));
+        $img = $delete->image;
+        if($img != 'restaurant.jpg' || $img != 'conference.jpg' ||$img != 'swimming.jpg' ||$img != 'spa.jpg'){
+            Storage::delete('public/assets/' . $delete->photo);
+            File::delete(public_path('images/service/' . $delete->photo));
+        }
 
 
         $delete->delete();
