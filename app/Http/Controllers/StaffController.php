@@ -14,7 +14,13 @@ class StaffController extends Controller
      */
     public function index()
     {
-        
+        $boss = Staff::first();
+        $staffmembers = Staff::whereNot('id', 1)
+            ->inRandomOrder()
+            ->take(2)
+            ->get();
+            
+        return view('pages.backoffice.b-staff', compact('boss', 'staffmembers'));
     }
 
     /**
