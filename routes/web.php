@@ -13,6 +13,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SlidersController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\ServiceController;
 
 /* -------- FRONT -------- */
 Route::get('/', [FrontController::class, 'Home'])
@@ -47,6 +48,9 @@ Route::resource('/admin/info', InfoController::class)
 Route::put('/admin/info/{id}/update1', [InfoController::class, 'update_logo']);
 Route::put('/admin/info/{id}/update2', [InfoController::class, 'update_biglogo']);
 
+/* Service */
+Route::resource('/admin/services', ServiceController::class)
+    ->names(['index' => 'service.index']);
 
 /* Ads */
 Route::resource('/admin/ads', AdsController::class)
@@ -60,11 +64,12 @@ Route::resource('/admin/sliders', SlidersController::class)
 Route::resource('/admin/restaurant', RestaurantController::class)
     ->names(['index' => 'restaurant.index']);
 
-Route::resource('/admin/rooms', RoomsController::class)
-    ->names(['index' => 'rooms.index']);
-
+/* Staff */
 Route::resource('/admin/staff', StaffController::class)
     ->names(['index' => 'staff.index']);
+
+Route::resource('/admin/rooms', RoomsController::class)
+    ->names(['index' => 'rooms.index']);
 
 Route::resource('/admin/gallery', GalleryController::class)
     ->names(['index' => 'gallery.index']);
