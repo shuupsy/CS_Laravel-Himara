@@ -49,7 +49,26 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $new_member = new Staff();
+
+        /* Image */
+        Storage::put('public/assets/', $request->file('image'));
+
+        $new = $request->file('image')->hashName();
+        $new_path = public_path('storage/assets/' . $new);
+        $resize = Image::make($new_path)->resize(540, 540)->save(public_path('images/staff/' . $new));
+
+        $new_member -> photo = $new;
+
+        /* Infos */
+        $new_member -> first_name = $request -> first_name;
+        $new_member -> last_name = $request -> last_name;
+        $new_member -> description = $request -> description;
+        $new_member -> job = $request -> job;
+
+        $new_member->save();
+
+        return redirect()->back()->with('success', '(1) Membre ajouté avec succès!');
     }
 
     /**

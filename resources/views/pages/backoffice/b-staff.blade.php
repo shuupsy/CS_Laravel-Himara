@@ -41,6 +41,69 @@
 @endsection
 
 @section('new')
+    <div class='w-11/12 mx-auto flex flex-col gap-10' id='staff-update'>
+        <div class="p-6 border-b bg-white border-gray-200">
+            <div class='flex gap-6'>
+                <form action="/admin/staff" method='post' enctype="multipart/form-data">
+                    @csrf
+
+                    <div class='flex items-center gap-6'>
+                        {{-- Photo --}}
+                        <figure>
+                            <img src="/images/staff/staff-example.png" class="img-fluid" alt="Image" width='250'>
+                        </figure>
+
+                        <div class='flex flex-col gap-2'>
+                            <!-- First Name -->
+                            <div>
+                                <x-input-label for="first_name" :value="__('First Name')" />
+
+                                <x-text-input id="first_name" class="block mt-1 w-72" type="text" name="first_name"
+                                    :value="old('first_name')" required autofocus />
+                            </div>
+
+                            <!-- Last Name -->
+                            <div>
+                                <x-input-label for="last_name" :value="__('Last Name')" />
+
+                                <x-text-input id="last_name" class="block mt-1 w-72" type="text" name="last_name"
+                                    :value="old('last_name')" required autofocus />
+                            </div>
+
+                            <!-- Job -->
+                            <div>
+                                <x-input-label for="job" :value="__('Job')" />
+
+                                <x-text-input id="job" class="block mt-1 w-72" type="text" name="job"
+                                    :value="old('job')" required autofocus />
+                            </div>
+                        </div>
+
+                        <div class='flex flex-col gap-2'>
+                            <!-- Description -->
+                            <div>
+                                <x-input-label for="description" :value="__('Description')" />
+
+                                <textarea id="description"
+                                    class="block mt-1 w-72 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                    type="text" name="description" value="{{ old('description') }}" required autofocus></textarea>
+                            </div>
+
+                            <!-- Image -->
+                            <div>
+                                <x-input-label for="image" :value="__('Image')" />
+
+                                <x-text-input id="image" type="file" name="image" autofocus required />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222] mt-2 uppercase'>Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('update')

@@ -62,7 +62,7 @@ class RestaurantController extends Controller
 
         $dish->save();
 
-        return redirect()->back()->with('success', '(1) Plat modifié avec succès!');
+        return redirect()->back()->with('success', '(1) Plat ajouté avec succès!');
     }
 
     /**
