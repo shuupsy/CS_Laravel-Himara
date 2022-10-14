@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('preview')
-    <div class='w-11/12 mx-auto grid grid-cols-3 justify-center gap-3'>
+    <div class='w-11/12 mx-auto grid grid-cols-3 justify-center gap-6'>
         {{-- CEO --}}
         <div class="staff-item">
             <figure>
@@ -24,10 +24,10 @@
             <div class="staff-item">
                 <figure>
                     @if (Str::startsWith($member->photo, 'http'))
-                    <img src="{{ $member->photo }}" class="img-fluid" alt="Image">
-                @else
-                    <img src="/images/staff/{{ $member->photo }}" class="img-fluid" alt="Image">
-                @endif
+                        <img src="{{ $member->photo }}" class="img-fluid" alt="Image">
+                    @else
+                        <img src="/images/staff/{{ $member->photo }}" class="img-fluid" alt="Image">
+                    @endif
                     <div class="position">{{ $member->job }}</div>
                 </figure>
                 <div class="details">
@@ -44,4 +44,87 @@
 @endsection
 
 @section('update')
+    <div class='w-11/12 mx-auto flex flex-col gap-10'>
+        @foreach ($all as $member)
+            <div class="p-6 border-b bg-white border-gray-200">
+                {{-- Titre --}}
+                <h1 class='text-2xl text-[#D8BA8D] my-1 uppercase font-semibold'>{{ $member->first_name }}
+                    {{ $member->last_name }} - <span class='text-[#E4E4E4]'>{{ $member->job }}</span></h1>
+
+                <div class='flex gap-6'>
+
+                    <form action="/admin/staff/{{ $member->id }}" method='post' enctype="multipart/form-data">
+                        @csrf
+                        @method('patch')
+
+                        <div class='flex items-center gap-6'>
+                            {{-- Photo --}}
+                            <figure>
+                                @if (Str::startsWith($member->photo, 'http'))
+                                    <img src="{{ $member->photo }}" class="img-fluid" alt="Image" width='250'>
+                                @else
+                                    <img src="/images/staff/{{ $member->photo }}" class="img-fluid" alt="Image"
+                                        width='250'>
+                                @endif
+                            </figure>
+
+                            <div class='flex flex-col gap-2'>
+                                <!-- First Name -->
+                                <div>
+                                    <x-input-label for="first_name" :value="__('First Name')" />
+
+                                    <x-text-input id="first_name" class="block mt-1 w-72" type="text" name="first_name"
+                                        :value="$member->first_name" required autofocus />
+                                </div>
+
+                                <!-- Last Name -->
+                                <div>
+                                    <x-input-label for="last_name" :value="__('Last Name')" />
+
+                                    <x-text-input id="last_name" class="block mt-1 w-72" type="text" name="last_name"
+                                        :value="$member->last_name" required autofocus />
+                                </div>
+
+                                <!-- Job -->
+                                <div>
+                                    <x-input-label for="job" :value="__('Job')" />
+
+                                    <x-text-input id="job" class="block mt-1 w-72" type="text" name="job"
+                                        :value="$member->job" required autofocus />
+                                </div>
+                            </div>
+
+                            <div class='flex flex-col gap-2'>
+                                <!-- Description -->
+                                <div>
+                                    <x-input-label for="description" :value="__('Description')" />
+
+                                    <textarea id="description"
+                                        class="block mt-1 w-72 rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        type="text" name="description" value="{{ old('description') }}" required autofocus>{{ $member->description }}</textarea>
+                                </div>
+
+                                <!-- Image -->
+                                <div>
+                                    <x-input-label for="image" :value="__('Image')" />
+
+                                    <x-text-input id="image" type="file" name="image" autofocus />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222] mt-2'>Update</button>
+                    </form>
+                </div>
+
+                <form action="/admin/staff/{{ $member->id }}" method='post'>
+                    @csrf
+                    @method('delete')
+                    <button class='text-red-600 rounded-sm p-2 hover:underline'>delete</button>
+                </form>
+
+            </div>
+        @endforeach
+    </div>
 @endsection
