@@ -11,8 +11,8 @@
             @foreach ($gallery as $photo)
                 <div class="gallery-item">
                     <figure class="gradient-overlay image-icon">
-                        <a href="{{ $photo -> photo }}">
-                            <img src="{{ $photo -> photo }}" alt="{{ $photo -> title }} Image">
+                        <a href="/images/gallery/{{ $photo -> photo }}">
+                            <img src="/images/gallery/{{ $photo -> photo }}" alt="{{ $photo -> title }} Image">
                         </a>
                         <figcaption>{{ $photo -> title }}</figcaption>
                     </figure>

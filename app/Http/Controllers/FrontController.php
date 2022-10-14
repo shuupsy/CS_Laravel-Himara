@@ -62,7 +62,7 @@ class FrontController extends Controller
             ->get();
 
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery', 'dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish'));
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish'));
     }
 
     /**

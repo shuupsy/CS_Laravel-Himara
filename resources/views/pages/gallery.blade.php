@@ -19,8 +19,8 @@
                 @foreach ($photos as $photo)
                     <div class="gallery-item filter-{{ str_replace(' ', '', strtolower($photo->title)) }} col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="{{ $photo -> photo }}">
-                                <img src="{{ $photo -> photo }}" class="img-fluid" alt="Image {{ $photo -> title }}">
+                            <a href="/images/gallery/{{ $photo -> photo }}">
+                                <img src="/images/gallery/{{ $photo -> photo }}" class="img-fluid" alt="Image {{ $photo -> title }}">
                             </a>
                             <figcaption>{{ $photo -> title }}</figcaption>
                         </figure>

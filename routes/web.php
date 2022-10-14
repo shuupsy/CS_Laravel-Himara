@@ -68,11 +68,14 @@ Route::resource('/admin/restaurant', RestaurantController::class)
 Route::resource('/admin/staff', StaffController::class)
     ->names(['index' => 'staff.index']);
 
+/* Gallery */
+Route::resource('/admin/gallery', GalleryController::class)
+    ->names(['index' => 'gallery.index']);
+
 Route::resource('/admin/rooms', RoomsController::class)
     ->names(['index' => 'rooms.index']);
 
-Route::resource('/admin/gallery', GalleryController::class)
-    ->names(['index' => 'gallery.index']);
+
 
 Route::resource('/contact', ContactController::class)
     ->names(['index' => 'contact.index']);

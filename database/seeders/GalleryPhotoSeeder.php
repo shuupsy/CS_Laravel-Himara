@@ -18,43 +18,43 @@ class GalleryPhotoSeeder extends Seeder
         DB::table('gallery_photos')->insert([
             ["category_id" => 1,
             "title" => 'Breakfast',
-            "photo" => 'images/gallery/gallery4.jpg'],
+            "photo" => 'gallery4.jpg'],
 
             ["category_id" => 1,
             "title" => 'Restaurant',
-            "photo" => 'images/gallery/gallery6.jpg'],
+            "photo" => 'gallery6.jpg'],
 
             ["category_id" => 2,
             "title" => 'Swimming Pool',
-            "photo" => 'images/gallery/gallery1.jpg'],
+            "photo" => 'gallery1.jpg'],
 
             ["category_id" => 4,
             "title" => 'Room View',
-            "photo" => 'images/gallery/gallery2.jpg'],
+            "photo" => 'gallery2.jpg'],
 
             ["category_id" => 4,
             "title" => 'Beach',
-            "photo" => 'images/gallery/gallery8.jpg'],
+            "photo" => 'gallery8.jpg'],
 
             ["category_id" => 4,
             "title" => 'Sea',
-            "photo" => 'images/gallery/gallery10.jpg'],
+            "photo" => 'gallery10.jpg'],
 
             ["category_id" => null,
             "title" => 'Cocktail',
-            "photo" => 'images/gallery/gallery3.jpg'],
+            "photo" => 'gallery3.jpg'],
 
             ["category_id" => null,
             "title" => 'Playground',
-            "photo" => 'images/gallery/gallery5.jpg'],
+            "photo" => 'gallery5.jpg'],
 
             ["category_id" => null,
             "title" => 'Wedding Ceremony',
-            "photo" => 'images/gallery/gallery7.jpg'],
+            "photo" => 'gallery7.jpg'],
 
             ["category_id" => null,
             "title" => 'Honeymoon Room',
-            "photo" => 'images/gallery/gallery9.jpg'],
+            "photo" => 'gallery9.jpg'],
         ]);
     }
 }

@@ -15,7 +15,7 @@ class GalleryController extends Controller
     public function index()
     {
         $photos = GalleryPhoto::all();
-        return view('pages.gallery', compact('photos'));
+        return view('pages.backoffice.b-gallery', compact('photos'));
     }
 
     /**
