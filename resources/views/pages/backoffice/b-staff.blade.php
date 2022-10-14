@@ -44,7 +44,7 @@
 @endsection
 
 @section('update')
-    <div class='w-11/12 mx-auto flex flex-col gap-10'>
+    <div class='w-11/12 mx-auto flex flex-col gap-10' id='staff-update'>
         @foreach ($all as $member)
             <div class="p-6 border-b bg-white border-gray-200">
                 {{-- Titre --}}
@@ -127,4 +127,5 @@
             </div>
         @endforeach
     </div>
+    <div>{{ $all->links() }} </div>
 @endsection

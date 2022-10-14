@@ -19,9 +19,10 @@ class RestaurantController extends Controller
     public function index()
     {
         $example = Dish::first();
-        $dishes = Dish::orderBy('title', 'asc')->paginate(6)
+        $dishes = Dish::orderBy('title', 'asc')
+        ->paginate(6)
         ->fragment('food-update');
-        
+
         return view('pages.backoffice.b-restaurant', compact('dishes', 'example'));
     }
 

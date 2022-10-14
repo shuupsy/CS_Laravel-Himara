@@ -24,7 +24,9 @@ class StaffController extends Controller
             ->take(2)
             ->get();
 
-        $all = Staff::all();
+        $all = Staff::orderBy('id', 'asc')
+        ->paginate(6)
+        ->fragment('staff-update');
 
         return view('pages.backoffice.b-staff', compact('boss', 'staffmembers', 'all'));
     }
