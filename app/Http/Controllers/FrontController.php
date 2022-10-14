@@ -50,7 +50,7 @@ class FrontController extends Controller
         $dishes = Dish::orderBy('id', 'asc')
             ->paginate(2)
             ->fragment('restaurant');
-        $count_dish = Dish::all()->count;
+        $count_dish = Dish::all()->count();
 
         $articles = Article::orderBy('id', 'desc')
             ->inRandomOrder()

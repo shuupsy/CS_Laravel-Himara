@@ -83,7 +83,7 @@
 @endsection
 
 @section('update')
-    <div class='grid grid-cols-3 gap-10'>
+<div class='grid grid-cols-3 gap-10' id='food-update'>
         @foreach ($dishes as $dish)
             <div class="p-6 border-b bg-white border-gray-200">
                 <h1 class='text-2xl text-[#D8BA8D] my-1 uppercase font-semibold'>{{ $dish->title }}</h1>
