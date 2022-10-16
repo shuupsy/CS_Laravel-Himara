@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GalleryCategory;
 use App\Models\GalleryPhoto;
 use Illuminate\Http\Request;
+use App\Models\GalleryCategory;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -18,7 +20,9 @@ class GalleryController extends Controller
         $categories = GalleryCategory::orderBy('category', 'asc')->get();
         $photos = GalleryPhoto::all();
 
-        return view('pages.backoffice.b-gallery', compact('photos', 'categories'));
+        $photos_nocat = GalleryPhoto::where('gallery_category_id', null)->get();
+
+        return view('pages.backoffice.b-gallery', compact('photos', 'categories', 'photos_nocat'));
     }
 
     /**
@@ -39,7 +43,24 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $photo = new GalleryPhoto();
+
+        /* Image */
+        Storage::put('public/assets/', $request->file('image'));
+
+        $new = $request->file('image')->hashName();
+        $new_path = public_path('storage/assets/' . $new);
+        $resize = Image::make($new_path)->resize(600, 800)->save(public_path('images/gallery/' . $new));
+
+        $photo -> photo = $new;
+
+        /* Infos */
+        $photo -> title = $request -> title;
+        $photo -> gallery_category_id = $request -> category;
+
+        $photo->save();
+
+        return redirect()->back()->with('success', '(1) Photo ajoutée avec succès!');
     }
 
     /**

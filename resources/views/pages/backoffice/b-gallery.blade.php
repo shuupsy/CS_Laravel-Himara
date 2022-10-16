@@ -56,10 +56,19 @@
                 {{-- Ajout photo --}}
                 <label
                     class='w-28 h-28 border-2 my-3 border-slate-500 hover:text-[#D8BA8D] rounded-full flex justify-center items-center cursor-pointer'
-                    for="image_gallery">
-                    <input type="file" name="image_gallery" id="image_gallery" class='hidden' required>
+                    for="image">
+                    <input type="file" name="image" id="image" class='hidden' required>
                     <span class='text-6xl'>+</span>
                 </label>
+
+                <!-- Title -->
+                <div class='flex items-center gap-3'>
+                    <x-input-label class='m-0' for="title" :value="__('Title : ')" />
+
+                    <x-text-input id="title" class="block mt-1 w-72 placeholder:lowercase placeholder:italic"
+                        type="text" name="title" :value="old('title')" placeholder='examples: Room View, Beach...' required
+                        autofocus />
+                </div>
 
                 <!-- Catégorie -->
                 <div class='flex items-center gap-3'>
@@ -76,6 +85,7 @@
                     </select>
                 </div>
 
+
                 <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222] uppercase'>Add</button>
             </form>
 
@@ -86,41 +96,87 @@
     {{-- Gallery --}}
     <div class="my-6 sm:px-6 lg:px-8">
         <div class="grid grid-cols-3 gap-4">
+
+            {{-- Photos sans catégories --}}
+            <div class='p-6 bg-white'>
+                <h1 class='text-2xl text-[#D8BA8D] my-1 uppercase font-semibold'>No category</h1>
+                {{-- Prévisualisation photos --}}
+                <div class='grid grid-cols-3 gap-2 my-3'>
+
+                    @if (count($photos_nocat) > 1)
+                        {{-- Affichage de 2 photos max --}}
+                        @for ($i = 0; $i < 2; $i++)
+                            <a href="/images/gallery/{{ $photos_nocat[$i]->photo }}">
+                                <img src="/images/gallery/{{ $photos_nocat[$i]->photo }}"
+                                    alt="{{ $photos_nocat[$i]->title }}" class='w-28 h-28 object-cover'>
+                            </a>
+                        @endfor
+                        {{-- Div show more --}}
+                        <div
+                            class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
+                            <p>SHOW ALL</p>
+                            <p>({{ count($photos_nocat) }})</p>
+                        </div>
+                    @elseif (count($photos_nocat) == 1)
+                        <a href="images/gallery/{{ $photos_nocat[0]->photo }}">
+                            <img src="/images/gallery/{{ $photos_nocat[0]->photo }}" alt="{{ $photos_nocat[0]->title }}"
+                                class='w-28 h-28 object-cover border-[1px] border-black'>
+                        </a>
+                        <div
+                            class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
+                            <p>SHOW ALL</p>
+                            <p>({{ count($photos_nocat) }})</p>
+                        </div>
+                    @else
+                        <p>empty!</p>
+                    @endif
+
+                </div>
+
+            </div>
+
+            {{-- Photos avec catégories --}}
             @foreach ($categories as $category)
                 <div class='p-6 bg-white'>
-                    <h1 class='text-2xl text-[#D8BA8D] my-1 uppercase font-semibold'>{{ $category->category }}
-                        <h3 class='capitalize text-2xl font-bold'>{{ $category->category_name }}</h3>
-                        {{-- Prévisualisation photos --}}
-                        <div class='grid grid-cols-3 gap-2 my-3'>
+                    <h1 class='text-2xl text-[#D8BA8D] my-1 uppercase font-semibold'>{{ $category->category }}</h1>
+                    {{-- Prévisualisation photos --}}
+                    <div class='grid grid-cols-3 gap-2 my-3'>
 
-                            @if (count($category->photos) > 1)
-                                {{-- Affichage de 2 photos max --}}
-                                @for ($i = 0; $i < 2; $i++)
-                                    <img src="/images/gallery/{{ $category->photos[$i]->photo }}" alt="" class='w-28 h-28 object-cover'>
-                                @endfor
-                                {{-- Div show more --}}
-                                <div
-                                    class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
-                                    <p>SHOW ALL</p>
-                                    <p>({{ count($category->photos) }})</p>
-                                </div>
-                            @elseif (count($category->photos) == 1)
-                                <img src="/images/gallery/{{ $category->photos[0]->photo }}" alt=""
+                        @if (count($category->photos) > 1)
+                            {{-- Affichage de 2 photos max --}}
+                            @for ($i = 0; $i < 2; $i++)
+                                <a href="/images/gallery/{{ $category->photos[$i]->photo }}">
+                                    <img src="/images/gallery/{{ $category->photos[$i]->photo }}"
+                                        alt="{{ $category->photos[$i]->title }}" class='w-28 h-28 object-cover'>
+                                </a>
+                            @endfor
+                            {{-- Div show more --}}
+                            <div
+                                class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
+                                <p>SHOW ALL</p>
+                                <p>({{ count($category->photos) }})</p>
+                            </div>
+                        @elseif (count($category->photos) == 1)
+                            <a href="/images/gallery/{{ $category->photos[0]->photo }}">
+                                <img src="/images/gallery/{{ $category->photos[0]->photo }}"
+                                    alt="{{ $category->photos[0]->title }}"
                                     class='w-28 h-28 object-cover border-[1px] border-black'>
-                                <div
-                                    class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
-                                    <p>SHOW ALL</p>
-                                    <p>({{ count($category->photos) }})</p>
-                                </div>
-                            @else
-                                <p>empty!</p>
-                            @endif
+                            </a>
+                            <div
+                                class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
+                                <p>SHOW ALL</p>
+                                <p>({{ count($category->photos) }})</p>
+                            </div>
+                        @else
+                            <p>empty!</p>
+                        @endif
 
 
-                        </div>
+                    </div>
 
                 </div>
             @endforeach
+
         </div>
     </div>
 @endsection
