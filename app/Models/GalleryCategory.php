@@ -10,7 +10,7 @@ class GalleryCategory extends Model
 {
     use HasFactory;
 
-    public function photo(){
+    public function photos(){
         return $this->hasMany(GalleryPhoto::class);
     }
 }

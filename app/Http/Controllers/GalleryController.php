@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GalleryCategory;
 use App\Models\GalleryPhoto;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,10 @@ class GalleryController extends Controller
      */
     public function index()
     {
+        $categories = GalleryCategory::orderBy('category', 'asc')->get();
         $photos = GalleryPhoto::all();
-        return view('pages.backoffice.b-gallery', compact('photos'));
+
+        return view('pages.backoffice.b-gallery', compact('photos', 'categories'));
     }
 
     /**

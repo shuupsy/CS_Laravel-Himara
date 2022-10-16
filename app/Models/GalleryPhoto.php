@@ -10,7 +10,7 @@ class GalleryPhoto extends Model
 {
     use HasFactory;
 
-    public function category(){
+    public function categories(){
         return $this->belongsTo(GalleryCategory::class);
     }
 }

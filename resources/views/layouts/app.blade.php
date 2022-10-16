@@ -57,6 +57,10 @@
                 </div>
             @endif
 
+            @hasSection('content')
+                @yield('content')
+            @endif
+
         </main>
     </div>
 
