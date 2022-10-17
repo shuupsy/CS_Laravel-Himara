@@ -23,7 +23,7 @@
             <div class='grid grid-cols-3 gap-4'>
                 @foreach ($categories as $category)
                     <div class='flex items-baseline'>
-                        <form action="/admin/gallerycategory/{{$category->id}}" method='post'>
+                        <form action="/admin/gallerycategory/{{ $category->id }}" method='post'>
                             @csrf
                             @method('patch')
 
@@ -115,21 +115,25 @@
                             </a>
                         @endfor
                         {{-- Div show more --}}
-                        <div
-                            class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
-                            <p>SHOW ALL</p>
-                            <p>({{ count($photos_nocat) }})</p>
-                        </div>
+                        <a href="/admin/gallerycategory/{{ $category->id }}">
+                            <div
+                                class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
+                                <p>SHOW ALL</p>
+                                <p>({{ count($photos_nocat) }})</p>
+                            </div>
+                        </a>
                     @elseif (count($photos_nocat) == 1)
                         <a href="images/gallery/{{ $photos_nocat[0]->photo }}">
                             <img src="/images/gallery/{{ $photos_nocat[0]->photo }}" alt="{{ $photos_nocat[0]->title }}"
                                 class='w-28 h-28 object-cover border-[1px] border-black'>
                         </a>
-                        <div
-                            class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
-                            <p>SHOW ALL</p>
-                            <p>({{ count($photos_nocat) }})</p>
-                        </div>
+                        <a href="/admin/gallerycategory/{{ $category->id }}">
+                            <div
+                                class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
+                                <p>SHOW ALL</p>
+                                <p>({{ count($photos_nocat) }})</p>
+                            </div>
+                        </a>
                     @else
                         <p>empty!</p>
                     @endif
@@ -154,22 +158,26 @@
                                 </a>
                             @endfor
                             {{-- Div show more --}}
-                            <div
-                                class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
-                                <p>SHOW ALL</p>
-                                <p>({{ count($category->photos) }})</p>
-                            </div>
+                            <a href="/admin/gallerycategory/{{ $category->id }}">
+                                <div
+                                    class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
+                                    <p>SHOW ALL</p>
+                                    <p>({{ count($category->photos) }})</p>
+                                </div>
+                            </a>
                         @elseif (count($category->photos) == 1)
                             <a href="/images/gallery/{{ $category->photos[0]->photo }}">
                                 <img src="/images/gallery/{{ $category->photos[0]->photo }}"
                                     alt="{{ $category->photos[0]->title }}"
                                     class='w-28 h-28 object-cover border-[1px] border-black'>
                             </a>
-                            <div
-                                class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
-                                <p>SHOW ALL</p>
-                                <p>({{ count($category->photos) }})</p>
-                            </div>
+                            <a href="/admin/gallerycategory/{{ $category->id }}">
+                                <div
+                                    class='w-28 h-28 object-cover border-[1px] border-slate-200 hover:border-slate-500 hover:text-slate-800 flex flex-col justify-center items-center cursor-pointer'>
+                                    <p>SHOW ALL</p>
+                                    <p>({{ count($category->photos) }})</p>
+                                </div>
+                            </a>
                         @else
                             <p>empty!</p>
                         @endif

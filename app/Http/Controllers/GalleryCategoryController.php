@@ -23,6 +23,19 @@ class GalleryCategoryController extends Controller
         return redirect()->back()->with('success', "Catégorie '$request->category' ajoutée avec succès!");
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $categories = GalleryCategory::all();
+        $category = GalleryCategory::find($id);
+        return view('pages.backoffice.b-show-gallery', compact('categories','category'));
+    }
+
 
     /**
      * Update the specified resource in storage.
