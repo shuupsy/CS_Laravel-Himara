@@ -32,8 +32,9 @@ class GalleryCategoryController extends Controller
     public function show($id)
     {
         $categories = GalleryCategory::all();
+        
         $category = GalleryCategory::find($id);
-        return view('pages.backoffice.b-show-gallery', compact('categories','category'));
+        return view('pages.backoffice.b-gallery-show', compact('categories','category'));
     }
 
 
