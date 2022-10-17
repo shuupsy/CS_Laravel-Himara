@@ -12,6 +12,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SlidersController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GalleryCategoryController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\ServiceController;
 
@@ -71,6 +72,8 @@ Route::resource('/admin/staff', StaffController::class)
 /* Gallery */
 Route::resource('/admin/gallery', GalleryController::class)
     ->names(['index' => 'gallery.index']);
+
+Route::resource('/admin/gallerycategory', GalleryCategoryController::class);
 
 Route::resource('/admin/rooms', RoomsController::class)
     ->names(['index' => 'rooms.index']);

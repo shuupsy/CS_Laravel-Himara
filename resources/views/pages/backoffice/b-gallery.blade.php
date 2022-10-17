@@ -6,8 +6,9 @@
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Categories</h1>
         <div class="p-6 bg-white flex flex-col gap-4">
 
-            <form action="/admin/ads" method='post'>
+            <form action="/admin/gallerycategory" method='post'>
                 @csrf
+
                 <div class='flex'>
                     <input
                         class="shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block w-40 capitalize placeholder:lowercase placeholder:italic"
@@ -22,8 +23,10 @@
             <div class='grid grid-cols-3 gap-4'>
                 @foreach ($categories as $category)
                     <div class='flex items-baseline'>
-                        <form action="/admin/ads" method='post'>
+                        <form action="/admin/gallerycategory/{{$category->id}}" method='post'>
                             @csrf
+                            @method('patch')
+
                             <div class='flex'>
                                 <input
                                     class="shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block w-40 capitalize"
@@ -32,7 +35,7 @@
                                 <button class='bg-[#D7D8D9] p-2 text-white hover:bg-[#222222]'>Update</button>
                             </div>
                         </form>
-                        <form action="/admin/ads/{{ $category->id }}" method='post'>
+                        <form action="/admin/gallerycategory/{{ $category->id }}" method='post'>
                             @csrf
                             @method('delete')
                             <button class='bg-red-300 p-2 text-white hover:bg-red-500'>delete</button>
@@ -50,7 +53,7 @@
         <div class="w-3/6 p-6 bg-white flex flex-col gap-4">
 
             {{-- Nouvelle photo --}}
-            <form action="/gallery" method="post" enctype="multipart/form-data"
+            <form action="/admin/gallery" method="post" enctype="multipart/form-data"
                 class='p-6 bg-white flex flex-col items-center justify-center gap-3'>
                 @csrf
                 {{-- Ajout photo --}}
