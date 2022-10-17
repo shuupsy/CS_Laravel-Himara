@@ -23,7 +23,7 @@ class Room extends Model
         return $this->belongsToMany(Option::class);
     }
 
-    public function photo(){
+    public function room_photos(){
         return $this->hasMany(RoomPhoto::class);
     }
 

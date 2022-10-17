@@ -9,127 +9,36 @@
                     <div class="room-slider">
                         <div id="room-main-image" class="owl-carousel image-gallery">
                             <!-- ITEM -->
-                            <div class="item">
-                                <figure class="gradient-overlay-hover image-icon">
-                                    <a href="images/rooms/single/single1.jpg">
-                                        <img class="img-fluid" src="images/rooms/single/single1.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item">
-                                <figure class="gradient-overlay-hover image-icon">
-                                    <a href="images/rooms/single/single2.jpg">
-                                        <img class="img-fluid" src="images/rooms/single/single2.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item">
-                                <figure class="gradient-overlay-hover image-icon">
-                                    <a href="images/rooms/single/single3.jpg">
-                                        <img class="img-fluid" src="images/rooms/single/single3.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item">
-                                <figure class="gradient-overlay-hover image-icon">
-                                    <a href="images/rooms/single/single4.jpg">
-                                        <img class="img-fluid" src="images/rooms/single/single4.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item">
-                                <figure class="gradient-overlay-hover image-icon">
-                                    <a href="images/rooms/single/single5.jpg">
-                                        <img class="img-fluid" src="images/rooms/single/single5.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item">
-                                <figure class="gradient-overlay-hover image-icon">
-                                    <a href="images/rooms/single/single6.jpg">
-                                        <img class="img-fluid" src="images/rooms/single/single6.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item">
-                                <figure class="gradient-overlay-hover image-icon">
-                                    <a href="images/rooms/single/single7.jpg">
-                                        <img class="img-fluid" src="images/rooms/single/single7.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item">
-                                <figure class="gradient-overlay-hover image-icon">
-                                    <a href="images/rooms/single/single8.jpg">
-                                        <img class="img-fluid" src="images/rooms/single/single8.jpg" alt="Image">
-                                    </a>
-                                </figure>
-                            </div>
+                            @foreach ($room->room_photos as $photo)
+                                <div class="item">
+                                    <figure class="gradient-overlay-hover image-icon">
+                                        <a href="/images/rooms/{{ $photo->photo_path }}">
+                                            <img class="img-fluid" src="/images/rooms/{{ $photo->photo_path }}"
+                                                alt="Image">
+                                        </a>
+                                    </figure>
+                                </div>
+                            @endforeach
+
                         </div>
 
                         <div id="room-thumbs" class="room-thumbs owl-carousel">
                             <!-- ITEM -->
-                            <div class="item"><img class="img-fluid" src="images/rooms/single/single1.jpg" alt="Image">
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item"><img class="img-fluid" src="images/rooms/single/single2.jpg" alt="Image">
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item"><img class="img-fluid" src="images/rooms/single/single3.jpg" alt="Image">
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item"><img class="img-fluid" src="images/rooms/single/single4.jpg" alt="Image">
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item"><img class="img-fluid" src="images/rooms/single/single5.jpg" alt="Image">
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item"><img class="img-fluid" src="images/rooms/single/single6.jpg" alt="Image">
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item"><img class="img-fluid" src="images/rooms/single/single7.jpg" alt="Image">
-                            </div>
-                            <!-- ITEM -->
-                            <div class="item"><img class="img-fluid" src="images/rooms/single/single8.jpg" alt="Image">
-                            </div>
+                            @foreach ($room->room_photos as $photo)
+                                <div class="item"><img class="img-fluid" src="images/rooms/{{ $photo->photo_path }}"
+                                        alt="Image">
+                                </div>
+
+                            @endforeach
+
                         </div>
                     </div>
-                    <p class="dropcap">Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                        euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                        nostrud exerci tation ullamcorper suscipit lobortis
-                        nisl ut aliquip ex ea
-                        <u>commodo consequat.</u>
-                        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
-                        dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
-                        praesent luptatum zzril delenit...
+                    {{-- Description 1a --}}
+                    <p class="dropcap">{!! $room->room_descriptions->description1a !!}
                     </p>
+                    {{-- Description 1b --}}
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ut, asperiores voluptatibus quo
-                        rem iusto laborum, laudantium corrupti ea esse officia placeat beatae! Ducimus quasi nisi odio
-                        architecto repudiandae illo sunt nulla quia obcaecati
-                        blanditiis? Doloremque commodi deserunt corporis, maiores, quam ipsam voluptates beatae
-                        necessitatibus, sapiente impedit sunt cupiditate odio, officiis quo debitis distinctio! Tenetur
-                        quibusdam modi adipisci vel ullam cum ratione itaque laborum
-                        molestias nesciunt. Qui itaque saepe obcaecati quo tempora natus laudantium quidem, inventore totam.
-                        Nobis incidunt est doloribus qui vero expedita a fugit necessitatibus minus sapiente illo, commodi
-                        laudantium minima quo deserunt odio repellat
-                        placeat quas, perferendis, voluptates! Omnis corporis nostrum optio reprehenderit aspernatur
-                        consequuntur, nisi rerum. Architecto provident alias voluptatem aliquam tenetur eius eos. Iure,
-                        earum. Asperiores consectetur, dolorem animi pariatur. Magni
-                        necessitatibus non hic odit nesciunt voluptatum distinctio provident, repellendus quae dolores,
-                        assumenda delectus quisquam fuga velit natus cumque. Odio sint deserunt ex dolorem, culpa, sit
-                        accusantium nesciunt. Dicta, nulla aperiam expedita nihil
-                        at laborum! Minima ducimus, nobis quasi minus totam ab quo, quia labore nihil praesentium doloremque
-                        recusandae! Voluptas delectus distinctio architecto aliquid eligendi nostrum odio a culpa modi
-                        cumque mollitia id, consequuntur, labore, ut minima
-                        illum. Repellendus cumque veniam quae odit enim.
+                        {!! $room->room_descriptions->description1b !!}
                     </p>
                     <div class="section-title sm">
                         <h4>ROOM SERVICES</h4>
@@ -154,9 +63,9 @@
                                     </li>
 
                                     @foreach ($options as $option)
-                                        {!! $room->room_options->contains($option->id) ?
-                                        '<li><i class="fa fa-check"></i>' :
-                                        '<li class="no"><i class="fa fa-times"></i>' !!}
+                                        {!! $room->room_options->contains($option->id)
+                                            ? '<li><i class="fa fa-check"></i>'
+                                            : '<li class="no"><i class="fa fa-times"></i>' !!}
                                         {{ $option->option_name }}
                                         </li>
                                     @endforeach
@@ -186,23 +95,11 @@
 
                         </div>
                     </div>
-                    <p>Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                        laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-                        ullamcorper suscipit lobortis nisl ut aliquip
-                        ex ea
-                        <u>commodo consequat.</u>
-                        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
-                        dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
-                        praesent luptatum zzril delenit...
+                    {{-- Description 2a --}}
+                    <p>{!! $room->room_descriptions->description2a !!}
                     </p>
-                    <p>Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                        laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-                        ullamcorper suscipit lobortis nisl ut aliquip
-                        ex ea
-                        <u>commodo consequat.</u>
-                        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
-                        dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
-                        praesent luptatum zzril delenit...
+                    {{-- Description 2b --}}
+                    <p>{!! $room->room_descriptions->description2b !!}
                     </p>
                     <!-- ROOM REVIEWS -->
                     <div id="room-reviews" class="room-reviews">
@@ -498,7 +395,9 @@
                                         <!-- EMAIL -->
                                         <div class="form-group">
                                             <input class="form-control" name="booking-email" type="email"
-                                                placeholder="Your Email Address">
+                                                placeholder="Your Email Address"
+                                                @auth
+value="{{ auth()->user()->email }}" disabled @endauth>
                                         </div>
                                         <!-- ROOM TYPE -->
                                         <div class="form-group">

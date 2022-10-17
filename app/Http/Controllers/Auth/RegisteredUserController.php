@@ -51,12 +51,13 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
+        $email = $request->email;
         $data = ([
-            'name' => $user->first_name,
-            'email' => $user->email,
+            'name' => $request->first_name,
+            'email' => $request->email,
             ]);
 
-        Mail::to($user['email'])->send(new WelcomeMail($user));
+        Mail::to($email)->send(new WelcomeMail($data));
 
 
         Auth::login($user);
