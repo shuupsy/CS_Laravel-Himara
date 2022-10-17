@@ -78,9 +78,9 @@
                                 <div class="panel-dropdown-content">
                                     <div class="guests-buttons">
                                         <label>Adults
-                                            <a href="#" title="" data-toggle="popover"
-                                                data-placement="top" data-trigger="hover"
-                                                data-content="18+ years" data-original-title="Adults">
+                                            <a href="#" title="" data-toggle="popover" data-placement="top"
+                                                data-trigger="hover" data-content="18+ years"
+                                                data-original-title="Adults">
                                                 <i class="fa fa-info-circle"></i>
                                             </a>
                                         </label>
@@ -93,9 +93,9 @@
                                     </div>
                                     <div class="guests-buttons">
                                         <label>Cildren
-                                            <a href="#" title="" data-toggle="popover"
-                                                data-placement="top" data-trigger="hover"
-                                                data-content="Under 18 years" data-original-title="Children">
+                                            <a href="#" title="" data-toggle="popover" data-placement="top"
+                                                data-trigger="hover" data-content="Under 18 years"
+                                                data-original-title="Children">
                                                 <i class="fa fa-info-circle"></i>
                                             </a>
                                         </label>
@@ -112,12 +112,26 @@
                     </div>
                     <!-- BOOKING BUTTON -->
                     <div class="col-md-2">
-                        <button type="submit" class="btn btn-book">BOOK A ROOM</button>
-                        <div class="advanced-form-link">
-                            <a href="/booking-form">
-                                Advanced Booking Form
-                            </a>
-                        </div>
+                        @if (Route::has('login'))
+                        {{-- Si connecté --}}
+                            @auth
+                                <button type="submit" class="btn btn-book">BOOK A ROOM</button>
+                                <div class="advanced-form-link">
+                                    <a href="/booking-form">
+                                        Advanced Booking Form
+                                    </a>
+                                </div>
+                        {{-- Non connecté --}}
+                            @else
+                                <a href="{{ route('login') }}">
+                                    <button class='btn btn-book'>
+                                        <i class="fa fa-user"></i>
+                                        LOG IN
+                                    </button></a>
+                            @endauth
+                        @endif
+
+
                     </div>
                 </div>
             </form>
