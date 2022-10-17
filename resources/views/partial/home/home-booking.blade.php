@@ -15,7 +15,11 @@
                                 </a>
                             </label>
                             <input class="form-control" name="booking-name" type="text" data-trigger="hover"
-                                placeholder="Write Your Name">
+                                placeholder="Write Your Name"
+                                @auth
+                                    value="{{ strtoupper(auth()->user()->last_name)}}"
+                                    disabled
+                                @endauth>
                         </div>
                     </div>
                     <!-- EMAIL -->
@@ -28,7 +32,11 @@
                                 </a>
                             </label>
                             <input class="form-control" name="booking-email" type="email"
-                                placeholder="Write your Email">
+                                placeholder="Write your Email"
+                                @auth
+                                    value="{{ auth()->user()->email}}"
+                                    disabled
+                                @endauth>
                         </div>
                     </div>
                     <!-- ROOM TYPE -->
