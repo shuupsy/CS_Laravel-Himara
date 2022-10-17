@@ -26,7 +26,9 @@
     @endif
 
     <!-- ========== GALLERY ========== -->
-    @include('partial.home.home-gallery')
+    @if ($count_photos != 0)
+        @include('partial.home.home-gallery')
+    @endif
 
     <!-- ========== TESTIMONIALS ========== -->
     @include('partial.home.home-reviews')

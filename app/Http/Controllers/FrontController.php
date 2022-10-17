@@ -48,6 +48,7 @@ class FrontController extends Controller
         $gallery = GalleryPhoto::inRandomOrder()
             ->take(8)
             ->get();
+        $count_photos = GalleryPhoto::all()->count();
 
         $dishes = Dish::orderBy('id', 'asc')
             ->paginate(2)
@@ -64,7 +65,7 @@ class FrontController extends Controller
             ->get();
 
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish', 'count_services'));
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish', 'count_services', 'count_photos'));
     }
 
     /**
