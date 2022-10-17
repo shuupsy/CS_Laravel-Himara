@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('gallery_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
+            $table->string('category')
+                ->nullable();
             $table->timestamps();
         });
     }

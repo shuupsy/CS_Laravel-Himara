@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="my-6 sm:px-6 lg:px-8">
-        <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">{{ $category->category }}</h1>
+        <h1 class='text-[#D7D8D9] text-6xl font-bold uppercase leading-tight'>
+            {{ $category->id == 1 ? 'No category' : $category->category }}</h1>
 
         <div class='grid grid-cols-3 gap-10' id='gallery-cat'>
             @foreach ($category->photos as $photo)

@@ -16,6 +16,7 @@ class GalleryCategorySeeder extends Seeder
     public function run()
     {
         DB::table('gallery_categories')->insert([
+            ['category' => null],
             ['category' => 'restaurant'],
             ['category' => 'swimming pool'],
             ['category' => 'spa'],

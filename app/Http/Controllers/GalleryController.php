@@ -17,12 +17,17 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $categories = GalleryCategory::orderBy('category', 'asc')->get();
+        $cat_notNull = GalleryCategory::whereNot('id', 1)
+        ->orderBy('category', 'asc')
+        ->get();
+
+        $categories = GalleryCategory::all();
+
         $photos = GalleryPhoto::all();
 
         $photos_nocat = GalleryPhoto::where('gallery_category_id', null)->get();
 
-        return view('pages.backoffice.b-gallery', compact('photos', 'categories', 'photos_nocat'));
+        return view('pages.backoffice.b-gallery', compact('photos', 'cat_notNull', 'photos_nocat', 'categories'));
     }
 
     /**
