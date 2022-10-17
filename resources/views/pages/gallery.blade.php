@@ -6,10 +6,12 @@
         <div class="container">
             <div class="gallery-filters">
                 <a href="#" data-filter="*" class="filter active">ALL</a>
-                <a href="#" data-filter=".filter-restaurant" class="filter">RESTAURANT</a>
-                <a href="#" data-filter=".filter-swimmingpool" class="filter">SWIMMING POOL</a>
-                <a href="#" data-filter=".filter-spa" class="filter">SPA</a>
-                <a href="#" data-filter=".filter-roomview" class="filter">ROOM VIEW</a>
+                @foreach ($categories as $category)
+                    @if (count($category->photos) != 0)
+                        <a href="#" data-filter=".filter-{{ str_replace(' ', '', strtolower($category->category)) }}"
+                            class="filter uppercase">{{ $category->category }}</a>
+                    @endif
+                @endforeach
             </div>
         </div>
         <!-- GALLERY -->
@@ -17,12 +19,13 @@
             <div class="grid image-gallery row">
                 {{-- Liste de photos --}}
                 @foreach ($photos as $photo)
-                    <div class="gallery-item filter-{{ str_replace(' ', '', strtolower($photo->title)) }} col-md-3">
+                    <div class="gallery-item filter-{{ str_replace(' ', '', strtolower($photo->gallery_category->category)) }} col-md-3">
                         <figure class="gradient-overlay image-icon">
-                            <a href="/images/gallery/{{ $photo -> photo }}">
-                                <img src="/images/gallery/{{ $photo -> photo }}" class="img-fluid" alt="Image {{ $photo -> title }}">
+                            <a href="/images/gallery/{{ $photo->photo }}">
+                                <img src="/images/gallery/{{ $photo->photo }}" class="img-fluid"
+                                    alt="Image {{ $photo->title }}">
                             </a>
-                            <figcaption>{{ $photo -> title }}</figcaption>
+                            <figcaption>{{ $photo->title }}</figcaption>
                         </figure>
                     </div>
                 @endforeach

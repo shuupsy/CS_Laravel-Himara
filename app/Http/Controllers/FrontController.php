@@ -17,6 +17,7 @@ use App\Models\RoomCategory;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
 use App\Models\ContactMessage;
+use App\Models\GalleryCategory;
 
 class FrontController extends Controller
 {
@@ -117,7 +118,10 @@ class FrontController extends Controller
 
     public function Gallery(){
         $photos = GalleryPhoto::all();
-        return view('pages.gallery', compact('photos'));
+
+        $categories = GalleryCategory::whereNot('id', 1) -> get();
+
+        return view('pages.gallery', compact('photos', 'categories'));
     }
 
 }
