@@ -123,6 +123,7 @@
                     </div>
                 </div>
             </div>
+            <div>{{ $rooms->links() }}</div>
         </div>
     </main>
 @endsection

@@ -17,16 +17,7 @@ class RoomsController extends Controller
      */
     public function index()
     {
-        $rooms = Room::orderby('id', 'asc')
-            ->paginate(10);
-
-        $room_cats = RoomCategory::withCount('rooms')
-            ->orderBy('id', 'asc')
-            ->get();
-
-        $room_tags = Tag::all();
-
-        return view('pages.rooms-list', compact('rooms', 'room_cats', 'room_tags'));
+        
     }
 
     /**
