@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\GalleryPhoto;
 use Illuminate\Http\Request;
 use App\Models\GalleryCategory;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
@@ -99,7 +100,18 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $photo = GalleryPhoto::find($id);
+        $category = $photo->gallery_category_id;
+
+        /* Infos */
+        $photo -> title = $request -> title;
+        $photo -> gallery_category_id = $request -> category;
+
+        $photo->save();
+
+
+        return redirect()->back()->with('success', '(1) Photo ajoutée avec succès!');
+
     }
 
     /**
@@ -110,6 +122,31 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = GalleryPhoto::find($id);
+
+        if($delete->photo != 'gallery1.jpg' ||
+            $delete->photo != 'gallery2.jpg' ||
+            $delete->photo != 'gallery3.jpg' ||
+            $delete->photo != 'gallery4.jpg' ||
+            $delete->photo != 'gallery5.jpg' ||
+            $delete->photo != 'gallery6.jpg' ||
+            $delete->photo != 'gallery7.jpg' ||
+            $delete->photo != 'gallery8.jpg' ||
+            $delete->photo != 'gallery9.jpg' ||
+            $delete->photo != 'gallery10.jpg'){
+
+            Storage::delete('public/assets/' . $delete->photo);
+            File::delete(public_path('images/gallery/' . $delete->photo));
+        }
+
+        $delete->delete();
+
+        $category = $delete->gallery_category;
+
+        if(count($category->photos) == 0) {
+            return redirect('/admin/gallery')->with('success', '(1) Photo supprimée avec succès!');
+        }
+
+        return redirect()->back()->with('success', '(1) Photo supprimée avec succès!');
     }
 }

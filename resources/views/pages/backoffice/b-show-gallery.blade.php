@@ -55,7 +55,7 @@
                             <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222]'>Update</button>
                         </form>
 
-                        <form action="/admin/restaurant/{{ $photo->id }}" method='post'>
+                        <form action="/admin/gallery/{{ $photo->id }}" method='post'>
                             @csrf
                             @method('delete')
                             <button class='text-red-600 rounded-sm p-2 hover:underline'>delete</button>
