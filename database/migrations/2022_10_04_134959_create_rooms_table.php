@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->float('price');
             $table->string('mainphoto_path');
-            $table->text('description1');
-            $table->text('description2');
             $table->unsignedBigInteger('surface');
             $table->unsignedBigInteger('nb_persons');
             $table->foreignId('room_category_id')

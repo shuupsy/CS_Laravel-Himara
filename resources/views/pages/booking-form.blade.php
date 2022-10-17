@@ -19,21 +19,30 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Your Name</label>
-                                    <input name="booking-name" type="text" class="form-control" placeholder="Your Name">
+                                    <input name="booking-name" type="text" class="form-control" placeholder="Your Name"
+                                        @auth
+                                             value="{{ strtoupper(auth()->user()->last_name)}}" disabled
+                                        @endauth>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Email Address</label>
                                     <input class="form-control" name="booking-email" type="email"
-                                        placeholder="Your Email Address">
+                                        placeholder="Your Email Address"
+                                        @auth
+                                            value="{{ strtoupper(auth()->user()->email)}}" disabled
+                                        @endauth>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Phone Number</label>
                                     <input name="booking-phone" type="text" class="form-control"
-                                        placeholder="Your Phone Number">
+                                        placeholder="Your Phone Number"
+                                        @auth
+                                        value="{{ auth()->user()->phone }}"
+                                    @endauth>
                                 </div>
                             </div>
                             <div class="col-md-6">

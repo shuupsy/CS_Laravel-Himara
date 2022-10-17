@@ -7375,3 +7375,7 @@ section.places-item {
 .block-page .page-link {
     color: grey;
 }
+
+.a-description:hover{
+    text-decoration: underline;
+}

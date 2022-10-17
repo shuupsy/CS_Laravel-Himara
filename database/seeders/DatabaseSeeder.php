@@ -25,6 +25,7 @@ use Database\Seeders\AboutContentSeeder;
 use Database\Seeders\GalleryPhotoSeeder;
 use Database\Seeders\RoomCategorySeeder;
 use Database\Seeders\GalleryCategorySeeder;
+use Database\Seeders\RoomDescriptionSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -49,6 +50,7 @@ class DatabaseSeeder extends Seeder
             RoomCategorySeeder::class,
             RoomSeeder::class,
             OptionSeeder::class,
+            RoomDescriptionSeeder::class,
             RoomPhotoSeeder::class,
             ReviewSeeder::class,
             SliderSeeder::class,

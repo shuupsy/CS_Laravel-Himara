@@ -38,7 +38,10 @@
                                             <a href="room.html#room-reviews">{{ $room->rating }} Based on 3 Ratings</a>
                                         </span>
                                         {{-- Description --}}
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing ..</p>
+                                        <a href="/rooms/{{ $room->id }}" class='a-description'>
+                                            <p>{{ substr($room->room_descriptions->description1a, 0, 51) . ' ...' }}</p>
+                                        </a>
+
                                         {{-- Room option --}}
                                         <div class="room-services">
                                             @foreach ($room->room_options as $option)
@@ -100,7 +103,8 @@
                                 {{-- Liste de catégories --}}
                                 @foreach ($room_cats as $cat)
                                     <li>
-                                        <a href="#">{{ $cat -> category }} Room<span class="posts-num">{{ $cat->rooms_count }}</span></a>
+                                        <a href="#">{{ $cat->category }} Room<span
+                                                class="posts-num">{{ $cat->rooms_count }}</span></a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -111,8 +115,8 @@
                             <div class="tagcloud">
                                 {{-- Liste de Tags --}}
                                 @foreach ($room_tags as $tag)
-                                <a href="#">
-                                    <span class="tag">{{ $tag -> tag }}</span></a>
+                                    <a href="#">
+                                        <span class="tag">{{ $tag->tag }}</span></a>
                                 @endforeach
                             </div>
                         </aside>

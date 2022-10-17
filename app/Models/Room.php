@@ -7,6 +7,7 @@ use App\Models\Option;
 use App\Models\RoomPhoto;
 use App\Models\RoomReview;
 use App\Models\RoomCategory;
+use App\Models\RoomDescription;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -35,5 +36,8 @@ class Room extends Model
     }
     public function getAverageStar(){
         return $this->score()->average('rating');
+    }
+    public function room_descriptions(){
+        return $this->hasOne(RoomDescription::class);
     }
 }
