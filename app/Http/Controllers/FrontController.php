@@ -42,6 +42,7 @@ class FrontController extends Controller
             ->get();
 
         $services = Service::all();
+        $count_services = Service::all()->count();
 
         $gallery = GalleryPhoto::inRandomOrder()
             ->take(8)
@@ -62,7 +63,7 @@ class FrontController extends Controller
             ->get();
 
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish'));
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish', 'count_services'));
     }
 
     /**

@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
+use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class RegisteredUserController extends Controller
 {
@@ -48,6 +50,14 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+
+        $data = ([
+            'name' => $user->first_name,
+            'email' => $user->email,
+            ]);
+
+        Mail::to($user['email'])->send(new WelcomeMail($user));
+
 
         Auth::login($user);
 

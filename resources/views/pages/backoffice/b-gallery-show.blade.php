@@ -14,13 +14,15 @@
                 @foreach ($category->photos as $photo)
                     <div class="p-6 border-b bg-white border-gray-200">
                         <h1 class='text-2xl text-[#c9c9c9] my-1 uppercase'>{{ $photo->title }}</h1>
+
                         <div class='flex flex-col gap-1'>
-                            <div class='flex justify-center my-2'>
-                                @if (Str::startsWith($photo->photo, 'https:'))
+                            <div class='gallery-item flex justify-center my-2'>
+                                    @if (Str::startsWith($photo->photo, 'https:'))
                                     <img src="{{ $photo->photo }}" class='w-7/12 object-fit '>
                                 @else
                                     <img src="/images/gallery/{{ $photo->photo }}" class='w-7/12 object-fit '>
                                 @endif
+
                             </div>
 
                             <form action="/admin/gallery/{{ $photo->id }}" method='post' enctype="multipart/form-data">

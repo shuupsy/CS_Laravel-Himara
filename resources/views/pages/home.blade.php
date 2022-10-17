@@ -21,7 +21,9 @@
     @include('partial.home.home-rooms')
 
     <!-- ========== SERVICES ========== -->
-    @include('partial.home.home-services')
+    @if ($count_services != 0)
+        @include('partial.home.home-services')
+    @endif
 
     <!-- ========== GALLERY ========== -->
     @include('partial.home.home-gallery')
