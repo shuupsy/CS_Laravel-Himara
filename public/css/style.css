@@ -1486,8 +1486,8 @@ textarea {
 .pagination {
   width: 100%;
   margin-top: 100px;
-  background: #f7f8f9;
-  border: 1px solid #f4f5f6;
+  /* background: #f7f8f9;
+  border: 1px solid #f4f5f6; */
   border-radius: 2px;
   text-align: center;
 }
