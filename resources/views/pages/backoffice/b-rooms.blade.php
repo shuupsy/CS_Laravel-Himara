@@ -1,13 +1,7 @@
 @extends('layouts.app')
 
 @section('new')
-    <div class="p-6 border-b bg-white border-gray-200">
-        <div class='flex gap-6 items-center'>
-
-            @include('pages.backoffice.b-rooms-add')
-
-        </div>
-    </div>
+    <a href="/admin/rooms/create">
+        <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222] uppercase'>Add</button>
+    </a>
 @endsection
-
-

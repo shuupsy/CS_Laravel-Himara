@@ -19,7 +19,7 @@ class Room extends Model
         return $this->belongsTo(RoomCategory::class);
     }
 
-    public function room_options(){
+    public function option_room(){
         return $this->belongsToMany(Option::class);
     }
 

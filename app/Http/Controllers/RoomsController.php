@@ -7,6 +7,8 @@ use App\Models\Room;
 use App\Models\Option;
 use App\Models\RoomCategory;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class RoomsController extends Controller
 {
@@ -18,11 +20,8 @@ class RoomsController extends Controller
     public function index()
     {
         $rooms = Room::all();
-        $categories = RoomCategory::all();
-        $tags = Tag::all();
-        $options = Option::all();
 
-        return view('pages.backoffice.b-rooms', compact('rooms', 'categories', 'tags', 'options'));
+        return view('pages.backoffice.b-rooms', compact('rooms'));
     }
 
     /**
@@ -32,7 +31,11 @@ class RoomsController extends Controller
      */
     public function create()
     {
-        //
+        $categories = RoomCategory::all();
+        $tags = Tag::orderBy('tag', 'asc')->get();
+        $options = Option::orderBy('option_name', 'asc')->get();
+
+        return view('pages.backoffice.b-rooms-add', compact('categories', 'tags', 'options'));
     }
 
     /**
@@ -43,7 +46,37 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /* Infos */
+        $room = new Room();
+        $room -> name = $request -> name;
+        $room -> room_category_id = $request -> category;
+        $room -> nb_persons = $request -> nb_persons;
+        $room -> surface = $request -> surface;
+        $room -> price = $request -> price;
+
+
+        /* Image */
+       /*  Storage::put('public/assets/', $request->file('image'));
+
+        $new = $request->file('image')->hashName();
+        $new_path = public_path('storage/assets/' . $new);
+        $resize = Image::make($new_path)->resize(1920, 1200)->save(public_path('images/rooms/' . $new));
+
+        $room -> photo = $new; */
+
+        $room->save();
+
+
+
+
+        /* Tags */
+        $tags = $request->tags;
+        $options =  $request->options;
+
+        $room -> tag() -> attach($tags);
+        $room -> option_room() -> attach($options);
+
+        return redirect("/admin/rooms/$room->id")->with('success', '(1) Room ajoutée avec succès!');
     }
 
     /**
@@ -54,7 +87,8 @@ class RoomsController extends Controller
      */
     public function show($id)
     {
-
+        $room = Room::find($id);
+        return view('pages.backoffice.b-rooms-show', compact('room'));
     }
 
     /**
