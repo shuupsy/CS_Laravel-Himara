@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- Informations générales --}}
+{{--  --}}
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Room Update</h1>
         <div class="p-6 border-b bg-white border-gray-200">
@@ -16,10 +16,10 @@
                     <div>
                         <x-input-label for="image" :value="__('Main Photo')" />
                         <div class='w-2/6 object-cover border'>
-                            <img src="/images/rooms/{{ $room -> photo}}" alt="">
+                            <img src="/images/rooms/{{ $room -> mainphoto_path}}" alt="">
                         </div>
 
-                        <x-text-input id="image" type="file" name="image" autofocus />
+                        <x-text-input id="image" type="file" name="image" required autofocus />
                     </div>
 
                     <!-- Name -->
@@ -36,7 +36,7 @@
                         <x-input-label for="nb_persons" :value="__('Number of persons max')" />
 
                         <div class="flex flex-col text-center range-slider mt-2">
-                            <span id="rs-bullet" class="text-xl">{{ $room->nb_persons }}</span>
+                            <span id="rs-bullet" class="text-xl">2</span>
                             <input id="rs-range-line" type="range" name="nb_persons" min="1" step="1"
                                 max="6" value="{{ $room->nb_persons }}">
                         </div>
