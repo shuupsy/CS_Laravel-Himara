@@ -28,6 +28,8 @@ return new class extends Migration
             ->default(null);
             $table->boolean('is_Available')
                 ->default(1);
+            $table->boolean('in_Sale')
+                ->default(0);
             $table->timestamps();
         });
     }
