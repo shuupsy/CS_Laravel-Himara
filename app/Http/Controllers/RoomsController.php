@@ -17,7 +17,12 @@ class RoomsController extends Controller
      */
     public function index()
     {
-        
+        $rooms = Room::all();
+        $categories = RoomCategory::all();
+        $tags = Tag::all();
+        $options = Option::all();
+
+        return view('pages.backoffice.b-rooms', compact('rooms', 'categories', 'tags', 'options'));
     }
 
     /**
@@ -49,10 +54,7 @@ class RoomsController extends Controller
      */
     public function show($id)
     {
-        $room = Room::find($id);
-        $options = Option::all();
 
-        return view('pages.room', compact('room', 'options'));
     }
 
     /**

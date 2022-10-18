@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.room-tags input[type="checkbox"]:checked + span {
+    background-color: #ECCB9A;
+    color: white;
+  }

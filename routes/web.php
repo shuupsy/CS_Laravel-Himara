@@ -47,38 +47,39 @@ Route::get('/admin', function(){
     return view('pages.backoffice.b-home');
 });
 
-/* Infos Hotel */
+/* BACKOFFICE - Infos Hotel */
 Route::resource('/admin/info', InfoController::class)
     ->names(['index' => 'info.index']);
 Route::put('/admin/info/{id}/update1', [InfoController::class, 'update_logo']);
 Route::put('/admin/info/{id}/update2', [InfoController::class, 'update_biglogo']);
 
-/* Service */
+/* BACKOFFICE - Service */
 Route::resource('/admin/services', ServiceController::class)
     ->names(['index' => 'service.index']);
 
-/* Ads */
+/* BACKOFFICE - Ads */
 Route::resource('/admin/ads', AdsController::class)
     ->names(['index' => 'ads.index']);
 
-/* Sliders */
+/* BACKOFFICE - Sliders */
 Route::resource('/admin/sliders', SlidersController::class)
     ->names(['index' => 'sliders.index']);
 
-/* Restaurant */
+/* BACKOFFICE - Restaurant */
 Route::resource('/admin/restaurant', RestaurantController::class)
     ->names(['index' => 'restaurant.index']);
 
-/* Staff */
+/* BACKOFFICE - Staff */
 Route::resource('/admin/staff', StaffController::class)
     ->names(['index' => 'staff.index']);
 
-/* Gallery */
+/* BACKOFFICE - Gallery */
 Route::resource('/admin/gallery', GalleryController::class)
     ->names(['index' => 'gallery.index']);
 
 Route::resource('/admin/gallerycategory', GalleryCategoryController::class);
 
+/* BACKOFFICE - Rooms */
 Route::resource('/admin/rooms', RoomsController::class)
     ->names(['index' => 'rooms.index']);
 

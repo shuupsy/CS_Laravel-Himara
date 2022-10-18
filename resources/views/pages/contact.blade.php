@@ -102,3 +102,8 @@
         </div>
     </main>
 @endsection
+
+
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAcyvTTVQCy2xkeqTr3VurkWbyz_Lu61M&callback=initMap">
+</script>

@@ -23,8 +23,10 @@ return new class extends Migration
             $table->foreignId('room_category_id')
             ->constrained();
             $table->unsignedBigInteger('rating')
-            ->nullable();
-            $table->boolean('is_Available');
+            ->nullable()
+            ->default(null);
+            $table->boolean('is_Available')
+                ->default(1);
             $table->timestamps();
         });
     }
