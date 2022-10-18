@@ -16,6 +16,10 @@ use App\Http\Controllers\GalleryCategoryController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\ServiceController;
 
+Route::get('/mail', function(){
+    return view('emails.welcome');
+});
+
 /* -------- FRONT -------- */
 Route::get('/', [FrontController::class, 'Home'])
 ->name('home');
