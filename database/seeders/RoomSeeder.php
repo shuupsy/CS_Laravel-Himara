@@ -19,7 +19,7 @@ class RoomSeeder extends Seeder
             [
                 "name" => 'Istanbul',
                 "price" => 89,
-                "mainphoto_path" => 'single1.jpg',
+                "photo" => 'single1.jpg',
                 "surface" => 80,
                 "nb_persons" => 3,
                 "room_category_id" => 1,
@@ -30,7 +30,7 @@ class RoomSeeder extends Seeder
             [
                 "name" => 'Tanger',
                 "price" => 129,
-                "mainphoto_path" => 'double.jpg',
+                "photo" => 'double.jpg',
                 "surface" => 100,
                 "nb_persons" => 4,
                 "room_category_id" => 2,
@@ -41,7 +41,7 @@ class RoomSeeder extends Seeder
             [
                 "name" => 'Tokyo',
                 "price" => 189,
-                "mainphoto_path" => 'deluxe.jpg',
+                "photo" => 'deluxe.jpg',
                 "surface" => 45,
                 "nb_persons" => 2,
                 "room_category_id" => 4,
@@ -52,7 +52,7 @@ class RoomSeeder extends Seeder
             [
                 "name" => 'Paris',
                 "price" => 149,
-                "mainphoto_path" => 'family.jpg',
+                "photo" => 'family.jpg',
                 "surface" => 73,
                 "nb_persons" => 4,
                 "room_category_id" => 3,
@@ -63,7 +63,7 @@ class RoomSeeder extends Seeder
             [
                 "name" => 'Rio de Janeiro',
                 "price" => 289,
-                "mainphoto_path" => 'king.jpg',
+                "photo" => 'king.jpg',
                 "surface" => 100,
                 "nb_persons" => 2,
                 "room_category_id" => 4,
@@ -74,7 +74,7 @@ class RoomSeeder extends Seeder
             [
                 "name" => 'Sicilia',
                 "price" => 169,
-                "mainphoto_path" => 'honeymoon.jpg',
+                "photo" => 'honeymoon.jpg',
                 "surface" => 55,
                 "nb_persons" => 2,
                 "room_category_id" => 2,
@@ -85,7 +85,7 @@ class RoomSeeder extends Seeder
             [
                 "name" => 'Moscou',
                 "price" => 119,
-                "mainphoto_path" => 'view.jpg',
+                "photo" => 'view.jpg',
                 "surface" => 80,
                 "nb_persons" => 4,
                 "room_category_id" => 3,
@@ -96,7 +96,7 @@ class RoomSeeder extends Seeder
             [
                 "name" => 'London',
                 "price" => 349,
-                "mainphoto_path" => 'luxury.jpg',
+                "photo" => 'luxury.jpg',
                 "surface" => 100,
                 "nb_persons" => 4,
                 "room_category_id" => 4,
@@ -107,7 +107,7 @@ class RoomSeeder extends Seeder
             [
                 "name" => 'Dubaî',
                 "price" => 39,
-                "mainphoto_path" => 'small.jpg',
+                "photo" => 'small.jpg',
                 "surface" => 120,
                 "nb_persons" => 2,
                 "room_category_id" => 1,

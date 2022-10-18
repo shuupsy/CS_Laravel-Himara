@@ -13,7 +13,7 @@
                     <div class="room-grid-item">
                         <figure class="gradient-overlay-hover link-icon">
                             <a href="/rooms/{{ $room -> id }}">
-                                <img src="{{ $room->mainphoto_path }}" class="img-fluid" alt="Image">
+                                <img src="{{ $room->photo }}" class="img-fluid" alt="Image">
                             </a>
                             <div class="room-services">
                                 {{-- Options --}}

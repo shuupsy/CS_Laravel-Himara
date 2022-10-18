@@ -19,7 +19,7 @@
                     <div class='flex justify-between items-center'>
                         {{-- Main photo --}}
                         <div class='w-1/6 object-cover border'>
-                            <img src="/images/rooms/{{ $room->mainphoto_path }}" alt="">
+                            <img src="/images/rooms/{{ $room->photo }}" alt="">
                         </div>
 
                         {{-- Infos importantes --}}

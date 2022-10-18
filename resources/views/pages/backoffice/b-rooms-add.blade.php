@@ -9,12 +9,12 @@
 
                 <div class='flex flex-col gap-3 my-6'>
                     <!-- Main Photo -->
-                 {{--    <div>
+                    <div>
                         <x-input-label for="image" :value="__('Main Photo')" />
 
                         <x-text-input id="image" type="file" name="image" required autofocus />
                     </div>
- --}}
+
                     <!-- Name -->
                     <div>
                         <x-input-label for="name" :value="__('Name')" />
@@ -91,9 +91,8 @@
 
                 <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222] uppercase'>Add</button>
             </form>
-            <script src="/js/room.js"></script>
-
 
         </div>
     </div>
+    <script src="/js/room.js"></script>
 @endsection
