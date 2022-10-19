@@ -88,7 +88,7 @@ class RoomsController extends Controller
     {
         $room = Room::find($id);
         $descriptions = $room->room_descriptions;
-    
+
         $photos = $room->room_photos;
 
         $categories = RoomCategory::all();

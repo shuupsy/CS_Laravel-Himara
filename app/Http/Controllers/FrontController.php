@@ -107,9 +107,24 @@ class FrontController extends Controller
         $descriptions = $room->room_descriptions;
         $photos = $room->room_photos;
 
+        /* Tags de la room actuelle, en array */
+        $tags = $room->tag->pluck('tag')->toArray();
+
+        /* Room similaires */
+        $similar = Room::
+        whereHas('room_category', function(Builder $query) use($room){
+            $query->where('room_category_id',$room->room_category_id );
+        })
+        ->orWhereHas('tag', function (Builder $query) use($tags) {
+            $query->where('tag', 'like', $tags);
+            })
+        ->inRandomOrder()
+        ->take(3)
+        ->get();
+
         $options = Option::all();
 
-        return view('pages.room', compact('room', 'options', 'descriptions', 'photos'));
+        return view('pages.room', compact('room', 'options', 'descriptions', 'photos', 'similar'));
     }
 
     public function Staff(){
