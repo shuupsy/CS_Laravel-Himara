@@ -11,7 +11,7 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <figure class="gradient-overlay-hover link-icon">
-                                        <a href="rooms/{{ $room->id }}"><img src="{{ $room->photo }}"
+                                        <a href="rooms/{{ $room->id }}"><img src="/images/rooms/{{ $room->photo }}"
                                                 class="img-fluid" alt="Image {{ $room->name }}"></a>
                                     </figure>
                                 </div>
@@ -44,7 +44,7 @@
 
                                         {{-- Room option --}}
                                         <div class="room-services">
-                                            @foreach ($room->room_options as $option)
+                                            @foreach ($room->option_room as $option)
                                                 {{-- Option - Breakfast --}}
                                                 @if ($option->id == 4)
                                                     <i class="fa fa-coffee" data-toggle="popover" data-placement="top"

@@ -13,11 +13,11 @@
                     <div class="room-grid-item">
                         <figure class="gradient-overlay-hover link-icon">
                             <a href="/rooms/{{ $room -> id }}">
-                                <img src="{{ $room->photo }}" class="img-fluid" alt="Image">
+                                <img src="/images/rooms/{{ $room->photo }}" class="img-fluid" alt="Image">
                             </a>
                             <div class="room-services">
                                 {{-- Options --}}
-                                @foreach ($room->room_options as $option)
+                                @foreach ($room->option_room as $option)
                                     {{-- Option - Breakfast --}}
                                     @if ($option->id == 4)
                                         <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover"

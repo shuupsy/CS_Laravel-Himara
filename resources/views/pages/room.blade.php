@@ -63,7 +63,7 @@
                                     </li>
 
                                     @foreach ($options as $option)
-                                        {!! $room->room_options->contains($option->id)
+                                        {!! $room->option_room->contains($option->id)
                                             ? '<li><i class="fa fa-check"></i>'
                                             : '<li class="no"><i class="fa fa-times"></i>' !!}
                                         {{ $option->option_name }}

@@ -16,7 +16,7 @@
                     <div>
                         <x-input-label for="image" :value="__('Main Photo')" />
                         <div class='w-2/6 object-cover border'>
-                            <img src="/images/rooms/{{ $room -> mainphoto_path}}" alt="">
+                            <img src="/images/rooms/{{ $room -> photo}}" alt="">
                         </div>
 
                         <x-text-input id="image" type="file" name="image" required autofocus />
