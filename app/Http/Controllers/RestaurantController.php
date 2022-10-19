@@ -100,6 +100,11 @@ class RestaurantController extends Controller
 
         /* Image */
         if($request->file('image') != null){
+            /* Supprimer image précédente */
+            if($dish->photo != 'restaurant1.jpg' || $dish->photo != 'restaurant2.jpg' || !Str::startsWith($dish->photo, 'https:')){
+                Storage::delete('public/assets/' . $dish->photo);
+                File::delete(public_path('images/restaurant/' . $dish->photo));
+            }
             Storage::put('public/assets/', $request->file('image'));
 
             $new = $request->file('image')->hashName();
