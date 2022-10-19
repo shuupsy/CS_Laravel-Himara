@@ -13,8 +13,7 @@
                                 <div class="item">
                                     <figure class="gradient-overlay-hover image-icon">
                                         <a href="/images/rooms/{{ $photo->photo }}">
-                                            <img class="img-fluid" src="/images/rooms/{{ $photo->photo }}"
-                                                alt="Image">
+                                            <img class="img-fluid" src="/images/rooms/{{ $photo->photo }}" alt="Image">
                                         </a>
                                     </figure>
                                 </div>
@@ -28,7 +27,6 @@
                                 <div class="item"><img class="img-fluid" src="/images/rooms/{{ $photo->photo }}"
                                         alt="Image">
                                 </div>
-
                             @endforeach
 
                         </div>
@@ -44,57 +42,44 @@
                         <h4>ROOM SERVICES</h4>
                         <p class="section-subtitle">{{ $room->name }} Includes</p>
                     </div>
-                    {{-- Lsite - OPTIONS --}}
+                    {{-- Liste - OPTIONS --}}
                     <div class="room-services-list">
                         <div class="row">
                             <div class="col-sm-4">
                                 <ul class="list-unstyled">
-                                    {{-- Type de lit --}}
-                                    <li>
-                                        <i class="fa fa-check"></i>Double Bed
-                                    </li>
-                                    {{-- Surface --}}
-                                    <li>
-                                        <i class="fa fa-check"></i>{{ $room->surface }} Sq mt
-                                    </li>
-                                    {{-- Nombre personnes --}}
-                                    <li>
-                                        <i class="fa fa-check"></i>{{ $room->nb_persons }} Persons
-                                    </li>
-
                                     @foreach ($options as $option)
                                         {!! $room->option_room->contains($option->id)
                                             ? '<li><i class="fa fa-check"></i>'
                                             : '<li class="no"><i class="fa fa-times"></i>' !!}
                                         {{ $option->option_name }}
                                         </li>
+
+                                        {{-- Si première loop --}}
+                                        @if ($loop->first)
+                                            <li>
+                                                <i class="fa fa-check"></i>
+                                                {{ $room->surface }} sq mt
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-check"></i>
+                                                {{ $room->nb_persons }} persons
+                                            </li>
+                                        @endif
+
+                                        @if ($loop->iteration == 2 || $loop->iteration == 6)
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                        <ul class="list-unstyled">
+                                        @endif
                                     @endforeach
 
-
-                                    <li>
-                                        <i class="fa fa-check"></i>Free Internet
-                                    </li>
                                 </ul>
                             </div>
-                            <div class="col-sm-4">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-check"></i>Free Wi-Fi
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check"></i>Breakfast Include
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check"></i>Private Balcony
-                                    </li>
-                                    <li class="no">
-                                        <i class="fa fa-times"></i>Free Newspaper
-                                    </li>
-                                </ul>
-                            </div>
-
                         </div>
                     </div>
+
+
                     {{-- Description 3 --}}
                     <p>{!! $descriptions->description3 !!}
                     </p>
@@ -132,7 +117,8 @@
                                             <div class="col-lg-9 col-sm-9 col-8">
                                                 <div class="progress">
                                                     <div class="progress-bar" role="progressbar" style="width: 91%"
-                                                        aria-valuenow="91" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        aria-valuenow="91" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-1 col-sm-1 col-1">
@@ -149,7 +135,8 @@
                                             <div class="col-lg-9 col-sm-9 col-8">
                                                 <div class="progress">
                                                     <div class="progress-bar" role="progressbar" style="width: 0%"
-                                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-1 col-sm-1 col-1">
@@ -166,7 +153,8 @@
                                             <div class="col-lg-9 col-sm-2 col-8">
                                                 <div class="progress">
                                                     <div class="progress-bar" role="progressbar" style="width: 8%"
-                                                        aria-valuenow="8" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        aria-valuenow="8" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-1 col-sm-1 col-1">
@@ -183,7 +171,8 @@
                                             <div class="col-lg-9 col-sm-9 col-8">
                                                 <div class="progress">
                                                     <div class="progress-bar" role="progressbar" style="width: 0%"
-                                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-1 col-sm-1 col-1">
@@ -200,7 +189,8 @@
                                             <div class="col-lg-9 col-sm-9 col-8">
                                                 <div class="progress">
                                                     <div class="progress-bar" role="progressbar" style="width: 0%"
-                                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-1 col-sm-1 col-1">
@@ -228,8 +218,10 @@
                                 </div>
                                 <div class="review-text">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quis rem esse
-                                        quaerat eius labore repellendus, odit officia, quas provident reprehenderit magnam
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quis rem
+                                        esse
+                                        quaerat eius labore repellendus, odit officia, quas provident reprehenderit
+                                        magnam
                                         adipisci inventore quibusdam est architecto nisi.
                                     </p>
                                 </div>
@@ -253,7 +245,8 @@
                                 </div>
                                 <div class="review-text">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium omnis, eius
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium omnis,
+                                        eius
                                         impedit cum. Necessitatibus illum veritatis, consequatur quia itaque tenetur
                                         recusandae nostrum quod aperiam.
                                     </p>
@@ -278,8 +271,11 @@
                                 </div>
                                 <div class="review-text">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim id, facere porro.
-                                        Ipsum quia maxime atque adipisci inventore dolor nesciunt, molestias voluptatum, ab
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim id, facere
+                                        porro.
+                                        Ipsum quia maxime atque adipisci inventore dolor nesciunt, molestias
+                                        voluptatum,
+                                        ab
                                         dignissimos! Alias.
                                     </p>
                                 </div>
@@ -458,7 +454,8 @@ value="{{ auth()->user()->email }}" disabled @endauth>
                                             </div>
                                         </div>
                                         <!-- BOOKING BUTTON -->
-                                        <button type="submit" class="btn btn-dark btn-fw mt20 mb20">BOOK A ROOM</button>
+                                        <button type="submit" class="btn btn-dark btn-fw mt20 mb20">BOOK A
+                                            ROOM</button>
                                     </form>
                                 </div>
                             </div>
