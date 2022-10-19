@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\RoomPhoto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
 
 class RoomsPhotoController extends Controller
 {
@@ -21,51 +24,18 @@ class RoomsPhotoController extends Controller
         $photo = new RoomPhoto();
 
         /* Image */
-        Storage::put('public/assets/', $request->file('image'));
+        Storage::put('public/assets/', $request->file('photo'));
 
-        $new = $request->file('image')->hashName();
+        $new = $request->file('photo')->hashName();
         $new_path = public_path('storage/assets/' . $new);
         $resize = Image::make($new_path)->resize(1920, 1200)->save(public_path('images/rooms/' . $new));
 
         $photo -> photo = $new;
+        $photo->room_id = $request -> room;
 
         $photo->save();
 
-        return redirect()->back()->with('success', '(1) Photo ajoutée avec succès!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        return Redirect::to(URL::previous() . "#room-gallery")->with('success', '(1) Photo ajoutée avec succès!');
     }
 
     /**
@@ -76,6 +46,16 @@ class RoomsPhotoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = RoomPhoto::find($id);
+
+        if($delete->photo != 'deluxe.jpg' || $delete->photo != 'double.jpg' || $delete->photo != 'family.jpg'|| $delete->photo != 'honeymoon.jpg'|| $delete->photo != 'king.jpg'|| $delete->photo != 'luxury.jpg'|| $delete->photo != 'single1.jpg'|| $delete->photo != 'small.jpg'|| $delete->photo != 'view.jpg'){
+
+            Storage::delete('public/assets/' . $delete->photo);
+            File::delete(public_path('images/rooms/' . $delete->photo));
+        }
+
+        $delete->delete();
+
+        return Redirect::to(URL::previous() . "#room-gallery")->with('success', '(1) Photo supprimée avec succès!');
     }
 }

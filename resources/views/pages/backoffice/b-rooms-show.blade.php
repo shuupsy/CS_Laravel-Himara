@@ -177,19 +177,21 @@
 
     {{-- Gallery --}}
     <hr>
-    <div class="my-6 sm:px-6 lg:px-8">
+    <div class="my-6 sm:px-6 lg:px-8" id='room-gallery'>
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Gallery</h1>
-        <div class="grid grid-cols-4 p-6 gap-4">
+        <div class="grid grid-cols-4 items-center p-6 gap-4">
 
             {{-- Nouvelle photo --}}
-            <form action="/admin/gallery" method="post" enctype="multipart/form-data"
+            <form action="/admin/rooms/gallery" method="post" enctype="multipart/form-data"
                 class='p-6 bg-white flex flex-col items-center justify-center gap-3'>
                 @csrf
+
+                <input name='room' value="{{ $room->id }}" class='hidden'>
                 {{-- Ajout photo --}}
                 <label
                     class='w-28 h-28 border-2 my-3 border-slate-500 hover:text-[#D8BA8D] rounded-full flex justify-center items-center cursor-pointer'
-                    for="image">
-                    <input type="file" name="image" id="image" class='hidden' required>
+                    for="photo">
+                    <input type="file" name="photo" id="photo" class='hidden' required>
                     <span class='text-6xl'>+</span>
                 </label>
 
@@ -198,11 +200,17 @@
             </form>
 
             {{-- Galerie de photos --}}
-            <div>
-                @foreach ($photos as $photo)
-                    <img src="/images/rooms/{{ $photo-> photo }}" alt="">
-                @endforeach
-            </div>
+            @foreach ($photos as $photo)
+                <div class='p-6 bg-white flex flex-col gap-1 items-center justify-center'>
+                    <img src="/images/rooms/{{ $photo->photo }}" alt="">
+                    {{-- Delete --}}
+                    <form action="/admin/rooms/gallery/{{ $photo->id }}" method='post'>
+                        @csrf
+                        @method('delete')
+                        <button class='bg-red-300 p-2 text-white hover:bg-red-500'>Delete</button>
+                    </form>
+                </div>
+            @endforeach
         </div>
 
     </div>
