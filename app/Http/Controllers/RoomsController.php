@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\Room;
 use App\Models\Option;
 use App\Models\RoomCategory;
+use App\Models\RoomPhoto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -87,12 +88,14 @@ class RoomsController extends Controller
     {
         $room = Room::find($id);
         $descriptions = $room->room_descriptions;
+    
+        $photos = $room->room_photos;
 
         $categories = RoomCategory::all();
         $tags = Tag::orderBy('tag', 'asc')->get();
         $options = Option::orderBy('option_name', 'asc')->get();
 
-        return view('pages.backoffice.b-rooms-show', compact('room', 'categories', 'tags', 'options', 'descriptions'));
+        return view('pages.backoffice.b-rooms-show', compact('room', 'categories', 'tags', 'options', 'descriptions', 'photos'));
     }
 
     /**

@@ -179,6 +179,32 @@
     <hr>
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Gallery</h1>
+        <div class="grid grid-cols-4 p-6 gap-4">
+
+            {{-- Nouvelle photo --}}
+            <form action="/admin/gallery" method="post" enctype="multipart/form-data"
+                class='p-6 bg-white flex flex-col items-center justify-center gap-3'>
+                @csrf
+                {{-- Ajout photo --}}
+                <label
+                    class='w-28 h-28 border-2 my-3 border-slate-500 hover:text-[#D8BA8D] rounded-full flex justify-center items-center cursor-pointer'
+                    for="image">
+                    <input type="file" name="image" id="image" class='hidden' required>
+                    <span class='text-6xl'>+</span>
+                </label>
+
+
+                <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222] uppercase'>Add</button>
+            </form>
+
+            {{-- Galerie de photos --}}
+            <div>
+                @foreach ($photos as $photo)
+                    <img src="/images/rooms/{{ $photo-> photo }}" alt="">
+                @endforeach
+            </div>
+        </div>
+
     </div>
 
     {{-- Reviews --}}
