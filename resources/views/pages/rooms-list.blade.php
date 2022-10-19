@@ -39,7 +39,7 @@
                                         </span>
                                         {{-- Description --}}
                                         <a href="/rooms/{{ $room->id }}" class='a-description'>
-                                            <p>{{ substr($room->room_descriptions->description1a, 0, 51) . ' ...' }}</p>
+                                            <p>{{ substr($room->room_descriptions->description1, 0, 51) . ' ...' }}</p>
                                         </a>
 
                                         {{-- Room option --}}

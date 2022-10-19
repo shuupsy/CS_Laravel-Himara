@@ -103,9 +103,12 @@ class FrontController extends Controller
 
     public function ShowRoom($id){
         $room = Room::find($id);
+        $descriptions = $room->room_descriptions;
+        $photos = $room->room_photos;
+
         $options = Option::all();
 
-        return view('pages.room', compact('room', 'options'));
+        return view('pages.room', compact('room', 'options', 'descriptions', 'photos'));
     }
 
     public function Staff(){

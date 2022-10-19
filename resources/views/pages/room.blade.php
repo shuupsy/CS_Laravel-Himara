@@ -9,11 +9,11 @@
                     <div class="room-slider">
                         <div id="room-main-image" class="owl-carousel image-gallery">
                             <!-- ITEM -->
-                            @foreach ($room->room_photos as $photo)
+                            @foreach ($photos as $photo)
                                 <div class="item">
                                     <figure class="gradient-overlay-hover image-icon">
-                                        <a href="/images/rooms/{{ $photo->photo_path }}">
-                                            <img class="img-fluid" src="/images/rooms/{{ $photo->photo_path }}"
+                                        <a href="/images/rooms/{{ $photo->photo }}">
+                                            <img class="img-fluid" src="/images/rooms/{{ $photo->photo }}"
                                                 alt="Image">
                                         </a>
                                     </figure>
@@ -24,8 +24,8 @@
 
                         <div id="room-thumbs" class="room-thumbs owl-carousel">
                             <!-- ITEM -->
-                            @foreach ($room->room_photos as $photo)
-                                <div class="item"><img class="img-fluid" src="images/rooms/{{ $photo->photo_path }}"
+                            @foreach ($photos as $photo)
+                                <div class="item"><img class="img-fluid" src="/images/rooms/{{ $photo->photo }}"
                                         alt="Image">
                                 </div>
 
@@ -33,12 +33,12 @@
 
                         </div>
                     </div>
-                    {{-- Description 1a --}}
-                    <p class="dropcap">{!! $room->room_descriptions->description1a !!}
+                    {{-- Description 1 --}}
+                    <p class="dropcap">{!! $descriptions->description1 !!}
                     </p>
-                    {{-- Description 1b --}}
+                    {{-- Description 2 --}}
                     <p>
-                        {!! $room->room_descriptions->description1b !!}
+                        {!! $descriptions->description2 !!}
                     </p>
                     <div class="section-title sm">
                         <h4>ROOM SERVICES</h4>
@@ -95,11 +95,11 @@
 
                         </div>
                     </div>
-                    {{-- Description 2a --}}
-                    <p>{!! $room->room_descriptions->description2a !!}
+                    {{-- Description 3 --}}
+                    <p>{!! $descriptions->description3 !!}
                     </p>
-                    {{-- Description 2b --}}
-                    <p>{!! $room->room_descriptions->description2b !!}
+                    {{-- Description 4 --}}
+                    <p>{!! $descriptions->description4 !!}
                     </p>
                     <!-- ROOM REVIEWS -->
                     <div id="room-reviews" class="room-reviews">
