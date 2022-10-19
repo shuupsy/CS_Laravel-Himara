@@ -295,32 +295,47 @@
                         </div>
                         <div class="row">
                             @foreach ($similar as $s)
-                                <!-- ITEM -->
+                            {{-- 3 Rooms similaires --}}
                                 <div class="col-lg-4">
                                     <div class="room-grid-item">
                                         <figure class="gradient-overlay-hover link-icon">
                                             <a href="room.html">
-                                                <img src="images/rooms/single/single1.jpg" class="img-fluid"
+                                                <img src="/images/rooms/{{ $s->photo }}" class="img-fluid"
                                                     alt="Image">
                                             </a>
+                                            {{-- Options --}}
                                             <div class="room-services">
-                                                <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover"
-                                                    data-placement="right" data-trigger="hover"
-                                                    data-content="Breakfast Included" data-original-title="Breakfast"></i>
-                                                <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover"
-                                                    data-placement="right" data-trigger="hover" data-content="Free WiFi"
-                                                    data-original-title="WiFi"></i>
-                                                <i class="fa fa-television" data-toggle="popover" data-placement="right"
-                                                    data-trigger="hover" data-content="Plasma TV with cable channels"
-                                                    data-original-title="TV"></i>
+                                                @foreach ($s->option_room as $option)
+                                                    {{-- Option - Breakfast --}}
+                                                    @if ($option->id == 4)
+                                                        <i class="fa fa-coffee" data-toggle="popover"
+                                                            data-placement="top" data-trigger="hover"
+                                                            data-content="Breakfast Included"
+                                                            data-original-title="Breakfast"></i>
+                                                    @endif
+                                                    {{-- Option - Wifi --}}
+                                                    @if ($option->id == 3)
+                                                        <i class="fa fa-wifi" data-toggle="popover" data-placement="top"
+                                                            data-trigger="hover" data-content="Free WiFi"
+                                                            data-original-title="WiFi"></i>
+                                                    @endif
+                                                    {{-- Option - TV --}}
+                                                    @if ($option->id == 7)
+                                                        <i class="fa fa-television" data-toggle="popover"
+                                                            data-placement="top" data-trigger="hover"
+                                                            data-content="Plasma TV with cable channels"
+                                                            data-original-title="TV"></i>
+                                                    @endif
+                                                @endforeach
+
                                             </div>
-                                            <div class="room-price">€{{$s -> price }} / night</div>
+                                            <div class="room-price">€{{ $s->price }} / night</div>
                                         </figure>
                                         <div class="room-info">
                                             <h2 class="room-title">
-                                                <a href="room.html">{{ $s -> name}}</a>
+                                                <a href="room.html">{{ $s->name }}</a>
                                             </h2>
-                                            <p>Enjoy our single room</p>
+                                            <p>Enjoy our {{ $s->room_category->category }} room</p>
                                         </div>
                                     </div>
                                 </div>
