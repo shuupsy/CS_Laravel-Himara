@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
         /* Page Title */
         view()->composer('*', function ($view){
             $display = Request::is('/')  || Request::is('dashboard');
+
             $view->with('display', $display );
         });
 

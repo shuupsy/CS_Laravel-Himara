@@ -1,5 +1,9 @@
 @extends('layouts.index')
 
+@section('title')
+    {{ $room->name }}
+@endsection
+
 @section('content')
     <main class="room">
         <div class="container">
@@ -67,11 +71,11 @@
                                         @endif
 
                                         @if ($loop->iteration == 2 || $loop->iteration == 6)
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-4">
-                                        <ul class="list-unstyled">
-                                        @endif
+                                </ul>
+                            </div>
+                            <div class="col-sm-4">
+                                <ul class="list-unstyled">
+                                    @endif
                                     @endforeach
 
                                 </ul>

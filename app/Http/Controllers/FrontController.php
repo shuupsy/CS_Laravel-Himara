@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use App\Models\Advertisement;
 use App\Models\ContactMessage;
 use App\Models\GalleryCategory;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class FrontController extends Controller
 {
