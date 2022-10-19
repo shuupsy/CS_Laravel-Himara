@@ -93,6 +93,8 @@ class FrontController extends Controller
         $rooms = Room::orderby('id', 'asc')
             ->paginate(10);
 
+        
+
         $room_cats = RoomCategory::withCount('rooms')
             ->orderBy('id', 'asc')
             ->get();

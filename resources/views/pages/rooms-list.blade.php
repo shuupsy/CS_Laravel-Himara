@@ -1,6 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
+
     <main class="rooms-list-view">
         <div class="container">
             <div class="row">
@@ -38,9 +39,11 @@
                                             <a href="room.html#room-reviews">{{ $room->rating }} Based on 3 Ratings</a>
                                         </span>
                                         {{-- Description --}}
-                                        <a href="/rooms/{{ $room->id }}" class='a-description'>
-                                            <p>{{ substr($room->room_descriptions->description1, 0, 51) . ' ...' }}</p>
-                                        </a>
+                                        @if ($room->room_descriptions != null)
+                                            <a href="/rooms/{{ $room->id }}" class='a-description'>
+                                                <p>{{ substr($room->room_descriptions->description1, 0, 51) . ' ...' }}</p>
+                                            </a>
+                                        @endif
 
                                         {{-- Room option --}}
                                         <div class="room-services">

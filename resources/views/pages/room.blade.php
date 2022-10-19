@@ -35,13 +35,18 @@
 
                         </div>
                     </div>
+
                     {{-- Description 1 --}}
-                    <p class="dropcap">{!! $descriptions->description1 !!}
-                    </p>
+                    @if ($descriptions != null && $descriptions->description1 != null)
+                        <p class="dropcap">{!! $descriptions->description1 !!}
+                        </p>
+                    @endif
+
                     {{-- Description 2 --}}
-                    <p>
-                        {!! $descriptions->description2 !!}
-                    </p>
+                    @if ($descriptions != null && $descriptions->description2 != null)
+                        <p>{!! $descriptions->description2 !!}</p>
+                    @endif
+
                     <div class="section-title sm">
                         <h4>ROOM SERVICES</h4>
                         <p class="section-subtitle">{{ $room->name }} Includes</p>
@@ -85,11 +90,15 @@
 
 
                     {{-- Description 3 --}}
-                    <p>{!! $descriptions->description3 !!}
-                    </p>
+                    @if ($descriptions != null && $descriptions->description3 != null)
+                        <p>{!! $descriptions->description3 !!}</p>
+                    @endif
+
                     {{-- Description 4 --}}
-                    <p>{!! $descriptions->description4 !!}
-                    </p>
+                    @if ($descriptions != null && $descriptions->description4 != null)
+                        <p>{!! $descriptions->description4 !!}</p>
+                    @endif
+
                     <!-- ROOM REVIEWS -->
                     <div id="room-reviews" class="room-reviews">
                         <div class="section-title sm">
@@ -295,7 +304,7 @@
                         </div>
                         <div class="row">
                             @foreach ($similar as $s)
-                            {{-- 3 Rooms similaires --}}
+                                {{-- 3 Rooms similaires --}}
                                 <div class="col-lg-4">
                                     <div class="room-grid-item">
                                         <figure class="gradient-overlay-hover link-icon">
