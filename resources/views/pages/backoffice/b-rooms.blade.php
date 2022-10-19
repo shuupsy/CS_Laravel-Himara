@@ -56,7 +56,7 @@
                         <div class='flex gap-3'>
                             {{-- Bouton MORE --}}
                             <a href="/admin/rooms/{{ $room->id}}">
-                                <button class='border-[1px] p-2 text-slate-400 hover:text-white hover:bg-zinc-700 rounded-sm'>more</button>
+                                <button class='border-[1px] p-2 text-slate-400 hover:text-white hover:bg-zinc-700 rounded-sm transition duration-150 ease-out hover:ease-in'>more</button>
                             </a>
 
                             {{-- Bouton DELETE --}}

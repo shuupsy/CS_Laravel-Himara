@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{--  --}}
+    {{-- Infos générales --}}
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Room Update</h1>
         <div class="p-6 border-b bg-white border-gray-200">
@@ -16,7 +16,7 @@
                     <div>
                         <x-input-label for="image" :value="__('Main Photo')" />
                         <div class='w-2/6 object-cover border'>
-                            <img src="/images/rooms/{{ $room -> photo}}" alt="">
+                            <img src="/images/rooms/{{ $room->photo }}" alt="">
                         </div>
 
                         <x-text-input id="image" type="file" name="image" required autofocus />
@@ -80,10 +80,7 @@
                         @foreach ($tags as $tag)
                             <label>
                                 <input class='hidden' type="checkbox" name="tags[]" value="{{ $tag->id }}"
-                                    @if ($room->tag->contains($tag->id))
-                                        checked
-                                    @endif
-                                    >
+                                    @if ($room->tag->contains($tag->id)) checked @endif>
                                 <span class='w-20 p-2 rounded-lg cursor-pointer uppercase'>{{ $tag->tag }}</span>
                             </label>
                         @endforeach
@@ -95,10 +92,7 @@
                         @foreach ($options as $option)
                             <div>
                                 <input type="checkbox" name="options[]" value="{{ $option->id }}"
-                                @if ($room->option_room->contains($option->id))
-                                    checked
-                                @endif
-                                >
+                                    @if ($room->option_room->contains($option->id)) checked @endif>
                                 <span
                                     class='w-20 p-2 rounded-lg cursor-pointer uppercase'>{{ $option->option_name }}</span>
                             </div>
@@ -113,18 +107,81 @@
         </div>
     </div>
 
+    {{-- Descriptions --}}
     <hr>
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Descriptions</h1>
+        <div class="p-6 border-b bg-white border-gray-200">
+            <div class='w-8/12 mx-auto'>
+                <img src="/images/rooms/room-example.png" alt="Room example">
+            </div>
 
+
+            @if ($descriptions != null)
+                <form action="/admin/rooms/descriptions/{{ $descriptions->id }}" method='post'>
+                    @method('patch')
+                @else
+                    <form action="/admin/rooms/descriptions" method='post'>
+            @endif
+
+            @csrf
+            <div class='flex flex-col gap-5 my-3'>
+
+
+                <input name='room' value="{{ $room->id }}" class='hidden'>
+                <!-- Description 1 -->
+                <div class='w-10/12 mx-auto'>
+                    <x-input-label for="description1" :value="__('Description 1')" />
+
+                    <textarea id="description1"
+                        class="block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        type="text" name="description1" value="{{ old('description1') }}" required autofocus>{{ $descriptions != null ? $descriptions->description1 : '' }}</textarea>
+                </div>
+
+                <!-- Description 2 -->
+                <div class='w-10/12 mx-auto'>
+                    <x-input-label for="description2" :value="__('Description 2')" />
+
+                    <textarea id="description2"
+                        class="block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        type="text" name="description2" value="{{ old('description2') }}" required autofocus>{{ $descriptions != null ? $descriptions->description2 : '' }}</textarea>
+                </div>
+
+                <hr>
+
+                <!-- Description 3 -->
+                <div class='w-10/12 mx-auto'>
+                    <x-input-label for="description3" :value="__('Description 3')" />
+
+                    <textarea id="description3"
+                        class="block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        type="text" name="description3" value="{{ old('description3') }}" required autofocus>{{ $descriptions != null ? $descriptions->description3 : '' }}</textarea>
+                </div>
+
+                <!-- Description 4 -->
+                <div class='w-10/12 mx-auto'>
+                    <x-input-label for="description4" :value="__('Description 4')" />
+
+                    <textarea id="description4"
+                        class="block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        type="text" name="description4" value="{{ old('description4') }}" required autofocus>{{ $descriptions != null ? $descriptions->description4 : '' }}</textarea>
+                </div>
+
+            </div>
+
+            <button
+                class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222]'>{{ $descriptions != null ? 'Update' : 'ADD' }}</button>
+            </form>
+        </div>
     </div>
 
+    {{-- Gallery --}}
     <hr>
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Gallery</h1>
-
     </div>
 
+    {{-- Reviews --}}
     <hr>
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Reviews</h1>

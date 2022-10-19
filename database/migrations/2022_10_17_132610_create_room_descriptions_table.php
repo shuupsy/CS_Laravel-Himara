@@ -18,10 +18,14 @@ return new class extends Migration
             $table->foreignId('room_id')
                 ->constrained()
                 ->onDelete('cascade');
-            $table->text('description1a');
-            $table->text('description1b');
-            $table->text('description2a');
-            $table->text('description2b');
+            $table->text('description1')
+            ->nullable();
+            $table->text('description2')
+            ->nullable();
+            $table->text('description3')
+            ->nullable();
+            $table->text('description4')
+            ->nullable();
             $table->timestamps();
         });
     }

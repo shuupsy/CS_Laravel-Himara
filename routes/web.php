@@ -14,6 +14,7 @@ use App\Http\Controllers\SlidersController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GalleryCategoryController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\RoomsDescriptionController;
 use App\Http\Controllers\ServiceController;
 
 Route::get('/mail', function(){
@@ -82,6 +83,8 @@ Route::resource('/admin/gallerycategory', GalleryCategoryController::class);
 /* BACKOFFICE - Rooms */
 Route::resource('/admin/rooms', RoomsController::class)
     ->names(['index' => 'rooms.index']);
+
+Route::resource('/admin/rooms/descriptions', RoomsDescriptionController::class);
 
 
 

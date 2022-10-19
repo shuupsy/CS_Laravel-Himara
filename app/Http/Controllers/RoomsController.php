@@ -86,11 +86,13 @@ class RoomsController extends Controller
     public function show($id)
     {
         $room = Room::find($id);
+        $descriptions = $room->room_descriptions;
+
         $categories = RoomCategory::all();
         $tags = Tag::orderBy('tag', 'asc')->get();
         $options = Option::orderBy('option_name', 'asc')->get();
 
-        return view('pages.backoffice.b-rooms-show', compact('room', 'categories', 'tags', 'options'));
+        return view('pages.backoffice.b-rooms-show', compact('room', 'categories', 'tags', 'options', 'descriptions'));
     }
 
     /**
