@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -13,7 +14,12 @@ class BookingController extends Controller
      */
     public function index()
     {
-        return view('pages.booking-form');
+        $promos = Room::where('in_Sale', 1)
+                ->take(3)
+                ->orderBy('updated_at', 'desc')
+                ->get();
+                
+        return view('pages.booking-form', compact('promos'));
     }
 
     /**

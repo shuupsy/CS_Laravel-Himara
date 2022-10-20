@@ -43,6 +43,10 @@ Route::resource('/dashboard', DashboardController::class)
     ->names(['index' => 'dashboard'])
     ->middleware(['auth', 'verified']);
 
+/* Booking */
+Route::resource('/booking-form', BookingController::class)
+    ->names(['index' => 'booking.index']);
+
 
 /* -------- BACKOFFICE -------- */
 Route::get('/admin', function(){
@@ -97,8 +101,7 @@ Route::resource('/contact', ContactController::class)
 Route::resource('/blog', BlogController::class)
     ->names(['index' => 'blog.index']);
 
-Route::resource('/booking-form', BookingController::class)
-    ->names(['index' => 'booking.index']);
+
 
 
 

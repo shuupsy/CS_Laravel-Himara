@@ -128,12 +128,12 @@
                             <div class="tagcloud">
                                 <form action="/rooms" method='get'>
                                     @foreach ($room_tags as $tag)
-                                        <a href="">
+                                        <label href="">
                                             <input class='' type="checkbox" name="tags[]"
                                                 value="{{ $tag->tag }}">
                                             <span
                                                 class='tag w-20 p-2 rounded-lg cursor-pointer uppercase'>{{ $tag->tag }}</span>
-                                        </a>
+                                        </label>
                                     @endforeach
                                     <button class='btn'>Filtrer</button>
                                 </form>

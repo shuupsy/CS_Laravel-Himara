@@ -117,22 +117,20 @@ class FrontController extends Controller
         /* Category filter */
         ->when($category, function ($query) use ($category) {
             return $query->where('room_category_id', +$category);
-        })
+        }
 
         /* Tag */
-        ->when('tags', function($query) use($tags) {
-            foreach($tags as $tag){
-                return $query->whereHas('tag', function ($q) use($tag){
-                    return $q->where('tag', 'like', $tag);
+       /*  ->when('tags', function($query) use($tags) {
+                return $query->whereHas('tag', function ($q) use($tags){
+                    return $q->where('tag', 'like', '%'.$tags.'%');
                 });
-            }}
+            } */
 
         /* Pas de filtre */
         , function ($query) {
             return $query->orderBy('id', 'asc');
         })
         ->paginate(15);
-
 
 
         return view('pages.rooms-list', compact('rooms', 'room_cats', 'room_tags'));
