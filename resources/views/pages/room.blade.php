@@ -100,7 +100,8 @@
                     @endif
 
                     <!-- ROOM REVIEWS -->
-                    <div id="room-reviews" class="room-reviews">
+                    @if(count($reviews)!=0)
+                        <div id="room-reviews" class="room-reviews">
                         <div class="section-title sm">
                             <h4>ROOM REVIEWS</h4>
                             <p class="section-subtitle">What our guests are saying about us</p>
@@ -123,7 +124,7 @@
                                 </div>
                                 <div class="col-lg-9">
                                     <!-- ITEM -->
-                                    @for ($i = 5; $i >0; $i--)
+                                    @for ($i = 5; $i > 0; $i--)
                                         <div class="progress-item">
                                             <div class="row">
                                                 <div class="col-lg-2 col-sm-2 col-3">
@@ -132,15 +133,17 @@
                                                 <div class="col-lg-9 col-sm-9 col-8">
                                                     <div class="progress">
                                                         <div class="progress-bar" role="progressbar"
-                                                        style="width: {{round((count($reviews->where('rating', $i))*100)  /(count($reviews)),1)}}%"
-                                                            aria-valuenow="{{round((count($reviews->where('rating', $i))*100)  /(count($reviews)),1)}}" aria-valuemin="0" aria-valuemax="100">
+                                                            style="width: {{ round((count($reviews->where('rating', $i)) * 100) / count($reviews), 1) }}%"
+                                                            aria-valuenow="{{ round((count($reviews->where('rating', $i)) * 100) / count($reviews), 1) }}"
+                                                            aria-valuemin="0" aria-valuemax="100">
                                                         </div>
 
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-1 col-sm-1 col-1">
                                                     <div class="progress-value">
-                                                        {{round((count($reviews->where('rating', $i))*100)  /(count($reviews)), 1)}}%</div>
+                                                        {{ round((count($reviews->where('rating', $i)) * 100) / count($reviews), 1) }}%
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -182,7 +185,8 @@
                             </div>
                         @endforeach
 
-                    </div>
+                        </div>
+                    @endif
 
                     {{-- Similar rooms --}}
                     <div class="similar-rooms">

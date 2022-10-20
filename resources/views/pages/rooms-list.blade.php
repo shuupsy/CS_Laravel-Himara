@@ -86,8 +86,11 @@
                     @endforeach
 
                 </div>
+
                 <div class="col-lg-3 col-12">
                     <div class="sidebar">
+
+                        {{-- Search Input --}}
                         <aside class="widget noborder">
                             <div class="search">
                                 <form class="widget-search" action="/rooms" method='get'>
@@ -98,7 +101,7 @@
                                 </form>
                             </div>
                         </aside>
-                        <!-- WIDGET -->
+                        <!-- WIDGET Categories -->
                         <aside class="widget">
                             {{-- Category filter --}}
                             <h4 class="widget-title">CATEGORIES</h4>
@@ -106,7 +109,7 @@
                                 <form action="/rooms" method='get'>
                                     @foreach ($room_cats as $cat)
                                         <li>
-                                            <a href="?category={{$cat->id}}">
+                                            <a href="?category={{ $cat->id }}">
                                                 {{ $cat->category }} Room
                                                 <span class="posts-num">{{ $cat->rooms_count }}</span>
                                             </a>
@@ -118,15 +121,22 @@
                                 @endforeach
                             </ul>
                         </aside>
-                        <!-- WIDGET -->
+
+                        <!-- WIDGET Tags-->
                         <aside class="widget">
                             <h4 class="widget-title">Tags</h4>
                             <div class="tagcloud">
-                                {{-- Liste de Tags --}}
-                                @foreach ($room_tags as $tag)
-                                    <a href="#">
-                                        <span class="tag">{{ $tag->tag }}</span></a>
-                                @endforeach
+                                <form action="/rooms" method='get'>
+                                    @foreach ($room_tags as $tag)
+                                        <a href="">
+                                            <input class='' type="checkbox" name="tags[]"
+                                                value="{{ $tag->tag }}">
+                                            <span
+                                                class='tag w-20 p-2 rounded-lg cursor-pointer uppercase'>{{ $tag->tag }}</span>
+                                        </a>
+                                    @endforeach
+                                    <button class='btn'>Filtrer</button>
+                                </form>
                             </div>
                         </aside>
                     </div>

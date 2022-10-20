@@ -102,27 +102,38 @@ class FrontController extends Controller
 
         $category = $request->category;
         $search = $request->search;
+        $tags = $request->tags;
 
-        /* Fonction Search */
+        /* Fonction Search + FILTRE */
         $rooms = Room::when($search, function ($query, $q) use($search, $room_cats) {
             return $query->where('name', 'like', "%{$search}%")
                         /* Par nombre personnes */
                         ->orWhere('nb_persons', 'like', "%{$search}%")
                         /* Par nom de catégorie*/
-                        ->orWhereHas('room_category', function($query) use($search, $room_cats){
+                        ->orWhereHas('room_category', function($query) use($search){
                             return $query->where('category', 'like', "%{$search}%");
                         });
         })
-
         /* Category filter */
         ->when($category, function ($query) use ($category) {
             return $query->where('room_category_id', +$category);
-        }
+        })
+
+        /* Tag */
+        ->when('tags', function($query) use($tags) {
+            foreach($tags as $tag){
+                return $query->whereHas('tag', function ($q) use($tag){
+                    return $q->where('tag', 'like', $tag);
+                });
+            }}
+
         /* Pas de filtre */
         , function ($query) {
             return $query->orderBy('id', 'asc');
         })
         ->paginate(15);
+
+
 
         return view('pages.rooms-list', compact('rooms', 'room_cats', 'room_tags'));
     }

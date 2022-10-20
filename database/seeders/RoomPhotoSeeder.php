@@ -21,7 +21,7 @@ class RoomPhotoSeeder extends Seeder
             ["room_id" => 3, "photo" => 'deluxe.jpg'],
             ["room_id" => 4, "photo" => 'family.jpg'],
             ["room_id" => 5, "photo" => 'king.jpg'],
-            ["room_id" => 6, "photo" => 'honeymoon.jp'],
+            ["room_id" => 6, "photo" => 'honeymoon.jpg'],
             ["room_id" => 7, "photo" => 'view.jpg'],
             ["room_id" => 8, "photo" => 'luxury.jpg'],
             ["room_id" => 9, "photo" => 'small.jpg'],
