@@ -104,20 +104,17 @@
                             <h4 class="widget-title">CATEGORIES</h4>
                             <ul class="categories">
                                 <form action="/rooms" method='get'>
-                                    <select name="category">
-                                        @foreach ($room_cats as $cat)
-                                            <option value="{{ $cat->id }}">{{ $cat->category }} Room</option>
-                                        @endforeach
-                                    </select>
-
-                                    <button class='btn'>Filtrer</button>
+                                    @foreach ($room_cats as $cat)
+                                        <li>
+                                            <a href="?category={{$cat->id}}">
+                                                {{ $cat->category }} Room
+                                                <span class="posts-num">{{ $cat->rooms_count }}</span>
+                                            </a>
+                                        </li>
+                                    @endforeach
                                 </form>
                                 {{-- Liste de catégories --}}
                                 @foreach ($room_cats as $cat)
-                                    <li>
-                                        <a href="#">{{ $cat->category }} Room<span
-                                                class="posts-num">{{ $cat->rooms_count }}</span></a>
-                                    </li>
                                 @endforeach
                             </ul>
                         </aside>
