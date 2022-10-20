@@ -90,17 +90,39 @@ class FrontController extends Controller
     }
 
 
-    public function Room(){
-        $rooms = Room::orderby('id', 'asc')
-            ->paginate(10);
-
-
+    public function Room(Request $request){
+      /*   $rooms = Room::orderby('id', 'asc')
+            ->paginate(10); */
 
         $room_cats = RoomCategory::withCount('rooms')
             ->orderBy('id', 'asc')
             ->get();
 
         $room_tags = Tag::all();
+
+        $category = $request->category;
+        $search = $request->search;
+
+        /* Fonction Search */
+        $rooms = Room::when($search, function ($query, $q) use($search, $room_cats) {
+            return $query->where('name', 'like', "%{$search}%")
+                        /* Par nombre personnes */
+                        ->orWhere('nb_persons', 'like', "%{$search}%")
+                        /* Par nom de catégorie*/
+                        ->orWhereHas('room_category', function($query) use($search, $room_cats){
+                            return $query->where('category', 'like', "%{$search}%");
+                        });
+        })
+
+        /* Category filter */
+        ->when($category, function ($query) use ($category) {
+            return $query->where('room_category_id', +$category);
+        }
+        /* Pas de filtre */
+        , function ($query) {
+            return $query->orderBy('id', 'asc');
+        })
+        ->paginate(15);
 
         return view('pages.rooms-list', compact('rooms', 'room_cats', 'room_tags'));
     }

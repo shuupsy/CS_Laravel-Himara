@@ -90,8 +90,8 @@
                     <div class="sidebar">
                         <aside class="widget noborder">
                             <div class="search">
-                                <form class="widget-search">
-                                    <input type="search" placeholder="Search">
+                                <form class="widget-search" action="/rooms" method='get'>
+                                    <input type="search" name='search' placeholder="Search">
                                     <button class="btn-search" id="searchsubmit" type="submit">
                                         <i class="fa fa-search"></i>
                                     </button>
@@ -100,9 +100,18 @@
                         </aside>
                         <!-- WIDGET -->
                         <aside class="widget">
+                            {{-- Category filter --}}
                             <h4 class="widget-title">CATEGORIES</h4>
                             <ul class="categories">
+                                <form action="/rooms" method='get'>
+                                    <select name="category">
+                                        @foreach ($room_cats as $cat)
+                                            <option value="{{ $cat->id }}">{{ $cat->category }} Room</option>
+                                        @endforeach
+                                    </select>
 
+                                    <button class='btn'>Filtrer</button>
+                                </form>
                                 {{-- Liste de catégories --}}
                                 @foreach ($room_cats as $cat)
                                     <li>
