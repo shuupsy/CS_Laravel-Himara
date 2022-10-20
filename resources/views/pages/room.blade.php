@@ -109,109 +109,42 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div class="review-summary">
-                                        <div class="average">4.9</div>
+                                        <div class="average">{{ round($average, 1) }}</div>
                                         <div class="rating">
-                                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            @if (floor($average) > 0)
+                                                {{-- Mettre le nombre d'étoiles correspondantes à la moyenne des notes --}}
+                                                @for ($i = floor($average); $i > 0; $i--)
+                                                    <i class="fa fa-star voted" aria-hidden="true"></i>
+                                                @endfor
+                                            @endif
                                         </div>
-                                        <small>Based on 3 ratings</small>
+                                        <small>Based on {{ count($reviews) }} rating(s)</small>
                                     </div>
                                 </div>
                                 <div class="col-lg-9">
                                     <!-- ITEM -->
-                                    <div class="progress-item">
-                                        <div class="row">
-                                            <div class="col-lg-2 col-sm-2 col-3">
-                                                <div class="progress-stars">5 star</div>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-9 col-8">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 91%"
-                                                        aria-valuenow="91" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
+                                    @for ($i = 5; $i >0; $i--)
+                                        <div class="progress-item">
+                                            <div class="row">
+                                                <div class="col-lg-2 col-sm-2 col-3">
+                                                    <div class="progress-stars">{{ $i }} star</div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-1 col-sm-1 col-1">
-                                                <div class="progress-value">91%</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                <div class="col-lg-9 col-sm-9 col-8">
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar"
+                                                        style="width: {{round((count($reviews->where('rating', $i))*100)  /(count($reviews)),1)}}%"
+                                                            aria-valuenow="{{round((count($reviews->where('rating', $i))*100)  /(count($reviews)),1)}}" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
 
-                                    <!-- ITEM -->
-                                    <div class="progress-item">
-                                        <div class="row">
-                                            <div class="col-lg-2 col-sm-2 col-3">
-                                                <div class="progress-stars">4 star</div>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-9 col-8">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 0%"
-                                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-1 col-sm-1 col-1">
-                                                <div class="progress-value">0%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- ITEM -->
-                                    <div class="progress-item">
-                                        <div class="row">
-                                            <div class="col-lg-2 col-sm-2 col-3">
-                                                <div class="progress-stars">3 star</div>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-2 col-8">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 8%"
-                                                        aria-valuenow="8" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
+                                                <div class="col-lg-1 col-sm-1 col-1">
+                                                    <div class="progress-value">
+                                                        {{round((count($reviews->where('rating', $i))*100)  /(count($reviews)), 1)}}%</div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-1 col-sm-1 col-1">
-                                                <div class="progress-value">8%</div>
-                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- ITEM -->
-                                    <div class="progress-item">
-                                        <div class="row">
-                                            <div class="col-lg-2 col-sm-2 col-3">
-                                                <div class="progress-stars">2 star</div>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-9 col-8">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 0%"
-                                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-1 col-sm-1 col-1">
-                                                <div class="progress-value">0%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- ITEM -->
-                                    <div class="progress-item">
-                                        <div class="row">
-                                            <div class="col-lg-2 col-sm-2 col-3">
-                                                <div class="progress-stars">1 star</div>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-9 col-8">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 0%"
-                                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-1 col-sm-1 col-1">
-                                                <div class="progress-value">0%</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endfor
                                 </div>
                             </div>
                         </div>
@@ -229,7 +162,6 @@
                                             @for ($i = $review->rating; $i > 0; $i--)
                                                 <i class="fa fa-star voted" aria-hidden="true"></i>
                                             @endfor
-
                                             {{-- Si la note est inférieure à 5, rajouter étoile(s) grise(s) --}}
                                             @if ($review->rating < 5)
                                                 @for ($i = $review->rating; $i < 5; $i++)
@@ -244,13 +176,7 @@
                                         {{ $review->created_at->format('F d, Y') }}
                                     </div>
                                     <div class="review-text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quis rem
-                                            esse
-                                            quaerat eius labore repellendus, odit officia, quas provident reprehenderit
-                                            magnam
-                                            adipisci inventore quibusdam est architecto nisi.
-                                        </p>
+                                        <p>{{ $review->review }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -279,9 +205,8 @@
                                                 @foreach ($s->option_room as $option)
                                                     {{-- Option - Breakfast --}}
                                                     @if ($option->id == 4)
-                                                        <i class="fa fa-coffee" data-toggle="popover"
-                                                            data-placement="top" data-trigger="hover"
-                                                            data-content="Breakfast Included"
+                                                        <i class="fa fa-coffee" data-toggle="popover" data-placement="top"
+                                                            data-trigger="hover" data-content="Breakfast Included"
                                                             data-original-title="Breakfast"></i>
                                                     @endif
                                                     {{-- Option - Wifi --}}

@@ -128,10 +128,10 @@ class FrontController extends Controller
         $options = Option::all();
 
         $reviews = RoomReview::where('room_id', $room->id)
-        ->take(3)
         ->get();
+        $average = $reviews->avg('rating');
 
-        return view('pages.room', compact('room', 'options', 'descriptions', 'photos', 'similar', 'reviews'));
+        return view('pages.room', compact('room', 'options', 'descriptions', 'photos', 'similar', 'reviews', 'average'));
     }
 
     public function Staff(){
