@@ -50,9 +50,9 @@
                             </label>
                             <select class="form-control" name="booking-roomtype" title="Select Room Type"
                                 data-header="Room Type">
-                                <option value="Single">Single Room</option>
-                                <option value="Double">Double Room</option>
-                                <option value="Deluxe">Deluxe Room</option>
+                                @foreach ($room_cats as $category)
+                                    <option value="{{ $category->category }}">{{ $category -> category }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

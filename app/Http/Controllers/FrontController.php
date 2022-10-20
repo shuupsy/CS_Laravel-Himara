@@ -42,6 +42,7 @@ class FrontController extends Controller
             ->inRandomOrder()
             ->take(3)
             ->get();
+        $room_cats = RoomCategory::all();
 
         $services = Service::all();
         $count_services = Service::all()->count();
@@ -66,7 +67,7 @@ class FrontController extends Controller
             ->get();
 
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'about', 'rooms', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish', 'count_services', 'count_photos'));
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'room_cats', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish', 'count_services', 'count_photos'));
     }
 
     /**
@@ -93,7 +94,7 @@ class FrontController extends Controller
         $rooms = Room::orderby('id', 'asc')
             ->paginate(10);
 
-        
+
 
         $room_cats = RoomCategory::withCount('rooms')
             ->orderBy('id', 'asc')
@@ -126,7 +127,11 @@ class FrontController extends Controller
 
         $options = Option::all();
 
-        return view('pages.room', compact('room', 'options', 'descriptions', 'photos', 'similar'));
+        $reviews = RoomReview::where('room_id', $room->id)
+        ->take(3)
+        ->get();
+
+        return view('pages.room', compact('room', 'options', 'descriptions', 'photos', 'similar', 'reviews'));
     }
 
     public function Staff(){

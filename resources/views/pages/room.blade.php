@@ -139,6 +139,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <!-- ITEM -->
                                     <div class="progress-item">
                                         <div class="row">
@@ -214,86 +215,47 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="review-box">
-                            <figure class="review-author">
-                                <img src="images/users/user1.jpg" alt="Image">
-                            </figure>
-                            <div class="review-contentt">
-                                <div class="rating">
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                </div>
-                                <div class="review-info">
-                                    Marlene Simpson – February 03, 2018
-                                </div>
-                                <div class="review-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quis rem
-                                        esse
-                                        quaerat eius labore repellendus, odit officia, quas provident reprehenderit
-                                        magnam
-                                        adipisci inventore quibusdam est architecto nisi.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End review-box -->
-                        <div class="review-box clearfix">
-                            <figure class="review-author">
-                                <img src="images/users/user2.jpg" alt="Image">
-                            </figure>
-                            <div class="review-contentt">
-                                <div class="rating">
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                </div>
-                                <div class="review-info">
-                                    Brad Knight – January 17, 2018
-                                </div>
-                                <div class="review-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium omnis,
-                                        eius
-                                        impedit cum. Necessitatibus illum veritatis, consequatur quia itaque tenetur
-                                        recusandae nostrum quod aperiam.
-                                    </p>
+
+                        {{-- Avis détaillés --}}
+                        @foreach ($reviews as $review)
+                            <div class="review-box">
+                                <figure class="review-author">
+                                    <img src="/images/users/{{ $review->user->profile_pic }}" alt="Profile Picture User">
+                                </figure>
+                                <div class="review-contentt">
+                                    <div class="rating">
+                                        @if ($review->rating > 0)
+                                            {{-- Mettre le nombre d'étoiles correspondantes à la note --}}
+                                            @for ($i = $review->rating; $i > 0; $i--)
+                                                <i class="fa fa-star voted" aria-hidden="true"></i>
+                                            @endfor
+
+                                            {{-- Si la note est inférieure à 5, rajouter étoile(s) grise(s) --}}
+                                            @if ($review->rating < 5)
+                                                @for ($i = $review->rating; $i < 5; $i++)
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                @endfor
+                                            @endif
+                                        @endif
+
+                                    </div>
+                                    <div class="review-info">
+                                        {{ $review->user->first_name }} {{ $review->user->last_name }} –
+                                        {{ $review->created_at->format('F d, Y') }}
+                                    </div>
+                                    <div class="review-text">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quis rem
+                                            esse
+                                            quaerat eius labore repellendus, odit officia, quas provident reprehenderit
+                                            magnam
+                                            adipisci inventore quibusdam est architecto nisi.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- End review-box -->
-                        <div class="review-box clearfix">
-                            <figure class="review-author">
-                                <img src="images/users/user3.jpg" alt="Image">
-                            </figure>
-                            <div class="review-contentt">
-                                <div class="rating">
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                </div>
-                                <div class="review-info">
-                                    Daryl Phillips – August 16, 2017
-                                </div>
-                                <div class="review-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim id, facere
-                                        porro.
-                                        Ipsum quia maxime atque adipisci inventore dolor nesciunt, molestias
-                                        voluptatum,
-                                        ab
-                                        dignissimos! Alias.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
 
                     {{-- Similar rooms --}}

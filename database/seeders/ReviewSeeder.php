@@ -18,7 +18,7 @@ class ReviewSeeder extends Seeder
         DB::table('room_reviews')->insert([
           [
             'user_id' => null,
-            'room_id' => null,
+            'room_id' => 1,
             'rating' => 2,
             'review' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.",
           ],

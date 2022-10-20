@@ -40,4 +40,8 @@ class Room extends Model
     public function room_descriptions(){
         return $this->hasOne(RoomDescription::class);
     }
+
+    public function booking(){
+        return $this->hasOne(Booking::class);
+    }
 }
