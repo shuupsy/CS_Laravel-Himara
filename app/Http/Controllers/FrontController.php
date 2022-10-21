@@ -102,8 +102,8 @@ class FrontController extends Controller
 
         $category = $request->category;
         $search = $request->search;
-        $tags = $request->tags;
-
+        $tags = implode($request->tags);
+        
         /* Fonction Search + FILTRE */
         $rooms = Room::when($search, function ($query, $q) use($search, $room_cats) {
             return $query->where('name', 'like', "%{$search}%")
@@ -117,14 +117,15 @@ class FrontController extends Controller
         /* Category filter */
         ->when($category, function ($query) use ($category) {
             return $query->where('room_category_id', +$category);
-        }
+        })
 
         /* Tag */
-       /*  ->when('tags', function($query) use($tags) {
+        ->when('tags', function($query) use($tags) {
                 return $query->whereHas('tag', function ($q) use($tags){
-                    return $q->where('tag', 'like', '%'.$tags.'%');
+                    return $q->where('tag', 'like', "%{$tags}%");
                 });
-            } */
+
+        }
 
         /* Pas de filtre */
         , function ($query) {
