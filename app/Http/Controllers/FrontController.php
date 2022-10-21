@@ -102,11 +102,12 @@ class FrontController extends Controller
 
         $category = $request->category;
         $search = $request->search;
-        $tags = implode($request->tags);
-        
+        $tags = $request->tags;
+
         /* Fonction Search + FILTRE */
         $rooms = Room::when($search, function ($query, $q) use($search, $room_cats) {
-            return $query->where('name', 'like', "%{$search}%")
+            return $query->where('is_Available', 1)
+            ->where('name', 'like', "%{$search}%")
                         /* Par nombre personnes */
                         ->orWhere('nb_persons', 'like', "%{$search}%")
                         /* Par nom de catégorie*/
@@ -115,21 +116,23 @@ class FrontController extends Controller
                         });
         })
         /* Category filter */
+
         ->when($category, function ($query) use ($category) {
-            return $query->where('room_category_id', +$category);
-        })
+            return $query->where('room_category_id', +$category)
+            ->where('is_Available', 1);
+        }
 
         /* Tag */
-        ->when('tags', function($query) use($tags) {
+       /*  ->when('tags', function($query) use($tags) {
                 return $query->whereHas('tag', function ($q) use($tags){
-                    return $q->where('tag', 'like', "%{$tags}%");
+                    return $q->where('tag', 'like', "{$tags}");
                 });
-
-        }
+        } */
 
         /* Pas de filtre */
         , function ($query) {
-            return $query->orderBy('id', 'asc');
+            return $query->where('is_Available', 1)
+            ->orderBy('id', 'asc');
         })
         ->paginate(15);
 
