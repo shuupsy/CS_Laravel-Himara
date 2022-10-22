@@ -14,6 +14,7 @@ use App\Http\Controllers\SlidersController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GalleryCategoryController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoomsDescriptionController;
 use App\Http\Controllers\RoomsPhotoController;
 use App\Http\Controllers\ServiceController;
@@ -98,14 +99,11 @@ Route::resource('admin/rooms/gallery', RoomsPhotoController::class);
 
 
 
-
 Route::resource('/blog', BlogController::class)
     ->names(['index' => 'blog.index']);
 
 
-
-
-
+Route::resource('/review', ReviewController::class);
 
 
 

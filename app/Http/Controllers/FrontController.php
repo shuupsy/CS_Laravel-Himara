@@ -43,6 +43,9 @@ class FrontController extends Controller
             ->take(3)
             ->get();
         $room_cats = RoomCategory::all();
+        $rooms_booking = $rooms = Room::where('is_Available', 1)
+        ->orderBy('room_category_id', 'asc')
+        ->get();
 
         $services = Service::all();
         $count_services = Service::all()->count();
@@ -67,7 +70,7 @@ class FrontController extends Controller
             ->get();
 
       /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'about', 'rooms', 'room_cats', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish', 'count_services', 'count_photos'));
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'room_cats', 'rooms_booking', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish', 'count_services', 'count_photos'));
     }
 
     /**

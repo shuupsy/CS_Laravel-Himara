@@ -3,7 +3,11 @@
         <div class="inner box-shadow-007">
             <!-- ========== BOOKING NOTIFICATION ========== -->
             <div id="booking-notification" class="notification"></div>
-            <form id="booking-form">
+
+            <form class="booking-form-advanced" action='/booking-form' method="post">
+                @csrf
+
+                <input name="userid" class='d-none' value="{{ auth()->user()->id}}">
                 <!-- NAME -->
                 <div class="row">
                     <div class="col-md-2">
@@ -17,9 +21,8 @@
                             <input class="form-control" name="booking-name" type="text" data-trigger="hover"
                                 placeholder="Write Your Name"
                                 @auth
-                                    value="{{ strtoupper(auth()->user()->last_name)}}"
-                                    readonly
-                                @endauth>
+value="{{ strtoupper(auth()->user()->last_name) }}"
+                                    readonly @endauth>
                         </div>
                     </div>
                     <!-- EMAIL -->
@@ -34,9 +37,8 @@
                             <input class="form-control" name="booking-email" type="email"
                                 placeholder="Write your Email"
                                 @auth
-                                    value="{{ auth()->user()->email}}"
-                                    readonly
-                                @endauth>
+value="{{ auth()->user()->email }}"
+                                    readonly @endauth>
                         </div>
                     </div>
                     <!-- ROOM TYPE -->
@@ -48,10 +50,12 @@
                                     <i class="fa fa-info-circle"></i>
                                 </a>
                             </label>
-                            <select class="form-control" name="booking-roomtype" title="Select Room Type"
-                                data-header="Room Type">
-                                @foreach ($room_cats as $category)
-                                    <option value="{{ $category->category }}">{{ $category -> category }}</option>
+
+                            <select name="roomtype" class="form-control" title="Select Room Type"
+                                data-header="Select Room Type">
+                                @foreach ($rooms->unique('room_category_id') as $room)
+                                    <option value="{{ $room->id }}">{{ $room->room_category->category }} Room
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -121,7 +125,7 @@
                     <!-- BOOKING BUTTON -->
                     <div class="col-md-2">
                         @if (Route::has('login'))
-                        {{-- Si connecté --}}
+                            {{-- Si connecté --}}
                             @auth
                                 <button type="submit" class="btn btn-book">BOOK A ROOM</button>
                                 <div class="advanced-form-link">
@@ -129,7 +133,7 @@
                                         Advanced Booking Form
                                     </a>
                                 </div>
-                        {{-- Non connecté --}}
+                                {{-- Non connecté --}}
                             @else
                                 <a href="{{ route('login') }}">
                                     <button class='btn btn-book'>
