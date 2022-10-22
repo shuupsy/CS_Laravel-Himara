@@ -22,23 +22,11 @@
                 <!-- WIDGET -->
                 <div class="col-md-3">
                     <div class="footer-widget">
-                        <h3>LATEST NEWS</h3>
+                        <h3>Rooms available</h3>
                         <div class="inner">
                             <ul class="latest-posts">
                                 <li>
-                                    <a href="blog-post.html">10 Tips for holiday travel</a>
-                                </li>
-                                <li>
-                                    <a href="blog-post.html">Are you ready to enjoy your holidays</a>
-                                </li>
-                                <li>
-                                    <a href="blog-post.html">Honeymoon at Hotel {{ $hotel -> name }}</a>
-                                </li>
-                                <li>
-                                    <a href="blog-post.html">Travel gift ideas for every type of traveler</a>
-                                </li>
-                                <li>
-                                    <a href="blog-post.html">Breakfast with coffee and orange juice</a>
+                                    <a href="/rooms">Rooms left: {{ count($available)}}</a>
                                 </li>
                             </ul>
                         </div>

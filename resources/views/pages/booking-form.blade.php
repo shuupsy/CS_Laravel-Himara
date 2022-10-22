@@ -2,7 +2,6 @@
 
 @section('content')
     <main>
-        {{-- {{dd($categories[0]->rooms->where('is_Ava'))}} --}}
         <div class="container">
             <div class="row">
                 <!-- CONTENT -->
