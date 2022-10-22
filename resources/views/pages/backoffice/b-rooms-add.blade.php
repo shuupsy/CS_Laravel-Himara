@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('new')
+    @include('partial.backoffice.validation')
+
     <div class="p-6 border-b bg-white border-gray-200">
         <div class='flex gap-6 items-center'>
-
             <form action="/admin/rooms" method='post' enctype="multipart/form-data">
                 @csrf
 

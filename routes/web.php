@@ -18,6 +18,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoomsDescriptionController;
 use App\Http\Controllers\RoomsPhotoController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 
 Route::get('/mail', function(){
     return view('emails.welcome');
@@ -52,9 +53,7 @@ Route::resource('/contact', ContactController::class)
     ->names(['index' => 'contact.index']);
 
 /* -------- BACKOFFICE -------- */
-Route::get('/admin', function(){
-    return view('pages.backoffice.b-home');
-});
+Route::resource('/admin', UserController::class);
 
 /* BACKOFFICE - Infos Hotel */
 Route::resource('/admin/info', InfoController::class)

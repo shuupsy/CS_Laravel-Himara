@@ -48,6 +48,10 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
+        $room_cat = Room::where('room_category_id', $request->category)->get();
+
+        /* Possibilité de créer des rooms tant que la cat ne dépasse pas 8 rooms */
+        if(count($room_cat) < 8){
         /* Infos */
         $room = new Room();
         $room -> name = $request -> name;
@@ -55,7 +59,6 @@ class RoomsController extends Controller
         $room -> nb_persons = $request -> nb_persons;
         $room -> surface = $request -> surface;
         $room -> price = $request -> price;
-
 
         /* Image */
         Storage::put('public/assets/', $request->file('image'));
@@ -76,6 +79,12 @@ class RoomsController extends Controller
         $room -> option_room() -> attach($options);
 
         return redirect("/admin/rooms/$room->id")->with('success', '(1) Room ajoutée avec succès!');
+        }
+
+        else {
+            return redirect()->back()->with('errors','Vous avez excédé le nombre de chambres (8) pour cette catégorie!');
+        }
+
     }
 
     /**
