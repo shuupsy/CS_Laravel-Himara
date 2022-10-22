@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\BookingConfirmation;
-use App\Mail\GiveReview;
 use App\Models\Room;
+use App\Models\User;
 use App\Models\Booking;
+use App\Mail\GiveReview;
 use App\Models\RoomCategory;
 use Illuminate\Http\Request;
+use App\Mail\BookingConfirmation;
 use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
@@ -68,16 +69,9 @@ class BookingController extends Controller
         $new->save();
 
         /* Confirmation de réservation */
-        $email = $request->bookingemail;
-        $data = ([
-            'name' => $request->bookingname,
-            'email' => $email,
-            ]);
+        $user = User::find($request->userid);
 
-        Mail::to($email)->send(new BookingConfirmation($data));
-
-     /* Système de review */
-   /*  Mail::to($email)->send(new GiveReview($data)); */
+        Mail::to($user->email)->send(new BookingConfirmation($user));
 
         return redirect()->back()->with('sucess', "Réservation faite!");
     }
