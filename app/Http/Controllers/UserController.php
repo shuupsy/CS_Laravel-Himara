@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -59,6 +61,24 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = User::find($id);
+
+        if($delete->photo != 'admin.jpg' ||
+        $delete->photo != 'user1.jpg' ||
+        $delete->photo != 'user2.jpg' ||
+        $delete->photo != 'user3.jpg' ||
+        $delete->photo != 'user4.jpg' ||
+        $delete->photo != 'user5.jpg' ||
+        $delete->photo != 'user6.jpg' ||
+        $delete->photo != 'user7.jpg' ||
+        $delete->photo != 'user8.jpg' ||
+        $delete->photo != 'user9.jpg'){
+            Storage::delete('public/assets/' . $delete->photo);
+            File::delete(public_path('images/users/' . $delete->photo));
+        }
+
+        $delete->delete();
+
+        return redirect()->back()->with('success', "(1) Utilisateur supprimé avec succès!");
     }
 }
