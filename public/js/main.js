@@ -331,16 +331,16 @@ Version:       1.1.0
       e.preventDefault();
 
       //Get input field values from HTML form
-      var booking_name = $("input[name=booking-name]").val();
-      var booking_email = $("input[name=booking-email]").val();
+      var booking_name = $("input[name=bookingname]").val();
+      var booking_email = $("input[name=bookingemail]").val();
       var booking_phone = $("input[name=booking-phone]").val();
-      var booking_roomtype = $("select[name=booking-roomtype]").val();
+      var booking_roomtype = $("select[name=roomtype]").val();
       var booking_startdate = $("input[name=daterangepicker_start]").val();
       var booking_enddate = $("input[name=daterangepicker_end]").val();
       var booking_adults = $("input[name=booking-adults]").val();
       var booking_children = $("input[name=booking-children]").val();
       var booking_country = $("select[name=booking-country]").val();
-      var booking_comments = $("textarea[name=booking-comments]").val();
+      var booking_comments = $("textarea[name=bookingcomments]").val();
 
       //Data to be sent to server
       var post_data;
@@ -1142,7 +1142,7 @@ Version:       1.1.0
         } else {
           revapi9 = tpj("#rev-slider-event").show().revolution({
             sliderType: "hero",
-            jsFileLocation: "revolution/js/", 
+            jsFileLocation: "revolution/js/",
             dottedOverlay: "twoxtwo",
             delay: 9000,
             navigation: {},

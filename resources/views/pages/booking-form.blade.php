@@ -15,13 +15,16 @@
                         recusandae perferendis modi voluptate, ad ratione saepe voluptas nam provident reiciendis velit
                         nulla repellendus illo consequuntur amet similique hic.</p>
                     <!-- BOOKING FORM -->
-                    <form class="booking-form-advanced" id="booking-form">
+                    <form class="booking-form-advanced" action='/booking-form' method="post">
+                        @csrf
+
+                        <input name="userid" class='d-none' value="{{ auth()->user()->id}}">
                         <div class="row">
                             {{-- Name --}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Your Name</label>
-                                    <input name="booking-name" type="text" class="form-control" placeholder="Your Name"
+                                    <input name="bookingname" type="text" class="form-control" placeholder="Your Name"
                                         @auth
                                         value="{{ strtoupper(auth()->user()->last_name) }}" readonly
                                         @endauth>
@@ -31,7 +34,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Email Address</label>
-                                    <input class="form-control" name="booking-email" type="email"
+                                    <input class="form-control" name="bookingemail" type="email"
                                         placeholder="Your Email Address"
                                         @auth
                                         value="{{ strtoupper(auth()->user()->email) }}" readonly
@@ -379,26 +382,21 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Room Type</label>
-                                    <select name="booking-roomtype" class="form-control" title="Select Room Type"
+                                    <select name="roomtype" class="form-control" title="Select Room Type"
                                         data-header="Select Room Type">
                                         @foreach ($rooms->unique('room_category_id') as $room)
                                            <option value="{{$room->id}}" data-subtext="<span class='badge badge-info'>€{{$room->price}} / night</span>">{{$room->room_category->category}} Room
                                             </option>
                                         @endforeach
-
-                                       {{--  <option value="Double Room"
-                                            data-subtext="<span class='badge badge-info'>€129 / night</span>">Double Room
-                                        </option>
-                                        <option value="Deluxe Room"
-                                            data-subtext="<span class='badge badge-info'>€89 / night</span>">Deluxe Room
-                                        </option> --}}
                                     </select>
                                 </div>
                             </div>
+
+                            {{-- Comments --}}
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Your Comments</label>
-                                    <textarea class="form-control" name="booking-comments" placeholder="Your Comments..."></textarea>
+                                    <textarea class="form-control" name="bookingcomments" placeholder="Your Comments..."></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">

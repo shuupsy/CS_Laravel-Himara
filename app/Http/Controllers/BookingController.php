@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\Booking;
+use App\Mail\WelcomeMail;
 use App\Models\RoomCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -50,7 +53,32 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $new = new Booking();
+
+        $new->room_id = $request->roomtype;
+        $new->user_id = $request->userid;
+        $new->comments = $request->bookingcomments;
+
+        /* Rendre non dispo la chambre */
+        $room = Room::find($request->roomtype);
+        $room->is_Available = false;
+        $room->save();
+
+        $new->save();
+
+        /* Confirmation de réservation */
+        $email = $request->bookingemail;
+        $data = ([
+            'name' => $request->bookingname,
+            'email' => $email,
+            ]);
+        Mail::to($email)->send(new WelcomeMail($data));
+     /*    Mail::to($email)->send(new WelcomeMail($data)); */
+
+     /* Système de review */
+     Mail::to($email)->send(new WelcomeMail($data));
+
+        return redirect()->back()->with('sucess', "Réservation faite!");
     }
 
     /**
