@@ -11,6 +11,7 @@ use Database\Seeders\DishSeeder;
 use Database\Seeders\LogoSeeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\RoomSeeder;
+use Database\Seeders\UserSeeder;
 use Database\Seeders\HotelSeeder;
 use Database\Seeders\OptionSeeder;
 use Database\Seeders\ReviewSeeder;
@@ -52,6 +53,7 @@ class DatabaseSeeder extends Seeder
             OptionSeeder::class,
             RoomDescriptionSeeder::class,
             RoomPhotoSeeder::class,
+            UserSeeder::class,
             ReviewSeeder::class,
             SliderSeeder::class,
             ArticleSeeder::class,

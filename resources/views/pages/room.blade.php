@@ -100,90 +100,91 @@
                     @endif
 
                     <!-- ROOM REVIEWS -->
-                    @if(count($reviews)!=0)
+                    @if (count($reviews) != 0)
                         <div id="room-reviews" class="room-reviews">
-                        <div class="section-title sm">
-                            <h4>ROOM REVIEWS</h4>
-                            <p class="section-subtitle">What our guests are saying about us</p>
-                        </div>
-                        <div class="rating-details">
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <div class="review-summary">
-                                        <div class="average">{{ round($average, 1) }}</div>
-                                        <div class="rating">
-                                            @if (floor($average) > 0)
-                                                {{-- Mettre le nombre d'étoiles correspondantes à la moyenne des notes --}}
-                                                @for ($i = floor($average); $i > 0; $i--)
-                                                    <i class="fa fa-star voted" aria-hidden="true"></i>
-                                                @endfor
-                                            @endif
+                            <div class="section-title sm">
+                                <h4>ROOM REVIEWS</h4>
+                                <p class="section-subtitle">What our guests are saying about us</p>
+                            </div>
+                            <div class="rating-details">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="review-summary">
+                                            <div class="average">{{ round($average, 1) }}</div>
+                                            <div class="rating">
+                                                @if (floor($average) > 0)
+                                                    {{-- Mettre le nombre d'étoiles correspondantes à la moyenne des notes --}}
+                                                    @for ($i = floor($average); $i > 0; $i--)
+                                                        <i class="fa fa-star voted" aria-hidden="true"></i>
+                                                    @endfor
+                                                @endif
+                                            </div>
+                                            <small>Based on {{ count($reviews) }} rating(s)</small>
                                         </div>
-                                        <small>Based on {{ count($reviews) }} rating(s)</small>
                                     </div>
-                                </div>
-                                <div class="col-lg-9">
-                                    <!-- ITEM -->
-                                    @for ($i = 5; $i > 0; $i--)
-                                        <div class="progress-item">
-                                            <div class="row">
-                                                <div class="col-lg-2 col-sm-2 col-3">
-                                                    <div class="progress-stars">{{ $i }} star</div>
-                                                </div>
-                                                <div class="col-lg-9 col-sm-9 col-8">
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            style="width: {{ round((count($reviews->where('rating', $i)) * 100) / count($reviews), 1) }}%"
-                                                            aria-valuenow="{{ round((count($reviews->where('rating', $i)) * 100) / count($reviews), 1) }}"
-                                                            aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-
+                                    <div class="col-lg-9">
+                                        <!-- ITEM -->
+                                        @for ($i = 5; $i > 0; $i--)
+                                            <div class="progress-item">
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-sm-2 col-3">
+                                                        <div class="progress-stars">{{ $i }} star</div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-1 col-sm-1 col-1">
-                                                    <div class="progress-value">
-                                                        {{ round((count($reviews->where('rating', $i)) * 100) / count($reviews), 1) }}%
+                                                    <div class="col-lg-9 col-sm-9 col-8">
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar"
+                                                                style="width: {{ round((count($reviews->where('rating', $i)) * 100) / count($reviews), 1) }}%"
+                                                                aria-valuenow="{{ round((count($reviews->where('rating', $i)) * 100) / count($reviews), 1) }}"
+                                                                aria-valuemin="0" aria-valuemax="100">
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-1 col-sm-1 col-1">
+                                                        <div class="progress-value">
+                                                            {{ round((count($reviews->where('rating', $i)) * 100) / count($reviews), 1) }}%
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endfor
+                                        @endfor
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        {{-- Avis détaillés --}}
-                        @foreach ($reviews as $review)
-                            <div class="review-box">
-                                <figure class="review-author">
-                                    <img src="/images/users/{{ $review->user->profile_pic }}" alt="Profile Picture User">
-                                </figure>
-                                <div class="review-contentt">
-                                    <div class="rating">
-                                        @if ($review->rating > 0)
-                                            {{-- Mettre le nombre d'étoiles correspondantes à la note --}}
-                                            @for ($i = $review->rating; $i > 0; $i--)
-                                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                            @endfor
-                                            {{-- Si la note est inférieure à 5, rajouter étoile(s) grise(s) --}}
-                                            @if ($review->rating < 5)
-                                                @for ($i = $review->rating; $i < 5; $i++)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                            {{-- Avis détaillés --}}
+                            @foreach ($reviews as $review)
+                                <div class="review-box">
+                                    <figure class="review-author">
+                                            <img src="/images/users/{{ $review->user->profile_pic }}"
+                                                alt="Profile Picture User">
+                                    </figure>
+                                    <div class="review-contentt">
+                                        <div class="rating">
+                                            @if ($review->rating > 0)
+                                                {{-- Mettre le nombre d'étoiles correspondantes à la note --}}
+                                                @for ($i = $review->rating; $i > 0; $i--)
+                                                    <i class="fa fa-star voted" aria-hidden="true"></i>
                                                 @endfor
+                                                {{-- Si la note est inférieure à 5, rajouter étoile(s) grise(s) --}}
+                                                @if ($review->rating < 5)
+                                                    @for ($i = $review->rating; $i < 5; $i++)
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    @endfor
+                                                @endif
                                             @endif
-                                        @endif
 
-                                    </div>
-                                    <div class="review-info">
-                                        {{ $review->user->first_name }} {{ $review->user->last_name }} –
-                                        {{ $review->created_at->format('F d, Y') }}
-                                    </div>
-                                    <div class="review-text">
-                                        <p>{{ $review->review }}</p>
+                                        </div>
+                                        <div class="review-info">
+                                            {{ $review->user->first_name }} {{ $review->user->last_name }} –
+                                            {{ $review->created_at->format('F d, Y') }}
+                                        </div>
+                                        <div class="review-text">
+                                            <p>{{ $review->review }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
 
                         </div>
                     @endif
@@ -253,21 +254,22 @@
                                 <div id="booking-notification" class="notification"></div>
                                 <h3 class="form-title">BOOK YOUR ROOM</h3>
                                 <div class="inner">
-                                    <form id="booking-form">
+                                    <form action='/booking-form' method="post">
+                                        @csrf
+
+                                        <input name="userid" class='d-none' value="{{ auth()->user()->id }}">
                                         <!-- EMAIL -->
                                         <div class="form-group">
                                             <input class="form-control" name="booking-email" type="email"
                                                 placeholder="Your Email Address"
-                                                @auth
-value="{{ auth()->user()->email }}" disabled @endauth>
+                                                @auth value="{{ auth()->user()->email }}" disabled @endauth>
                                         </div>
                                         <!-- ROOM TYPE -->
                                         <div class="form-group">
-                                            <select class="form-control" name="booking-roomtype" title="Select Room Type"
-                                                data-header="Room Type" disabled="disabled">
-                                                <option value="Single" selected="selected">Single Room</option>
-                                                <option value="Double">Double Room</option>
-                                                <option value="Deluxe">Deluxe Room</option>
+                                            <select class="form-control" name="roomtype" title="Select Room Type"
+                                                data-header="Room Type" readonly>
+                                                <option value="{{ $room->id }}" selected="selected" readonly>
+                                                    {{ $room->room_category->category }} Room</option>
                                             </select>
                                         </div>
                                         <!-- DATE -->

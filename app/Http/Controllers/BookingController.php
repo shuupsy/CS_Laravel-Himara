@@ -75,10 +75,9 @@ class BookingController extends Controller
             ]);
 
         Mail::to($email)->send(new BookingConfirmation($data));
-     /*    Mail::to($email)->send(new WelcomeMail($data)); */
 
      /* Système de review */
-   /*   Mail::to($email)->send(new GiveReview($data)); */
+   /*  Mail::to($email)->send(new GiveReview($data)); */
 
         return redirect()->back()->with('sucess', "Réservation faite!");
     }

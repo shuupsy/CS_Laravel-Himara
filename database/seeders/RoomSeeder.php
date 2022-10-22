@@ -46,7 +46,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 2,
                 "room_category_id" => 4,
                 "rating" => 5,
-                "is_Available" => false,
+                "is_Available" => true,
                 "in_Sale" => false,
             ],
             [
@@ -90,7 +90,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 4,
                 "room_category_id" => 3,
                 "rating" => 3,
-                "is_Available" => false,
+                "is_Available" => true,
                 "in_Sale" => true,
             ],
             [
@@ -112,7 +112,7 @@ class RoomSeeder extends Seeder
                 "nb_persons" => 2,
                 "room_category_id" => 1,
                 "rating" => 3,
-                "is_Available" => false,
+                "is_Available" => true,
                 "in_Sale" => false,
             ],
         ]);
