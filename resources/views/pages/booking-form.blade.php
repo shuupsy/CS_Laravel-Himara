@@ -16,40 +16,47 @@
                     <!-- BOOKING FORM -->
                     <form class="booking-form-advanced" id="booking-form">
                         <div class="row">
+                            {{-- Name --}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Your Name</label>
                                     <input name="booking-name" type="text" class="form-control" placeholder="Your Name"
                                         @auth
-value="{{ strtoupper(auth()->user()->last_name) }}" disabled @endauth>
+                                        value="{{ strtoupper(auth()->user()->last_name) }}" readonly
+                                        @endauth>
                                 </div>
                             </div>
+                            {{-- Mail --}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Email Address</label>
                                     <input class="form-control" name="booking-email" type="email"
                                         placeholder="Your Email Address"
                                         @auth
-value="{{ strtoupper(auth()->user()->email) }}" disabled @endauth>
+                                        value="{{ strtoupper(auth()->user()->email) }}" readonly
+                                        @endauth>
                                 </div>
                             </div>
+                            {{-- Phone --}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Phone Number</label>
                                     <input name="booking-phone" type="text" class="form-control"
-                                        placeholder="Your Phone Number" @auth
-value="{{ auth()->user()->phone }}" @endauth>
+                                        placeholder="Your Phone Number"
+                                        @if (auth()->user()->phone != null)
+                                        value="{{ auth()->user()->phone }}" readonly
+                                        @endif>
                                 </div>
                             </div>
+                            {{-- Country --}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Country</label>
+                                    @if (auth()->user()->country != null)
+                                            <input class='form-control' value="{{ auth()->user()->country }}" selected readonly>
+                                    @else
                                     <select name="booking-country" class="form-control" title="Select Your Country"
                                         data-header="Select Your Country" data-live-search="true" data-size="5">
-                                        @if (auth()->user()->country != null)
-                                            <option value="{{ auth()->user()->country }}" selected disabled>{{ auth()->user()->country }}
-                                            </option>
-                                        @else
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
                                             <option value="Algeria">Algeria</option>

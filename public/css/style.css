@@ -4319,6 +4319,12 @@ footer .subfooter .social-media a i {
   border-bottom: 2px solid #efefef;
 }
 
+.horizontal-booking-form .form-control[readonly]{
+    background: #e9ecef;
+    color: black;
+    cursor: not-allowed;
+}
+
 .horizontal-booking-form.dark .form-control, .horizontal-booking-form.dark .form-control.bootstrap-select button, .horizontal-booking-form.dark .form-control.bootstrap-select buttondropdown-toggle:hover, .horizontal-booking-form.dark .form-control.bootstrap-select buttondropdown-toggle:focus, .horizontal-booking-form.dark .form-control.bootstrap-select button.dropdown-toggle {
   background: #333;
   border-color: #444;

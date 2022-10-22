@@ -18,7 +18,7 @@
                                 placeholder="Write Your Name"
                                 @auth
                                     value="{{ strtoupper(auth()->user()->last_name)}}"
-                                    disabled
+                                    readonly
                                 @endauth>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                                 placeholder="Write your Email"
                                 @auth
                                     value="{{ auth()->user()->email}}"
-                                    disabled
+                                    readonly
                                 @endauth>
                         </div>
                     </div>

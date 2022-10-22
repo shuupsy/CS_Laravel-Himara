@@ -45,7 +45,7 @@ Route::resource('/dashboard', DashboardController::class)
 
 /* Booking */
 Route::resource('/booking-form', BookingController::class)
-    ->names(['index' => 'booking.index']);
+    ->names(['index' => 'booking']);
 
 Route::resource('/contact', ContactController::class)
     ->names(['index' => 'contact.index']);
