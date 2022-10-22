@@ -2,6 +2,7 @@
 
 @section('content')
     <main>
+        {{-- {{dd($categories[0]->rooms->where('is_Ava'))}} --}}
         <div class="container">
             <div class="row">
                 <!-- CONTENT -->
@@ -309,6 +310,8 @@
                                     </select>
                                 </div>
                             </div>
+
+                            {{-- Date --}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>CHECK-IN/OUT
@@ -322,6 +325,8 @@
                                         readonly="readonly">
                                 </div>
                             </div>
+
+                            {{-- Nombre guests --}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Guests
@@ -369,20 +374,24 @@
                                     </div>
                                 </div>
                             </div>
+
+                            {{-- Room type --}}
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Room Type</label>
                                     <select name="booking-roomtype" class="form-control" title="Select Room Type"
                                         data-header="Select Room Type">
-                                        <option value="Single Room"
-                                            data-subtext="<span class='badge badge-info'>€89 / night</span>">Single Room
-                                        </option>
-                                        <option value="Double Room"
+                                        @foreach ($rooms->unique('room_category_id') as $room)
+                                           <option value="{{$room->id}}" data-subtext="<span class='badge badge-info'>€{{$room->price}} / night</span>">{{$room->room_category->category}} Room
+                                            </option>
+                                        @endforeach
+
+                                       {{--  <option value="Double Room"
                                             data-subtext="<span class='badge badge-info'>€129 / night</span>">Double Room
                                         </option>
                                         <option value="Deluxe Room"
                                             data-subtext="<span class='badge badge-info'>€89 / night</span>">Deluxe Room
-                                        </option>
+                                        </option> --}}
                                     </select>
                                 </div>
                             </div>

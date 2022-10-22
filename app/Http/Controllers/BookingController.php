@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\RoomCategory;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -14,12 +15,21 @@ class BookingController extends Controller
      */
     public function index()
     {
+        $categories = RoomCategory::all();
+
+        $rooms = Room::where('is_Available', 1)
+                    /* ->select('id', 'name', 'price', 'room_category_id')
+                    /* ->inRandomOrder() */
+                   /*  ->take(count($categories)) */
+                    ->orderBy('room_category_id', 'asc')
+                    ->get();
+
         $promos = Room::where('in_Sale', 1)
                 ->take(3)
                 ->orderBy('updated_at', 'desc')
                 ->get();
-                
-        return view('pages.booking-form', compact('promos'));
+
+        return view('pages.booking-form', compact('rooms','promos'));
     }
 
     /**
