@@ -18,4 +18,5 @@ Give Review
 
 Thanks,<br>
 {{ config('app.name') }}
+
 @endcomponent

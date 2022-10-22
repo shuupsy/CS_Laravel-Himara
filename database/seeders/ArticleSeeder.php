@@ -17,22 +17,25 @@ class ArticleSeeder extends Seeder
     {
         DB::table('articles')->insert([
             [
-                'user_id' => null,
+                'user_id' => 1,
                 'title' => '10 tips for holiday travel',
                 'text' => 'An examination of how the current political and economical climate is affecting the mental healthcare industry...',
                 'image' => 'images/blog/blog-post1.jpg',
+                'created_at' => date("Y-m-d H:i:s"),
             ],
             [
-                'user_id' => null,
+                'user_id' => 1,
                 'title' => 'Enjoy your holidays',
                 'text' => 'An examination of how the current political and economical climate is affecting the mental healthcare industry...',
                 'image' => 'images/blog/blog-post2.jpg',
+                'created_at' => date("Y-m-d H:i:s"),
             ],
             [
-                'user_id' => null,
+                'user_id' => 1,
                 'title' => 'Honeymoon at Hotel',
                 'text' => 'An examination of how the current political and economical climate is affecting the mental healthcare industry...',
                 'image' => 'images/blog/blog-post3.jpg',
+                'created_at' => date("Y-m-d H:i:s"),
             ],
         ]);
     }

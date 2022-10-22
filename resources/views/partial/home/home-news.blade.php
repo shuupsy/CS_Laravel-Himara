@@ -20,13 +20,13 @@
                             </h4>
                             <p>{{ $article -> text }}</p>
                             <div class="post-meta">
-                         {{--        <span class="author">
-                                    <a href="#"><img src="{{ $article -> user -> profile_pic }}" width="16" alt="Image">
+                          <span class="author">
+                                    <a href="#"><img src="/images/users/{{ $article -> user -> profile_pic }}" width="16" alt="Image">
                                        {{ $article -> user -> name }}</a>
-                                </span> --}}
+                                </span>
                                 <span class="date">
                                     <i class="fa fa-clock-o"></i>
-                                   {{--  {{ $article -> created_at->format('F d, Y') }} --}}
+                                    {{ $article -> created_at->format('F d, Y') }}
                                 </span>
                                 <span class="comments">
                                     <a href="#">
