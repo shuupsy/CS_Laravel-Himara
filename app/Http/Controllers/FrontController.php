@@ -76,19 +76,6 @@ class FrontController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $message = new ContactMessage();
-        $message->name = $request->name;
-        $message->email = $request->email;
-        $message->message = $request->message;
-
-        $message->save();
-
-        return redirect()->back();
-   /*      return redirect('/#home-form'); */
-    }
-
 
     public function Room(Request $request){
       /*   $rooms = Room::orderby('id', 'asc')
@@ -124,7 +111,8 @@ class FrontController extends Controller
 
         /* Tag */
        /*  ->when('tags', function($query) use($tags) {
-                return $query->whereHas('tag', function ($q) use($tags){
+                return $query->where('is_Available', 1)
+                ->whereHas('tag', function ($q) use($tags){
                     return $q->where('tag', 'like', "{$tags}");
                 });
         } */

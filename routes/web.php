@@ -47,6 +47,8 @@ Route::resource('/dashboard', DashboardController::class)
 Route::resource('/booking-form', BookingController::class)
     ->names(['index' => 'booking.index']);
 
+Route::resource('/contact', ContactController::class)
+    ->names(['index' => 'contact.index']);
 
 /* -------- BACKOFFICE -------- */
 Route::get('/admin', function(){
@@ -95,8 +97,7 @@ Route::resource('admin/rooms/gallery', RoomsPhotoController::class);
 
 
 
-Route::resource('/contact', ContactController::class)
-    ->names(['index' => 'contact.index']);
+
 
 Route::resource('/blog', BlogController::class)
     ->names(['index' => 'blog.index']);

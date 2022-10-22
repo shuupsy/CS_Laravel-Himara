@@ -12,21 +12,43 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus sit, fugiat at in assumenda
                         corrupti autem iste eveniet eaque vitae beatae tenetur, voluptatem eius. Numquam.</p>
                     <!-- CONTACT FORM -->
-                    <form id="contact-form" class="contact-form">
+                    <form action="/contact" method="post">
+                        @csrf
+                        {{-- Name --}}
                         <div class="form-group">
-                            <input class="form-control" name="name" placeholder="Name" type="text">
+                            <input class="form-control" name="name" placeholder="Name" type="text"
+                            @auth
+                            value="{{ auth()->user()->last_name }}"
+                            readonly
+                            @else
+                            value="{{ old('name') }}"
+                            @endauth>
                         </div>
+
+                        {{-- Email --}}
                         <div class="form-group">
-                            <input class="form-control" name="email" placeholder="Email" type="email">
+                            <input class="form-control" name="email" placeholder="Email" type="email"
+                            @auth
+                            value="{{ auth()->user()->email }}"
+                            readonly
+                            @else
+                            value="{{ old('email') }}"
+                            @endauth>
                         </div>
+
+                        {{-- Phone --}}
                         <div class="form-group">
                             <input class="form-control" name="phone" placeholder="Phone" type="text">
                         </div>
+
+                        {{-- Subject --}}
                         <div class="form-group">
-                            <input class="form-control" name="subject" placeholder="Subject" type="text">
+                            <input class="form-control" name="subject" placeholder="Subject" type="text" required>
                         </div>
+
+                        {{-- Message --}}
                         <div class="form-group">
-                            <textarea class="form-control" name="message" placeholder="Message"></textarea>
+                            <textarea class="form-control" name="message" placeholder="Message" required></textarea>
                         </div>
                         <div class="form-group">
                             <button class="btn mt30">SEND YOUR MESSAGE</button>

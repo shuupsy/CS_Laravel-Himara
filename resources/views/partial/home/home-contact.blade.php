@@ -37,13 +37,13 @@
                 </div>
 
                 {{-- Formulaire contact rapide --}}
-                <form action='/home' method='POST'>
+                <form action='/contact' method='POST'>
                     @csrf
                     {{-- Name --}}
                     <div class="form-group">
                         <input class="form-control" name="name" placeholder="Your Name" type="text"
                             @auth
-                                value="{{ auth()->user()->last_name }}" disabled
+                                value="{{ auth()->user()->last_name }}" readonly
                             @else
                                 value="{{ old('name') }}"
                             @endauth>
@@ -52,7 +52,11 @@
                     {{-- Email --}}
                     <div class="form-group">
                         <input class="form-control" name="email" type="email" placeholder="Your Email Address"
-                            value="{{ old('email') }}">
+                        @auth
+                        value="{{ auth()->user()->email }}" readonly
+                    @else
+                        value="{{ old('email') }}"
+                    @endauth>
                     </div>
 
                     {{-- Message --}}

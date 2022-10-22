@@ -1184,6 +1184,12 @@ label a {
   border-color: #e3e3e3;
 }
 
+.form-control[readonly]{
+    color: black;
+    background: #e9ecef;
+    cursor:not-allowed;
+}
+
 /* BOOTSTRAP SELECT */
 
 .bootstrap-select {
@@ -3623,6 +3629,12 @@ section.dark .form-control {
   height: 50px;
   background: #fff;
 }
+
+.contact-v2 .form-control[readonly] {
+    color: black;
+    background: #e9ecef;
+    cursor: not-allowed;
+  }
 
 section.blue .contact-v2 .form-control {
   border-color: #fff;
