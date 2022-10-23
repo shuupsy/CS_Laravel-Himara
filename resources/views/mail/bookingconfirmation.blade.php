@@ -13,7 +13,7 @@ Your profile
 
 <h4>What did you think of your experience ? Leave us a review !</h4>
 
-@component('mail::button', ['url' => 'http://127.0.0.1:8000/dashboard'])
+@component('mail::button', ['url' => 'http://127.0.0.1:8000/review'])
 Give Review
 @endcomponent
 

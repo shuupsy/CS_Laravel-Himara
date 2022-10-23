@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
+use App\Models\RoomReview;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -14,7 +16,11 @@ class ReviewController extends Controller
     public function index()
     {
         $user = auth()->user();
-        return view('pages.review');
+        $bookings = Booking::where('user_id', $user->id)
+        ->doesntHave('room_review')
+        ->get();
+
+        return view('pages.review', compact('user', 'bookings'));
     }
 
     /**
@@ -35,7 +41,13 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $review = new RoomReview();
+        $review->booking_id = $request->booking;
+        $review->review = $request->review;
+        $review->rating = $request->rating;
+
+        $review->save();
+        return redirect()->back();
     }
 
     /**
