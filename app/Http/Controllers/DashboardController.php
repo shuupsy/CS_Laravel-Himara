@@ -18,9 +18,7 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        $sliders = Slider::all();
-
-        return view('dashboard', compact('user', 'sliders'));
+        return view('dashboard', compact('user'));
     }
 
     /**

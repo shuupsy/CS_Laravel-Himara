@@ -57,7 +57,7 @@
     <div class='flex flex-col gap-10'>
         @foreach ($sliders as $slider)
             <div class="p-6 border-b bg-white border-gray-200">
-                <h1 class='text-2xl text-[#D8BA8D] my-1 uppercase font-semibold'>Slider {{ $slider->id }}</h1>
+                <h1 class='text-2xl text-[#D8BA8D] my-1 uppercase font-semibold'>{{ $slider->order == 1 ? "Main Slider" : ""}}</h1>
                 <div class='w-3/6 flex gap-6'>
                     <img src="/images/slider/{{ $slider->background_img }}">
 
@@ -89,6 +89,13 @@
 
                                     <x-text-input id="image" type="file" name="image" autofocus />
                                 </div>
+
+                                <label for="is_Main" class='flex items-center gap-1'>
+                                    <input id="is_Main" type="checkbox" name="is_Main"
+                                        {{ $slider->order == 1 ? 'checked' : '' }} value=true>
+                                    <span class='font-medium text-sm text-gray-700'>
+                                        Main slider ?</span>
+                                </label>
 
 
                             </div>

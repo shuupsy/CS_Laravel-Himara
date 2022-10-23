@@ -55,32 +55,5 @@
             </div>
         </div>
 
-        <div class='row'>
-            <div class='col'>
-                <a href="">
-                    <div class='p-4 border border-1 border-black rounded'>
-                        <h3>Choix du slider principal</h3>
-                        <div class="d-flex">
-                            @foreach ($sliders as $slider)
-                                <label class='flex flex-col items-center gap-1'>
-                                    <img src="/images/slider/{{ $slider->background_img }}" alt="">
-
-                                    <input type="radio" name="slider" value="{{ $slider->id }}" id="logo"
-                                        {{ $loop->index == 0 ? 'checked' : '' }}>
-                                </label>
-                            @endforeach
-                        </div>
-
-
-                    </div>
-                </a>
-            </div>
-        </div>
-
     </section>
 @endsection
-
-{{-- <x-app-layout>
-
-</x-app-layout>
- --}}

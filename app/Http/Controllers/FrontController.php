@@ -29,7 +29,7 @@ class FrontController extends Controller
      */
     public function Home()
     {
-        $sliders = Slider::all();
+        $sliders = Slider::orderBy('order', 'asc')->get();
 
         $about = AboutContent::orderBy('id', 'desc')
             ->first();

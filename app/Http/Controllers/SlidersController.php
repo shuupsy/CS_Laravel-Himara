@@ -16,7 +16,8 @@ class SlidersController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $sliders = Slider::orderBy('order', 'asc')->get();
+        
         return view('pages.backoffice.b-sliders', compact('sliders'));
     }
 
@@ -42,10 +43,10 @@ class SlidersController extends Controller
       $slider->layer1 = $request->layer1;
       $slider->layer2 = $request->layer2;
 
-      /* Compter le nombre de rows dans la table Slider */
+      /* Compter le nombre de rows dans la table Slider pour l'ordre */
       $count = Slider::all()->count();
       $slider->order = $count +1;
-      
+
       /* Small title (optional) */
       if($request->layer6 != null){
         $slider->layer6 = $request->layer6;
@@ -101,6 +102,7 @@ class SlidersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $sliders = Slider::all();
         $slider = Slider::find($id);
 
         $slider->layer1 = $request->layer1;
@@ -117,6 +119,18 @@ class SlidersController extends Controller
             $slider -> background_img = $new;
         };
 
+        /* Main pub? */
+
+        $count = Slider::all()->count();
+
+        if($request->is_Main == true){
+            for($i = 0; $i < $count; $i++) {
+                $sliders[$i] -> order = $i + 2;
+                $sliders[$i]->save();
+            }
+        }
+
+        $slider -> order = 1;
         $slider->save();
 
         return redirect()->back()->with("Slider $id, mis à jour!");
