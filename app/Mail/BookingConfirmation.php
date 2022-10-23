@@ -11,16 +11,16 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class BookingConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
-    public $user;
+    public $data;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($data)
     {
-        return $this->user = $user;
+        return $this->data = $data;
     }
 
     /**

@@ -69,9 +69,14 @@ class BookingController extends Controller
         $new->save();
 
         /* Confirmation de réservation */
+        $booking = Booking::find($new->id);
         $user = User::find($request->userid);
 
-        Mail::to($user->email)->send(new BookingConfirmation($user));
+        $data = ['first_name' => $user->first_name,
+            'email' => $user->email,
+            'booking' => $booking -> id];
+
+        Mail::to($data['email'])->send(new BookingConfirmation($data));
 
         return redirect()->back()->with('sucess', "Réservation faite!");
     }

@@ -1,8 +1,9 @@
 @component('mail::message')
 # Introduction
 
-<h2>Thank your for your order, {{ $user['first_name']}}</h2>
-<h3>This is your mail confirmation for your stay at our hotel.</h3>
+<h2>Thank your for your order, {{ $data['first_name'] }}.</h2>
+
+<h3>This is your mail confirmation (Order#{{ $data['booking'] }}) for your stay at our hotel.</h3>
 <br />
 <h4>Please, visit your profile for more details.</h4>
 

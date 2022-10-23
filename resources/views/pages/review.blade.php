@@ -25,7 +25,7 @@
 <body>
     <div class="min-h-screen bg-[#F5F3EF] flex justify-center items-center">
         <div class='w-7/12 mx-auto p-6 bg-white shadow-md flex flex-col gap-6'>
-            <h1 class="text-xl">Qu'avez vous pensé de votre expérience à notre Hotel {{ $hotel -> name }} ?</h1>
+            <h1 class="text-xl">Qu'avez-vous pensé de votre expérience à notre Hotel {{ $hotel -> name }} ?</h1>
             <div class='flex gap-6'>
                 <img src="/images/rooms/{{}}" alt="Photo Room">
                 <div>
