@@ -16,6 +16,7 @@ use App\Models\GalleryPhoto;
 use App\Models\RoomCategory;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
+use App\Models\Booking;
 use App\Models\ContactMessage;
 use App\Models\GalleryCategory;
 use Illuminate\Contracts\Database\Eloquent\Builder;
@@ -154,8 +155,11 @@ class FrontController extends Controller
 
         $options = Option::all();
 
-        $reviews = RoomReview::where('room_id', $room->id)
-        ->get();
+
+        $reviews = RoomReview::whereHas('booking', function($q) use($room) {
+            $q->where('room_id', $room->id);
+        })->get();
+
         $average = $reviews->avg('rating');
 
         return view('pages.room', compact('room', 'options', 'descriptions', 'photos', 'similar', 'reviews', 'average'));

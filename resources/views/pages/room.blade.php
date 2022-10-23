@@ -156,7 +156,7 @@
                             @foreach ($reviews as $review)
                                 <div class="review-box">
                                     <figure class="review-author">
-                                            <img src="/images/users/{{ $review->user->profile_pic }}"
+                                            <img src="/images/users/{{ $review->booking->user->profile_pic }}"
                                                 alt="Profile Picture User">
                                     </figure>
                                     <div class="review-contentt">
@@ -176,7 +176,7 @@
 
                                         </div>
                                         <div class="review-info">
-                                            {{ $review->user->first_name }} {{ $review->user->last_name }} –
+                                            {{ $review->booking->user->first_name }} {{ $review->booking->user->last_name }} –
                                             {{ $review->created_at->format('F d, Y') }}
                                         </div>
                                         <div class="review-text">
