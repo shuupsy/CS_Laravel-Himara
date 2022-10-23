@@ -42,8 +42,9 @@ class FrontController extends Controller
             ->inRandomOrder()
             ->take(3)
             ->get();
+
         $room_cats = RoomCategory::all();
-        $rooms_booking = $rooms = Room::where('is_Available', 1)
+        $rooms_booking = Room::where('is_Available', 1)
         ->orderBy('room_category_id', 'asc')
         ->get();
 
