@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutContent;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -13,7 +14,10 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('pages.backoffice.b-about');
+        $about = AboutContent::orderBy('id', 'desc')
+            ->first();
+
+        return view('pages.backoffice.b-about', compact('about'));
     }
 
     /**

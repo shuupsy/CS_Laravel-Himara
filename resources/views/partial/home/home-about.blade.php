@@ -14,25 +14,25 @@
                         <!-- ITEM -->
                         <div class="item">
                             <a href="#">
-                                <img src="images/providers/provider-1.png" alt="Image">
+                                <img src="/images/providers/provider-1.png" alt="Image">
                             </a>
                         </div>
                         <!-- ITEM -->
                         <div class="item">
                             <a href="#">
-                                <img src="images/providers/provider-2.png" alt="Image">
+                                <img src="/images/providers/provider-2.png" alt="Image">
                             </a>
                         </div>
                         <!-- ITEM -->
                         <div class="item">
                             <a href="#">
-                                <img src="images/providers/provider-3.png" alt="Image">
+                                <img src="/images/providers/provider-3.png" alt="Image">
                             </a>
                         </div>
                         <!-- ITEM -->
                         <div class="item">
                             <a href="#">
-                                <img src="images/providers/provider-4.png" alt="Image">
+                                <img src="/images/providers/provider-4.png" alt="Image">
                             </a>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="brand-info"
-                style="background-image:url({{ $about -> background_img }})">
+                style="background-image:url('/{{ $about -> background_img }}')">
                     <div class="inner">
                         <div class="content">
                             <img src="/images/logos/{{ $hotel -> big_logo }}" width="100" alt="Image">
