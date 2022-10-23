@@ -40,7 +40,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="brand-info"
-                style="background-image:url('/{{ $about -> background_img }}')">
+                style="background-image:url('/images/about/{{ $about -> background_img }}')">
                     <div class="inner">
                         <div class="content">
                             <img src="/images/logos/{{ $hotel -> big_logo }}" width="100" alt="Image">
