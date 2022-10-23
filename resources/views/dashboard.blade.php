@@ -6,7 +6,6 @@
         <h2 class='text-sm'>Gérez votre expérience sur {{ $hotel->name }}</h2>
 
         <div class='row'>
-
             {{-- Infos perso --}}
             <div class='col my-2'>
                 <a href="">
@@ -36,7 +35,6 @@
             </div>
         </div>
 
-
         <div class='row'>
             {{-- Réservation --}}
             <div class='col my-2'>
@@ -52,6 +50,28 @@
                 <a href="">
                     <div class='p-4 border border-1 border-black rounded'>
                         <h3>Commentaires</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class='col'>
+                <a href="">
+                    <div class='p-4 border border-1 border-black rounded'>
+                        <h3>Choix du slider principal</h3>
+                        <div class="d-flex">
+                            @foreach ($sliders as $slider)
+                                <label class='flex flex-col items-center gap-1'>
+                                    <img src="/images/slider/{{ $slider->background_img }}" alt="">
+
+                                    <input type="radio" name="slider" value="{{ $slider->id }}" id="logo"
+                                        {{ $loop->index == 0 ? 'checked' : '' }}>
+                                </label>
+                            @endforeach
+                        </div>
+
+
                     </div>
                 </a>
             </div>
