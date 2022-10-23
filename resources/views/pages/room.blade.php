@@ -156,8 +156,8 @@
                             @foreach ($reviews as $review)
                                 <div class="review-box">
                                     <figure class="review-author">
-                                            <img src="/images/users/{{ $review->booking->user->profile_pic }}"
-                                                alt="Profile Picture User">
+                                        <img src="/images/users/{{ $review->booking->user->profile_pic }}"
+                                            alt="Profile Picture User">
                                     </figure>
                                     <div class="review-contentt">
                                         <div class="rating">
@@ -176,7 +176,8 @@
 
                                         </div>
                                         <div class="review-info">
-                                            {{ $review->booking->user->first_name }} {{ $review->booking->user->last_name }} –
+                                            {{ $review->booking->user->first_name }}
+                                            {{ $review->booking->user->last_name }} –
                                             {{ $review->created_at->format('F d, Y') }}
                                         </div>
                                         <div class="review-text">
@@ -201,7 +202,7 @@
                                 <div class="col-lg-4">
                                     <div class="room-grid-item">
                                         <figure class="gradient-overlay-hover link-icon">
-                                            <a href="/rooms/{{$s->id}}">
+                                            <a href="/rooms/{{ $s->id }}">
                                                 <img src="/images/rooms/{{ $s->photo }}" class="img-fluid"
                                                     alt="Image">
                                             </a>
@@ -257,7 +258,9 @@
                                     <form action='/booking-form' method="post">
                                         @csrf
 
-                                        <input name="userid" class='d-none' value="{{ auth()->user()->id }}">
+                                        @auth
+                                            <input name="userid" class='d-none' value="{{ auth()->user()->id }}">
+                                        @endauth
                                         <!-- EMAIL -->
                                         <div class="form-group">
                                             <input class="form-control" name="booking-email" type="email"
@@ -322,8 +325,18 @@
                                             </div>
                                         </div>
                                         <!-- BOOKING BUTTON -->
-                                        <button type="submit" class="btn btn-dark btn-fw mt20 mb20">BOOK A
-                                            ROOM</button>
+                                        {{-- Si connecté --}}
+                                        @auth
+                                            <button type="submit" class="btn btn-dark btn-fw mt20 mb20">BOOK A
+                                                ROOM</button>
+                                        {{-- Pas connecté --}}
+                                        @else
+                                            <a href="{{ route('login') }}">
+                                                <button class='btn btn-book'>
+                                                    <i class="fa fa-user"></i>
+                                                    LOG IN
+                                                </button></a>
+                                        @endauth
                                     </form>
                                 </div>
                             </div>

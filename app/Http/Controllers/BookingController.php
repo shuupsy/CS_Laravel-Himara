@@ -6,6 +6,7 @@ use App\Models\Room;
 use App\Models\User;
 use App\Models\Booking;
 use App\Mail\GiveReview;
+use App\Models\Notification;
 use App\Models\RoomCategory;
 use Illuminate\Http\Request;
 use App\Mail\BookingConfirmation;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\RoomReview;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -47,6 +48,12 @@ class ReviewController extends Controller
         $review->rating = $request->rating;
 
         $review->save();
+
+        /* Mail back */
+        $notif = new Notification();
+        $notif->room_review_id = $review->id;
+        $notif->save();
+
         return redirect()->back();
     }
 
