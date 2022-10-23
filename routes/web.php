@@ -112,7 +112,9 @@ Route::resource('/blog', BlogController::class)
 
 Route::resource('/review', ReviewController::class);
 
-
+Route::get('/reviews', function(){
+    return view('pages.review');
+});
 
 
 Route::fallback(function(){

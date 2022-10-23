@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('room_reviews', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('booking_id')
+                ->nullable()
+                ->constrained();
             $table->foreignId('user_id')
                 ->nullable()
                 ->constrained()

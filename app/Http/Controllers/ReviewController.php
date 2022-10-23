@@ -13,6 +13,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
+        $user = auth()->user();
         return view('pages.review');
     }
 

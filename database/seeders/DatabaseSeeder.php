@@ -54,6 +54,7 @@ class DatabaseSeeder extends Seeder
             RoomDescriptionSeeder::class,
             RoomPhotoSeeder::class,
             UserSeeder::class,
+            BookingSeeder::class,
             ReviewSeeder::class,
             SliderSeeder::class,
             ArticleSeeder::class,

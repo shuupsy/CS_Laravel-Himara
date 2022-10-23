@@ -17,7 +17,7 @@ class SlidersController extends Controller
     public function index()
     {
         $sliders = Slider::orderBy('order', 'asc')->get();
-        
+
         return view('pages.backoffice.b-sliders', compact('sliders'));
     }
 
@@ -119,10 +119,9 @@ class SlidersController extends Controller
             $slider -> background_img = $new;
         };
 
-        /* Main pub? */
+        /* Main slider ? */
 
         $count = Slider::all()->count();
-
         if($request->is_Main == true){
             for($i = 0; $i < $count; $i++) {
                 $sliders[$i] -> order = $i + 2;
