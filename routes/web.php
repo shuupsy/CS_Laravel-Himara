@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\BlogController;
@@ -50,7 +51,7 @@ Route::resource('/booking-form', BookingController::class)
 Route::resource('/contact', ContactController::class)
     ->names(['index' => 'contact.index']);
 
-    
+
 /* -------- BACKOFFICE -------- */
 Route::get('/admin', function(){
     return view('pages.backoffice.b-home');
@@ -74,6 +75,10 @@ Route::resource('/admin/ads', AdsController::class)
 /* BACKOFFICE - Sliders */
 Route::resource('/admin/sliders', SlidersController::class)
     ->names(['index' => 'sliders.index']);
+
+/* BACKOFFICE - About */
+Route::resource('/admin/about', AboutController::class)
+    ->names(['index' => 'about.index']);
 
 /* BACKOFFICE - Restaurant */
 Route::resource('/admin/restaurant', RestaurantController::class)
