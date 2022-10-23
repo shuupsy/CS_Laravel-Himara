@@ -27,7 +27,7 @@ class AboutContentSeeder extends Seeder
                 'small_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolorem iste suscipit voluptates architecto nemo.',
 
                 'small_title' => 'Luxury Hotel',
-                'background_img' => 'images/about-card.jpg',
+                'background_img' => 'about-card.jpg',
 
             ]
         ]);

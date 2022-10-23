@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutContent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class AboutController extends Controller
 {
@@ -18,16 +21,6 @@ class AboutController extends Controller
             ->first();
 
         return view('pages.backoffice.b-about', compact('about'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -53,17 +46,6 @@ class AboutController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -72,7 +54,34 @@ class AboutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $about = AboutContent::find($id);
+
+        /* Image */
+        if($request->file('image') != null){
+            /* Supprimer image précédente */
+            if($about->background_img != 'about-card.jpg'){
+                Storage::delete('public/assets/' . $about->photo);
+                File::delete(public_path('images/' . $about->photo));
+            }
+
+            Storage::put('public/assets/', $request->file('image'));
+            $new = $request->file('image')->hashName();
+            $new_path = public_path('storage/assets/' . $new);
+
+            $resize = Image::make($new_path)->resize(400, 600)->save(public_path('images/about/' . $new));
+
+            $about -> background_img = $new;
+        };
+
+        /* Infos */
+        $about -> subheading = $request -> subheading;
+        $about -> big_description = $request -> big_description;
+        $about -> small_description = $request -> small_description;
+        $about -> small_title = $request -> small_title;
+
+        $about->save();
+
+        return redirect()->back()->with('success', '(1) About modifié avec succès!');
     }
 
     /**

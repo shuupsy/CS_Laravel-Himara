@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="brand-info" style="background-image:url('/{{ $about->background_img }}')">
+                    <div class="brand-info" style="background-image:url('/images/{{ $about->background_img }}')">
                         <div class="inner">
                             <div class="content flex flex-col items-center justify-center">
                                 <img src="/images/logos/{{ $hotel->big_logo }}" width="100" alt="Image">
@@ -66,79 +66,95 @@
 
 
 @section('update')
-    <div class='flex flex-col gap-10'>
-        <div class="p-6 border-b bg-white border-gray-200">
-            <form action="/admin/ads/{{ $about->id }}" method='post' enctype="multipart/form-data">
+    <div class="bg-white py-12 px-3">
+        <div class="container">
+            <form action="/admin/about/{{ $about -> id}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('patch')
 
-                <div class='grid grid-cols-2 gap-6 my-6'>
+                <div class="row">
+                    {{-- LEFT --}}
+                    <div class="col-lg-8">
+                        <div class="section-title">
+                            <h4 class="text-uppercase mb-2">Hotel {{ $hotel->name }}. <span class="text-himara"> since
+                                    1992</span></h4>
 
-                    <div class='flex flex-col gap-6 px-3'>
-                        <!-- Subheading -->
-                        <div>
-                            <x-input-label for="video_link" :value="__('Subheading')" />
-
-                            <x-text-input id="video_link" class="block mt-1 w-72" type="text" name="video_link"
+                            {{-- Subheading --}}
+                            <x-text-input class="block mt-1 w-full mb-4" type="text" name="subheading"
                                 value="{{ $about->subheading }}" required autofocus />
                         </div>
-
-                        <!-- Big description -->
-                        <div>
-                            <x-input-label for="big_description" :value="__('Long description')" />
-
+                        <div class="info-branding">
+                            {{-- Long description --}}
                             <textarea id="big_description"
                                 class="block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                 type="text" name="big_description" value="{{ old('big_description') }}" required autofocus>{{ $about->big_description }}</textarea>
+                            {{-- Brands --}}
+                            <div class="providers flex items-center gap-2">
+                                <span>Recommended on:</span>
+                                <!-- ITEM -->
+                                <div class="item">
+                                    <a href="#">
+                                        <img src="/images/providers/provider-1.png" alt="Image">
+                                    </a>
+                                </div>
+                                <!-- ITEM -->
+                                <div class="item">
+                                    <a href="#">
+                                        <img src="/images/providers/provider-2.png" alt="Image">
+                                    </a>
+                                </div>
+                                <!-- ITEM -->
+                                <div class="item">
+                                    <a href="#">
+                                        <img src="/images/providers/provider-3.png" alt="Image">
+                                    </a>
+                                </div>
+                                <!-- ITEM -->
+                                <div class="item">
+                                    <a href="#">
+                                        <img src="/images/providers/provider-4.png" alt="Image">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
+                        <!-- Image -->
+                        <div class='d-flex items-center gap-3'>
+                            <x-input-label for="image" class='m-0' :value="__('Background Image :')" />
+                            <input id="image" type="file" name="image" class='my-2' autofocus />
+                        </div>
+
                     </div>
 
-                    <div class="brand-info" style="background-image:url('/{{ $about->background_img }}')">
-                        <div class="inner">
-                            <div class="content flex flex-col gap-4 items-evenly justify-center px-4">
-                                <div class='flex justify-center'>
+                    {{-- RIGHT --}}
+                    <div class="col-lg-4">
+                        <div class="brand-info" style="background-image:url('/images/{{ $about->background_img }}')">
+                            <div class="inner">
+                                <div class="content flex flex-col items-center justify-center">
                                     <img src="/images/logos/{{ $hotel->big_logo }}" width="100" alt="Image">
-                                </div>
-                                <div class="stars">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                </div>
-                                <!-- Small title -->
-                                <div class='mx-10'>
+                                    <div class="stars">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
                                     <input id="small_description"
-                                        class="block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="block w-full my-2 text-center rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         type="text" name="small_title" value="{{ $about->small_title }}" required
                                         autofocus>
-                                </div>
-
-                                <!-- Small description -->
-                                <div class='mx-10'>
+                                    {{-- Small description --}}
                                     <textarea id="small_description"
-                                        class="block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="w-full text-center rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         type="text" name="small_description" value="{{ old('small_description') }}" required autofocus>{{ $about->small_description }}</textarea>
-                                </div>
 
-                                <!-- Image -->
-                                    <x-text-input id="image" type="file" name="image" autofocus />
+                                </div>
                             </div>
                         </div>
                     </div>
 
-
-
-
-
                 </div>
-
                 <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222]'>Update</button>
             </form>
-
-
-
-
         </div>
     </div>
 @endsection
