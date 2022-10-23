@@ -20,6 +20,8 @@ return new class extends Migration
                 ->constrained();
             $table->unsignedBigInteger('rating');
             $table->text('review');
+            $table->boolean('is_Active')
+            ->default(0);
             $table->timestamps();
         });
     }

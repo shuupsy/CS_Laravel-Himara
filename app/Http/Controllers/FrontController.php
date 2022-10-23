@@ -158,8 +158,9 @@ class FrontController extends Controller
 
 
         $reviews = RoomReview::whereHas('booking', function($q) use($room) {
-            $q->where('room_id', $room->id);
-        })->get();
+            $q->where('room_id', $room->id);})
+                ->where('is_Active', 1)
+                ->get();
 
         $average = $reviews->avg('rating');
 
