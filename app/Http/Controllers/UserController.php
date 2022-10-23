@@ -21,7 +21,7 @@ class UserController extends Controller
 
         $roles = Role::all();
 
-        return view('pages.backoffice.b-home', compact('users', 'roles'));
+        return view('pages.backoffice.b-users', compact('users', 'roles'));
     }
 
     /**

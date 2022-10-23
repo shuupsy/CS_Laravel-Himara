@@ -20,9 +20,7 @@ use App\Http\Controllers\RoomsPhotoController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 
-Route::get('/mail', function(){
-    return view('emails.welcome');
-});
+
 
 /* -------- FRONT -------- */
 Route::get('/', [FrontController::class, 'Home'])
@@ -52,12 +50,16 @@ Route::resource('/booking-form', BookingController::class)
 Route::resource('/contact', ContactController::class)
     ->names(['index' => 'contact.index']);
 
+    
 /* -------- BACKOFFICE -------- */
-Route::resource('/admin', UserController::class);
+Route::get('/admin', function(){
+    return view('pages.backoffice.b-home');
+});
 
 /* BACKOFFICE - Infos Hotel */
 Route::resource('/admin/info', InfoController::class)
     ->names(['index' => 'info.index']);
+
 Route::put('/admin/info/{id}/update1', [InfoController::class, 'update_logo']);
 Route::put('/admin/info/{id}/update2', [InfoController::class, 'update_biglogo']);
 
@@ -93,9 +95,10 @@ Route::resource('/admin/rooms', RoomsController::class)
 
 Route::resource('/admin/rooms/descriptions', RoomsDescriptionController::class);
 
-Route::resource('admin/rooms/gallery', RoomsPhotoController::class);
+Route::resource('/admin/rooms/gallery', RoomsPhotoController::class);
 
-
+/* BACKOFFICE - Users */
+Route::resource('/admin/users', UserController::class);
 
 
 Route::resource('/blog', BlogController::class)

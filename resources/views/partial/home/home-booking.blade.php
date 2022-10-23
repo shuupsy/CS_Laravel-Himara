@@ -7,7 +7,9 @@
             <form class="booking-form-advanced" action='/booking-form' method="post">
                 @csrf
 
+                @auth
                 <input name="userid" class='d-none' value="{{ auth()->user()->id}}">
+                @endauth
                 <!-- NAME -->
                 <div class="row">
                     <div class="col-md-2">
