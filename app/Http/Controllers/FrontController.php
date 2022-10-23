@@ -149,6 +149,7 @@ class FrontController extends Controller
         ->orWhereHas('tag', function (Builder $query) use($tags) {
             $query->where('tag', 'like', $tags);
             })
+        ->orWhere('price', '>', 0)
         ->inRandomOrder()
         ->take(3)
         ->get();
