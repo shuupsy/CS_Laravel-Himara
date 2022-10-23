@@ -201,7 +201,7 @@
                                 <div class="col-lg-4">
                                     <div class="room-grid-item">
                                         <figure class="gradient-overlay-hover link-icon">
-                                            <a href="room.html">
+                                            <a href="/rooms/{{$s->id}}">
                                                 <img src="/images/rooms/{{ $s->photo }}" class="img-fluid"
                                                     alt="Image">
                                             </a>
