@@ -18,14 +18,6 @@ return new class extends Migration
             $table->foreignId('booking_id')
                 ->nullable()
                 ->constrained();
-            $table->foreignId('user_id')
-                ->nullable()
-                ->constrained()
-                ->onDelete('cascade');
-            $table->foreignId('room_id')
-                ->nullable()
-                ->constrained()
-                ->onDelete('cascade');
             $table->unsignedBigInteger('rating');
             $table->text('review');
             $table->timestamps();
