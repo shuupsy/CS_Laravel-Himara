@@ -87,6 +87,6 @@ class GalleryCategoryController extends Controller
 
         $delete->delete();
 
-        return redirect()->back()->with('success', "Catégorie '$delete->category_name' supprimée!");
+        return redirect()->back()->with('success', "Catégorie '$delete->category' supprimée!");
     }
 }

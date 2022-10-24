@@ -25,20 +25,9 @@ class StaffController extends Controller
             ->get();
 
         $all = Staff::orderBy('id', 'asc')
-        ->paginate(4)
-        ->fragment('staff-update');
+        ->paginate(4);
 
         return view('pages.backoffice.b-staff', compact('boss', 'staffmembers', 'all'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -78,17 +67,6 @@ class StaffController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }

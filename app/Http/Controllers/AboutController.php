@@ -81,7 +81,7 @@ class AboutController extends Controller
 
         $about->save();
 
-        return redirect()->back()->with('success', '(1) About modifié avec succès!');
+        return redirect()->back()->with('success', 'About modifié avec succès!');
     }
 
     /**

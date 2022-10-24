@@ -53,10 +53,10 @@
                     class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
                     Gallery
                 </a>
-                <a href=""
+          {{--       <a href=""
                     class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
                     Blog
-                </a>
+                </a> --}}
 
                 <a href="/admin/staff"
                     class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
