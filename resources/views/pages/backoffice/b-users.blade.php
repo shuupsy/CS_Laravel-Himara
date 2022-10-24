@@ -25,7 +25,7 @@
                             @endif
 
                             {{-- ADMIN - Changer le rôle d'un membre --}}
-                            @if (Auth::user()->role_id == 1)
+                            @can('admin')
                                 <form action="/admin/{{ $user->id }}" method="post">
                                     @csrf
                                     @method('patch')
@@ -40,12 +40,12 @@
                                     <button
                                         class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222]'>Update</button>
                                 </form>
-                            @endif
+                            @endcan
                         </div>
                     </div>
 
                     {{-- ADMIN - Delete membre --}}
-                    @if (Auth::user()->role_id == 1)
+                    @can('admin')
                         <div class='flex flex-col justify-between gap-1'>
                             <form action="/admin/{{ $user->id }}" method='post' class='text-center'>
                                 @csrf
@@ -53,7 +53,7 @@
                                 <button class='text-red-600 rounded-sm hover:underline'>delete</button>
                             </form>
                         </div>
-                    @endif
+                    @endcan
                 </div>
             @endforeach
 
