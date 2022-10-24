@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\RoomReview;
 use App\Models\Notification;
+use App\Providers\NewNotification;
 use Illuminate\Http\Request;
+use App\Providers\SendEmailNotification;
 
 class ReviewController extends Controller
 {
@@ -53,6 +55,8 @@ class ReviewController extends Controller
         $notif = new Notification();
         $notif->room_review_id = $review->id;
         $notif->save();
+
+        event(new NewNotification());
 
         return redirect()->back();
     }

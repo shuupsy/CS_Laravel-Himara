@@ -27,6 +27,7 @@
                         {{ $notif->contact_message->subject == null ? 'Null' : $notif->contact_message->subject }}</span>
                 </p>
 
+                <br/>
                 <p>Message:</p>
                 <p class='text-slate-500'>{{ $notif->contact_message->message }}</p>
             </div>
@@ -67,10 +68,10 @@
                     </span>
                 </p>
 
+                {{-- Publish --}}
                 <form action="/review/{{$notif->room_review->id}}" method="post" class='my-3'>
                     @csrf
                     @method('patch')
-                    
                     <button class='bg-[#444444] p-2 text-white rounded-md hover:bg-[#222222] uppercase'>Publish</button>
                 </form>
             </div>
@@ -78,9 +79,15 @@
 
             {{-- Room  --}}
         @else
-            New Room Release
+            <div>
+                {{-- Publish --}}
+                <form action="/review/{{$notif->room_review->id}}" method="post" class='my-3'>
+                    @csrf
+                    @method('patch')
+                    <button class='bg-[#444444] p-2 text-white rounded-md hover:bg-[#222222] uppercase'>Publish</button>
+                </form>
+            </div>
         @endif
 
-    </div>
     </div>
 @endforeach

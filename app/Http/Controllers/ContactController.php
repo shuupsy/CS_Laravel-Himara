@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\ContactMessage;
+use App\Providers\NewNotification;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Redirect;
 
@@ -52,6 +53,8 @@ class ContactController extends Controller
         $notif = new Notification();
         $notif->contact_message_id = $message->id;
         $notif->save();
+
+        event(new NewNotification());
 
         return Redirect::to(URL::previous() . "#home-form")->with('success', 'Message envoyé avec succès !');
     }
