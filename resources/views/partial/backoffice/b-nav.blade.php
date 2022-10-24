@@ -13,47 +13,62 @@
                 -> Home
             </a>
 
-            <a href="/admin/info" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
-                Infos Hotel
-            </a>
+            <a href="/admin/rooms"
+                    class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                    Rooms
+                </a>
 
-            <a href="/admin/rooms" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
-                Rooms
-            </a>
+            {{-- Si editor --}}
+            @if (Auth::user()->role_id != 3)
+                <a href="/admin/info"
+                    class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                    Infos Hotel
+                </a>
 
-            <a href="/admin/services" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
-                Services
-            </a>
+                <a href="/admin/services"
+                    class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                    Services
+                </a>
 
-            <a href="/admin/restaurant" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
-                Restaurant
-            </a>
+                <a href="/admin/restaurant"
+                    class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                    Restaurant
+                </a>
 
-            <a href="/admin/ads" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
-                Ads
-            </a>
-            <a href="/admin/sliders" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
-                Sliders
-            </a>
+                <a href="/admin/ads"
+                    class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                    Ads
+                </a>
+                <a href="/admin/sliders"
+                    class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                    Sliders
+                </a>
 
-            <a href="/admin/about" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
-                About
-            </a>
+                <a href="/admin/about"
+                    class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                    About
+                </a>
 
-            <a href="/admin/gallery" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
-                Gallery
-            </a>
-            <a href="" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
-                Blog
-            </a>
+                <a href="/admin/gallery"
+                    class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                    Gallery
+                </a>
+                <a href=""
+                    class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                    Blog
+                </a>
 
-            <a href="/admin/staff" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
-                Staff
-            </a>
+                <a href="/admin/staff"
+                    class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                    Staff
+                </a>
 
-            <a href="/admin/users" class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
-                Users
-            </a>
+                <a href="/admin/users"
+                    class='p-2 text-[#a4a4a4] hover:text-[#ECCB9A] uppercase font-bold text-sm flex justify-center border'>
+                    Users
+                </a>
+            @endif
+
         </div>
     </div>
 
