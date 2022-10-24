@@ -88,6 +88,9 @@ class NotificationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Notification::find($id);
+        $delete->delete();
+
+        return redirect()->back();
     }
 }

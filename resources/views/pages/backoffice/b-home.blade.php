@@ -70,19 +70,20 @@
                                 </td> --}}
 
                                 {{-- Bouton DELETE --}}
-                                {{--  <td class='text-center px-1.5'>
-                                    <form action="{{ url('equipes/' . $equipe->id) }}" method="post">
+                                <td class='text-center px-1.5'>
+                                    <form action="/notification/{{$notif->id}}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button
-                                            class='text-red-500 hover:bg-red-500 hover:text-white hover:rounded-lg p-2'>Retirer</button>
+                                            class='text-red-500 hover:bg-red-500 hover:text-white hover:rounded-lg p-2 transition duration-150 hover:ease-in'>Delete</button>
                                     </form>
-                                </td> --}}
+                                </td>
                             </tr>
                         @endforeach
 
                     </tbody>
                 </table>
+                <div>{{ $notifications->links()}}</div>
             </div>
         </div>
     </div>
