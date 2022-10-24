@@ -79,14 +79,14 @@
 
             {{-- Room  --}}
         @else
-            <div>
-                {{-- Publish --}}
+        {{-- Publish --}}
+            {{-- <div>
                 <form action="/review/{{$notif->room_review->id}}" method="post" class='my-3'>
                     @csrf
                     @method('patch')
                     <button class='bg-[#444444] p-2 text-white rounded-md hover:bg-[#222222] uppercase'>Publish</button>
                 </form>
-            </div>
+            </div> --}}
         @endif
 
     </div>
