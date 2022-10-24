@@ -71,11 +71,13 @@
                                 <i class="fa fa-user"></i>
                                 Profile
                             </a>
-                            {{-- Backoffice --}}
                             <ul class="submenu">
-                                <li class="menu-item">
-                                    <a href="/admin">Backoffice ADMIN</a>
-                                </li>
+                                {{-- Backoffice --}}
+                                @if (Auth::id() == 1 || Auth::id() == 2 || Auth::id() == 2)
+                                    <li class="menu-item">
+                                        <a href="/admin">Backoffice ADMIN</a>
+                                    </li>
+                                @endif
 
                                 {{-- Logout --}}
                                 <li class="menu-item">
