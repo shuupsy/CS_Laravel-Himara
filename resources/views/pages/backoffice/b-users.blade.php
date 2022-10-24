@@ -19,31 +19,41 @@
                             <h2 class='capitalize text-slate-600 text-lg'>{{ $user->first_name }} {{ $user->last_name }}
                             </h2>
 
-                            {{-- Changer le rôle d'un membre --}}
-                            <form action="/admin/{{ $user->id }}" method="post">
-                                @csrf
-                                @method('patch')
+                            {{-- Visible - MOD --}}
+                            @if (Auth::user()->role_id == 2)
+                                <h3 class='capitalize'>{{ $user->role->role }}</h3>
+                            @endif
 
-                                <select name="role" class='capitalize'>
-                                    @foreach ($roles as $role)
-                                        <option value="{{ $role->id }}"
-                                            {{ $user->role_id == $role->id ? 'selected' : '' }}>{{ $role->role }}</option>
-                                    @endforeach
-                                </select>
+                            {{-- ADMIN - Changer le rôle d'un membre --}}
+                            @if (Auth::user()->role_id == 1)
+                                <form action="/admin/{{ $user->id }}" method="post">
+                                    @csrf
+                                    @method('patch')
 
+                                    <select name="role" class='capitalize'>
+                                        @foreach ($roles as $role)
+                                            <option value="{{ $role->id }}"
+                                                {{ $user->role_id == $role->id ? 'selected' : '' }}>{{ $role->role }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <button
+                                        class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222]'>Update</button>
+                                </form>
+                            @endif
                         </div>
                     </div>
 
-                    <div class='flex flex-col justify-between gap-1'>
-                        <button class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222]'>Update</button>
-                        </form>
-                        {{-- Delete --}}
-                        <form action="/admin/{{ $user->id }}" method='post' class='text-center'>
-                            @csrf
-                            @method('delete')
-                            <button class='text-red-600 rounded-sm hover:underline'>delete</button>
-                        </form>
-                    </div>
+                    {{-- ADMIN - Delete membre --}}
+                    @if (Auth::user()->role_id == 1)
+                        <div class='flex flex-col justify-between gap-1'>
+                            <form action="/admin/{{ $user->id }}" method='post' class='text-center'>
+                                @csrf
+                                @method('delete')
+                                <button class='text-red-600 rounded-sm hover:underline'>delete</button>
+                            </form>
+                        </div>
+                    @endif
                 </div>
             @endforeach
 
