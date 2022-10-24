@@ -41,6 +41,7 @@
 @endsection
 
 @section('new')
+    @include('partial.backoffice.errors')
     <div class='w-11/12 mx-auto flex flex-col gap-10' id='staff-update'>
         <div class="p-6 border-b bg-white border-gray-200">
             <div class='flex gap-6'>

@@ -38,6 +38,14 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "first_name" => "required|min:1|max:5",
+            "last_name" => "required|min:1|max:50",
+            "description" => "required|min:1|max:90",
+            "job" => "required|numeric|min:1|max:5",
+            "image" => "required|mimes:jpg,png,jpeg",
+        ]);
+
         $new_member = new Staff();
 
         /* Image */
