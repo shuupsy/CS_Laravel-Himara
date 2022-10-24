@@ -73,7 +73,7 @@
                             </a>
                             <ul class="submenu">
                                 {{-- Backoffice --}}
-                                @if (Auth::id() == 1 || Auth::id() == 2 || Auth::id() == 2)
+                                @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2 || Auth::user()->role_id == 3)
                                     <li class="menu-item">
                                         <a href="/admin">Backoffice ADMIN</a>
                                     </li>

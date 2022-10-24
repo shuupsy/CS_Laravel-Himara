@@ -55,15 +55,26 @@ Route::resource('/contact', ContactController::class)
 
 
 /* -------- BACKOFFICE -------- */
-/* Uniquement accessible pour les Admin/Mod/Editor */
+/* Accès - Admin/Mod/Editor */
 Route::middleware('access')->group(function(){
     Route::get('/admin', [AdminController::class,'index']);
 
     Route::resource('/notification', NotificationController::class);
 
-    /* BACKOFFICE - Infos Hotel */
-    Route::resource('/admin/info', InfoController::class)
-        ->names(['index' => 'info.index']);
+    /* BACKOFFICE - Rooms */
+    Route::resource('/admin/rooms', RoomsController::class)
+        ->names(['index' => 'rooms.index']);
+
+    Route::resource('/admin/rooms/descriptions', RoomsDescriptionController::class);
+
+    Route::resource('/admin/rooms/gallery', RoomsPhotoController::class);
+});
+
+/* Accès - Admin / Mod */
+Route::middleware('high-access')->group(function(){
+     /* BACKOFFICE - Infos Hotel */
+     Route::resource('/admin/info', InfoController::class)
+     ->names(['index' => 'info.index']);
 
     Route::put('/admin/info/{id}/update1', [InfoController::class, 'update_logo']);
     Route::put('/admin/info/{id}/update2', [InfoController::class, 'update_biglogo']);
@@ -98,18 +109,10 @@ Route::middleware('access')->group(function(){
 
     Route::resource('/admin/gallerycategory', GalleryCategoryController::class);
 
-    /* BACKOFFICE - Rooms */
-    Route::resource('/admin/rooms', RoomsController::class)
-        ->names(['index' => 'rooms.index']);
-
-    Route::resource('/admin/rooms/descriptions', RoomsDescriptionController::class);
-
-    Route::resource('/admin/rooms/gallery', RoomsPhotoController::class);
-
     /* BACKOFFICE - Users */
     Route::resource('/admin/users', UserController::class);
 
-
+    /* BACKOFFICE - Blog */
     Route::resource('/blog', BlogController::class)
     ->names(['index' => 'blog.index']);
 });
