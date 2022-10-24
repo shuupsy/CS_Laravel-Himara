@@ -1,25 +1,27 @@
 <?php
 
-use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SlidersController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\GalleryCategoryController;
 use App\Http\Controllers\RestaurantController;
-use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\RoomsDescriptionController;
 use App\Http\Controllers\RoomsPhotoController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\GalleryCategoryController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\RoomsDescriptionController;
 
 
 
@@ -53,9 +55,8 @@ Route::resource('/contact', ContactController::class)
 
 
 /* -------- BACKOFFICE -------- */
-Route::get('/admin', function(){
-    return view('pages.backoffice.b-home');
-});
+Route::get('/admin', [AdminController::class,'index']);
+Route::resource('/notification', NotificationController::class);
 
 /* BACKOFFICE - Infos Hotel */
 Route::resource('/admin/info', InfoController::class)
