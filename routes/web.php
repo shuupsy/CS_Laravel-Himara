@@ -55,60 +55,65 @@ Route::resource('/contact', ContactController::class)
 
 
 /* -------- BACKOFFICE -------- */
-Route::get('/admin', [AdminController::class,'index']);
-Route::resource('/notification', NotificationController::class);
+/* Uniquement accessible pour les Admin/Mod/Editor */
+Route::middleware('access')->group(function(){
+    Route::get('/admin', [AdminController::class,'index']);
 
-/* BACKOFFICE - Infos Hotel */
-Route::resource('/admin/info', InfoController::class)
-    ->names(['index' => 'info.index']);
+    Route::resource('/notification', NotificationController::class);
 
-Route::put('/admin/info/{id}/update1', [InfoController::class, 'update_logo']);
-Route::put('/admin/info/{id}/update2', [InfoController::class, 'update_biglogo']);
+    /* BACKOFFICE - Infos Hotel */
+    Route::resource('/admin/info', InfoController::class)
+        ->names(['index' => 'info.index']);
 
-/* BACKOFFICE - Service */
-Route::resource('/admin/services', ServiceController::class)
-    ->names(['index' => 'service.index']);
+    Route::put('/admin/info/{id}/update1', [InfoController::class, 'update_logo']);
+    Route::put('/admin/info/{id}/update2', [InfoController::class, 'update_biglogo']);
 
-/* BACKOFFICE - Ads */
-Route::resource('/admin/ads', AdsController::class)
-    ->names(['index' => 'ads.index']);
+    /* BACKOFFICE - Service */
+    Route::resource('/admin/services', ServiceController::class)
+        ->names(['index' => 'service.index']);
 
-/* BACKOFFICE - Sliders */
-Route::resource('/admin/sliders', SlidersController::class)
-    ->names(['index' => 'sliders.index']);
+    /* BACKOFFICE - Ads */
+    Route::resource('/admin/ads', AdsController::class)
+        ->names(['index' => 'ads.index']);
 
-/* BACKOFFICE - About */
-Route::resource('/admin/about', AboutController::class)
-    ->names(['index' => 'about.index']);
+    /* BACKOFFICE - Sliders */
+    Route::resource('/admin/sliders', SlidersController::class)
+        ->names(['index' => 'sliders.index']);
 
-/* BACKOFFICE - Restaurant */
-Route::resource('/admin/restaurant', RestaurantController::class)
-    ->names(['index' => 'restaurant.index']);
+    /* BACKOFFICE - About */
+    Route::resource('/admin/about', AboutController::class)
+        ->names(['index' => 'about.index']);
 
-/* BACKOFFICE - Staff */
-Route::resource('/admin/staff', StaffController::class)
-    ->names(['index' => 'staff.index']);
+    /* BACKOFFICE - Restaurant */
+    Route::resource('/admin/restaurant', RestaurantController::class)
+        ->names(['index' => 'restaurant.index']);
 
-/* BACKOFFICE - Gallery */
-Route::resource('/admin/gallery', GalleryController::class)
-    ->names(['index' => 'gallery.index']);
+    /* BACKOFFICE - Staff */
+    Route::resource('/admin/staff', StaffController::class)
+        ->names(['index' => 'staff.index']);
 
-Route::resource('/admin/gallerycategory', GalleryCategoryController::class);
+    /* BACKOFFICE - Gallery */
+    Route::resource('/admin/gallery', GalleryController::class)
+        ->names(['index' => 'gallery.index']);
 
-/* BACKOFFICE - Rooms */
-Route::resource('/admin/rooms', RoomsController::class)
-    ->names(['index' => 'rooms.index']);
+    Route::resource('/admin/gallerycategory', GalleryCategoryController::class);
 
-Route::resource('/admin/rooms/descriptions', RoomsDescriptionController::class);
+    /* BACKOFFICE - Rooms */
+    Route::resource('/admin/rooms', RoomsController::class)
+        ->names(['index' => 'rooms.index']);
 
-Route::resource('/admin/rooms/gallery', RoomsPhotoController::class);
+    Route::resource('/admin/rooms/descriptions', RoomsDescriptionController::class);
 
-/* BACKOFFICE - Users */
-Route::resource('/admin/users', UserController::class);
+    Route::resource('/admin/rooms/gallery', RoomsPhotoController::class);
+
+    /* BACKOFFICE - Users */
+    Route::resource('/admin/users', UserController::class);
 
 
-Route::resource('/blog', BlogController::class)
+    Route::resource('/blog', BlogController::class)
     ->names(['index' => 'blog.index']);
+});
+
 
 
 Route::resource('/review', ReviewController::class);
