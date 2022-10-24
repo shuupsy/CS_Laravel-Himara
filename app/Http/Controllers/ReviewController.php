@@ -88,7 +88,12 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $review = RoomReview::find($id);
+        $review->is_Active = true;
+
+        $review->save();
+
+        return redirect()->back()->with('success', '(1) nouveau review publié avec succès!');
     }
 
     /**
