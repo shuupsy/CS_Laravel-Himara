@@ -25,7 +25,37 @@ class UserSeeder extends Seeder
                 'city' => "Brussels",
                 'country' => "Belgium",
                 'profile_pic' => "admin.jpg",
-            ]
+            ],
+            [
+                'role_id' => 2,
+                'first_name' => "Enzo",
+                'last_name' => "Grillo",
+                'email' => "enzogrillo96@gmail.com",
+                'password' => bcrypt('tatamimi'),
+                'city' => "Pigna",
+                'country' => "Italia",
+                'profile_pic' => "user9.jpg",
+            ],
+            [
+                'role_id' => 3,
+                'first_name' => "Mounia",
+                'last_name' => "Babyzou",
+                'email' => "mouniatrash@gmail.com",
+                'password' => bcrypt('tatamimi'),
+                'city' => "Brussels",
+                'country' => "Belgium",
+                'profile_pic' => "user6.jpg",
+            ],
+            [
+                'role_id' => 4,
+                'first_name' => "Test Editor",
+                'last_name' => "Editor",
+                'email' => "sylvaine.ruan@gmail.com",
+                'password' => bcrypt('tatamimi'),
+                'city' => "Metz",
+                'country' => "France",
+                'profile_pic' => "user5.jpg",
+            ],
         ]);
     }
 }
