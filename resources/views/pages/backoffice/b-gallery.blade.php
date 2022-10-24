@@ -4,6 +4,9 @@
     <!-- Categories -->
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Categories</h1>
+
+        @include('partial.backoffice.errors')
+
         <div class="p-6 bg-white flex flex-col gap-4">
 
             <form action="/admin/gallerycategory" method='post'>
@@ -50,6 +53,7 @@
     <!-- Ajout Gallery -->
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Gallery</h1>
+        @include('partial.backoffice.errors')
         @include('partial.backoffice.b-gallery-add')
     </div>
 

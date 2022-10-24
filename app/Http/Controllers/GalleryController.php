@@ -49,6 +49,11 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "title" => "required|min:1|max:45",
+            "photo" => "required|mimes:jpg,png,jpeg",
+        ]);
+
         $photo = new GalleryPhoto();
 
         /* Image */
@@ -100,6 +105,11 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            "title" => "required|min:1|max:45",
+            "photo" => "required|mimes:jpg,png,jpeg",
+        ]);
+
         $photo = GalleryPhoto::find($id);
         $category = $photo->gallery_category_id;
 

@@ -39,7 +39,7 @@ class StaffController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            "first_name" => "required|min:1|max:5",
+            "first_name" => "required|min:1|max:50",
             "last_name" => "required|min:1|max:50",
             "description" => "required|min:1|max:90",
             "job" => "required|numeric|min:1|max:5",
@@ -88,6 +88,14 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            "first_name" => "required|min:1|max:50",
+            "last_name" => "required|min:1|max:50",
+            "description" => "required|min:1|max:90",
+            "job" => "required|numeric|min:1|max:5",
+            "image" => "required|mimes:jpg,png,jpeg",
+        ]);
+
         $update = Staff::find($id);
 
         /* Image */
