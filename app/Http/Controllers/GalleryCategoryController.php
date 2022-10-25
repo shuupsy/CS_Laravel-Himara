@@ -17,6 +17,10 @@ class GalleryCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "category" => "required|min:1|max:45",
+        ]);
+
         $new = new GalleryCategory();
         $new->category = strtolower($request -> category);
 
