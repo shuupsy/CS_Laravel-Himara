@@ -21,6 +21,10 @@ class RoomsPhotoController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "photo" => "required|mimes:jpg,png,jpeg",
+        ]);
+
         $photo = new RoomPhoto();
 
         /* Image */

@@ -46,7 +46,7 @@ class AdsController extends Controller
     {
         request()->validate([
             "video_link" => "required|min:1|max:300",
-            "background_img" => "required|mimes:jpg,png,jpeg",
+            "image" => "required|mimes:jpg,png,jpeg",
         ]);
 
         $ads = Advertisement::all();
@@ -109,7 +109,7 @@ class AdsController extends Controller
     {
         request()->validate([
             "video_link" => "required|min:1|max:300",
-            "background_img" => "required|mimes:jpg,png,jpeg",
+            "image" => "mimes:jpg,png,jpeg",
         ]);
 
         $ads = Advertisement::all();

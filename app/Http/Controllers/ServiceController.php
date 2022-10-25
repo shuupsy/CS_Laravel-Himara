@@ -90,7 +90,7 @@ class ServiceController extends Controller
         request()->validate([
             "title" => "required|min:1|max:50",
             "description" => "required|min:1|max:155",
-            "image" => "required|mimes:jpg,png,jpeg",
+            "image" => "mimes:jpg,png,jpeg",
         ]);
 
         $update = Service::find($id);

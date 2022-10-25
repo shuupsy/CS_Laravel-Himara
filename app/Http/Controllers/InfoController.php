@@ -96,7 +96,12 @@ class InfoController extends Controller
         return redirect()->back()->with('success', "Informations de l'hôtel, mises à jour!");
     }
 
-    public function update_logo(Request $request){
+    public function update_logo(Request $request)
+    {
+        request()->validate([
+            "logo" => "mimes:jpg,png,jpeg",
+        ]);
+
         $hotel = Hotel::first();
 
         if($request->hasFile('logo')) {
@@ -116,7 +121,12 @@ class InfoController extends Controller
         }
     }
 
-    public function update_biglogo(Request $request){
+    public function update_biglogo(Request $request)
+    {
+        request()->validate([
+            "big_logo" => "mimes:jpg,png,jpeg",
+        ]);
+
         $hotel = Hotel::first();
 
         if($request->hasFile('big_logo')) {

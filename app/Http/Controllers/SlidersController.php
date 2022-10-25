@@ -42,7 +42,7 @@ class SlidersController extends Controller
         request()->validate([
             "layer1" => "required|min:1|max:50",
             "layer2" => "required|min:1|max:50",
-            "background_img" => "required|mimes:jpg,png,jpeg",
+            "image" => "required|mimes:jpg,png,jpeg",
         ]);
 
       $slider = new Slider();
@@ -90,7 +90,7 @@ class SlidersController extends Controller
         request()->validate([
             "layer1" => "required|min:1|max:50",
             "layer2" => "required|min:1|max:50",
-            "background_img" => "required|mimes:jpg,png,jpeg",
+            "image" => "mimes:jpg,png,jpeg",
         ]);
 
         $sliders = Slider::all();

@@ -48,7 +48,7 @@ class RestaurantController extends Controller
             "title" => "required|min:1|max:50",
             "description" => "required|min:1|max:90",
             "price" => "required|numeric|min:1|max:50",
-            "photo" => "required|mimes:jpg,png,jpeg",
+            "image" => "required|mimes:jpg,png,jpeg",
         ]);
 
         $dish = new Dish();
@@ -86,7 +86,7 @@ class RestaurantController extends Controller
             "title" => "required|min:1|max:50",
             "description" => "required|min:1|max:90",
             "price" => "required|numeric|min:1|max:50",
-            "photo" => "required|mimes:jpg,png,jpeg",
+            "image" => "mimes:jpg,png,jpeg",
         ]);
 
         $dish = Dish::find($id);

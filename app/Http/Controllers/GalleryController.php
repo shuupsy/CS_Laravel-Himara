@@ -51,7 +51,7 @@ class GalleryController extends Controller
     {
         request()->validate([
             "title" => "required|min:1|max:45",
-            "photo" => "required|mimes:jpg,png,jpeg",
+            "image" => "required|mimes:jpg,png,jpeg",
         ]);
 
         $photo = new GalleryPhoto();
@@ -74,27 +74,7 @@ class GalleryController extends Controller
         return redirect()->back()->with('success', '(1) Photo ajoutée avec succès!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    
 
     /**
      * Update the specified resource in storage.

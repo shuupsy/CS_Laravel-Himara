@@ -53,7 +53,7 @@ class RoomsController extends Controller
             "nb_persons" => "required|numeric|min:1|max:6",
             "surface" => "required|numeric|min:1|max:200",
             "price" => "required|numeric|min:1|max:1000",
-            "photo" => "required|mimes:jpg,png,jpeg",
+            "image" => "required|mimes:jpg,png,jpeg",
         ]);
 
 
@@ -141,7 +141,7 @@ class RoomsController extends Controller
             "nb_persons" => "required|numeric|min:1|max:6",
             "surface" => "required|numeric|min:1|max:200",
             "price" => "required|numeric|min:1|max:1000",
-            "photo" => "required|mimes:jpg,png,jpeg",
+            "image" => "mimes:jpg,png,jpeg",
         ]);
 
         /* Infos */

@@ -93,7 +93,7 @@ class StaffController extends Controller
             "last_name" => "required|min:1|max:50",
             "description" => "required|min:1|max:90",
             "job" => "required|numeric|min:1|max:5",
-            "image" => "required|mimes:jpg,png,jpeg",
+            "image" => "mimes:jpg,png,jpeg",
         ]);
 
         $update = Staff::find($id);
