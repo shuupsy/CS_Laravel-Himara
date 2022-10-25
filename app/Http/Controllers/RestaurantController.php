@@ -44,6 +44,13 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "title" => "required|min:1|max:50",
+            "description" => "required|min:1|max:90",
+            "price" => "required|numeric|min:1|max:50",
+            "photo" => "required|mimes:jpg,png,jpeg",
+        ]);
+
         $dish = new Dish();
 
         /* Image */
@@ -65,28 +72,7 @@ class RestaurantController extends Controller
         return redirect()->back()->with('success', '(1) Plat ajouté avec succès!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
+   
     /**
      * Update the specified resource in storage.
      *
@@ -96,6 +82,13 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            "title" => "required|min:1|max:50",
+            "description" => "required|min:1|max:90",
+            "price" => "required|numeric|min:1|max:50",
+            "photo" => "required|mimes:jpg,png,jpeg",
+        ]);
+
         $dish = Dish::find($id);
 
         /* Image */
