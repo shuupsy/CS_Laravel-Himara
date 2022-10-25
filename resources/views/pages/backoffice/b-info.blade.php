@@ -6,6 +6,7 @@
 @endsection
 
 @section('update')
+    @include('partial.backoffice.errors')
     <div class='flex gap-10'>
         {{-- Update -- Info --}}
         <div class="p-6 border-b bg-white border-gray-200">

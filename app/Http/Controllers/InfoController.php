@@ -71,6 +71,15 @@ class InfoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            "name" => "required|min:1|max:50",
+            "address" => "required|min:1|max:100",
+            "phone" => "required|numeric|size:11",
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            "fax" => "required|numeric|min:1|max:50",
+            "url" => "required|min:1|max:255",
+        ]);
+
         $hotel = Hotel::first();
         $hotel->update([
             'name' => $request->name,
