@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('preview')
+@include('partial.backoffice.errors')
     <div class='mx-auto'>
         @include('partial.home.home-sliders')
     </div>

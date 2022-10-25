@@ -39,6 +39,12 @@ class SlidersController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "layer1" => "required|min:1|max:50",
+            "layer2" => "required|min:1|max:50",
+            "background_img" => "required|mimes:jpg,png,jpeg",
+        ]);
+
       $slider = new Slider();
       $slider->layer1 = $request->layer1;
       $slider->layer2 = $request->layer2;
@@ -71,27 +77,6 @@ class SlidersController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -102,6 +87,12 @@ class SlidersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            "layer1" => "required|min:1|max:50",
+            "layer2" => "required|min:1|max:50",
+            "background_img" => "required|mimes:jpg,png,jpeg",
+        ]);
+
         $sliders = Slider::all();
         $slider = Slider::find($id);
 
