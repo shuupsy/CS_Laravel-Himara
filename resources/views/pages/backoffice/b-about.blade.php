@@ -66,9 +66,10 @@
 
 
 @section('update')
+    @include('partial.backoffice.errors')
     <div class="bg-white py-12 px-3">
         <div class="container">
-            <form action="/admin/about/{{ $about -> id}}" method="post" enctype="multipart/form-data">
+            <form action="/admin/about/{{ $about->id }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('patch')
 

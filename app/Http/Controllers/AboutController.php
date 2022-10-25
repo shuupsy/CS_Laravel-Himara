@@ -54,6 +54,14 @@ class AboutController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            "subheading" => "required|min:1|max:100",
+            "big_description" => "required|min:1|max:1000",
+            "small_description" => "required|min:1|max:300",
+            "small_title" => "required|min:1|max:100",
+            "image" => "mimes:jpg,png,jpeg",
+             ]);
+
         $about = AboutContent::find($id);
 
         /* Image */
