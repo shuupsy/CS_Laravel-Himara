@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('partial.backoffice.errors')
     {{-- Infos générales --}}
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Room Update</h1>

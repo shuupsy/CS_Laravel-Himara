@@ -48,6 +48,15 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "name" => "required|min:1|max:50",
+            "nb_persons" => "required|numeric|min:1|max:6",
+            "surface" => "required|numeric|min:1|max:200",
+            "price" => "required|numeric|min:1|max:1000",
+            "photo" => "required|mimes:jpg,png,jpeg",
+        ]);
+
+
         $room_cat = Room::where('room_category_id', $request->category)->get();
 
         /* Possibilité de créer des rooms tant que la cat ne dépasse pas 8 rooms */
@@ -127,6 +136,14 @@ class RoomsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            "name" => "required|min:1|max:50",
+            "nb_persons" => "required|numeric|min:1|max:6",
+            "surface" => "required|numeric|min:1|max:200",
+            "price" => "required|numeric|min:1|max:1000",
+            "photo" => "required|mimes:jpg,png,jpeg",
+        ]);
+
         /* Infos */
         $room = Room::find($id);
         $room -> name = $request -> name;

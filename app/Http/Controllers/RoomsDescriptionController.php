@@ -18,6 +18,12 @@ class RoomsDescriptionController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "description1" => "required|min:1|max:1600",
+            "description2" => "required|min:1|max:1600",
+            "description3" => "required|min:1|max:1600",
+            "description4" => "required|min:1|max:1600",
+        ]);
         $description = new RoomDescription();
 
         $description->room_id = $request->room;
@@ -41,6 +47,13 @@ class RoomsDescriptionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            "description1" => "required|min:1|max:1600",
+            "description2" => "required|min:1|max:1600",
+            "description3" => "required|min:1|max:1600",
+            "description4" => "required|min:1|max:1600",
+        ]);
+
         $description = RoomDescription::find($id);
 
         $description->description1 = $request->description1;
