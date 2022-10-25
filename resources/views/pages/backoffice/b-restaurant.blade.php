@@ -2,6 +2,7 @@
 
 
 @section('preview')
+    @include('partial.backoffice.errors')
     <div class="restaurant-menu-item">
         <div class='flex gap-2 w-7/12 mx-auto bg-slate-50'>
             <div class="w-1/3">
@@ -83,7 +84,7 @@
 @endsection
 
 @section('update')
-<div class='grid grid-cols-3 gap-10' id='food-update'>
+    <div class='grid grid-cols-3 gap-10' id='food-update'>
         @foreach ($dishes as $dish)
             <div class="p-6 border-b bg-white border-gray-200">
                 <h1 class='text-2xl text-[#D8BA8D] my-1 uppercase font-semibold'>{{ $dish->title }}</h1>
