@@ -3,6 +3,7 @@
 {{-- PREVIEW --}}
 @if ($count != 0)
     @section('preview')
+        @include('partial.backoffice.errors')
         <div class="services h-[30rem] p-6 border-b bg-white border-gray-200">
             <div class="grid grid-cols-2 h-max">
                 {{-- Carousel - Images --}}
