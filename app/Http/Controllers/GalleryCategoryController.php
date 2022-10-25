@@ -17,10 +17,6 @@ class GalleryCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            "category" => "required|min:1|max:45",
-        ]);
-
         $new = new GalleryCategory();
         $new->category = strtolower($request -> category);
 
@@ -37,10 +33,6 @@ class GalleryCategoryController extends Controller
      */
     public function show($id)
     {
-        request()->validate([
-            "category" => "required|min:1|max:45",
-        ]);
-
         $categories = GalleryCategory::all();
 
         $category = GalleryCategory::find($id);
@@ -57,6 +49,10 @@ class GalleryCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            "category" => "required|min:1|max:45",
+        ]);
+
         $update = GalleryCategory::find($id);
         $update->category = strtolower($request -> category);
 

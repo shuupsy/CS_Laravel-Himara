@@ -107,7 +107,6 @@ class GalleryController extends Controller
     {
         request()->validate([
             "title" => "required|min:1|max:45",
-            "photo" => "required|mimes:jpg,png,jpeg",
         ]);
 
         $photo = GalleryPhoto::find($id);
