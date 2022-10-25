@@ -8,6 +8,7 @@
 
 
 @section('new')
+    @include('partial.backoffice.errors')
     <div class="p-6 border-b bg-white border-gray-200">
         <div class='flex flex-col gap-10'>
             <div class='w-3/6 flex gap-6'>

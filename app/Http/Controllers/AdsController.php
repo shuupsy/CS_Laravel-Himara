@@ -44,6 +44,11 @@ class AdsController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            "video_link" => "required|min:1|max:300",
+            "background_img" => "required|mimes:jpg,png,jpeg",
+        ]);
+
         $ads = Advertisement::all();
         $ad = new Advertisement();
 
@@ -102,6 +107,11 @@ class AdsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            "video_link" => "required|min:1|max:300",
+            "background_img" => "required|mimes:jpg,png,jpeg",
+        ]);
+
         $ads = Advertisement::all();
         $ad = Advertisement::find($id);
 
