@@ -11,21 +11,22 @@
                 <div class="item">
                     <div class="testimonial-item">
                         <div class="author-img">
-                            <img alt="Image" class="img-fluid" src="images/users/user1.jpg">
-                            {{-- <img alt="Image" class="img-fluid" src="{{ $review->user->profile_pic}}"> --}}
+                             <img alt="Image" class="img-fluid" src="/images/users/{{ $review->booking->user->profile_pic}}"> 
                         </div>
 
                         <div class="author">
-                            <h4 class="name">Marlene Simpson</h4>
-                            {{-- <h4 class="name">{{ $review->user->name }}</h4> --}}
+                            <h4 class="name">
+                                {{ $review->booking->user->first_name }}
+                                {{ $review->booking->user->last_name }}
+                            </h4>
 
-                            <div class="location">Madrid / Spain</div>
-                            {{--     <div class="location">
-                                @if ($review->user->city != null)
-                                    {{ $review->user->city }} /
+                            
+                            <div class="location">
+                                @if ($review->booking->user->city != null)
+                                    {{ $review->booking->user->city }} /
                                 @endif
-                                {{ {{ $review->user->country}} }}
-                            </div> --}}
+                                    {{ $review->booking->user->country}}
+                            </div>
                         </div>
                         <div class="rating">
                             @if ($review->rating > 0)
