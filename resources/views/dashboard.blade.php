@@ -21,18 +21,20 @@
             </div>
 
             {{-- Sécurité --}}
-            <div class='col my-2'>
-                <a href="">
-                    <div class='p-4 border border-1 border-black rounded'>
-                        <h3>Sécurité du compte</h3>
-                        <form action="/dashboard/{{ $user->id }}" method='post'>
-                            @csrf
-                            @method('delete')
-                            <button type='submit' class='text-danger px-2'>Supprimer le compte</button>
-                        </form>
-                    </div>
-                </a>
-            </div>
+            @if ($user->role_id != 1)
+                <div class='col my-2'>
+                    <a href="">
+                        <div class='p-4 border border-1 border-black rounded'>
+                            <h3>Sécurité du compte</h3>
+                            <form action="/dashboard/{{ $user->id }}" method='post'>
+                                @csrf
+                                @method('delete')
+                                <button type='submit' class='text-danger px-2'>Supprimer le compte</button>
+                            </form>
+                        </div>
+                    </a>
+                </div>
+            @endif
         </div>
 
         <div class='row'>
