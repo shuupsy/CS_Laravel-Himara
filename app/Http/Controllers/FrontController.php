@@ -58,7 +58,7 @@ class FrontController extends Controller
         $count_photos = GalleryPhoto::all()->count();
 
         $dishes = Dish::orderBy('id', 'asc')
-            ->paginate(2)
+            ->paginate(4)
             ->fragment('restaurant');
         $count_dish = Dish::all()->count();
 

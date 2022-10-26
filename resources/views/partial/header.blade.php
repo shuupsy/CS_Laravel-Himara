@@ -25,29 +25,29 @@
 
                 {{-- Navlink - ROOMS --}}
                 <li class="menu-item
-                {{ request()->routeIs('rooms.*') ? 'active' : '' }}">
+                {{ request()->is('rooms') ? 'active' : '' }}">
                     <a href="{{ route('rooms') }}">ROOMS</a>
                 </li>
 
                 {{-- Navlink - TEAM --}}
                 <li class="menu-item
-                {{ request()->routeIs('staff.*') ? 'active' : '' }}">
+                {{ request()->routeIs('staff') ? 'active' : '' }}">
                     <a href="{{ route('staff') }}">TEAM</a>
                 </li>
 
                 {{-- Navlink - GALLERY --}}
                 <li class="menu-item
-                {{ request()->routeIs('gallery.*') ? 'active' : '' }}">
+                {{ request()->routeIs('gallery') ? 'active' : '' }}">
                     <a href="{{ route('gallery') }}">GALLERY</a>
                 </li>
 
                 {{-- Navlink - CONTACT --}}
                 <li class="menu-item
-                {{ request()->routeIs('contact.*') ? 'active' : '' }}">
-                    <a href="{{ route('contact.index') }}">CONTACT US</a>
+                {{ request()->is('contact') ? 'active' : '' }}">
+                    <a href="{{ route('contact') }}">CONTACT US</a>
                 </li>
 
-                <li class="menu-item dropdown">
+                {{-- <li class="menu-item dropdown">
                     <a href="#">ELEMENTS</a>
                     <ul class="submenu">
                         <li class="menu-item">
@@ -60,7 +60,7 @@
                             <a href="icons.html">Icons</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
                 {{-- Bouton Login / Register --}}
                 @if (Route::has('login'))

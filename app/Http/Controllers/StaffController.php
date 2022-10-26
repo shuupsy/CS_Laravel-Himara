@@ -42,7 +42,7 @@ class StaffController extends Controller
             "first_name" => "required|min:1|max:50",
             "last_name" => "required|min:1|max:50",
             "description" => "required|min:1|max:90",
-            "job" => "required|numeric|min:1|max:5",
+            "job" => "required|min:1|max:50",
             "image" => "required|mimes:jpg,png,jpeg",
         ]);
 
@@ -92,7 +92,7 @@ class StaffController extends Controller
             "first_name" => "required|min:1|max:50",
             "last_name" => "required|min:1|max:50",
             "description" => "required|min:1|max:90",
-            "job" => "required|numeric|min:1|max:5",
+            "job" => "required|min:1|max:50",
             "image" => "mimes:jpg,png,jpeg",
         ]);
 

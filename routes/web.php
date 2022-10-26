@@ -51,7 +51,7 @@ Route::resource('/booking-form', BookingController::class)
     ->names(['index' => 'booking']);
 
 Route::resource('/contact', ContactController::class)
-    ->names(['index' => 'contact.index']);
+    ->names(['index' => 'contact']);
 
 
 /* -------- BACKOFFICE -------- */
