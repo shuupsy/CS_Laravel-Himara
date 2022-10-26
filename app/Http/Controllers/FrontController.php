@@ -166,7 +166,6 @@ class FrontController extends Controller
         ->get();
 
 
-
         $options = Option::all();
 
         $reviews = RoomReview::whereHas('booking', function($q) use($room) {
