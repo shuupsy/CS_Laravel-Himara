@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
             DishSeeder::class,
             LogoSeeder::class,
             ServiceSeeder::class,
-            StaffMembers::class,
+            StaffBoss::class,
             RoleSeeder::class,
             RoomCategorySeeder::class,
             RoomSeeder::class,

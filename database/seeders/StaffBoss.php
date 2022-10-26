@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class StaffMembers extends Seeder
+class StaffBoss extends Seeder
 {
     /**
      * Run the database seeds.
@@ -23,13 +23,6 @@ DB::table('staff')->insert([
         'last_name' => 'Ruan',
         'job' => 'CEO',
         'description' => 'Make it sexy.',
-        'photo' => Faker::create()->imageUrl,
-    ],
-    [
-        'first_name' => Faker::create()->firstName,
-        'last_name' => Faker::create()->lastName,
-        'job' => Faker::create()->jobTitle,
-        'description' => Faker::create()->text($maxNbChars = 155, $indexSize = 2),
         'photo' => Faker::create()->imageUrl,
     ],
 ]);
