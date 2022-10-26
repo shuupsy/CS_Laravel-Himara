@@ -82,7 +82,8 @@ class BookingController extends Controller
         $data = ['first_name' => $user->first_name,
             'email' => $user->email,
             'booking' => $booking -> id,
-            'review' => $review->id ];
+            'review' => $review->id,
+        ];
 
         Mail::to($data['email'])->send(new BookingConfirmation($data));
 

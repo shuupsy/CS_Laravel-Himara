@@ -11,11 +11,9 @@
 Your profile
 @endcomponent
 
-<h4>What did you think of your experience ? Leave us a review !</h4>
-
-@component('mail::button', ['url' => 'http://127.0.0.1:8000/review/{{ $data->review }}'])
-Give Review
-@endcomponent
+<h4>What did you think of your experience ? Leave us a review, 
+    <a href="http://127.0.0.1:8000/review/{{ $data['review']}}">here!</a>
+</h4>
 
 Thanks,<br>
 {{ config('app.name') }}
