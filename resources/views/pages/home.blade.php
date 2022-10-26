@@ -43,7 +43,9 @@
     @endif
 
     <!-- ========== NEWS ==========-->
-    @include('partial.home.home-news')
+    @if ($count_articles != 0)
+        @include('partial.home.home-news')
+    @endif
 
     <!-- ========== VIDEO ========== -->
     @if ($count_ad != 0)

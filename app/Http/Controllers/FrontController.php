@@ -67,6 +67,7 @@ class FrontController extends Controller
             ->inRandomOrder()
             ->take(3)
             ->get();
+        $count_articles = Article::all()->count();
 
         $reviews = RoomReview::orderBy('id', 'desc')
             ->take(9)
@@ -74,7 +75,7 @@ class FrontController extends Controller
         $count_reviews = RoomReview::all()->count();
 
    
-        return view('pages.home', compact('sliders', 'about', 'rooms', 'room_cats', 'rooms_booking', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_rooms','count_ad', 'count_dish', 'count_services', 'count_photos', 'count_reviews'));
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'room_cats', 'rooms_booking', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_rooms','count_ad', 'count_dish', 'count_services', 'count_photos', 'count_reviews', 'count_articles'));
     }
 
     /**
