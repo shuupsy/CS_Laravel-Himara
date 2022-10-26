@@ -142,20 +142,32 @@ class FrontController extends Controller
         $tags = $room->tag->pluck('tag')->toArray();
 
         /* Room similaires */
-        $similar = Room::
-        whereHas('room_category', function(Builder $query) use($room){
-            $query->where('room_category_id',$room->room_category_id );
+        $similar = Room::where([
+            ['id', '!=' , $room->id],
+            ['is_Available', 1]])
+
+        ->orWhereHas('room_category', function($query) use($room){
+            return $query->where([
+                ['room_category_id', $room->room_category_id],
+                ['id', '!=' , $room->id],
+                ['is_Available', 1]
+            ]);
         })
-        ->orWhereHas('tag', function (Builder $query) use($tags) {
-            $query->where('tag', 'like', $tags);
-            })
-        ->orWhere('price', '>', 0)
+
+       /*  ->orWhereHas('tag', function ($query) use($tags, $room) {
+            return $query->where([
+                ['tag', 'like', $tags],
+                ['id', '!=' , $room->id],
+                ['is_Available', ]
+            ]);
+        }) */
         ->inRandomOrder()
         ->take(3)
         ->get();
 
-        $options = Option::all();
 
+
+        $options = Option::all();
 
         $reviews = RoomReview::whereHas('booking', function($q) use($room) {
             $q->where('room_id', $room->id);})
