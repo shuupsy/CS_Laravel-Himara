@@ -34,7 +34,7 @@
                                         @elseif ($notif->room_review_id != null)
                                             NEW REVIEW
                                         @else
-                                            New Room Release
+                                            NEW ROOM : {{ $notif->room->name}}
                                         @endif
                                     </td>
 
@@ -45,7 +45,7 @@
                                         @elseif ($notif->room_review_id != null)
                                             Room : {{ $notif->room_review->booking->room->name }}
                                         @else
-                                            ah
+                                            Validate a new Room release.
                                         @endif
                                     </td>
 

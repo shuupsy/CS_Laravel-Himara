@@ -27,13 +27,13 @@
                         {{ $notif->contact_message->subject == null ? 'Null' : $notif->contact_message->subject }}</span>
                 </p>
 
-                <br/>
+                <br />
                 <p>Message:</p>
                 <p class='text-slate-500'>{{ $notif->contact_message->message }}</p>
             </div>
 
 
-            {{-- Room review --}}
+            {{-- Review --}}
         @elseif ($notif->room_review_id != null)
             <div>
                 <p>From :
@@ -69,7 +69,7 @@
                 </p>
 
                 {{-- Publish --}}
-                <form action="/admin/review/{{$notif->room_review->id}}/publish" method="post" class='my-3'>
+                <form action="/admin/review/{{ $notif->room_review->id }}/publish" method="post" class='my-3'>
                     @csrf
                     @method('put')
 
@@ -80,14 +80,28 @@
 
             {{-- Room  --}}
         @else
-        {{-- Publish --}}
-            {{-- <div>
-                <form action="/review/{{$notif->room_review->id}}" method="post" class='my-3'>
+            <p>Date :
+                <span class='text-slate-500'>{{ $notif->room->created_at->format('d/m/Y') }}
+                </span>
+            </p>
+
+            <br />
+            <p>Room :
+                <span class='text-slate-500'>
+                    {{ $notif->room->name }}
+                </span>
+            </p>
+
+            <br/>
+            {{-- Publish --}}
+            <div>
+                <form action="/admin/rooms/{{ $notif->room->id }}/publish" method="post" class='my-3'>
                     @csrf
-                    @method('patch')
+                    @method('put')
+
                     <button class='bg-[#444444] p-2 text-white rounded-md hover:bg-[#222222] uppercase'>Publish</button>
                 </form>
-            </div> --}}
+            </div>
         @endif
 
     </div>

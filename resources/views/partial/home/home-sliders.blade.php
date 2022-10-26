@@ -28,7 +28,7 @@
                         data-responsive_offset="on" data-whitespace="nowrap"
                         data-frames='[{"delay":2400,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                         style="z-index: 11;">
-                        <a class="btn" href="/booking-form">
+                        <a class="btn" href="">
                             <i class="fa fa-calendar"></i>
                             {{ $slider->layer3 }}
                         </a>

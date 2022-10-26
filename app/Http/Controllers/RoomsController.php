@@ -229,4 +229,16 @@ class RoomsController extends Controller
         return redirect()->back()->with('success', '(1) Room supprimée avec succès!');
 
     }
+
+    public function publish($id){
+        $room = Room::find($id);
+        $room->is_Published = true;
+        $room->save();
+
+        $notif = Notification::where('room_id', $room->id)->first();
+        $notif->is_Read = true;
+        $notif->save();
+
+        return redirect()->back()->with('success', '(1) nouveau room publié avec succès!');
+    }
 }
