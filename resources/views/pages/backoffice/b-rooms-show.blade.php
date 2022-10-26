@@ -180,7 +180,7 @@
     <hr>
     <div class="my-6 sm:px-6 lg:px-8" id='room-gallery'>
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Gallery</h1>
-        
+
         @include('partial.backoffice.errors')
 
         <div class="grid grid-cols-4 items-center p-6 gap-4">
@@ -223,6 +223,42 @@
     <hr>
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Reviews</h1>
+        <div class='room-reviews'>
+            @foreach ($reviews as $review)
+                <div class="review-box">
+                    <figure class="review-author">
+                        <img src="/images/users/{{ $review->booking->user->profile_pic }}" alt="Profile Picture User">
+                    </figure>
+                    <div class="review-contentt bg-white">
+                        <div class="rating">
+                            @if ($review->rating > 0)
+                                {{-- Mettre le nombre d'étoiles correspondantes à la note --}}
+                                @for ($i = $review->rating; $i > 0; $i--)
+                                    <i class="fa fa-star voted" aria-hidden="true"></i>
+                                @endfor
+                                {{-- Si la note est inférieure à 5, rajouter étoile(s) grise(s) --}}
+                                @if ($review->rating < 5)
+                                    @for ($i = $review->rating; $i < 5; $i++)
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    @endfor
+                                @endif
+                            @endif
+
+                        </div>
+                        <div class="review-info">
+                            {{ $review->booking->user->first_name }}
+                            {{ $review->booking->user->last_name }} –
+                            {{ $review->created_at->format('F d, Y') }}
+                        </div>
+                        <div class="review-text">
+                            <p>{{ $review->review }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            <div>{{ $reviews->links() }}</div>
+        </div>
+
 
     </div>
     <script src="/js/room.js"></script>
