@@ -45,13 +45,16 @@
 
                     {{-- ADMIN - Delete membre --}}
                     @can('admin')
-                        <div class='flex flex-col justify-between gap-1'>
-                            <form action="/admin/{{ $user->id }}" method='post' class='mx-2'>
-                                @csrf
-                                @method('delete')
-                                <button class='text-red-600 rounded-sm hover:underline'>delete</button>
-                            </form>
-                        </div>
+                        @if ($user->role_id != 1)
+                            <div class='flex flex-col justify-between gap-1'>
+                                <form action="/admin/users/{{ $user->id }}" method='post' class='mx-2'>
+                                    @csrf
+                                    @method('delete')
+
+                                    <button class='text-red-600 rounded-sm hover:underline'>delete</button>
+                                </form>
+                            </div>
+                        @endif
                     @endcan
                 </div>
             @endforeach
