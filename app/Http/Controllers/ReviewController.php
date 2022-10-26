@@ -18,12 +18,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        /* $user = auth()->user();
-        $bookings = Booking::where('user_id', $user->id)
-        ->doesntHave('room_review')
-        ->get();
-
-        return view('pages.review', compact('user', 'bookings')); */
+       return view('pages.error404');
     }
 
     /**
@@ -50,13 +45,6 @@ class ReviewController extends Controller
         $review->rating = $request->rating;
 
         $review->save();
-
-        /* Mail back */
-        $notif = new Notification();
-        $notif->room_review_id = $review->id;
-        $notif->save();
-
-        event(new NewNotification());
 
         return redirect()->back();
     }
@@ -95,14 +83,20 @@ class ReviewController extends Controller
     public function update(Request $request, $id)
     {
         $review = RoomReview::find($id);
-        /* $review->is_Active = true; */
         $review->rating = $request->rating;
         $review->review = $request->review;
         $review->is_Filled = true;
 
         $review->save();
 
-        return redirect()->back()->with('success', '(1) nouveau review publié avec succès!');
+        /* Mail back */
+        $notif = new Notification();
+        $notif->room_review_id = $review->id;
+        $notif->save();
+
+        event(new NewNotification());
+
+        return redirect()->back();
     }
 
     /**
@@ -114,5 +108,13 @@ class ReviewController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function publish($id){
+        $review = RoomReview::find($id);
+        $review->is_Active = true;
+        $review->save();
+
+        return redirect()->back()->with('success', '(1) nouveau review publié avec succès!');
     }
 }

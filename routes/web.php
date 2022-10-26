@@ -72,6 +72,9 @@ Route::middleware('access')->group(function(){
 
 /* Accès - Admin / Mod */
 Route::middleware('high-access')->group(function(){
+    /* BACKOFFICE - Valider review */
+    Route::put('/admin/review/{id}/publish', [ReviewController::class, 'publish']);
+
      /* BACKOFFICE - Infos Hotel */
      Route::resource('/admin/info', InfoController::class)
      ->names(['index' => 'info.index']);
