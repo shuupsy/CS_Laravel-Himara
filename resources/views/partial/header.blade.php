@@ -25,7 +25,7 @@
 
                 {{-- Navlink - ROOMS --}}
                 <li class="menu-item
-                {{ request()->is('rooms') ? 'active' : '' }}">
+                {{ request()->is('rooms/*') || request()->is('rooms') ? 'active' : '' }}">
                     <a href="{{ route('rooms') }}">ROOMS</a>
                 </li>
 
