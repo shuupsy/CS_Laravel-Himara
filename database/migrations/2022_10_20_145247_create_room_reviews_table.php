@@ -18,8 +18,10 @@ return new class extends Migration
             $table->foreignId('booking_id')
                 ->nullable()
                 ->constrained();
-            $table->unsignedBigInteger('rating');
-            $table->text('review');
+            $table->unsignedBigInteger('rating')->nullable()->default(null);
+            $table->text('review')->nullable()->default(null);
+            $table->boolean('is_Filled')
+            ->default(0);
             $table->boolean('is_Active')
             ->default(0);
             $table->timestamps();

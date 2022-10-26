@@ -25,59 +25,69 @@
 <body>
     <div class="min-h-screen bg-[#F5F3EF] flex justify-center items-center">
         <div class='w-7/12 mx-auto p-6 bg-white rounded-lg shadow-md flex flex-col gap-10'>
-            @if (count($bookings) > 0)
+            {{-- Si connecté, si user=user_bookng, si review pas complété --}}
+            @if (Auth::check() 
+                && auth()->user()->id == $review->booking->user->id 
+                && $review->is_Filled == 0)
+
                 <h1 class="text-xl">Qu'avez-vous pensé de votre expérience à notre Hotel {{ $hotel->name }} ?</h1>
-                <div class='flex justify-evenly gap-6'>
-                    <img src="/images/logos/{{ $hotel->big_logo }}" alt="Logos Hotel">
-                    <form action="/review" method='post' class='flex flex-col gap-6'>
+                <div class='flex justify-evenly items-center gap-6'>
+                    {{-- <img src="/images/logos/{{ $hotel->big_logo }}" alt="Logos Hotel"> --}}
+                    <img src="/images/rooms/{{ $review->booking->room->photo }}" alt="Logos Hotel" width='200px'>
+                    <form action="/review/{{ $review->id }}" method='post'>
                         @csrf
+                        @method('patch')
 
-                        {{-- Choix du séjour --}}
-                        <div class='flex items-center gap-3'>
-                            <label for="booking">Séjour concerné :</label>
-                            <select name="booking">
-                                @foreach ($bookings as $booking)
-                                    <option value="{{ $booking->id }}">
-                                        {{ $booking->room->name }} - {{ $booking->created_at->format('F d, Y') }}
+                        <div class='flex flex-col gap-6'>
+                            {{-- Choix du séjour --}}
+                            <div class='flex items-center gap-3'>
+                                <label for="booking">Séjour concerné :</label>
+                                <select name="booking">
+                                    <option selected readonly> Room
+                                        {{ $review->booking->room->name }} -
+                                        {{ $review->booking->created_at->format('F d, Y') }}
                                     </option>
-                                @endforeach
-                            </select>
-                        </div>
+                                </select>
+                            </div>
 
-                        {{-- Note --}}
-                        <div class='flex gap-3 items-center'>
-                            <x-input-label class='text-base' for="rating" :value="__('Note :')" />
-                            <p class='text-sm text-slate-600'>Pas bien</p>
-                            @for ($i = 1; $i < 6; $i++)
-                                <label class='flex flex-col text-center'>
-                                    <span>{{ $i }}</span>
-                                    <input type="radio" name='rating' value="{{ $i }}">
-                                </label>
-                            @endfor
-                            <p class='text-sm text-slate-600'>Très bien</p>
-                        </div>
+                            {{-- Note --}}
+                            <div class='flex gap-3 items-center'>
+                                <x-input-label class='text-base' for="rating" :value="__('Note :')" />
+                                <p class='text-sm text-slate-600'>Pas bien</p>
+                                @for ($i = 1; $i < 6; $i++)
+                                    <label class='flex flex-col text-center'>
+                                        <span>{{ $i }}</span>
+                                        <input type="radio" name='rating' value="{{ $i }}" required>
+                                    </label>
+                                @endfor
+                                <p class='text-sm text-slate-600'>Très bien</p>
+                            </div>
 
-                        <!-- Commentaire -->
-                        <div>
-                            <x-input-label class='text-base' for="review" :value="__('Votre commentaire')" />
+                            <!-- Commentaire -->
+                            <div>
+                                <x-input-label class='text-base' for="review" :value="__('Votre commentaire')" />
 
-                            <textarea id="review"
-                                class="block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                type="text" name="review" value="{{ old('review') }}" required autofocus></textarea>
+                                <textarea id="review"
+                                    class="block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                    type="text" name="review" value="{{ old('review') }}" required autofocus></textarea>
+                            </div>
                         </div>
 
                         <button
-                            class='bg-[#444444] p-2 my-2 text-white rounded-sm hover:bg-[#222222] uppercase'>Send</button>
+                            class='bg-[#444444] p-2 my-4 text-white rounded-sm hover:bg-[#222222] uppercase'>Send</button>
                     </form>
                 </div>
+                
             @else
-            <div class='flex flex-col gap-6 justify-center items-center'>
-                <h1 class="text-xl text-center">L'équipe {{ $hotel->name }} vous remercie pour votre visite. </h1>
-                <h2 class='text-slate-500'>Malheureusement, il n'y a plus de reviews à donner.</h2>
-                <img src="/images/logos/{{ $hotel->big_logo }}" alt="Logos Hotel" width='100px'>
-                <p>A bientôt !</p>
-            </div>
+                <div class='flex flex-col gap-6 justify-center items-center'>
+                    <h1 class="text-xl text-center">L'équipe {{ $hotel->name }} vous remercie pour votre visite. </h1>
+                    <h2 class='text-slate-500'>Malheureusement, il n'y a plus de reviews à donner.</h2>
+                    <img src="/images/logos/{{ $hotel->big_logo }}" alt="Logos Hotel" width='100px'>
+                    <p>A bientôt !</p>
+                </div>
             @endif
+
+
         </div>
     </div>
 </body>

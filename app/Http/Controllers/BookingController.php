@@ -10,6 +10,7 @@ use App\Models\Notification;
 use App\Models\RoomCategory;
 use Illuminate\Http\Request;
 use App\Mail\BookingConfirmation;
+use App\Models\RoomReview;
 use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
@@ -69,13 +70,19 @@ class BookingController extends Controller
 
         $new->save();
 
+        /* Crée une page "Review" */
+        $review = new RoomReview();
+        $review->booking_id = $new->id;
+        $review->save();
+
         /* Confirmation de réservation */
         $booking = Booking::find($new->id);
         $user = User::find($request->userid);
 
         $data = ['first_name' => $user->first_name,
             'email' => $user->email,
-            'booking' => $booking -> id];
+            'booking' => $booking -> id,
+            'review' => $review->id ];
 
         Mail::to($data['email'])->send(new BookingConfirmation($data));
 

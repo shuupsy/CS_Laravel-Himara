@@ -11,11 +11,12 @@
 
                     <input name="userid" class='d-none' value="{{ auth()->user()->id }}">
                     {{-- Pas connecté --}}
-            @else
-                <div class="booking-form-advanced">
             @endauth
-                    <!-- NAME -->
+            @guest
+                <div class="booking-form-advanced">
+            @endguest
                     <div class="row">
+                        <!-- NAME -->
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label>Name
@@ -130,32 +131,31 @@
                         </div>
                         <!-- BOOKING BUTTON -->
                         <div class="col-md-2">
-                            @if (Route::has('login'))
-                                {{-- Si connecté --}}
-                                @auth
-                                    <button type="submit" class="btn btn-book">BOOK A ROOM</button>
-                                    <div class="advanced-form-link">
-                                        <a href="/booking-form">
+                            {{-- Si connecté --}}
+                            @auth
+                                <button type="submit" class="btn btn-book">BOOK A ROOM</button>
+                                <div class="advanced-form-link">
+                                    <a href="/booking-form">
                                             Advanced Booking Form
-                                        </a>
-                                    </div>
-                                @else
+                                    </a>
+                                </div>
+                            @else
                                     {{-- Non connecté --}}
-                                    <a href="{{ route('login') }}">
-                                        <button class='btn btn-book'>
-                                            <i class="fa fa-user"></i>
+                                <a href="{{ route('login') }}">
+                                    <button class='btn btn-book'>
+                                        <i class="fa fa-user"></i>
                                             LOG IN
-                                        </button></a>
-                                @endauth
-                            @endif
-
-
+                                    </button>
+                                </a>
+                            @endauth
                         </div>
                     </div>
+            @auth
+                </form>
+            @endauth
+            @guest   
                 </div>
-        @guest
-            </div>
-        @endguest
+            @endguest
+        </div>
     </div>
-</div>
 </div>

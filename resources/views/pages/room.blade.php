@@ -255,12 +255,15 @@
                                 <div id="booking-notification" class="notification"></div>
                                 <h3 class="form-title">BOOK YOUR ROOM</h3>
                                 <div class="inner">
-                                    <form action='/booking-form' method="post">
-                                        @csrf
+                                    @auth
+                                        <form action='/booking-form' method="post">
+                                            @csrf
 
-                                        @auth
                                             <input name="userid" class='d-none' value="{{ auth()->user()->id }}">
-                                        @endauth
+                                    @else
+                                        <div class="booking-form-advanced">
+                                    @endauth
+                                   
                                         <!-- EMAIL -->
                                         <div class="form-group">
                                             <input class="form-control" name="booking-email" type="email"

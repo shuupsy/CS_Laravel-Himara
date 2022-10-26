@@ -18,12 +18,12 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
+        /* $user = auth()->user();
         $bookings = Booking::where('user_id', $user->id)
         ->doesntHave('room_review')
         ->get();
 
-        return view('pages.review', compact('user', 'bookings'));
+        return view('pages.review', compact('user', 'bookings')); */
     }
 
     /**
@@ -69,7 +69,9 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-        //
+        $review = RoomReview::find($id);
+        
+        return view('pages.review', compact('review'));
     }
 
     /**
@@ -93,7 +95,10 @@ class ReviewController extends Controller
     public function update(Request $request, $id)
     {
         $review = RoomReview::find($id);
-        $review->is_Active = true;
+        /* $review->is_Active = true; */
+        $review->rating = $request->rating;
+        $review->review = $request->review;
+        $review->is_Filled = true;
 
         $review->save();
 
