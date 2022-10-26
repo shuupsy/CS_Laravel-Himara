@@ -18,7 +18,9 @@
     @include('partial.home.home-about')
 
     <!-- ========== ROOMS ========== -->
-    @include('partial.home.home-rooms')
+    @if ($count_rooms != 0)
+        @include('partial.home.home-rooms')
+    @endif
 
     <!-- ========== SERVICES ========== -->
     @if ($count_services != 0)
@@ -31,7 +33,9 @@
     @endif
 
     <!-- ========== TESTIMONIALS ========== -->
-    @include('partial.home.home-reviews')
+    @if ($count_reviews != 0)
+        @include('partial.home.home-reviews')
+    @endif
 
     <!-- ========== RESTAURANT ========== -->
     @if ($count_dish != 0)

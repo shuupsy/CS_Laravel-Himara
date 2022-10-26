@@ -43,6 +43,7 @@ class FrontController extends Controller
             ->inRandomOrder()
             ->take(3)
             ->get();
+        $count_rooms = Room::where('is_Available', 1)->count();
 
         $room_cats = RoomCategory::all();
         $rooms_booking = Room::where('is_Available', 1)
@@ -70,9 +71,10 @@ class FrontController extends Controller
         $reviews = RoomReview::orderBy('id', 'desc')
             ->take(9)
             ->get();
+        $count_reviews = RoomReview::all()->count();
 
-      /*   dd($rooms); */
-        return view('pages.home', compact('sliders', 'about', 'rooms', 'room_cats', 'rooms_booking', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_ad', 'count_dish', 'count_services', 'count_photos'));
+   
+        return view('pages.home', compact('sliders', 'about', 'rooms', 'room_cats', 'rooms_booking', 'services', 'gallery','dishes', 'articles', 'reviews', 'ad', 'count_rooms','count_ad', 'count_dish', 'count_services', 'count_photos', 'count_reviews'));
     }
 
     /**
