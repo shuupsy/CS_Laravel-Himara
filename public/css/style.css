@@ -6894,6 +6894,7 @@ section .staff-item {
   padding: 15px;
   border: 1px solid #efefef;
   border-top: 0;
+  height: 180px;
 }
 
 .staff-item .details h5 {
