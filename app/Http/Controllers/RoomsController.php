@@ -7,9 +7,12 @@ use App\Models\Room;
 use App\Models\Option;
 use App\Models\RoomPhoto;
 use App\Models\RoomReview;
+use App\Models\Notification;
 use App\Models\RoomCategory;
 use Illuminate\Http\Request;
+use App\Providers\NewNotification;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
@@ -88,7 +91,23 @@ class RoomsController extends Controller
         $room -> tag() -> attach($tags);
         $room -> option_room() -> attach($options);
 
-        return redirect("/admin/rooms/$room->id")->with('success', '(1) Room ajoutée avec succès!');
+        /* Si l'admin ou mod ajoute une room */
+        if(Gate::denies('editor')){
+            $room->is_Published = true;
+            $room->save();
+
+            return redirect("/admin/rooms/$room->id")->with('success', '(1) Room ajoutée avec succès!');
+        } else {
+            /* Si l'éditeur ajoute une room, notif à l'admin */
+            $notif = new Notification();
+            $notif->room_id = $room->id;
+            $notif->save();
+
+            event(new NewNotification());
+
+            return redirect("/admin/rooms")->with('success', '(1) Room crée, mais en attente de validation!');
+        }
+        
         }
 
         else {

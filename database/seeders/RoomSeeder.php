@@ -26,6 +26,7 @@ class RoomSeeder extends Seeder
                 "rating" => 5,
                 "is_Available" => true,
                 "in_Sale" => false,
+                "is_Published" => true,
             ],
             [
                 "name" => 'Tanger',
@@ -37,6 +38,7 @@ class RoomSeeder extends Seeder
                 "rating" => 4,
                 "is_Available" => true,
                 "in_Sale" => true,
+                "is_Published" => true,
             ],
             [
                 "name" => 'Tokyo',
@@ -48,6 +50,7 @@ class RoomSeeder extends Seeder
                 "rating" => 5,
                 "is_Available" => true,
                 "in_Sale" => false,
+                "is_Published" => true,
             ],
             [
                 "name" => 'Paris',
@@ -59,6 +62,7 @@ class RoomSeeder extends Seeder
                 "rating" => 4,
                 "is_Available" => true,
                 "in_Sale" => false,
+                "is_Published" => true,
             ],
             [
                 "name" => 'Rio de Janeiro',
@@ -70,6 +74,7 @@ class RoomSeeder extends Seeder
                 "rating" => 4,
                 "is_Available" => true,
                 "in_Sale" => true,
+                "is_Published" => true,
             ],
             [
                 "name" => 'Sicilia',
@@ -81,6 +86,7 @@ class RoomSeeder extends Seeder
                 "rating" => 4,
                 "is_Available" => true,
                 "in_Sale" => false,
+                "is_Published" => true,
             ],
             [
                 "name" => 'Moscou',
@@ -92,6 +98,7 @@ class RoomSeeder extends Seeder
                 "rating" => 3,
                 "is_Available" => true,
                 "in_Sale" => true,
+                "is_Published" => true,
             ],
             [
                 "name" => 'London',
@@ -103,6 +110,7 @@ class RoomSeeder extends Seeder
                 "rating" => 4,
                 "is_Available" => true,
                 "in_Sale" => false,
+                "is_Published" => true,
             ],
             [
                 "name" => 'Dubaî',
@@ -114,6 +122,7 @@ class RoomSeeder extends Seeder
                 "rating" => 3,
                 "is_Available" => true,
                 "in_Sale" => false,
+                "is_Published" => true,
             ],
         ]);
     }

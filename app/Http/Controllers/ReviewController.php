@@ -39,14 +39,14 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        $review = new RoomReview();
+       /*  $review = new RoomReview();
         $review->booking_id = $request->booking;
         $review->review = $request->review;
         $review->rating = $request->rating;
 
         $review->save();
 
-        return redirect()->back();
+        return redirect()->back(); */
     }
 
     /**
@@ -114,6 +114,10 @@ class ReviewController extends Controller
         $review = RoomReview::find($id);
         $review->is_Active = true;
         $review->save();
+
+        $notif = Notification::where('room_review_id', $review->id)->first();
+        $notif->is_Read = true;
+        $notif->save();
 
         return redirect()->back()->with('success', '(1) nouveau review publié avec succès!');
     }

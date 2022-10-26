@@ -13,7 +13,7 @@
 
         <div class='flex flex-col gap-6'>
             @foreach ($rooms as $room)
-                <div class="p-6 border-b bg-white border-gray-200">
+                <div class="p-6 border-b bg-white border-gray-200 {{$room->is_Published ? '' : 'opacity-60'}}">
                     <h1 class='text-2xl text-[#D8BA8D] my-1 font-semibold'>{{ $room->name }}</h1>
 
                     <div class='flex justify-between items-center'>
@@ -38,7 +38,7 @@
 
                             <p class='text-[#D8BA8D]'>|</p>
 
-                            <p><span class='font-bold'>{{ $room -> price }}</span>€ / night</p>
+                            <p><span class='font-bold'>{{ $room->price }}</span>€ / night</p>
 
                             <p class='text-[#D8BA8D]'>|</p>
 
@@ -51,22 +51,26 @@
                             </p>
                         </div>
 
+                        @if ($room->is_Published)
+                            {{-- Buttons --}}
+                            <div class='flex gap-3'>
+                                {{-- Bouton MORE --}}
+                                <a href="/admin/rooms/{{ $room->id }}">
+                                    <button
+                                        class='border-[1px] p-2 text-slate-400 hover:text-white hover:bg-zinc-700 rounded-sm transition duration-150 ease-out hover:ease-in'>more</button>
+                                </a>
 
-                        {{-- Buttons --}}
-                        <div class='flex gap-3'>
-                            {{-- Bouton MORE --}}
-                            <a href="/admin/rooms/{{ $room->id}}">
-                                <button class='border-[1px] p-2 text-slate-400 hover:text-white hover:bg-zinc-700 rounded-sm transition duration-150 ease-out hover:ease-in'>more</button>
-                            </a>
+                                {{-- Bouton DELETE --}}
+                                <form action="/admin/rooms/{{ $room->id }}" method='post'>
+                                    @csrf
+                                    @method('delete')
 
-                            {{-- Bouton DELETE --}}
-                            <form action="/admin/rooms/{{ $room->id }}" method='post'>
-                                @csrf
-                                @method('delete')
-
-                                <button class='bg-red-300 p-2 text-white hover:bg-red-500'>Delete</button>
-                            </form>
-                        </div>
+                                    <button class='bg-red-300 p-2 text-white hover:bg-red-500'>Delete</button>
+                                </form>
+                            </div>
+                        @else
+                        <button class='bg-gray-300 p-2 text-white'>pending</button>
+                        @endif
 
                     </div>
 
