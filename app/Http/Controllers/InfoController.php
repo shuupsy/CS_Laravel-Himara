@@ -71,14 +71,14 @@ class InfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-       /*  request()->validate([
+        request()->validate([
             "name" => "required|min:1|max:50",
             "address" => "required|min:1|max:100",
-            "phone" => "required|numeric|size:11",
+            "phone" => "required|min:10|max:16",
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            "fax" => "required|numeric|min:1|max:50",
+            "fax" => "required|min:1|max:16",
             "url" => "required|min:1|max:255",
-        ]); */
+        ]);
 
         $hotel = Hotel::first();
         $hotel->update([
@@ -88,7 +88,6 @@ class InfoController extends Controller
             'email' => $request->email,
             'fax' => $request->fax,
             'url' => $request->url,
-            'logo' => '',
         ]);
 
       /*   $logo_resize = */

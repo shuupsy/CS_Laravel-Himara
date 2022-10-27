@@ -61,7 +61,7 @@
                             @can('high')
                                 @if ($room->is_Published == false)
                                     {{-- Bouton Publish --}}
-                                    <form action="/admin/rooms/{{ $room->id }}/publish2" method='post'>
+                                    <form action="/admin/rooms/{{ $room->id }}/publish" method='post'>
                                         @csrf
                                         @method('put')
 

@@ -92,7 +92,7 @@ class RoomsController extends Controller
         $room -> option_room() -> attach($options);
 
         /* Si l'admin ou mod ajoute une room */
-        if(Gate::denies('editor')){
+        if(Gate::allows('high')){
             $room->is_Published = true;
             $room->save();
 
@@ -236,16 +236,7 @@ class RoomsController extends Controller
         $room->save();
 
         $notif = Notification::where('room_id', $room->id)->first();
-        $notif->is_Read = true;
-        $notif->save();
-
-        return redirect()->back()->with('success', '(1) nouveau room publié avec succès!');
-    }
-
-    public function publish2($id){
-        $room = Room::find($id);
-        $room->is_Published = true;
-        $room->save();
+        $notif->delete();
 
         return redirect()->back()->with('success', '(1) nouveau room publié avec succès!');
     }

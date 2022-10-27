@@ -16,15 +16,16 @@ class HotelSeeder extends Seeder
     public function run()
     {
         DB::table('hotels')->insert([
-           /*  ['name' => 'Himara',
+            ['name' => 'Himara',
             'address' => 'Place de la Minoterie 10, 1080 Molengeek-Saint-Jean',
             'phone' => '+1 888 123 4567',
             'email' => 'contact@hotelhimara.com',
             'fax' => '+1 888 123 4567',
             'url' => 'www.hotelhimara.com',
-            'logo' => 'tata@gmail.com',
-            ], */
-            ['name' => 'Sysy',
+            'logo' => 'logo.svg',
+            'big_logo' => 'logo-big-transparent.svg',
+            ],
+            /* ['name' => 'Sysy',
             'address' => 'Place de la Minoterie 10, 1080 Bruxelles',
             'phone' => '+32 456 36 34 89',
             'email' => 'contact@sysy.com',
@@ -32,7 +33,7 @@ class HotelSeeder extends Seeder
             'url' => 'www.hotelsysy.com',
             'logo' => 'logo.svg',
             'big_logo' => 'logo-big-transparent.svg',
-            ],
+            ], */
         ]);
     }
 }

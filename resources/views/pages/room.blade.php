@@ -13,15 +13,18 @@
                     <div class="room-slider">
                         <div id="room-main-image" class="owl-carousel image-gallery">
                             <!-- ITEM -->
-                            @foreach ($photos as $photo)
-                                <div class="item">
-                                    <figure class="gradient-overlay-hover image-icon">
-                                        <a href="/images/rooms/{{ $photo->photo }}">
-                                            <img class="img-fluid" src="/images/rooms/{{ $photo->photo }}" alt="Image">
-                                        </a>
-                                    </figure>
-                                </div>
-                            @endforeach
+                            @if (count($photos) > 0)
+                                @foreach ($photos as $photo)
+                                    <div class="item">
+                                        <figure class="gradient-overlay-hover image-icon">
+                                            <a href="/images/rooms/{{ $photo->photo }}">
+                                                <img class="img-fluid" src="/images/rooms/{{ $photo->photo }}"
+                                                    alt="Image">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                @endforeach
+                            @endif
 
                         </div>
 
@@ -260,86 +263,86 @@
                                             @csrf
 
                                             <input name="userid" class='d-none' value="{{ auth()->user()->id }}">
-                                    @else
-                                        <div class="booking-form-advanced">
-                                    @endauth
-                                   
-                                        <!-- EMAIL -->
-                                        <div class="form-group">
-                                            <input class="form-control" name="booking-email" type="email"
-                                                placeholder="Your Email Address"
-                                                @auth value="{{ auth()->user()->email }}" disabled @endauth>
-                                        </div>
-                                        <!-- ROOM TYPE -->
-                                        <div class="form-group">
-                                            <select class="form-control" name="roomtype" title="Select Room Type"
-                                                data-header="Room Type" readonly>
-                                                <option value="{{ $room->id }}" selected="selected" readonly>
-                                                    {{ $room->room_category->category }} Room</option>
-                                            </select>
-                                        </div>
-                                        <!-- DATE -->
-                                        <div class="form-group">
-                                            <div class="form_date">
-                                                <input type="text" class="datepicker form-control"
-                                                    name="booking-checkin" placeholder="Slect Arrival & Departure Date"
-                                                    readonly="readonly">
-                                            </div>
-                                        </div>
-                                        <!-- GUESTS -->
-                                        <div class="form-group">
-                                            <div class="panel-dropdown">
-                                                <div class="form-control guestspicker">Guests
-                                                    <span class="gueststotal"></span>
-                                                </div>
-                                                <div class="panel-dropdown-content">
-                                                    <div class="guests-buttons">
-                                                        <label>Adults
-                                                            <a href="#" title="" data-toggle="popover"
-                                                                data-placement="top" data-trigger="hover"
-                                                                data-content="18+ years" data-original-title="Adults">
-                                                                <i class="fa fa-info-circle"></i>
-                                                            </a>
-                                                        </label>
-                                                        <div class="guests-button">
-                                                            <div class="minus"></div>
-                                                            <input type="text" name="booking-adults"
-                                                                class="booking-guests" value="0">
-                                                            <div class="plus"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="guests-buttons">
-                                                        <label>Cildren
-                                                            <a href="#" title="" data-toggle="popover"
-                                                                data-placement="top" data-trigger="hover"
-                                                                data-content="Under 18 years"
-                                                                data-original-title="Children">
-                                                                <i class="fa fa-info-circle"></i>
-                                                            </a>
-                                                        </label>
-                                                        <div class="guests-button">
-                                                            <div class="minus"></div>
-                                                            <input type="text" name="booking-children"
-                                                                class="booking-guests" value="0">
-                                                            <div class="plus"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- BOOKING BUTTON -->
-                                        {{-- Si connecté --}}
-                                        @auth
-                                            <button type="submit" class="btn btn-dark btn-fw mt20 mb20">BOOK A
-                                                ROOM</button>
-                                        {{-- Pas connecté --}}
                                         @else
-                                            <a href="{{ route('login') }}">
-                                                <button class='btn btn-book'>
-                                                    <i class="fa fa-user"></i>
-                                                    LOG IN
-                                                </button></a>
-                                        @endauth
+                                            <div class="booking-form-advanced">
+                                            @endauth
+
+                                            <!-- EMAIL -->
+                                            <div class="form-group">
+                                                <input class="form-control" name="booking-email" type="email"
+                                                    placeholder="Your Email Address"
+                                                    @auth value="{{ auth()->user()->email }}" disabled @endauth>
+                                            </div>
+                                            <!-- ROOM TYPE -->
+                                            <div class="form-group">
+                                                <select class="form-control" name="roomtype" title="Select Room Type"
+                                                    data-header="Room Type" readonly>
+                                                    <option value="{{ $room->id }}" selected="selected" readonly>
+                                                        {{ $room->room_category->category }} Room</option>
+                                                </select>
+                                            </div>
+                                            <!-- DATE -->
+                                            <div class="form-group">
+                                                <div class="form_date">
+                                                    <input type="text" class="datepicker form-control"
+                                                        name="booking-checkin"
+                                                        placeholder="Slect Arrival & Departure Date" readonly="readonly">
+                                                </div>
+                                            </div>
+                                            <!-- GUESTS -->
+                                            <div class="form-group">
+                                                <div class="panel-dropdown">
+                                                    <div class="form-control guestspicker">Guests
+                                                        <span class="gueststotal"></span>
+                                                    </div>
+                                                    <div class="panel-dropdown-content">
+                                                        <div class="guests-buttons">
+                                                            <label>Adults
+                                                                <a href="#" title="" data-toggle="popover"
+                                                                    data-placement="top" data-trigger="hover"
+                                                                    data-content="18+ years" data-original-title="Adults">
+                                                                    <i class="fa fa-info-circle"></i>
+                                                                </a>
+                                                            </label>
+                                                            <div class="guests-button">
+                                                                <div class="minus"></div>
+                                                                <input type="text" name="booking-adults"
+                                                                    class="booking-guests" value="0">
+                                                                <div class="plus"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="guests-buttons">
+                                                            <label>Cildren
+                                                                <a href="#" title="" data-toggle="popover"
+                                                                    data-placement="top" data-trigger="hover"
+                                                                    data-content="Under 18 years"
+                                                                    data-original-title="Children">
+                                                                    <i class="fa fa-info-circle"></i>
+                                                                </a>
+                                                            </label>
+                                                            <div class="guests-button">
+                                                                <div class="minus"></div>
+                                                                <input type="text" name="booking-children"
+                                                                    class="booking-guests" value="0">
+                                                                <div class="plus"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- BOOKING BUTTON -->
+                                            {{-- Si connecté --}}
+                                            @auth
+                                                <button type="submit" class="btn btn-dark btn-fw mt20 mb20">BOOK A
+                                                    ROOM</button>
+                                                {{-- Pas connecté --}}
+                                            @else
+                                                <a href="{{ route('login') }}">
+                                                    <button class='btn btn-book'>
+                                                        <i class="fa fa-user"></i>
+                                                        LOG IN
+                                                    </button></a>
+                                            @endauth
                                     </form>
                                 </div>
                             </div>
