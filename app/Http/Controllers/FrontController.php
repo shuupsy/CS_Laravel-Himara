@@ -86,8 +86,6 @@ class FrontController extends Controller
      */
 
     public function Room(Request $request){
-      /*   $rooms = Room::orderby('id', 'asc')
-            ->paginate(10); */
 
         $room_cats = RoomCategory::withCount('rooms')
             ->orderBy('id', 'asc')
@@ -95,35 +93,37 @@ class FrontController extends Controller
 
         $room_tags = Tag::all();
 
-        $category = $request->category;
         $search = $request->search;
+        $category = $request->category;
         $tags = $request->tags;
 
-        /* Fonction Search + FILTRE */
-        $rooms = Room::when($search, function ($query, $q) use($search, $room_cats) {
-            return $query->where('is_Available', 1)
-            ->where('name', 'like', "%{$search}%")
-                        /* Par nombre personnes */
-                        ->orWhere('nb_persons', 'like', "%{$search}%")
-                        /* Par nom de catégorie*/
+    
+        $rooms = Room::
+        when($search, function ($query) use($search) { /* Fonction search */
+            return $query->where([
+                            ['is_Available', 1],
+                            ['name', 'like', "%{$search}%"]]) /* Par nom de room */
+                        ->orWhere([
+                            ['is_Available', 1],
+                            ['nb_persons', 'like', "%{$search}%"] ]) /* Par nombre personnes */
                         ->orWhereHas('room_category', function($query) use($search){
-                            return $query->where('category', 'like', "%{$search}%");
-                        });
+                            return $query->where('category', 'like', "%{$search}%");} /* Par nom de catégorie*/
+            );
         })
         /* Category filter */
-
         ->when($category, function ($query) use ($category) {
-            return $query->where('room_category_id', +$category)
-            ->where('is_Available', 1);
+            return $query->where([
+                            ['room_category_id', +$category],
+                            ['is_Available', 1], ]);
         }
 
         /* Tag */
-       /*  ->when('tags', function($query) use($tags) {
+        /* ->when('tags', function($query) use($tags) {
                 return $query->where('is_Available', 1)
                 ->whereHas('tag', function ($q) use($tags){
                     return $q->where('tag', 'like', "{$tags}");
                 });
-        } */
+        }) */
 
         /* Pas de filtre */
         , function ($query) {
