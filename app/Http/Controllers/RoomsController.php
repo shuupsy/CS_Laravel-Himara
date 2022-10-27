@@ -25,7 +25,7 @@ class RoomsController extends Controller
      */
     public function index()
     {
-        $rooms = Room::all();
+        $rooms = Room::orderBy('is_Published', 'desc')->get();
 
         return view('pages.backoffice.b-rooms', compact('rooms'));
     }
@@ -238,6 +238,14 @@ class RoomsController extends Controller
         $notif = Notification::where('room_id', $room->id)->first();
         $notif->is_Read = true;
         $notif->save();
+
+        return redirect()->back()->with('success', '(1) nouveau room publié avec succès!');
+    }
+
+    public function publish2($id){
+        $room = Room::find($id);
+        $room->is_Published = true;
+        $room->save();
 
         return redirect()->back()->with('success', '(1) nouveau room publié avec succès!');
     }

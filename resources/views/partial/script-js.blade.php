@@ -1,5 +1,5 @@
  <script src="/js/jquery.min.js"></script>
- <script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
+ <script async src="http://maps.google.com/maps/api/js?key=AIzaSyDAcyvTTVQCy2xkeqTr3VurkWbyz_Lu61M&callback=initMap"></script>
  <script src="/js/bootstrap.min.js"></script>
  <script src="/js/bootstrap-select.min.js"></script>
  <script src="/js/jquery.mmenu.js"></script>

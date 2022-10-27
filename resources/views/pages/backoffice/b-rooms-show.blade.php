@@ -6,7 +6,9 @@
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Room Update</h1>
         <div class="p-6 border-b bg-white border-gray-200">
-            <h1 class='text-2xl text-[#D8BA8D] my-1 font-semibold'>Main Information</h1>
+            <h1 class='text-2xl text-[#D8BA8D] my-1 font-semibold'>Room : {{ $room -> name }}  
+                {!! $room->is_Published ? '' : '<span class="text-gray-300">(en attente de confirmation)</span>' !!}
+            </h1>
 
             <form action="/admin/rooms/{{ $room->id }}" method='post' enctype="multipart/form-data">
                 @csrf
@@ -20,7 +22,7 @@
                             <img src="/images/rooms/{{ $room->photo }}" alt="">
                         </div>
 
-                        <x-text-input id="image" type="file" name="image" required autofocus />
+                        <x-text-input id="image" type="file" name="image" autofocus />
                     </div>
 
                     <!-- Name -->
@@ -108,7 +110,9 @@
         </div>
     </div>
 
-    {{-- Descriptions --}}
+    {{-- Si la chambre est publiée --}}
+    @if ($room->is_Published == true)
+        {{-- Descriptions --}}
     <hr>
     <div class="my-6 sm:px-6 lg:px-8">
         <h1 class="text-[#D7D8D9] text-6xl font-bold uppercase leading-tight">Descriptions</h1>
@@ -259,7 +263,9 @@
             <div>{{ $reviews->links() }}</div>
         </div>
 
-
     </div>
+    @endif
+    
+
     <script src="/js/room.js"></script>
 @endsection

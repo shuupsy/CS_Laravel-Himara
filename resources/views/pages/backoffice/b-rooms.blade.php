@@ -13,8 +13,8 @@
 
         <div class='flex flex-col gap-6'>
             @foreach ($rooms as $room)
-                <div class="p-6 border-b bg-white border-gray-200 {{$room->is_Published ? '' : 'opacity-60'}}">
-                    <h1 class='text-2xl text-[#D8BA8D] my-1 font-semibold'>{{ $room->name }}</h1>
+                <div class="p-6 border-b bg-white border-gray-200 {{ $room->is_Published ? '' : 'opacity-60' }}">
+                    <h1 class='text-2xl text-[#D8BA8D] my-1 font-semibold'>{{ $room->name }} {!! $room->is_Published ? '' : '<span class="text-gray-300">(en attente de confirmation)</span>' !!}</h1>
 
                     <div class='flex justify-between items-center'>
                         {{-- Main photo --}}
@@ -51,15 +51,24 @@
                             </p>
                         </div>
 
-                        @if ($room->is_Published)
-                            {{-- Buttons --}}
-                            <div class='flex gap-3'>
-                                {{-- Bouton MORE --}}
-                                <a href="/admin/rooms/{{ $room->id }}">
-                                    <button
-                                        class='border-[1px] p-2 text-slate-400 hover:text-white hover:bg-zinc-700 rounded-sm transition duration-150 ease-out hover:ease-in'>more</button>
-                                </a>
+                        <div class='flex gap-3'>
+                             {{-- Bouton MORE --}}
+                             <a href="/admin/rooms/{{ $room->id }}">
+                                <button
+                                    class='border-[1px] p-2 text-slate-400 hover:text-white hover:bg-zinc-700 rounded-sm transition duration-150 ease-out hover:ease-in'>more</button>
+                            </a>
+                            
+                            @can('high')
+                                @if ($room->is_Published == false)
+                                    {{-- Bouton Publish --}}
+                                    <form action="/admin/rooms/{{ $room->id }}/publish2" method='post'>
+                                        @csrf
+                                        @method('put')
 
+                                        <button
+                                            class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222] uppercase'>Publish</button>
+                                    </form>
+                                @endif
                                 {{-- Bouton DELETE --}}
                                 <form action="/admin/rooms/{{ $room->id }}" method='post'>
                                     @csrf
@@ -67,14 +76,13 @@
 
                                     <button class='bg-red-300 p-2 text-white hover:bg-red-500'>Delete</button>
                                 </form>
-                            </div>
-                        @else
-                        <button class='bg-gray-300 p-2 text-white'>pending</button>
-                        @endif
+                            @endcan
 
+                            @if ($room->is_Published == false && auth()->user()->role_id == 3)
+                                <button class='bg-gray-300 p-2 text-white'>pending</button>
+                            @endif
+                        </div>
                     </div>
-
-
 
 
                 </div>
