@@ -1,7 +1,7 @@
 <div class="topbar">
     <div class="container">
         <div class="welcome-mssg">
-            Welcome to Hotel {{ $hotel->name }}.
+            Welcome to Hotel &nbsp;<span id='hotel-name'>{{ $hotel->name }}</span>.
         </div>
         <div class="top-right-menu">
             <ul class="top-menu">

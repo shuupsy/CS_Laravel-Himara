@@ -1,6 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
+{{-- {{dd( preg_replace("/\s+/", '+', $hotel->address) )}} --}}
     <main class="contact-page">
         <div class="container">
             <div class="row">
@@ -17,23 +18,21 @@
                         {{-- Name --}}
                         <div class="form-group">
                             <input class="form-control" name="name" placeholder="Name" type="text"
-                            @auth
-                            value="{{ auth()->user()->last_name }}"
+                                @auth
+value="{{ auth()->user()->last_name }}"
                             readonly
                             @else
-                            value="{{ old('name') }}"
-                            @endauth>
+                            value="{{ old('name') }}" @endauth>
                         </div>
 
                         {{-- Email --}}
                         <div class="form-group">
                             <input class="form-control" name="email" placeholder="Email" type="email"
-                            @auth
-                            value="{{ auth()->user()->email }}"
+                                @auth
+value="{{ auth()->user()->email }}"
                             readonly
                             @else
-                            value="{{ old('email') }}"
-                            @endauth>
+                            value="{{ old('email') }}" @endauth>
                         </div>
 
                         {{-- Phone --}}
@@ -61,34 +60,42 @@
                             <div class="toggle-streetview" id="openStreetView">
                                 <i class="fa fa-street-view" aria-hidden="true"></i>
                             </div>
-                            <div id="map-canvas"></div>
+                            <div id="map-canvass">
+                                <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDAcyvTTVQCy2xkeqTr3VurkWbyz_Lu61M
+                                        &q={{preg_replace("/\s+/", '+', $hotel->address)}}">
+                                </iframe>
+                            </div>
                         </div>
                         <div class="contact-details mt75">
                             <div class="contact-info">
                                 <ul>
                                     <li>
                                         <a href="#" class='overflow-hidden'>
-                                            <i class="fa fa-map-marker"></i>{{ $hotel -> address }}</a>
+                                            <i class="fa fa-map-marker"></i>
+                                            <span id='hotel-address'>{{ $hotel->address }}</span>
+                                        </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <i class="fa fa-envelope"></i>
-                                            {{ $hotel -> email }}</a>
+                                            {{ $hotel->email }}</a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <i class="fa fa-phone"></i>
-                                            {{ $hotel -> phone }}</a>
+                                            {{ $hotel->phone }}</a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <i class="fa fa-fax"></i>
-                                            {{ $hotel -> fax }}</a>
+                                            {{ $hotel->fax }}</a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <i class="fa fa-globe"></i>
-                                            {{ $hotel -> url }}</a>
+                                            {{ $hotel->url }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -126,6 +133,5 @@
 @endsection
 
 
-    <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAcyvTTVQCy2xkeqTr3VurkWbyz_Lu61M&callback=initMap">
-</script>
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAcyvTTVQCy2xkeqTr3VurkWbyz_Lu61M&callback=initMap"></script>

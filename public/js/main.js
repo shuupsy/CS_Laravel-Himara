@@ -2109,8 +2109,8 @@ Version:       1.1.0
 
       //Map pin-window details
       var title = "Hotel Himara - Click to see";
-      var hotel_name = "Hotel Himara";
-      var hotel_address = "Lorem ipsum dolor, 25, Himara";
+      var hotel_name = document.getElementById('hotel-name').innerHTML;
+      var hotel_address = document.getElementById('hotel-address').innerHTML;
       var hotel_desc = "5 star deluxe Hotel";
       var hotel_more_desc = "Lorem ipsum dolor sit amet, consectetur.";
 
