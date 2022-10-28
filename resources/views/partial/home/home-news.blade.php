@@ -11,7 +11,7 @@
                     <div class="news-grid-item">
                         <figure class="gradient-overlay-hover link-icon">
                             <a href="/blog/{{ $article -> id }}">
-                                <img src="{{ $article -> image }}" class="img-fluid" alt="Image">
+                                <img src="/images/blog/{{ $article -> image }}" class="img-fluid" alt="Image">
                             </a>
                         </figure>
                         <div class="news-info">

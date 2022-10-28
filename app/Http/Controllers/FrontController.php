@@ -198,4 +198,9 @@ class FrontController extends Controller
         return view('pages.gallery', compact('photos', 'categories'));
     }
 
+    public function ShowBlog($id){
+        $article = Article::find($id);
+
+        return view('pages.blog-post', compact('article'));
+    }
 }

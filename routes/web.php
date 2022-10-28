@@ -35,6 +35,8 @@ Route::get('/rooms', [FrontController::class, 'Room'])
 ->name('rooms');
 Route::get('/rooms/{id}', [FrontController::class, 'ShowRoom']);
 
+Route::get('/blog/{id}', [FrontController::class, 'ShowBlog']);
+
 Route::get('/staff', [FrontController::class, 'Staff'])
 ->name('staff');
 
