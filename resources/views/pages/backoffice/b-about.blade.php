@@ -6,8 +6,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="section-title">
-                        <h4 class="text-uppercase mb-2">Hotel {{ $hotel->name }}. <span class="text-himara"> since
-                                1992</span></h4>
+                        <h4 class="text-uppercase mb-2">{!! $about->heading !!}</h4>
                         <p class="section-subtitle pb-4">{{ $about->subheading }}</p>
                     </div>
                     <div class="info-branding">
@@ -76,9 +75,11 @@
                 <div class="row">
                     {{-- LEFT --}}
                     <div class="col-lg-8">
+                        <p class='text-sm'>Put a $ between a phrase you want in beige. <span class='italic'>ex: $Since 1992.$</span></p>
                         <div class="section-title">
-                            <h4 class="text-uppercase mb-2">Hotel {{ $hotel->name }}. <span class="text-himara"> since
-                                    1992</span></h4>
+                            {{-- Title --}}
+                            <x-text-input class="block mt-1 w-full mb-4 capitalize" type="text" name="heading"
+                                placeholder="Title" autofocus />
 
                             {{-- Subheading --}}
                             <x-text-input class="block mt-1 w-full mb-4" type="text" name="subheading"

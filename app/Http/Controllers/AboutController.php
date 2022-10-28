@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Models\AboutContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -82,6 +83,9 @@ class AboutController extends Controller
         };
 
         /* Infos */
+        if($request->heading != null) {
+            $about -> heading = Str::of($request -> heading)->replaceArray('$', ['<span class="text-himara">', '</span>']);
+        }
         $about -> subheading = $request -> subheading;
         $about -> big_description = $request -> big_description;
         $about -> small_description = $request -> small_description;

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('about_contents', function (Blueprint $table) {
             $table->id();
-            /* $table->string('heading'); */
+            $table->string('heading');
             $table->string('subheading');
             $table->text('big_description');
             $table->text('small_description');

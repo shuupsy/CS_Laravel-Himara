@@ -3,8 +3,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="section-title">
-                    <h4 class="text-uppercase">Hotel {{ $hotel->name }}. <span class="text-himara"> since
-                            1992</span></h4>
+                    <h4 class="text-uppercase">{!! $about -> heading !!}</h4>
                     <p class="section-subtitle">{{ $about -> subheading }}</p>
                 </div>
                 <div class="info-branding">
