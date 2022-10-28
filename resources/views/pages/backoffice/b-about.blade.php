@@ -75,7 +75,7 @@
                 <div class="row">
                     {{-- LEFT --}}
                     <div class="col-lg-8">
-                        <p class='text-sm'>Put a $ between a phrase you want in beige. <span class='italic'>ex: $Since 1992.$</span></p>
+                        <p class='text-sm font-bold'>Put a $ between a phrase you want in beige. <span class='italic'>ex: $Since 1992.$</span></p>
                         <div class="section-title">
                             {{-- Title --}}
                             <x-text-input class="block mt-1 w-full mb-4 capitalize" type="text" name="heading"
