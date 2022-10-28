@@ -12,8 +12,7 @@
 
                 {{-- Article--}}
                 <div>
-                    <p class="dropcap">{{ $article -> text }}
-                    </p>
+                    <p class="drocap">{{ $article -> text }}</p>
                 </div>
                    
 

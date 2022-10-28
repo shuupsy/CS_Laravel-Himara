@@ -13,7 +13,7 @@
                             <a href="https://www.tripadvisor.com/" target="_blank">
                                 <div class="tripadvisor-banner">
                                     <span class="review">Recommended</span>
-                                    <img src="images/icons/tripadvisor.png" alt="Image">
+                                    <img src="/images/icons/tripadvisor.png" alt="Image">
                                 </div>
                             </a>
                         </div>

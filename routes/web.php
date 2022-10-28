@@ -35,7 +35,7 @@ Route::get('/rooms', [FrontController::class, 'Room'])
 ->name('rooms');
 Route::get('/rooms/{id}', [FrontController::class, 'ShowRoom']);
 
-Route::get('/blog/{id}', [FrontController::class, 'ShowBlog']);
+Route::get('/blog/{id}', [FrontController::class, 'ShowBlog'])->name('blog');
 
 Route::get('/staff', [FrontController::class, 'Staff'])
 ->name('staff');
@@ -124,8 +124,8 @@ Route::middleware('high-access')->group(function(){
     Route::resource('/admin/users', UserController::class);
 
     /* BACKOFFICE - Blog */
-    Route::resource('/blog', BlogController::class)
-    ->names(['index' => 'blog.index']);
+    /* Route::resource('/blog', BlogController::class)
+    ->names(['index' => 'blog.index']); */
 });
 
 
