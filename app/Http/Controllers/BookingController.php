@@ -31,7 +31,7 @@ class BookingController extends Controller
                     ->orderBy('room_category_id', 'asc')
                     ->get();
 
-        $promos = Room::where('in_Sale', 1)
+        $promos = Room::whereNot('in_Sale', null)
                 ->take(3)
                 ->orderBy('updated_at', 'desc')
                 ->get();

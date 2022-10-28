@@ -65,6 +65,9 @@ Route::middleware('access')->group(function(){
     Route::resource('/admin/rooms', RoomsController::class)
         ->names(['index' => 'rooms.index']);
 
+    /* BACKOFFICE - Valider room  */
+    Route::put('/admin/rooms/{id}/promo', [RoomsController::class, 'promo']);
+
     Route::resource('/admin/rooms/descriptions', RoomsDescriptionController::class);
 
     Route::resource('/admin/rooms/gallery', RoomsPhotoController::class);

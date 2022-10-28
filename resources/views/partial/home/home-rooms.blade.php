@@ -9,10 +9,10 @@
         <div class="row">
             <!-- Liste de rooms -->
             @foreach ($rooms as $room)
-            <div class="col-md-4">
+                <div class="col-md-4">
                     <div class="room-grid-item">
                         <figure class="gradient-overlay-hover link-icon">
-                            <a href="/rooms/{{ $room -> id }}">
+                            <a href="/rooms/{{ $room->id }}">
                                 <img src="/images/rooms/{{ $room->photo }}" class="img-fluid" alt="Image">
                             </a>
                             <div class="room-services">
@@ -40,7 +40,16 @@
                             </div>
 
                             {{-- Price --}}
-                            <div class="room-price">€{{ $room->price }} / night</div>
+                            <div class="room-price">
+                               
+                                @if ($room->in_Sale != null)
+                                    <span class='promo'>€{{ $room->price }}</span>
+                                    <span class='promo-on'>€{{ $room->price * (1 - $room->in_Sale / 100) }}</span>
+                                    @else
+                                    €{{ $room->price }}
+                                @endif
+                                / night
+                            </div>
                         </figure>
 
                         {{-- Category --}}

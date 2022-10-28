@@ -428,7 +428,8 @@
                                         <span>HOT OFFER</span>
                                     </div>
                                     <div class="offer-price uppercase">
-                                        5 nights for €1,875
+                                        5 nights for
+                                         €{{ 5 * $promo->price * (1 - $promo->in_Sale / 100) }}
                                     </div>
                                 </div>
                             @endforeach

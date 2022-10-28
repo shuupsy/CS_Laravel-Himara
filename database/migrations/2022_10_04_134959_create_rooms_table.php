@@ -26,8 +26,9 @@ return new class extends Migration
             $table->unsignedBigInteger('rating')
             ->nullable()
             ->default(null);
-            $table->boolean('in_Sale')
-                ->default(0);
+            $table->unsignedBigInteger('in_Sale')
+                ->nullable()
+                ->default(null);
             $table->boolean('is_Available')
                 ->default(1);
             $table->boolean('is_Published')

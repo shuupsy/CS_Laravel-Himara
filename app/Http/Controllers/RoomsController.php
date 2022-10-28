@@ -240,4 +240,12 @@ class RoomsController extends Controller
 
         return redirect()->back()->with('success', '(1) nouveau room publié avec succès!');
     }
+
+    public function promo(Request $request, $id){
+        $room = Room::find($id);
+        $room->in_Sale = $request->sale;
+        $room->save();
+        
+        return redirect()->back()->with('success', "Promo ajoutée à la Room '$room->name'!");
+    }
 }

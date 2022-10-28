@@ -25,7 +25,7 @@ class RoomSeeder extends Seeder
                 "room_category_id" => 1,
                 "rating" => 5,
                 "is_Available" => true,
-                "in_Sale" => false,
+                "in_Sale" => null,
                 "is_Published" => true,
             ],
             [
@@ -37,7 +37,7 @@ class RoomSeeder extends Seeder
                 "room_category_id" => 2,
                 "rating" => 4,
                 "is_Available" => true,
-                "in_Sale" => true,
+                "in_Sale" => 20,
                 "is_Published" => true,
             ],
             [
@@ -49,7 +49,7 @@ class RoomSeeder extends Seeder
                 "room_category_id" => 4,
                 "rating" => 5,
                 "is_Available" => true,
-                "in_Sale" => false,
+                "in_Sale" => null,
                 "is_Published" => true,
             ],
             [
@@ -61,7 +61,7 @@ class RoomSeeder extends Seeder
                 "room_category_id" => 3,
                 "rating" => 4,
                 "is_Available" => true,
-                "in_Sale" => false,
+                "in_Sale" => null,
                 "is_Published" => true,
             ],
             [
@@ -73,7 +73,7 @@ class RoomSeeder extends Seeder
                 "room_category_id" => 4,
                 "rating" => 4,
                 "is_Available" => true,
-                "in_Sale" => true,
+                "in_Sale" => 30,
                 "is_Published" => true,
             ],
             [
@@ -85,7 +85,7 @@ class RoomSeeder extends Seeder
                 "room_category_id" => 2,
                 "rating" => 4,
                 "is_Available" => true,
-                "in_Sale" => false,
+                "in_Sale" => null,
                 "is_Published" => true,
             ],
             [
@@ -97,7 +97,7 @@ class RoomSeeder extends Seeder
                 "room_category_id" => 3,
                 "rating" => 3,
                 "is_Available" => true,
-                "in_Sale" => true,
+                "in_Sale" => 50,
                 "is_Published" => true,
             ],
             [
@@ -109,7 +109,7 @@ class RoomSeeder extends Seeder
                 "room_category_id" => 4,
                 "rating" => 4,
                 "is_Available" => true,
-                "in_Sale" => false,
+                "in_Sale" => null,
                 "is_Published" => true,
             ],
             [
@@ -121,7 +121,7 @@ class RoomSeeder extends Seeder
                 "room_category_id" => 1,
                 "rating" => 3,
                 "is_Available" => true,
-                "in_Sale" => false,
+                "in_Sale" => null,
                 "is_Published" => true,
             ],
         ]);

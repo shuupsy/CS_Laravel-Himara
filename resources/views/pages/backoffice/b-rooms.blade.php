@@ -23,41 +23,73 @@
                         </div>
 
                         {{-- Infos importantes --}}
-                        <div class='flex gap-3 items-center'>
-                            <p>Nb persons: <span class='font-bold text-slate-600'>{{ $room->nb_persons }}</span></p>
+                        <div class='flex flex-col gap-3'>
+                            <div class='flex gap-3 items-center'>
+                                <p>Nb persons: <span class='font-bold text-slate-600'>{{ $room->nb_persons }}</span></p>
 
-                            <p class='text-[#D8BA8D]'>|</p>
+                                <p class='text-[#D8BA8D]'>|</p>
 
-                            <p class='flex items-center gap-1.5'>Is available ? :
-                                @if ($room->is_Available == true)
-                                    <i class='bx bxs-check-square text-xl text-green-500'></i>
-                                @else
-                                    <i class='bx bxs-x-square text-xl text-red-500'></i>
-                                @endif
-                            </p>
+                                <p class='flex items-center gap-1.5'>Is available ? :
+                                    @if ($room->is_Available == true)
+                                        <i class='bx bxs-check-square text-xl text-green-500'></i>
+                                    @else
+                                        <i class='bx bxs-x-square text-xl text-red-500'></i>
+                                    @endif
+                                </p>
 
-                            <p class='text-[#D8BA8D]'>|</p>
+                                <p class='text-[#D8BA8D]'>|</p>
 
-                            <p><span class='font-bold'>{{ $room->price }}</span>€ / night</p>
+                                <p>
+                                    {{-- Si promo, barrer le prix --}}
+                                    <span
+                                        class='font-bold
+                                        {{ $room->in_Sale != null ? 'line-through' : '' }}'>
+                                        {{ $room->price }}€
+                                    </span>
+                                    {{-- Nouveau prix --}}
+                                    @if ($room->in_Sale != null)
+                                        &nbsp;<span
+                                            class='font-bold text-red-300 '>{{ $room->price * (1 - $room->in_Sale / 100) }}€</span>
+                                    @endif
+                                    / night
+                                </p>
+                            </div>
+                            {{-- Promo --}}
+                            <div class='flex flex-col justify-center gap-3'>
+                                <p class='flex items-center gap-1.5'>Promo :
+                                    @if ($room->in_Sale != null)
+                                        <i class='bx bxs-check-square text-xl text-green-500'></i>
+                                    @else
+                                        <i class='bx bxs-x-square text-xl text-red-500'></i>
+                                    @endif
+                                </p>
+                                <form action="/admin/rooms/{{ $room->id }}/promo" method="post">
+                                    @csrf
+                                    @method('put')
+                                    <select name="sale">
+                                        <option value="{{ null }}">NULL</option>
+                                        @for ($i = 10; $i < 90; $i += 10)
+                                            <option value="{{ $i }}"
+                                                {{ $room->in_Sale == $i ? 'selected' : '' }}>{{ $i }} %
+                                            </option>
+                                        @endfor
+                                    </select>
 
-                            <p class='text-[#D8BA8D]'>|</p>
+                                    <button
+                                        class='bg-[#444444] p-2 text-white rounded-sm hover:bg-[#222222] uppercase'>ok</button>
+                                </form>
 
-                            <p class='flex items-center gap-1.5'>Promo :
-                                @if ($room->in_Sale == true)
-                                    <i class='bx bxs-check-square text-xl text-green-500'></i>
-                                @else
-                                    <i class='bx bxs-x-square text-xl text-red-500'></i>
-                                @endif
-                            </p>
+                            </div>
                         </div>
 
+
                         <div class='flex gap-3'>
-                             {{-- Bouton MORE --}}
-                             <a href="/admin/rooms/{{ $room->id }}">
+                            {{-- Bouton MORE --}}
+                            <a href="/admin/rooms/{{ $room->id }}">
                                 <button
                                     class='border-[1px] p-2 text-slate-400 hover:text-white hover:bg-zinc-700 rounded-sm transition duration-150 ease-out hover:ease-in'>more</button>
                             </a>
-                            
+
                             @can('high')
                                 @if ($room->is_Published == false)
                                     {{-- Bouton Publish --}}

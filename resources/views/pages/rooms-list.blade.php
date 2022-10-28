@@ -80,7 +80,14 @@
                                     </div>
                                     <div class="col-lg-2">
                                         <div class="room-price">
-                                            <span class="price">€{{ $room->price }} / night</span>
+                                            <span class="price">
+                                                @if ($room->in_Sale != null)
+                                                €{{ $room->price * (1 - $room->in_Sale / 100) }}
+                                                @else
+                                                €{{ $room->price }}
+                                                @endif
+                                                / night
+                                            </span>
                                             <a href="/rooms/{{ $room->id }}" class="btn btn-sm">view <br> details</a>
                                         </div>
                                     </div>

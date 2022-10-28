@@ -7398,3 +7398,10 @@ section.places-item {
 .a-description:hover{
     text-decoration: underline;
 }
+
+.promo {
+  text-decoration: line-through;
+}
+.promo-on {
+  color:red;
+}
