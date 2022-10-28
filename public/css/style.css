@@ -7401,6 +7401,7 @@ section.places-item {
 
 .promo {
   text-decoration: line-through;
+  color: #afafaf;
 }
 .promo-on {
   color:red;

@@ -82,7 +82,8 @@
                                         <div class="room-price">
                                             <span class="price">
                                                 @if ($room->in_Sale != null)
-                                                €{{ $room->price * (1 - $room->in_Sale / 100) }}
+                                                <span class='promo'>€{{ $room->price}}</span> 
+                                                <span>€{{ $room->price * (1 - $room->in_Sale / 100) }}</span>
                                                 @else
                                                 €{{ $room->price }}
                                                 @endif
